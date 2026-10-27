@@ -1,0 +1,20 @@
+{
+  "source_hash": "0d4abc1f7b8eca2df17f7db91a04fd6190f1929d758d296c78640ea7b7c695b2",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/0d/0d4abc1f7b8eca2df17f7db91a04fd6190f1929d758d296c78640ea7b7c695b2.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:35Z",
+  "pages": [
+    {
+      "text": "读者所借图书可在任一馆区借还处归还。读者通过\n图书馆公共检索系统确认所需图书在当地馆区已\n经借出，而在另一馆区在库可借，可直接去借书也\n可以到当地馆区借书处进行预借登记《提供所借图\n书的索书号、书名、馆藏地、预借读者信息) 。\n\n|\n\n借书处当天将预借图书信息发送到另一馆区借世处。\n\n|\n\n借书处接到预借信息后，安排工作人员按馆藏地到\n\nAMA ES Re\n\n安排专人及时送达所需馆区。\n\n|\n\n读者到馆取书。",
+      "mean_conf": 87.39,
+      "n_tokens": 167,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "读者所借图书可在任一馆区借还处归还。读者通过\n图书馆公共检索系统确认所需图书在当地馆区已\n经借出，而在另一馆区在库可借，可直接去借书也\n可以到当地馆区借书处进行预借登记《提供所借图\n书的索书号、书名、馆藏地、预借读者信息) 。\n\n|\n\n借书处当天将预借图书信息发送到另一馆区借世处。\n\n|\n\n借书处接到预借信息后，安排工作人员按馆藏地到\n\nAMA ES Re\n\n安排专人及时送达所需馆区。\n\n|\n\n读者到馆取书。"
+}

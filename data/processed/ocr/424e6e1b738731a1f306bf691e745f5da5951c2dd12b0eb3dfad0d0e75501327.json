@@ -1,0 +1,20 @@
+{
+  "source_hash": "424e6e1b738731a1f306bf691e745f5da5951c2dd12b0eb3dfad0d0e75501327",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/42/424e6e1b738731a1f306bf691e745f5da5951c2dd12b0eb3dfad0d0e75501327.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:15:19Z",
+  "pages": [
+    {
+      "text": "aia     wz    se RE FOO ara gy sit     %       .                     4    vag ai\nwal                      r          ps          «                         上       SA\n                                                     本                                            oa   ‘\nca                                    ‘a                     Ne,   ‘       ee    I\na                                                          fem                                  i     oy                  e     e          sf\n|                                                    i                              一                           < _\n                                                JE  iy\n:     x   ease                »                                                                  %                                                                                                                                                               ,\nie tp\n                                                                                 时                               RE                         攻\n                                                                                                                               $9          Pi                                         Ee\nPa",
+      "mean_conf": 29.6,
+      "n_tokens": 57,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "aia     wz    se RE FOO ara gy sit     %       .                     4    vag ai\nwal                      r          ps          «                         上       SA\n                                                     本                                            oa   ‘\nca                                    ‘a                     Ne,   ‘       ee    I\na                                                          fem                                  i     oy                  e     e          sf\n|                                                    i                              一                           < _\n                                                JE  iy\n:     x   ease                »                                                                  %                                                                                                                                                               ,\nie tp\n                                                                                 时                               RE                         攻\n                                                                                                                               $9          Pi                                         Ee\nPa"
+}

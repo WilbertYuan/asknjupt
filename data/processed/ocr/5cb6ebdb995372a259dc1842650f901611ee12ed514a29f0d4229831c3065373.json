@@ -1,0 +1,20 @@
+{
+  "source_hash": "5cb6ebdb995372a259dc1842650f901611ee12ed514a29f0d4229831c3065373",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/5c/5cb6ebdb995372a259dc1842650f901611ee12ed514a29f0d4229831c3065373.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:15:51Z",
+  "pages": [
+    {
+      "text": "am下      Lo»\nAP\n_—_——",
+      "mean_conf": 48.45,
+      "n_tokens": 5,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "am下      Lo»\nAP\n_—_——"
+}

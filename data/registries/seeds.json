@@ -1,0 +1,1212 @@
+{
+  "note": "种子含任务书优先入口 + njupt-suburl.txt 中探测为公开可访问的站点。不含登录/VPN/个人系统。",
+  "verified_at": "2026-10-26T11:12:21Z",
+  "seeds": [
+    {
+      "url": "https://zs.njupt.edu.cn/",
+      "org": "本科生院/本科招生网",
+      "topics": [
+        "本科招生",
+        "综合评价",
+        "招生章程",
+        "招生计划",
+        "收费"
+      ],
+      "audience": "考生",
+      "access": "public"
+    },
+    {
+      "url": "https://zs.njupt.edu.cn/2562/list.htm",
+      "org": "本科招生网",
+      "topics": [
+        "招生章程"
+      ],
+      "audience": "考生",
+      "access": "public"
+    },
+    {
+      "url": "https://zs.njupt.edu.cn/2578/list.htm",
+      "org": "本科招生网",
+      "topics": [
+        "综合评价"
+      ],
+      "audience": "考生",
+      "access": "public"
+    },
+    {
+      "url": "https://zs.njupt.edu.cn/_t151/2585/list.htm",
+      "org": "本科招生网",
+      "topics": [
+        "本科招生"
+      ],
+      "audience": "考生",
+      "access": "public"
+    },
+    {
+      "url": "https://zs.njupt.edu.cn/2026/0428/c2585a301108/page.htm",
+      "org": "本科招生网",
+      "topics": [
+        "综合评价",
+        "选科",
+        "招生计划"
+      ],
+      "audience": "考生",
+      "access": "public",
+      "year": 2026
+    },
+    {
+      "url": "https://zs.njupt.edu.cn/2026/0521/c2562a302356/page.htm",
+      "org": "本科招生网",
+      "topics": [
+        "招生章程",
+        "收费",
+        "录取"
+      ],
+      "audience": "考生",
+      "access": "public",
+      "year": 2026
+    },
+    {
+      "url": "https://zs.njupt.edu.cn/2026/0429/c2585a301155/page.htm",
+      "org": "本科招生网",
+      "topics": [
+        "综合评价"
+      ],
+      "audience": "考生",
+      "access": "public",
+      "year": 2026
+    },
+    {
+      "url": "https://jwc.njupt.edu.cn/",
+      "org": "本科生院/教务处",
+      "topics": [
+        "培养",
+        "学籍",
+        "质量报告",
+        "转专业",
+        "学位"
+      ],
+      "audience": "在校生",
+      "access": "public"
+    },
+    {
+      "url": "https://jwc.njupt.edu.cn/_t278/p1770c1681/list.htm",
+      "org": "教务处",
+      "topics": [
+        "教学质量报告"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://jwc.njupt.edu.cn/2025/1229/c1770a295517/page.htm",
+      "org": "教务处",
+      "topics": [
+        "教学质量报告"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "academic_year": "2023-2024"
+    },
+    {
+      "url": "https://jwc.njupt.edu.cn/1751/list.htm",
+      "org": "教务处",
+      "topics": [
+        "学籍",
+        "转专业",
+        "推免",
+        "学位",
+        "考试"
+      ],
+      "audience": "在校生",
+      "access": "public"
+    },
+    {
+      "url": "https://jwc.njupt.edu.cn/1535/list.htm",
+      "org": "教务处",
+      "topics": [
+        "学籍"
+      ],
+      "audience": "在校生",
+      "access": "public"
+    },
+    {
+      "url": "https://jwc.njupt.edu.cn/2024/0430/c1535a261606/page.htm",
+      "org": "教务处",
+      "topics": [
+        "学籍",
+        "转专业"
+      ],
+      "audience": "在校生",
+      "access": "public",
+      "year": 2024
+    },
+    {
+      "url": "https://xxgk.njupt.edu.cn/",
+      "org": "党委办公室/校长办公室",
+      "topics": [
+        "信息公开",
+        "机构",
+        "收费",
+        "质量"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://xxgk.njupt.edu.cn/xxgkml/list.htm",
+      "org": "信息公开网",
+      "topics": [
+        "信息公开"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://yzb.njupt.edu.cn/",
+      "org": "研究生院/研究生招生办公室",
+      "topics": [
+        "研究生招生",
+        "推免"
+      ],
+      "audience": "考生",
+      "access": "public"
+    },
+    {
+      "url": "https://cwc.njupt.edu.cn/",
+      "org": "财务处",
+      "topics": [
+        "学费",
+        "住宿费",
+        "缴退费"
+      ],
+      "audience": "在校生",
+      "access": "public"
+    },
+    {
+      "url": "https://sys.njupt.edu.cn/",
+      "org": "实验室与设备管理处",
+      "topics": [
+        "实验教学"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://jwc.njupt.edu.cn/_upload/article/files/87/86/7d6a10f6413e882e76d8f5bc0de5/456a9fa8-1a41-463b-88c7-ca6dffb98e31.pdf",
+      "org": "教务处",
+      "topics": [
+        "教学质量报告",
+        "师资",
+        "实验教学"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "academic_year": "2023-2024"
+    },
+    {
+      "url": "https://www.njupt.edu.cn/",
+      "org": "学校官网",
+      "topics": [
+        "学校概况",
+        "机构"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://www.njupt.edu.cn/9/list.htm",
+      "org": "学校官网",
+      "topics": [
+        "学校历史",
+        "办学统计"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://www.njupt.edu.cn/13/list.htm",
+      "org": "学校官网",
+      "topics": [
+        "学校历史"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://www.njupt.edu.cn/nsjg/list.htm",
+      "org": "学校官网",
+      "topics": [
+        "机构"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://www.njupt.edu.cn/jxjg/list.htm",
+      "org": "学校官网",
+      "topics": [
+        "学院",
+        "机构"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://www.njupt.edu.cn/112/list.htm",
+      "org": "学校官网",
+      "topics": [
+        "机构",
+        "公共服务"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://lib.njupt.edu.cn/",
+      "org": "图书馆",
+      "topics": [
+        "图书馆",
+        "借阅",
+        "读者服务"
+      ],
+      "audience": "读者",
+      "access": "public"
+    },
+    {
+      "url": "https://lib.njupt.edu.cn/1379/list.htm",
+      "org": "图书馆",
+      "topics": [
+        "图书馆"
+      ],
+      "audience": "读者",
+      "access": "public"
+    },
+    {
+      "url": "https://lib.njupt.edu.cn/lcbj/list.htm",
+      "org": "图书馆",
+      "topics": [
+        "图书馆"
+      ],
+      "audience": "读者",
+      "access": "public"
+    },
+    {
+      "url": "https://xsc.njupt.edu.cn/",
+      "org": "学生工作处",
+      "topics": [
+        "学生事务",
+        "奖学金",
+        "助学金"
+      ],
+      "audience": "在校生",
+      "access": "public"
+    },
+    {
+      "url": "https://xsc.njupt.edu.cn/jzgl/list.htm",
+      "org": "学生工作处",
+      "topics": [
+        "奖学金",
+        "助学金",
+        "资助"
+      ],
+      "audience": "在校生",
+      "access": "public"
+    },
+    {
+      "url": "https://xsc.njupt.edu.cn/fwzn/list.htm",
+      "org": "学生工作处",
+      "topics": [
+        "学生事务"
+      ],
+      "audience": "在校生",
+      "access": "public"
+    },
+    {
+      "url": "https://xsc.njupt.edu.cn/xjgl/list.htm",
+      "org": "学生工作处",
+      "topics": [
+        "学籍"
+      ],
+      "audience": "在校生",
+      "access": "public"
+    },
+    {
+      "url": "https://rsc.njupt.edu.cn/",
+      "org": "人事处",
+      "topics": [
+        "教职员工"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://pg.njupt.edu.cn/",
+      "org": "研究生院",
+      "topics": [
+        "研究生培养",
+        "学位"
+      ],
+      "audience": "在校生",
+      "access": "public"
+    },
+    {
+      "url": "https://hqc.njupt.edu.cn/",
+      "org": "后勤管理处",
+      "topics": [
+        "宿舍",
+        "食堂",
+        "后勤"
+      ],
+      "audience": "在校生",
+      "access": "public"
+    },
+    {
+      "url": "https://xxb.njupt.edu.cn/",
+      "org": "信息化建设与管理办公室",
+      "topics": [
+        "校园网络",
+        "一卡通"
+      ],
+      "audience": "在校生",
+      "access": "public"
+    },
+    {
+      "url": "https://exchange.njupt.edu.cn/",
+      "org": "国际合作交流处",
+      "topics": [
+        "国际交流"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://cs.njupt.edu.cn/",
+      "org": "计算机学院、软件学院、网络空间安全学院",
+      "topics": [
+        "学院",
+        "专业"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://scie.njupt.edu.cn/",
+      "org": "通信与信息工程学院",
+      "topics": [
+        "学院",
+        "专业"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://www.njupt.edu.cn/xxgk/xxjj.htm",
+      "org": "学校官网",
+      "topics": [
+        "学校历史",
+        "校区"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://eoe.njupt.edu.cn/",
+      "org": "电子与光学工程学院、柔性电子（未来技术）学院",
+      "topics": [
+        "学院",
+        "专业"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://ic.njupt.edu.cn/",
+      "org": "集成电路科学与工程学院（产教融合学院）",
+      "topics": [
+        "学院",
+        "专业"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://campus.njupt.edu.cn/",
+      "org": "智慧校园",
+      "topics": [
+        "公共服务"
+      ],
+      "audience": "在校生",
+      "access": "public"
+    },
+    {
+      "url": "https://ygb.njupt.edu.cn/",
+      "org": "党委研究生工作部、研究生工作办公室",
+      "topics": [
+        "研究生培养",
+        "学生事务"
+      ],
+      "audience": "在校生",
+      "access": "public"
+    },
+    {
+      "url": "https://news.njupt.edu.cn/",
+      "org": "新闻网",
+      "topics": [
+        "新闻通知"
+      ],
+      "audience": "公开",
+      "access": "public"
+    },
+    {
+      "url": "https://ai.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦äººå·¥æºè½å­¦é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://alumni.njupt.edu.cn/",
+      "org": "404找不到页面",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://bc.njupt.edu.cn/",
+      "org": "ç®¡çå­¦é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://bhs.njupt.edu.cn/",
+      "org": "è´å°è±æå­¦é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://bwcsn.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦å®½å¸¦æ çº¿æè²é¨éç¹å®éªå®¤",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://bysj.njupt.edu.cn/",
+      "org": "首页|南京邮电大学毕业设计（论文）管理系统",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://c.njupt.edu.cn/",
+      "org": "程序设计类课程教辅平台",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://ciciot.njupt.edu.cn/",
+      "org": "æ±èçç©èç½ææ¯ä¸åºç¨åååæ°ä¸­å¿",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://ciot.njupt.edu.cn/",
+      "org": "ç©èç½å­¦é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "http://cjzm.njupt.edu.cn/",
+      "org": "Apache Tomcat/9.0.102",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://cm.njupt.edu.cn/",
+      "org": "æ°å­åªä½ä¸è®¾è®¡èºæ¯å­¦é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://cmsodsfx.njupt.edu.cn/",
+      "org": "èæä»¿çå®éªç®¡çå¹³å°",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://coa.njupt.edu.cn/",
+      "org": "èªå¨åå­¦é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://cpcscie.njupt.edu.cn/",
+      "org": "éä¿¡ä¸ä¿¡æ¯å·¥ç¨å­¦é¢å å§",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://ctf.njupt.edu.cn/",
+      "org": "小绿草信息安全实验室-X1cT34m",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://cxyhzjg.njupt.edu.cn/",
+      "org": "äº§å­¦ç æºæ §å¹³å°",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://dmtzk.njupt.edu.cn/",
+      "org": "多媒体教室智能网络监管控系统|登录",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://edu.njupt.edu.cn/",
+      "org": "æè²ç§å­¦ä¸ææ¯å­¦é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://fld.njupt.edu.cn/",
+      "org": "å¤å½è¯­å­¦é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://gonghui.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦å·¥ä¼å§åä¼",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://hjdzz.njupt.edu.cn/",
+      "org": "åå¤ãåºå»ºå æ»æ¯",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://iac.njupt.edu.cn/",
+      "org": "iac.njupt.edu.cn",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://iam.njupt.edu.cn/",
+      "org": "ææç§å­¦ä¸å·¥ç¨å­¦é¢ãä¿¡æ¯ç§å­¦ä¸çº³ç±³ææ¯ç ç©¶é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://iiism.njupt.edu.cn/",
+      "org": "ä¿¡æ¯äº§ä¸åæ°ä¸å®å ¨ç®¡çç ç©¶ä¸­å¿",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://iot.njupt.edu.cn/",
+      "org": "ç©èç½äº§ä¸åå±ç ç©¶åºå°",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://iotlab.njupt.edu.cn/",
+      "org": "ç©èç½åºç¨ææ¯å®è·µæè²ä¸­å¿",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://iotrobot.njupt.edu.cn/",
+      "org": "æ±èçç©èç½æºè½æºå¨äººå·¥ç¨å®éªå®¤",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://jgdw.njupt.edu.cn/",
+      "org": "æºå ³å å§",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://jjc.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦-Nanjing University of Posts and Telecommunications|åºå»ºå¤",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://jjxy.njupt.edu.cn/",
+      "org": "ç»æµå­¦é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://jjy.njupt.edu.cn/",
+      "org": "ç»§ç»­æè²å­¦é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://jsfz.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦ï¼æªæ¥æå¸åå±ä¸­å¿",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://jw.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦çºªæ£çå¯æºæ",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://jxzx.njupt.edu.cn/",
+      "org": "æå­¦è´¨éçæ§ä¸è¯ä¼°ä¸­å¿",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://ltxzgc.njupt.edu.cn/",
+      "org": "ç¦»éä¼å·¥ä½å¤",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://lxy.njupt.edu.cn/",
+      "org": "çå­¦é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://m.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://mba.njupt.edu.cn/",
+      "org": "ç®¡çå­¦é¢MBAä¸­å¿ç½ç«",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://mcm.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦æ°æ¨¡ç½",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://mdis.njupt.edu.cn/",
+      "org": "æ±èç°ä»£ä¿¡æ¯æå¡ä¸ç ç©¶åºå°",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "http://mjf.njupt.edu.cn/",
+      "org": "mjf.njupt.edu.cn",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://njupt.edu.cn/",
+      "org": "Welcome to Synjones!",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://overseas.njupt.edu.cn/",
+      "org": "æµ·å¤æè²å­¦é¢ï¼æ°ï¼",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://p.njupt.edu.cn/",
+      "org": "上网登录页",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://pgrc.njupt.edu.cn/",
+      "org": "æªå¤æ¡ï¼é»æ­",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://psu.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦æ³¢ç¹å °å­¦é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://qingyou.njupt.edu.cn/",
+      "org": "éæå·¥ä½å®¤ - ç¨ç­ç±åé æ éå¯è½",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://qks.njupt.edu.cn/",
+      "org": "æåç¤¾",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://quantum.njupt.edu.cn/",
+      "org": "éå­å å­¦ä¸éå­å¯ç è¯¾é¢ç»",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "http://shiziyinjin.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦äººäºç®¡çç³»ç»",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://sicoeid.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦ææºçµå­ä¸ä¿¡æ¯æ¾ç¤ºåååæ°ä¸­å¿",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://simp.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦ç°ä»£é®æ¿å­¦é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://sjc.njupt.edu.cn/",
+      "org": "å®¡è®¡å¤",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://skc.njupt.edu.cn/",
+      "org": "ç¤¾ç§å¤",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://sps.njupt.edu.cn/",
+      "org": "ç¤¾ä¼ä¸äººå£å­¦é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://swzl.njupt.edu.cn/",
+      "org": "swzl.njupt.edu.cn",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "http://szgw.njupt.edu.cn/",
+      "org": "Welcome to nginx!",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://tyb.njupt.edu.cn/",
+      "org": "ä½è²é¨",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://tycj.njupt.edu.cn/",
+      "org": "ä½è²æç»©å½å ¥",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://wcd.njupt.edu.cn/",
+      "org": "åé®æè²é¨å·¥ç¨ä¸­å¿",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://wicom.njupt.edu.cn/",
+      "org": "æ çº¿éä¿¡ä¸ç©èç½çé«æ ¡éç¹å®éªå®¤ï¼åäº¬é®çµå¤§å­¦ï¼",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://wlaq.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦ç½ç»å®å ¨ä¸é¢ç½ç«",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://wsn.njupt.edu.cn/",
+      "org": "æ±èçç©èç½æºè½æç¥ä¸è®¡ç®éç¹å®éªå®¤",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://xb.njupt.edu.cn/",
+      "org": "å å§åå ¬å®¤ãæ ¡é¿åå ¬å®¤ï¼æ³å¶åå ¬å®¤ï¼ãä¿å¯å§åä¼åå ¬å®",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://xgwx.njupt.edu.cn/",
+      "org": "welcome",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://xkb.njupt.edu.cn/",
+      "org": "ä¸æµå­¦ç§åé«æ°´å¹³å¤§å­¦å»ºè®¾åå ¬å®¤",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://xnfz.njupt.edu.cn/",
+      "org": "南京邮电大学",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://xyh.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦æ ¡åä¼",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://ycbigdata.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦çåå¤§æ°æ®ç ç©¶é¢",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://ydxy.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦AMSCç³»ç»",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://yktydpt.njupt.edu.cn/",
+      "org": "Welcome to Synjones!",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://zbb.njupt.edu.cn/",
+      "org": "南京邮电大学采购招标管理办公室 - 首页",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://zcgs.njupt.edu.cn/",
+      "org": "åäº¬é®çµå¤§å­¦èµäº§ç»è¥æéè´£ä»»å ¬å¸",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://zhxf.njupt.edu.cn/",
+      "org": "åé®æºæ §æ¶é²",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    },
+    {
+      "url": "https://zzb.njupt.edu.cn/",
+      "org": "ç»ç»é¨",
+      "topics": [
+        "公开网页"
+      ],
+      "audience": "公开",
+      "access": "public",
+      "discovered_from": "njupt-suburl.txt"
+    }
+  ]
+}

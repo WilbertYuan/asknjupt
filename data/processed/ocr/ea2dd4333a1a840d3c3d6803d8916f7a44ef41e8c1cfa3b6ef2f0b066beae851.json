@@ -1,0 +1,20 @@
+{
+  "source_hash": "ea2dd4333a1a840d3c3d6803d8916f7a44ef41e8c1cfa3b6ef2f0b066beae851",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ea/ea2dd4333a1a840d3c3d6803d8916f7a44ef41e8c1cfa3b6ef2f0b066beae851.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:13Z",
+  "pages": [
+    {
+      "text": "Eee          = 一\n公              r 有|      有\n\n本           公                 正              | |  Wl\n\n      |\n\n|\n\n”  a——«                        \\  \" a:    —    a8  — Ss\n|                        站 :    NX   aw    <        thi\nGq                   SS.",
+      "mean_conf": 52.17,
+      "n_tokens": 34,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Eee          = 一\n公              r 有|      有\n\n本           公                 正              | |  Wl\n\n      |\n\n|\n\n”  a——«                        \\  \" a:    —    a8  — Ss\n|                        站 :    NX   aw    <        thi\nGq                   SS."
+}

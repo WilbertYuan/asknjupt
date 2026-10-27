@@ -1,0 +1,20 @@
+{
+  "source_hash": "04395e4beb7d509a680686da3b67f264de794666f29ea37c9d9d53030b053fc7",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/04/04395e4beb7d509a680686da3b67f264de794666f29ea37c9d9d53030b053fc7.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:26Z",
+  "pages": [
+    {
+      "text": "|    |\n.       4\nefie = Sa        Pp /         Yr) “CA.        :",
+      "mean_conf": 41.96,
+      "n_tokens": 12,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "|    |\n.       4\nefie = Sa        Pp /         Yr) “CA.        :"
+}

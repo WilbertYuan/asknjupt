@@ -1,0 +1,20 @@
+{
+  "source_hash": "4ea0e6f6dfe7240ced70b6d422c7c81915d385bf3de0349528e945520e505a79",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/4e/4ea0e6f6dfe7240ced70b6d422c7c81915d385bf3de0349528e945520e505a79.jpeg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:17:10Z",
+  "pages": [
+    {
+      "text": "———-  =\n2  a,\n'       F\nA\n—   7\n4                                                                        S\n                                   if\nil\nj if  V                                 ‘   a       -\n{4   =                       =          AYN\nth hed   “   -    SSN           ay      g       ’          e\n:               een                         =             2   ‘\n»                                                                      二\n                                                               a      \\\nhe\nyy\n4\nx                                ;\n7\nEO RRS a3y/\nVes     by Sirs   和\nwrest. Senger ee\nhoe\nfoe oe eee scl aya   3\nPee PRY\nPee Ro\nYs ee\nPME ORE LIT\nES\n的全全7 + Seals\nETON De awe: na\nRAY Sale eth Rik  2 Grae el",
+      "mean_conf": 27.13,
+      "n_tokens": 91,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "———-  =\n2  a,\n'       F\nA\n—   7\n4                                                                        S\n                                   if\nil\nj if  V                                 ‘   a       -\n{4   =                       =          AYN\nth hed   “   -    SSN           ay      g       ’          e\n:               een                         =             2   ‘\n»                                                                      二\n                                                               a      \\\nhe\nyy\n4\nx                                ;\n7\nEO RRS a3y/\nVes     by Sirs   和\nwrest. Senger ee\nhoe\nfoe oe eee scl aya   3\nPee PRY\nPee Ro\nYs ee\nPME ORE LIT\nES\n的全全7 + Seals\nETON De awe: na\nRAY Sale eth Rik  2 Grae el"
+}

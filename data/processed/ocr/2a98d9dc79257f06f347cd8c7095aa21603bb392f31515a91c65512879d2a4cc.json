@@ -1,0 +1,20 @@
+{
+  "source_hash": "2a98d9dc79257f06f347cd8c7095aa21603bb392f31515a91c65512879d2a4cc",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/2a/2a98d9dc79257f06f347cd8c7095aa21603bb392f31515a91c65512879d2a4cc.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:12Z",
+  "pages": [
+    {
+      "text": "gle\nes\nDearre",
+      "mean_conf": 14.64,
+      "n_tokens": 3,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "gle\nes\nDearre"
+}

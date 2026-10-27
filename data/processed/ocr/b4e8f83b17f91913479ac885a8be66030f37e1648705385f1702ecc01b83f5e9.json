@@ -1,0 +1,20 @@
+{
+  "source_hash": "b4e8f83b17f91913479ac885a8be66030f37e1648705385f1702ecc01b83f5e9",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/b4/b4e8f83b17f91913479ac885a8be66030f37e1648705385f1702ecc01b83f5e9.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:24:26Z",
+  "pages": [
+    {
+      "text": "gg\n-\ni\n\" wy            -   要 s\n                   =\n本 of Bly 时  S                .    :    所  :\nwy   i   t         (             :     ,        ss as\n加                  Ar                4   | al  <                =              -\n                    i =",
+      "mean_conf": 34.73,
+      "n_tokens": 36,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "gg\n-\ni\n\" wy            -   要 s\n                   =\n本 of Bly 时  S                .    :    所  :\nwy   i   t         (             :     ,        ss as\n加                  Ar                4   | al  <                =              -\n                    i ="
+}

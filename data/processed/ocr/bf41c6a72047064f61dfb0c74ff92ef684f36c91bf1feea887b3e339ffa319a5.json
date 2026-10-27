@@ -1,0 +1,20 @@
+{
+  "source_hash": "bf41c6a72047064f61dfb0c74ff92ef684f36c91bf1feea887b3e339ffa319a5",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/bf/bf41c6a72047064f61dfb0c74ff92ef684f36c91bf1feea887b3e339ffa319a5.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:54Z",
+  "pages": [
+    {
+      "text": "一一\n=                  r Bae 人人si 十 Si mys +\n              ay TST AE RMA            ie\n|                                                   _   —           a 站\n人                                                                                                                            |\na)\naR     ee                                                    =        ~    全人 Je                                                .             \"    2   .      时\n《                                        VF                                                                    |\ngenes | and g Blecommunications         en |    中        =\nZz                          [$62 aes Se ee\n|                                 y\nAsked?                                                                                                  ————— tt\nZz             5                            AEE BA                      \\                                                               as ce ; io\n2            8                    ea peers    <                                                                                             RES\nSR        <2 Posts 0°°        |         :                                                                                                       Ba                   z",
+      "mean_conf": 41.18,
+      "n_tokens": 82,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "一一\n=                  r Bae 人人si 十 Si mys +\n              ay TST AE RMA            ie\n|                                                   _   —           a 站\n人                                                                                                                            |\na)\naR     ee                                                    =        ~    全人 Je                                                .             \"    2   .      时\n《                                        VF                                                                    |\ngenes | and g Blecommunications         en |    中        =\nZz                          [$62 aes Se ee\n|                                 y\nAsked?                                                                                                  ————— tt\nZz             5                            AEE BA                      \\                                                               as ce ; io\n2            8                    ea peers    <                                                                                             RES\nSR        <2 Posts 0°°        |         :                                                                                                       Ba                   z"
+}

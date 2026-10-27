@@ -1,0 +1,20 @@
+{
+  "source_hash": "1f70ff5696fc8d8c17f23f352d0080e4b1d118910fefd1de963452c5927dfcfd",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/1f/1f70ff5696fc8d8c17f23f352d0080e4b1d118910fefd1de963452c5927dfcfd.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:37Z",
+  "pages": [
+    {
+      "text": "读者智丰校园卡挂失，图书借还功能自动暂停。\n\n|\n\n读者领取新智慈校园卡。\n\n|\n\n图书馆认证，开通图书借还功能。",
+      "mean_conf": 83.39,
+      "n_tokens": 44,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "读者智丰校园卡挂失，图书借还功能自动暂停。\n\n|\n\n读者领取新智慈校园卡。\n\n|\n\n图书馆认证，开通图书借还功能。"
+}

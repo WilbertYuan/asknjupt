@@ -1,0 +1,20 @@
+{
+  "source_hash": "e00e35cdf978fcbc9585cd33b846efd6a8e5060579c1388c1a6e99b9d41b5596",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/e0/e00e35cdf978fcbc9585cd33b846efd6a8e5060579c1388c1a6e99b9d41b5596.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:47Z",
+  "pages": [
+    {
+      "text": "S\n公 正\n公开 公  平\nA AA,  @2 ©\n“hy  , eF., Es   个   , eee",
+      "mean_conf": 47.49,
+      "n_tokens": 17,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "S\n公 正\n公开 公  平\nA AA,  @2 ©\n“hy  , eF., Es   个   , eee"
+}

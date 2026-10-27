@@ -1,0 +1,20 @@
+{
+  "source_hash": "69a9d2621c72209eaa45f1753346e280552c5a61ba086e4bfbfbab425e73bb4f",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/69/69a9d2621c72209eaa45f1753346e280552c5a61ba086e4bfbfbab425e73bb4f.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:14Z",
+  "pages": [
+    {
+      "text": "天有  Basser,              ——        和\n1            j ~ = ,                                             |\nh     ae  > :                                              \\ auotewnenen    h\nfi   A  --                                            7   ii\nWagied \\                           AG         nm yy\n时               EN      we          2t\n|                             > Ss aot |\n     SS BM                                       ;                                            apne —",
+      "mean_conf": 36.35,
+      "n_tokens": 42,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "天有  Basser,              ——        和\n1            j ~ = ,                                             |\nh     ae  > :                                              \\ auotewnenen    h\nfi   A  --                                            7   ii\nWagied \\                           AG         nm yy\n时               EN      we          2t\n|                             > Ss aot |\n     SS BM                                       ;                                            apne —"
+}

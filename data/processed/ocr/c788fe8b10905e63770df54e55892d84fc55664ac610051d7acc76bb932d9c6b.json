@@ -1,0 +1,20 @@
+{
+  "source_hash": "c788fe8b10905e63770df54e55892d84fc55664ac610051d7acc76bb932d9c6b",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/c7/c788fe8b10905e63770df54e55892d84fc55664ac610051d7acc76bb932d9c6b.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:44Z",
+  "pages": [
+    {
+      "text": "Eee一   ~   -   Vl A            ’\n— 三   =               到               去\n2 an                           -\nC—O.            <                      7\n公\n公 平                  Hilt        i\n公开 公平 公正 i\n,                         b> maxX                           <\na               _   @.    a |                         :\nyy    ¥ aN   .    eS                2\n    NE                               |\nSES  SN\nz  53           STS eat                                 3       '     W\nNE     人\n) NE SS SS     ，                                                           |\nPRUE RESET   FEES          本                   有\nRARAESSNISSSSSSS RS         Z\nWRT PR eS. HIM SA ASS S Tia S ca esch ay",
+      "mean_conf": 35.66,
+      "n_tokens": 82,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Eee一   ~   -   Vl A            ’\n— 三   =               到               去\n2 an                           -\nC—O.            <                      7\n公\n公 平                  Hilt        i\n公开 公平 公正 i\n,                         b> maxX                           <\na               _   @.    a |                         :\nyy    ¥ aN   .    eS                2\n    NE                               |\nSES  SN\nz  53           STS eat                                 3       '     W\nNE     人\n) NE SS SS     ，                                                           |\nPRUE RESET   FEES          本                   有\nRARAESSNISSSSSSS RS         Z\nWRT PR eS. HIM SA ASS S Tia S ca esch ay"
+}

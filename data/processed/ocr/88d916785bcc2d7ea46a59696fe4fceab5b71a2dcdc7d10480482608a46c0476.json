@@ -1,0 +1,20 @@
+{
+  "source_hash": "88d916785bcc2d7ea46a59696fe4fceab5b71a2dcdc7d10480482608a46c0476",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/88/88d916785bcc2d7ea46a59696fe4fceab5b71a2dcdc7d10480482608a46c0476.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:40Z",
+  "pages": [
+    {
+      "text": "= \"mxnJIJcD人有要求\n，  ie +  +?  t  fi \" #t\n3:                                P ARYSSIE   不要缩放打f\n                                                 \\      \\e 2S    下4请尼5AL\n~  4  |                               BR   \\J \\   信\na  pli 5 4  “        ¢          筠明胶或订书钉\n本      lm           i  和二                 = J         :       e\nPANE                               2\n               2                        MBRELR\nryusen\nER          =\nP        |\nwee oe Wb A Ti ALAS. ie. TEM abit           =\n5      |       Arm, MERE TOR               一TEN天一\n- a    ORO I A UAL 7G 1 82        一一、>A 一 -一一一   一一\n辽     |全    AS\nPY on!            pee                              i       4\n一一           一\n                                            “Sass\n四                   im                   =\na          ‘                   >",
+      "mean_conf": 41.63,
+      "n_tokens": 121,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "= \"mxnJIJcD人有要求\n，  ie +  +?  t  fi \" #t\n3:                                P ARYSSIE   不要缩放打f\n                                                 \\      \\e 2S    下4请尼5AL\n~  4  |                               BR   \\J \\   信\na  pli 5 4  “        ¢          筠明胶或订书钉\n本      lm           i  和二                 = J         :       e\nPANE                               2\n               2                        MBRELR\nryusen\nER          =\nP        |\nwee oe Wb A Ti ALAS. ie. TEM abit           =\n5      |       Arm, MERE TOR               一TEN天一\n- a    ORO I A UAL 7G 1 82        一一、>A 一 -一一一   一一\n辽     |全    AS\nPY on!            pee                              i       4\n一一           一\n                                            “Sass\n四                   im                   =\na          ‘                   >"
+}

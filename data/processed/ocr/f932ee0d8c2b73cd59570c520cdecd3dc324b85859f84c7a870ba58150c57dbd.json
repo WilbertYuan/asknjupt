@@ -1,0 +1,20 @@
+{
+  "source_hash": "f932ee0d8c2b73cd59570c520cdecd3dc324b85859f84c7a870ba58150c57dbd",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/f9/f932ee0d8c2b73cd59570c520cdecd3dc324b85859f84c7a870ba58150c57dbd.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:43Z",
+  "pages": [
+    {
+      "text": "人焦”超星移动图书馆\nik AIR aeRO\n\n>)\n\nRRR IR:\n\n1. FTERIR AR Fates — 8 BLT Ty BP\n\n2. FTF BGI A IFIR ARI NI ETA\nJES FAT LH Pb BVA\n\nFBS PREP\n\n超星移动图书馆移动推送系统是以移动无线通讯网络为支撑,以图书馆集成管理系统平台和基于\n元数据的信息资源整合为基础 ,以适应移动终端一站式信息搜索应用为核心 以云共享服务为保障 通\n过手机、iPad 等手持移动终端设备 ,为图书馆用户提供搜索和阅读数字信息资源 ,自助查询和完成借\n阅业务，帮助用户建立随时随地获得全面信息服务的现代图书馆移动服务平台 , 真正实现数字图书馆\n最初的梦想 : 任何人,在任何时间、任何地点获取所需要的任何知识。",
+      "mean_conf": 81.19,
+      "n_tokens": 170,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "人焦”超星移动图书馆\nik AIR aeRO\n\n>)\n\nRRR IR:\n\n1. FTERIR AR Fates — 8 BLT Ty BP\n\n2. FTF BGI A IFIR ARI NI ETA\nJES FAT LH Pb BVA\n\nFBS PREP\n\n超星移动图书馆移动推送系统是以移动无线通讯网络为支撑,以图书馆集成管理系统平台和基于\n元数据的信息资源整合为基础 ,以适应移动终端一站式信息搜索应用为核心 以云共享服务为保障 通\n过手机、iPad 等手持移动终端设备 ,为图书馆用户提供搜索和阅读数字信息资源 ,自助查询和完成借\n阅业务，帮助用户建立随时随地获得全面信息服务的现代图书馆移动服务平台 , 真正实现数字图书馆\n最初的梦想 : 任何人,在任何时间、任何地点获取所需要的任何知识。"
+}

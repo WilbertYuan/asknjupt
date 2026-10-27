@@ -1,0 +1,20 @@
+{
+  "source_hash": "42599e3a2081676aad25bd1146c7fe3e4d973ca88466b13635b1a99a4092f9f5",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/42/42599e3a2081676aad25bd1146c7fe3e4d973ca88466b13635b1a99a4092f9f5.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:36Z",
+  "pages": [
+    {
+      "text": "\\\n\n:                  加        -  Ti a\n=                      rN |\n=   |\n\nIN              -      =                          Se,       le    .             yy   |\n(PT            OS 5        Zz  =  Ss    Pe 23\nN  Qe     ES =y ae     \" eae   <=                ¥    m3\neS i           i:                 f      “ee          </\n=     |       |                      YY .s",
+      "mean_conf": 35.03,
+      "n_tokens": 48,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "\\\n\n:                  加        -  Ti a\n=                      rN |\n=   |\n\nIN              -      =                          Se,       le    .             yy   |\n(PT            OS 5        Zz  =  Ss    Pe 23\nN  Qe     ES =y ae     \" eae   <=                ¥    m3\neS i           i:                 f      “ee          </\n=     |       |                      YY .s"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "9d1e54750279a5139e527737b933f6dae6bae3ece031bd5c129c495429d241d9",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/9d/9d1e54750279a5139e527737b933f6dae6bae3ece031bd5c129c495429d241d9.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:03Z",
+  "pages": [
+    {
+      "text": "0  1\n         ee |                     PUBLIC\n                  i) J                       j     Ye                                       RS 初心\n\"y   ]            : R                     AG  ‘\n=       2              |  i          aN      eo.     Bay\n一    y    q   ;      j   Ae     me Mi,\nbs P)          ;   Q J   d ae       G",
+      "mean_conf": 43.6,
+      "n_tokens": 41,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "0  1\n         ee |                     PUBLIC\n                  i) J                       j     Ye                                       RS 初心\n\"y   ]            : R                     AG  ‘\n=       2              |  i          aN      eo.     Bay\n一    y    q   ;      j   Ae     me Mi,\nbs P)          ;   Q J   d ae       G"
+}

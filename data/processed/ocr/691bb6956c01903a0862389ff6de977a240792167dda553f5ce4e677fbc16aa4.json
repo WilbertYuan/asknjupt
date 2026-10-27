@@ -1,0 +1,20 @@
+{
+  "source_hash": "691bb6956c01903a0862389ff6de977a240792167dda553f5ce4e677fbc16aa4",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/69/691bb6956c01903a0862389ff6de977a240792167dda553f5ce4e677fbc16aa4.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:36Z",
+  "pages": [
+    {
+      "text": "了\n4                    v  zi =          gees  一\n1  apie, RBA ag Moe   Sais                    [~一]          财务服务进学\n目秆报销政策及退单情形             =         ee\nA ROSS 到\n不                        r.\npm) i               |   7 ZE下\n II wj",
+      "mean_conf": 51.72,
+      "n_tokens": 43,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "了\n4                    v  zi =          gees  一\n1  apie, RBA ag Moe   Sais                    [~一]          财务服务进学\n目秆报销政策及退单情形             =         ee\nA ROSS 到\n不                        r.\npm) i               |   7 ZE下\n II wj"
+}

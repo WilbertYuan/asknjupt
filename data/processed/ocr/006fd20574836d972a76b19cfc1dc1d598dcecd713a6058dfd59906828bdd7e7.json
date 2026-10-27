@@ -1,0 +1,20 @@
+{
+  "source_hash": "006fd20574836d972a76b19cfc1dc1d598dcecd713a6058dfd59906828bdd7e7",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/00/006fd20574836d972a76b19cfc1dc1d598dcecd713a6058dfd59906828bdd7e7.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:34:24Z",
+  "pages": [
+    {
+      "text": "(@lssetes        ，     本\nee EC | 一了 ic\n7      .          ,      ee   a\nif      1  nl            . 的     “4  a\na               SS   =?",
+      "mean_conf": 36.77,
+      "n_tokens": 24,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "(@lssetes        ，     本\nee EC | 一了 ic\n7      .          ,      ee   a\nif      1  nl            . 的     “4  a\na               SS   =?"
+}

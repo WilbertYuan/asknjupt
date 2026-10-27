@@ -1,0 +1,20 @@
+{
+  "source_hash": "9a984403242c1d57ed48fccdf2467869b44eb5ef4fad39afb5f5153e526df85b",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/9a/9a984403242c1d57ed48fccdf2467869b44eb5ef4fad39afb5f5153e526df85b.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:45Z",
+  "pages": [
+    {
+      "text": ">        SS\n~                                                               =   al    |          ;     -_  _    :    7               =         ;     pp\n=                               一                     mo              Ft\n~ ™        =     .        i\n.                                                     :        a =    一一一     Ki                 =     .\n i           |  a    4                                                                                                                                    ;\nia      =      “EPE     pS\n.:     =                                                                        可\nr                                       A\n4 -二                                                nN          ‘ |\nP                                   —                             -  一                              3   =                 = — =\n:               eS                 >\n一                     7",
+      "mean_conf": 40.28,
+      "n_tokens": 66,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": ">        SS\n~                                                               =   al    |          ;     -_  _    :    7               =         ;     pp\n=                               一                     mo              Ft\n~ ™        =     .        i\n.                                                     :        a =    一一一     Ki                 =     .\n i           |  a    4                                                                                                                                    ;\nia      =      “EPE     pS\n.:     =                                                                        可\nr                                       A\n4 -二                                                nN          ‘ |\nP                                   —                             -  一                              3   =                 = — =\n:               eS                 >\n一                     7"
+}

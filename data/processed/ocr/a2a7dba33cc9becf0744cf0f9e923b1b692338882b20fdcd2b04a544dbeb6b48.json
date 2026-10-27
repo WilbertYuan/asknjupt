@@ -1,0 +1,20 @@
+{
+  "source_hash": "a2a7dba33cc9becf0744cf0f9e923b1b692338882b20fdcd2b04a544dbeb6b48",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/a2/a2a7dba33cc9becf0744cf0f9e923b1b692338882b20fdcd2b04a544dbeb6b48.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:12Z",
+  "pages": [
+    {
+      "text": "公开 公平 公正      MUMMY\n—— 3         aN    =                   -一一           让               \\   ‘                                                     了      |    VW}   |   |   1%   /   | :         |                                  |                             |\na                     oat int i TE     a                                             q         1    Tid   |         1                                      |\npas7eY,                                                    四         站    ht      ;             i   4                                                         |\noN =   aE           x    __=  2  ——!  As G ~   村        下  =                NS wey I\nET he                                   (ER                                         ‘ie",
+      "mean_conf": 46.49,
+      "n_tokens": 65,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "公开 公平 公正      MUMMY\n—— 3         aN    =                   -一一           让               \\   ‘                                                     了      |    VW}   |   |   1%   /   | :         |                                  |                             |\na                     oat int i TE     a                                             q         1    Tid   |         1                                      |\npas7eY,                                                    四         站    ht      ;             i   4                                                         |\noN =   aE           x    __=  2  ——!  As G ~   村        下  =                NS wey I\nET he                                   (ER                                         ‘ie"
+}

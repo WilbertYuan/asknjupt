@@ -1,0 +1,20 @@
+{
+  "source_hash": "c4b3eab9a7d4d310d4a2610464d77be3204272f33c1484de20c237b6f8c2facb",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/c4/c4b3eab9a7d4d310d4a2610464d77be3204272f33c1484de20c237b6f8c2facb.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:05Z",
+  "pages": [
+    {
+      "text": "一\nar        —=>\nroy                        [—  ah =            =r   '     =          |       |\n|                            re          ,       i]    a\n| aaa   RU ‘(ne           gs I             I\nF     |    (3                  | 南京邮电大学          |     |\n:                    |       “2023年度内部控制报告编报      |                  |\n|         |                   一                               |     |\n|           co TR We cee           slope rey oy wee |            re\nVi      = NW 7 . eee c,h AN   = MBN    zx\n=    ZA  {  othe       es!    y    —       4                 j       Si                aa                           ae a      :             2      , =         |\nBP om) \\<f—_ ae.             Son ND Lage CP 二",
+      "mean_conf": 41.83,
+      "n_tokens": 101,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "一\nar        —=>\nroy                        [—  ah =            =r   '     =          |       |\n|                            re          ,       i]    a\n| aaa   RU ‘(ne           gs I             I\nF     |    (3                  | 南京邮电大学          |     |\n:                    |       “2023年度内部控制报告编报      |                  |\n|         |                   一                               |     |\n|           co TR We cee           slope rey oy wee |            re\nVi      = NW 7 . eee c,h AN   = MBN    zx\n=    ZA  {  othe       es!    y    —       4                 j       Si                aa                           ae a      :             2      , =         |\nBP om) \\<f—_ ae.             Son ND Lage CP 二"
+}

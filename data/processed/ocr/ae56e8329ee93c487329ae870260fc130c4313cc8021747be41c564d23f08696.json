@@ -1,0 +1,20 @@
+{
+  "source_hash": "ae56e8329ee93c487329ae870260fc130c4313cc8021747be41c564d23f08696",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ae/ae56e8329ee93c487329ae870260fc130c4313cc8021747be41c564d23f08696.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:16Z",
+  "pages": [
+    {
+      "text": "§       ( OZ          =\n=   i              $       =\n人        一一一\n -    1 《        ay.\ny    x        |    r 到",
+      "mean_conf": 47.68,
+      "n_tokens": 21,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "§       ( OZ          =\n=   i              $       =\n人        一一一\n -    1 《        ay.\ny    x        |    r 到"
+}

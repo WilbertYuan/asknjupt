@@ -1,0 +1,20 @@
+{
+  "source_hash": "45abfb2d10aff9e18ccfe247c213408e28584f5a93d008c9b51c4af86283799f",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/45/45abfb2d10aff9e18ccfe247c213408e28584f5a93d008c9b51c4af86283799f.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:31:14Z",
+  "pages": [
+    {
+      "text": "、      天        as               本                           -     ©\n|  \\     mm  —>      )                  =a\nMase Als Wee    ie       |       4\n\n了  NP     =¢ 路 从  Si.  — i      ae\na           ,                  i                                                                                  无",
+      "mean_conf": 41.35,
+      "n_tokens": 31,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "、      天        as               本                           -     ©\n|  \\     mm  —>      )                  =a\nMase Als Wee    ie       |       4\n\n了  NP     =¢ 路 从  Si.  — i      ae\na           ,                  i                                                                                  无"
+}

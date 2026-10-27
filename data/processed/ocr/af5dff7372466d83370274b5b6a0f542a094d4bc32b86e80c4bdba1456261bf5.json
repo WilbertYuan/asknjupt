@@ -1,0 +1,20 @@
+{
+  "source_hash": "af5dff7372466d83370274b5b6a0f542a094d4bc32b86e80c4bdba1456261bf5",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/af/af5dff7372466d83370274b5b6a0f542a094d4bc32b86e80c4bdba1456261bf5.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:52Z",
+  "pages": [
+    {
+      "text": "局  Pari jaa\na.     Peer eek rs S    Dk) ie",
+      "mean_conf": 31.93,
+      "n_tokens": 10,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "局  Pari jaa\na.     Peer eek rs S    Dk) ie"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "d7af8c7de5b1bd764f417ca6f653fc4db9497b385ec0c2ee8205860e413f7a01",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/d7/d7af8c7de5b1bd764f417ca6f653fc4db9497b385ec0c2ee8205860e413f7a01.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:32Z",
+  "pages": [
+    {
+      "text": "X 自助缴费大厅\n\nMAME LH\n\nNanjing University of JPosts and Telecommunications\n\n—                                                                                                   ad\ncS            的\n缴费           缴费记录\n如\n\n点击'缴费\"，即可进入\n登陆界面\n\n未登录状态下的初始界面\n南京邮电大学\n\nCopyright @ 2016-2022\n\n=     O     <",
+      "mean_conf": 83.84,
+      "n_tokens": 50,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "X 自助缴费大厅\n\nMAME LH\n\nNanjing University of JPosts and Telecommunications\n\n—                                                                                                   ad\ncS            的\n缴费           缴费记录\n如\n\n点击'缴费\"，即可进入\n登陆界面\n\n未登录状态下的初始界面\n南京邮电大学\n\nCopyright @ 2016-2022\n\n=     O     <"
+}

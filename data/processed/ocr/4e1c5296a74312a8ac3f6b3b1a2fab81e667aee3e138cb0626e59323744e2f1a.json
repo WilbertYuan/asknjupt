@@ -1,0 +1,20 @@
+{
+  "source_hash": "4e1c5296a74312a8ac3f6b3b1a2fab81e667aee3e138cb0626e59323744e2f1a",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/4e/4e1c5296a74312a8ac3f6b3b1a2fab81e667aee3e138cb0626e59323744e2f1a.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:35Z",
+  "pages": [
+    {
+      "text": "一      Eee                               na\naa\n| :                                                      学3   5习近平新8 代中国符人 社会主义思想                                                     |       |\nEC、 了7 JR 人\nig: ee\n.> Cao     >| £ hee",
+      "mean_conf": 54.31,
+      "n_tokens": 34,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "一      Eee                               na\naa\n| :                                                      学3   5习近平新8 代中国符人 社会主义思想                                                     |       |\nEC、 了7 JR 人\nig: ee\n.> Cao     >| £ hee"
+}

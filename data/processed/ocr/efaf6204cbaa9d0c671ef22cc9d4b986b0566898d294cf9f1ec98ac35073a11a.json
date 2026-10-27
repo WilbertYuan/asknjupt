@@ -1,0 +1,20 @@
+{
+  "source_hash": "efaf6204cbaa9d0c671ef22cc9d4b986b0566898d294cf9f1ec98ac35073a11a",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ef/efaf6204cbaa9d0c671ef22cc9d4b986b0566898d294cf9f1ec98ac35073a11a.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:15Z",
+  "pages": [
+    {
+      "text": "da Bete i aes",
+      "mean_conf": 32.53,
+      "n_tokens": 4,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "da Bete i aes"
+}

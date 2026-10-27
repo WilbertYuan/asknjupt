@@ -1,0 +1,20 @@
+{
+  "source_hash": "0512eaee837120225f88f962dcb4893c00da1526e3b9aa1906f55992fba0783e",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/05/0512eaee837120225f88f962dcb4893c00da1526e3b9aa1906f55992fba0783e.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:57Z",
+  "pages": [
+    {
+      "text": "本    tai i\n\n— “OYbStH, eee ons\nRENFRE, HF\nDe\n\nRe  anew\nbase\n\n站       wRxBrD\n]                 qquman. one\ngenres”\n\n\\       gaxeunnee®\n\n‘waa\n\n杜绝奢侈餐饮, 树立良好家风;\n\n拒绝攀比摇阔, 提倡淡泊简朴;\n拒绝大操大办， lahidceisslau\natt: tac\n\n杜绝公款浪费, 严   ret有\n机关党委财务支部党员:                              ——    a",
+      "mean_conf": 60.05,
+      "n_tokens": 68,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "本    tai i\n\n— “OYbStH, eee ons\nRENFRE, HF\nDe\n\nRe  anew\nbase\n\n站       wRxBrD\n]                 qquman. one\ngenres”\n\n\\       gaxeunnee®\n\n‘waa\n\n杜绝奢侈餐饮, 树立良好家风;\n\n拒绝攀比摇阔, 提倡淡泊简朴;\n拒绝大操大办， lahidceisslau\natt: tac\n\n杜绝公款浪费, 严   ret有\n机关党委财务支部党员:                              ——    a"
+}

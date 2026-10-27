@@ -1,0 +1,20 @@
+{
+  "source_hash": "eb705f2c8944c85855eee5b65d9f9bd4bb4037a175e8644a99c905b42497c523",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/eb/eb705f2c8944c85855eee5b65d9f9bd4bb4037a175e8644a99c905b42497c523.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:37Z",
+  "pages": [
+    {
+      "text": "ed\niit      |                mi\nAn fay    ~~ -  iS 3)  bY\n展 而    Xv   “a   Gs\nSa “7    | ang\n=\" ie        “ee ae",
+      "mean_conf": 42.69,
+      "n_tokens": 24,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ed\niit      |                mi\nAn fay    ~~ -  iS 3)  bY\n展 而    Xv   “a   Gs\nSa “7    | ang\n=\" ie        “ee ae"
+}

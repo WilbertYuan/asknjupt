@@ -1,0 +1,20 @@
+{
+  "source_hash": "b68f5f8a8e27b13aeda002963f0068f8508d3b6b358448f4ab1a5350d792534a",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/b6/b68f5f8a8e27b13aeda002963f0068f8508d3b6b358448f4ab1a5350d792534a.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:46Z",
+  "pages": [
+    {
+      "text": ">     Fae                   -.     二",
+      "mean_conf": 45.06,
+      "n_tokens": 4,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": ">     Fae                   -.     二"
+}

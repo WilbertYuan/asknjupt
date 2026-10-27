@@ -1,0 +1,20 @@
+{
+  "source_hash": "c1d9164bc3c44ff6fcf4dfe9bbd0b088e668769f286e8bf843aff1f0c9ba5703",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/c1/c1d9164bc3c44ff6fcf4dfe9bbd0b088e668769f286e8bf843aff1f0c9ba5703.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:46Z",
+  "pages": [
+    {
+      "text": "wae         BE",
+      "mean_conf": 40.14,
+      "n_tokens": 2,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "wae         BE"
+}

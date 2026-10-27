@@ -1,0 +1,20 @@
+{
+  "source_hash": "3e8e955fd8e1915241df6d619e452bdc3d7baaf989c2bcfb9d0d8e16cc375529",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/3e/3e8e955fd8e1915241df6d619e452bdc3d7baaf989c2bcfb9d0d8e16cc375529.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:47:45Z",
+  "pages": [
+    {
+      "text": "ee er \\—\nMie SF ee        : a.\n一 ,蛮一    Se i ——   .     x   7       a4         地                    fat A TT\n       + eds                    一一一全二    7 =e             ~       ae\niy           =                 要     y. f “Te =< - “必压        Z             >\nb ]      ~~ hy                                   1 ttt. . mm       .                   --\npb\n       a    scout    _      | SE ae        ;                                |",
+      "mean_conf": 36.36,
+      "n_tokens": 66,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ee er \\—\nMie SF ee        : a.\n一 ,蛮一    Se i ——   .     x   7       a4         地                    fat A TT\n       + eds                    一一一全二    7 =e             ~       ae\niy           =                 要     y. f “Te =< - “必压        Z             >\nb ]      ~~ hy                                   1 ttt. . mm       .                   --\npb\n       a    scout    _      | SE ae        ;                                |"
+}

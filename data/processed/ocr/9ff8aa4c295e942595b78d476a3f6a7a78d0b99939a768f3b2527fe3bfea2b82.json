@@ -1,0 +1,20 @@
+{
+  "source_hash": "9ff8aa4c295e942595b78d476a3f6a7a78d0b99939a768f3b2527fe3bfea2b82",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/9f/9ff8aa4c295e942595b78d476a3f6a7a78d0b99939a768f3b2527fe3bfea2b82.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:06Z",
+  "pages": [
+    {
+      "text": "on         *      PNA            mM\nMOO    or       ODOR rr OD\nSOON    a Kaw HH Y [pr Wate\n\nARR\n\nwins                            ROL\nAAAS OS AANA\n\nHONORARY CREDENTIAL\nHRRCKAS SDH      团队:\n\n参加教育部华中师范大学心理援助热线平台的工作，\n为平台心理援助工作做出了积极贡献! 在2020年2月\n24日一2023年5月9日工作期间，被评为“优秀集体”!\n\n特发此证，以资鼓励\n\nFCC\n\nCTW\n\np   QALY ee\nFT",
+      "mean_conf": 74.07,
+      "n_tokens": 98,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "on         *      PNA            mM\nMOO    or       ODOR rr OD\nSOON    a Kaw HH Y [pr Wate\n\nARR\n\nwins                            ROL\nAAAS OS AANA\n\nHONORARY CREDENTIAL\nHRRCKAS SDH      团队:\n\n参加教育部华中师范大学心理援助热线平台的工作，\n为平台心理援助工作做出了积极贡献! 在2020年2月\n24日一2023年5月9日工作期间，被评为“优秀集体”!\n\n特发此证，以资鼓励\n\nFCC\n\nCTW\n\np   QALY ee\nFT"
+}

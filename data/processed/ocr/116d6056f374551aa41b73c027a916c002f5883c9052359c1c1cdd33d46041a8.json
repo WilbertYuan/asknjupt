@@ -1,0 +1,20 @@
+{
+  "source_hash": "116d6056f374551aa41b73c027a916c002f5883c9052359c1c1cdd33d46041a8",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/11/116d6056f374551aa41b73c027a916c002f5883c9052359c1c1cdd33d46041a8.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:33Z",
+  "pages": [
+    {
+      "text": "晚上9:21                                              “all 全\nX 自助缴费大厅\n\n(ae ea eed\n\nNanjing University of JPosts and Telecommunications\nPng\n\niM, Hs\n\n—_                                   ad\n|                              的\n缴费                       缴费记录\n\n点击“缴费”， 即可看到您的点击“缴费记录 ”， 即可看\n各类应缴费项目及金额          到您过往的缴费情况\n\n南京邮电大学\nCopyright @ 2016-2022\n\n=     O     <",
+      "mean_conf": 82.61,
+      "n_tokens": 72,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "晚上9:21                                              “all 全\nX 自助缴费大厅\n\n(ae ea eed\n\nNanjing University of JPosts and Telecommunications\nPng\n\niM, Hs\n\n—_                                   ad\n|                              的\n缴费                       缴费记录\n\n点击“缴费”， 即可看到您的点击“缴费记录 ”， 即可看\n各类应缴费项目及金额          到您过往的缴费情况\n\n南京邮电大学\nCopyright @ 2016-2022\n\n=     O     <"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "09bb3f95eee8974f053e476ad7a6dfb6ea5b82dd75fd7b1c18a49cbeddae21ff",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/09/09bb3f95eee8974f053e476ad7a6dfb6ea5b82dd75fd7b1c18a49cbeddae21ff.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:38Z",
+  "pages": [
+    {
+      "text": "仙林校区图书馆密集书库采取闭架管理方式。读者登\n\n录“我的图书馆”。\n\n通过“书目检索”查找拟委托图书。当读者所需图书\n在其它阅览室的可借复本为零且密集书库中有可借\n复本时，可以通过委托借阅的方式进行借阅。\n\n|\n\n在详细信息的页面上点击“委托申请”，. 选中要委\n托借阅的图书，然后点击“执行委托”， ARTE\n\n托申请成功”即可。\n\n读者网上委托成功后法定工作日 24 小时之后，至仙\n林校区图书馆借还总台办理供阅手续。",
+      "mean_conf": 88.67,
+      "n_tokens": 159,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "仙林校区图书馆密集书库采取闭架管理方式。读者登\n\n录“我的图书馆”。\n\n通过“书目检索”查找拟委托图书。当读者所需图书\n在其它阅览室的可借复本为零且密集书库中有可借\n复本时，可以通过委托借阅的方式进行借阅。\n\n|\n\n在详细信息的页面上点击“委托申请”，. 选中要委\n托借阅的图书，然后点击“执行委托”， ARTE\n\n托申请成功”即可。\n\n读者网上委托成功后法定工作日 24 小时之后，至仙\n林校区图书馆借还总台办理供阅手续。"
+}

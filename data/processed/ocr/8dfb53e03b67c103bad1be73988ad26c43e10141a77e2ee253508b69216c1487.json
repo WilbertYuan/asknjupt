@@ -1,0 +1,20 @@
+{
+  "source_hash": "8dfb53e03b67c103bad1be73988ad26c43e10141a77e2ee253508b69216c1487",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/8d/8dfb53e03b67c103bad1be73988ad26c43e10141a77e2ee253508b69216c1487.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:15:41Z",
+  "pages": [
+    {
+      "text": "Na ed",
+      "mean_conf": 63.55,
+      "n_tokens": 4,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Na ed"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "2a9547673e2e9ef80eedd596585ae0426a4d5aee4b3bda22bf06f0a55c3976ef",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/2a/2a9547673e2e9ef80eedd596585ae0426a4d5aee4b3bda22bf06f0a55c3976ef.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:51Z",
+  "pages": [
+    {
+      "text": "a  Hl     |    |\n   Te 4  —\n)\n=   ° ‘=  -   bi\n                             —\"\na  | 4, '\n-三   ct         ~ |\n=~           a        a OM,      :         Se?  a ay\n>          feed xy             oe",
+      "mean_conf": 38.61,
+      "n_tokens": 34,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "a  Hl     |    |\n   Te 4  —\n)\n=   ° ‘=  -   bi\n                             —\"\na  | 4, '\n-三   ct         ~ |\n=~           a        a OM,      :         Se?  a ay\n>          feed xy             oe"
+}

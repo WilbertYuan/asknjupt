@@ -1,0 +1,12 @@
+requests>=2.32
+beautifulsoup4>=4.12
+lxml>=5.0
+pypdf>=5.0
+pdfminer.six>=20240706
+python-docx>=1.1
+openpyxl>=3.1
+xlrd>=2.0
+charset-normalizer>=3.3
+html5lib>=1.1
+pymupdf>=1.24
+pillow>=10.0

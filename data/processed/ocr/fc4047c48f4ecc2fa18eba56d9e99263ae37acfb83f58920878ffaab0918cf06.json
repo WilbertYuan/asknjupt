@@ -1,0 +1,20 @@
+{
+  "source_hash": "fc4047c48f4ecc2fa18eba56d9e99263ae37acfb83f58920878ffaab0918cf06",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/fc/fc4047c48f4ecc2fa18eba56d9e99263ae37acfb83f58920878ffaab0918cf06.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:37Z",
+  "pages": [
+    {
+      "text": "a)\n                          ox                                                                                                            ura                                                 |\na     )                                                                                                                          LT        ~                t\n,                                                \\                                                              |\n=e        os       一\n=                                        人 a    |    Ta                      see                            cube              et\noe                                                   4                      at                      02                                                                                                           miei                               ;",
+      "mean_conf": 40.42,
+      "n_tokens": 29,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "a)\n                          ox                                                                                                            ura                                                 |\na     )                                                                                                                          LT        ~                t\n,                                                \\                                                              |\n=e        os       一\n=                                        人 a    |    Ta                      see                            cube              et\noe                                                   4                      at                      02                                                                                                           miei                               ;"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "4cccd3e3ed3b28e6688a7d20d1c1665da781792a7a85a4eb00a0f0f706631059",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/4c/4cccd3e3ed3b28e6688a7d20d1c1665da781792a7a85a4eb00a0f0f706631059.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:54Z",
+  "pages": [
+    {
+      "text": "y                 NJ              a                 KG\nins        /\n/          |",
+      "mean_conf": 61.89,
+      "n_tokens": 8,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "y                 NJ              a                 KG\nins        /\n/          |"
+}

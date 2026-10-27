@@ -1,0 +1,20 @@
+{
+  "source_hash": "15f6d91dbad8372ca8bad9d142f17cd00c0d5ed42fe90410f9c3b786dc48d240",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/15/15f6d91dbad8372ca8bad9d142f17cd00c0d5ed42fe90410f9c3b786dc48d240.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:28Z",
+  "pages": [
+    {
+      "text": "了                ES一\n_ 有从二  NS awe",
+      "mean_conf": 33.57,
+      "n_tokens": 9,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "了                ES一\n_ 有从二  NS awe"
+}

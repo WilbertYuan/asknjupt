@@ -1,0 +1,20 @@
+{
+  "source_hash": "9e558706c6a13aa99844b8741d02c58d0832d979d14b8029e6e93a5f2b583501",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/9e/9e558706c6a13aa99844b8741d02c58d0832d979d14b8029e6e93a5f2b583501.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:16:52Z",
+  "pages": [
+    {
+      "text": "Rest\nSaute                         X\nq\nLA                     }\n\\\n}\n\\\n全\nPray,                      |\n~        6                                \\\n{7       SS                   |             \\\na\nY    &                              A ti               |\nRy\nx)     Y            区\nY               *\nVY   A",
+      "mean_conf": 46.51,
+      "n_tokens": 33,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Rest\nSaute                         X\nq\nLA                     }\n\\\n}\n\\\n全\nPray,                      |\n~        6                                \\\n{7       SS                   |             \\\na\nY    &                              A ti               |\nRy\nx)     Y            区\nY               *\nVY   A"
+}

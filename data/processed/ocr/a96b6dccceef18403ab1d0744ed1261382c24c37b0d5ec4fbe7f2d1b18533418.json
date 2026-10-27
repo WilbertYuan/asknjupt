@@ -1,0 +1,20 @@
+{
+  "source_hash": "a96b6dccceef18403ab1d0744ed1261382c24c37b0d5ec4fbe7f2d1b18533418",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/a9/a96b6dccceef18403ab1d0744ed1261382c24c37b0d5ec4fbe7f2d1b18533418.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:30Z",
+  "pages": [
+    {
+      "text": "X 身份认证\n\nGasher®\n\nC7\n\n本科新生用户名为身份证号码\nFAP ER       硕博新生用户名为您的学号\n\n老生用户名为您的学号\nAAS 1101S ES2\n\n缴费密码       eeeeee\n\n没有缴费账户? 点击注册\n\n该界面为登陆界面，所有同学均已自动注册，\n\n南京邮电大学\nCopyright @ 2016-2022\n\n=     O     <",
+      "mean_conf": 85.43,
+      "n_tokens": 80,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "X 身份认证\n\nGasher®\n\nC7\n\n本科新生用户名为身份证号码\nFAP ER       硕博新生用户名为您的学号\n\n老生用户名为您的学号\nAAS 1101S ES2\n\n缴费密码       eeeeee\n\n没有缴费账户? 点击注册\n\n该界面为登陆界面，所有同学均已自动注册，\n\n南京邮电大学\nCopyright @ 2016-2022\n\n=     O     <"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "145ea54d1d0a61ce985f6e5fd78a7f8ff392e4f39c452336f071dae311478c8a",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/14/145ea54d1d0a61ce985f6e5fd78a7f8ff392e4f39c452336f071dae311478c8a.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:24:20Z",
+  "pages": [
+    {
+      "text": "Ste E                   v                                 ——______— Assistant Service Ares 一-一           4\n_ ghebeat) ¢@.%0 sf\n站        mi, eC             .",
+      "mean_conf": 38.21,
+      "n_tokens": 18,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Ste E                   v                                 ——______— Assistant Service Ares 一-一           4\n_ ghebeat) ¢@.%0 sf\n站        mi, eC             ."
+}

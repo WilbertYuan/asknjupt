@@ -1,0 +1,20 @@
+{
+  "source_hash": "c712e55718acad6f88153514eb1c43450125ae261e4ad0393e1b75550970b18b",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/c7/c712e55718acad6f88153514eb1c43450125ae261e4ad0393e1b75550970b18b.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:20Z",
+  "pages": [
+    {
+      "text": "Fa\n国家税务总局全\n国增值税发票查 2023-01-16\n验平台\n国家税务总局全\n国增值税发票查 2022-12-20\n验平台\nayo gas\n痢值型发票吉 2022-12-20\n\n南京邮电大学\n\n南京邮电大学\n\n南京邮申大学\n\n_— 2\n\n183,\n\n132.@) 585220\n\n116.47 585220",
+      "mean_conf": 81.79,
+      "n_tokens": 60,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Fa\n国家税务总局全\n国增值税发票查 2023-01-16\n验平台\n国家税务总局全\n国增值税发票查 2022-12-20\n验平台\nayo gas\n痢值型发票吉 2022-12-20\n\n南京邮电大学\n\n南京邮电大学\n\n南京邮申大学\n\n_— 2\n\n183,\n\n132.@) 585220\n\n116.47 585220"
+}

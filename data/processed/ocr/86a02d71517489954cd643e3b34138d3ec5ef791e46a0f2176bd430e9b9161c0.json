@@ -1,0 +1,20 @@
+{
+  "source_hash": "86a02d71517489954cd643e3b34138d3ec5ef791e46a0f2176bd430e9b9161c0",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/86/86a02d71517489954cd643e3b34138d3ec5ef791e46a0f2176bd430e9b9161c0.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:58Z",
+  "pages": [
+    {
+      "text": "€\n{\n|          UR ZS iT HE BAY\n|                       Ar ui Pe\n=  < |   =人 =\nMARE LT\nOl) |       =",
+      "mean_conf": 43.59,
+      "n_tokens": 23,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "€\n{\n|          UR ZS iT HE BAY\n|                       Ar ui Pe\n=  < |   =人 =\nMARE LT\nOl) |       ="
+}

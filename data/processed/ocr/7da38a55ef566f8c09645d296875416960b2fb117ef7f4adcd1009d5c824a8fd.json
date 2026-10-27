@@ -1,0 +1,20 @@
+{
+  "source_hash": "7da38a55ef566f8c09645d296875416960b2fb117ef7f4adcd1009d5c824a8fd",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/7d/7da38a55ef566f8c09645d296875416960b2fb117ef7f4adcd1009d5c824a8fd.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:07Z",
+  "pages": [
+    {
+      "text": "\\,                          —_———,\nSS 1                      we  “\"A   te Tig Te rae    Gif               一-一    se     ~\nan              —a_-\n’  mals           -    5                                     他 网  ， a A.)       “reese  “ 4      ~       3     和\nek ad |     If               /     ae My     N         -                 i\n|       4    Wi                  i         Kw   /     ;           '    —                      =\n于                                       <                    4    .-",
+      "mean_conf": 35.56,
+      "n_tokens": 56,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "\\,                          —_———,\nSS 1                      we  “\"A   te Tig Te rae    Gif               一-一    se     ~\nan              —a_-\n’  mals           -    5                                     他 网  ， a A.)       “reese  “ 4      ~       3     和\nek ad |     If               /     ae My     N         -                 i\n|       4    Wi                  i         Kw   /     ;           '    —                      =\n于                                       <                    4    .-"
+}

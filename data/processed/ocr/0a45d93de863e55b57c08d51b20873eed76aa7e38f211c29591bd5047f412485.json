@@ -1,0 +1,20 @@
+{
+  "source_hash": "0a45d93de863e55b57c08d51b20873eed76aa7e38f211c29591bd5047f412485",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/0a/0a45d93de863e55b57c08d51b20873eed76aa7e38f211c29591bd5047f412485.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:59Z",
+  "pages": [
+    {
+      "text": "S\n上\n——\nrad\ngreene  on A            bed\n.               7h |!\n         ace eS\na                 a                     7                            4   i\na3                  ——— SS",
+      "mean_conf": 45.06,
+      "n_tokens": 21,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "S\n上\n——\nrad\ngreene  on A            bed\n.               7h |!\n         ace eS\na                 a                     7                            4   i\na3                  ——— SS"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "a1003ff768d8e61066a70a70f1b431f9a115dba8699e989c066a902b33dc2244",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/a1/a1003ff768d8e61066a70a70f1b431f9a115dba8699e989c066a902b33dc2244.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:56Z",
+  "pages": [
+    {
+      "text": "Ox\n\n<      登录\n\n从畅想之星\n\n畅想中心\n\n还没有账号?立即注册\n\nTQ          其他登录方式\n     ©\n\n点击登录代表同意 用户协议 和.隐私政策",
+      "mean_conf": 85.46,
+      "n_tokens": 36,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Ox\n\n<      登录\n\n从畅想之星\n\n畅想中心\n\n还没有账号?立即注册\n\nTQ          其他登录方式\n     ©\n\n点击登录代表同意 用户协议 和.隐私政策"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "296c50220eec9834882dc32246b0c7b0fb67caad821e521527aa680e77433282",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/29/296c50220eec9834882dc32246b0c7b0fb67caad821e521527aa680e77433282.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:41Z",
+  "pages": [
+    {
+      "text": "r                                                          J 4 é              aa\n=         (a                Basaece     Oarsracer\n41         ri hex               ny      ~~      >       - om\n本  0         BN son        A  \"\na                  /    \"                           i    a            —\nie         本          q            1    ~  ==\n—               4         |                       — 一 1     所",
+      "mean_conf": 37.23,
+      "n_tokens": 42,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "r                                                          J 4 é              aa\n=         (a                Basaece     Oarsracer\n41         ri hex               ny      ~~      >       - om\n本  0         BN son        A  \"\na                  /    \"                           i    a            —\nie         本          q            1    ~  ==\n—               4         |                       — 一 1     所"
+}

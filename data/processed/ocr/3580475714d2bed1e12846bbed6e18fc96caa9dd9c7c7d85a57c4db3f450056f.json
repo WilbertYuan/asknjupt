@@ -1,0 +1,20 @@
+{
+  "source_hash": "3580475714d2bed1e12846bbed6e18fc96caa9dd9c7c7d85a57c4db3f450056f",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/35/3580475714d2bed1e12846bbed6e18fc96caa9dd9c7c7d85a57c4db3f450056f.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:19Z",
+  "pages": [
+    {
+      "text": "〈此页无正文)\n\nih @             a4\na per 实验室建设 人\n财务处\n\n二O〇一五年四月三十日\n\n主题词: 资产 管理 通知\n\n南京邮电大学财务处\n\n2015 年4月30 日印发\n\n一 4 一",
+      "mean_conf": 83.44,
+      "n_tokens": 54,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "〈此页无正文)\n\nih @             a4\na per 实验室建设 人\n财务处\n\n二O〇一五年四月三十日\n\n主题词: 资产 管理 通知\n\n南京邮电大学财务处\n\n2015 年4月30 日印发\n\n一 4 一"
+}

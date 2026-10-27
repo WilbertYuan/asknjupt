@@ -1,0 +1,20 @@
+{
+  "source_hash": "39d530e5d1138919a33d604796d6f25d19410ff2dfe48bdb7f13280391e77a76",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/39/39d530e5d1138919a33d604796d6f25d19410ff2dfe48bdb7f13280391e77a76.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:31:38Z",
+  "pages": [
+    {
+      "text": "时 i ae a sei  {          ，  i) “i  :  Ns  里   wha   | 1   人  i 4  人\nSie eee           Lot           ry be.           2 lea a\n  &, a, - si  》   f     gil   4 ¢                       ty    ee  ee\n.   了   2  °           Fe     Ab,                       Pas id   AY\n3 ¥ as te    S  人 Ph. 1    P ES一一一一一一一一一一   wees   pe\n人              A              zed        al         :     Ande\nCee ie. tng                                    :                      oe    A...    pO   $   i\nWe eS  i) 3 Ee             ed  tu tf Ne        |    “1h ee 7        7\n1 一                  证                        anit\n|                  j   er   1          !                      poorer\n ie      zi        Ez                “I   _ Sh        :     ey)        a\nba)      —      ae!                                                             .\n—\ni Nn EE ee    eon eS       -       —\nNe ee --    —_   a",
+      "mean_conf": 35.88,
+      "n_tokens": 136,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "时 i ae a sei  {          ，  i) “i  :  Ns  里   wha   | 1   人  i 4  人\nSie eee           Lot           ry be.           2 lea a\n  &, a, - si  》   f     gil   4 ¢                       ty    ee  ee\n.   了   2  °           Fe     Ab,                       Pas id   AY\n3 ¥ as te    S  人 Ph. 1    P ES一一一一一一一一一一   wees   pe\n人              A              zed        al         :     Ande\nCee ie. tng                                    :                      oe    A...    pO   $   i\nWe eS  i) 3 Ee             ed  tu tf Ne        |    “1h ee 7        7\n1 一                  证                        anit\n|                  j   er   1          !                      poorer\n ie      zi        Ez                “I   _ Sh        :     ey)        a\nba)      —      ae!                                                             .\n—\ni Nn EE ee    eon eS       -       —\nNe ee --    —_   a"
+}

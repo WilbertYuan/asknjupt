@@ -1,0 +1,20 @@
+{
+  "source_hash": "8f028d06e1a8c71f5f5f3958f59755cd990d478b64b4acd05db379a1cf4342e4",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/8f/8f028d06e1a8c71f5f5f3958f59755cd990d478b64b4acd05db379a1cf4342e4.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:20Z",
+  "pages": [
+    {
+      "text": "一   — 一一一     nd        \\\n  -二  二            —- <          梧 Ag       ,\n要  -~      二  Ci = >                       3                a wt i\nss &     —  a  =            Wig  aries\ntae oF 生生     fa A     Sul\n“iy, 有    所        ; yk hy ‘\n»                 t bat ga7  . as\nB }                  ia de      n>",
+      "mean_conf": 40.1,
+      "n_tokens": 55,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "一   — 一一一     nd        \\\n  -二  二            —- <          梧 Ag       ,\n要  -~      二  Ci = >                       3                a wt i\nss &     —  a  =            Wig  aries\ntae oF 生生     fa A     Sul\n“iy, 有    所        ; yk hy ‘\n»                 t bat ga7  . as\nB }                  ia de      n>"
+}

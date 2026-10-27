@@ -1,0 +1,20 @@
+{
+  "source_hash": "bc837406ad155f59f9d7ef3a75cbbad2dfbe92a71033bffa14f9863031716240",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/bc/bc837406ad155f59f9d7ef3a75cbbad2dfbe92a71033bffa14f9863031716240.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:01Z",
+  "pages": [
+    {
+      "text": "-\nEN Rein oo eae\nea? = ‘ee “i 4\nd      :          Ss           Wat.    ,",
+      "mean_conf": 36.11,
+      "n_tokens": 15,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "-\nEN Rein oo eae\nea? = ‘ee “i 4\nd      :          Ss           Wat.    ,"
+}

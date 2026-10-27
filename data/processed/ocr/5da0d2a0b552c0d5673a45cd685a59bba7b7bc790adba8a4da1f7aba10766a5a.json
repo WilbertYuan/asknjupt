@@ -1,0 +1,20 @@
+{
+  "source_hash": "5da0d2a0b552c0d5673a45cd685a59bba7b7bc790adba8a4da1f7aba10766a5a",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/5d/5da0d2a0b552c0d5673a45cd685a59bba7b7bc790adba8a4da1f7aba10766a5a.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:46Z",
+  "pages": [
+    {
+      "text": "=r    -          iit,\na\n_\n| |\n|\n|\n}\n|\ni oP                , a                                     f                          q  ya\n4    AP fe                 =   (ne           7\nFin            :            Sy a                                              |\n                  5 a          a    ines 一                 x              ;\n;       \\  4    ae                                                ’           S\n:         \\     Ae       ;    F                  Try fo Pie)     “a   >                                    \"\na?      四                         a                   >                                        © ae            ~        4              > ~ _\"",
+      "mean_conf": 38.38,
+      "n_tokens": 64,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "=r    -          iit,\na\n_\n| |\n|\n|\n}\n|\ni oP                , a                                     f                          q  ya\n4    AP fe                 =   (ne           7\nFin            :            Sy a                                              |\n                  5 a          a    ines 一                 x              ;\n;       \\  4    ae                                                ’           S\n:         \\     Ae       ;    F                  Try fo Pie)     “a   >                                    \"\na?      四                         a                   >                                        © ae            ~        4              > ~ _\""
+}

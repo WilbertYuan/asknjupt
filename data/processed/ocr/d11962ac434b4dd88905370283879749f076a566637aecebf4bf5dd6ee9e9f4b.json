@@ -1,0 +1,20 @@
+{
+  "source_hash": "d11962ac434b4dd88905370283879749f076a566637aecebf4bf5dd6ee9e9f4b",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/d1/d11962ac434b4dd88905370283879749f076a566637aecebf4bf5dd6ee9e9f4b.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:24:41Z",
+  "pages": [
+    {
+      "text": "é                                          =.  oe keen |   =    >)\n‘Or                   f=             rr 站 ei   有  了      1               .\nUae ts 有               |                iy          , 各\n二二\n                      Fw      区     4       =.                  —g                            att\n!        par                 > ie         ‘                                                    i",
+      "mean_conf": 42.31,
+      "n_tokens": 37,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "é                                          =.  oe keen |   =    >)\n‘Or                   f=             rr 站 ei   有  了      1               .\nUae ts 有               |                iy          , 各\n二二\n                      Fw      区     4       =.                  —g                            att\n!        par                 > ie         ‘                                                    i"
+}

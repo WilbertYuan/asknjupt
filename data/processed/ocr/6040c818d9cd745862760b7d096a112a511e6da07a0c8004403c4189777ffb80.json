@@ -1,0 +1,20 @@
+{
+  "source_hash": "6040c818d9cd745862760b7d096a112a511e6da07a0c8004403c4189777ffb80",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/60/6040c818d9cd745862760b7d096a112a511e6da07a0c8004403c4189777ffb80.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:13Z",
+  "pages": [
+    {
+      "text": "T                         ET\n we   f\n|   i    有    Ne           PUBLIC\nie     1) 4 =              ag REM\n        »           =\n=             ,           =e\n= 4   q       区机服务业务咨询\ni       = Bes\ny    Ne             四 cc\nio                        |    »  四>    \"SCT,\nso 去      7            es\nén                       C=",
+      "mean_conf": 44.27,
+      "n_tokens": 47,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "T                         ET\n we   f\n|   i    有    Ne           PUBLIC\nie     1) 4 =              ag REM\n        »           =\n=             ,           =e\n= 4   q       区机服务业务咨询\ni       = Bes\ny    Ne             四 cc\nio                        |    »  四>    \"SCT,\nso 去      7            es\nén                       C="
+}

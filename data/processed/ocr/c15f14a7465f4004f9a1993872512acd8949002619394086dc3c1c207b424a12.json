@@ -1,0 +1,20 @@
+{
+  "source_hash": "c15f14a7465f4004f9a1993872512acd8949002619394086dc3c1c207b424a12",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/c1/c15f14a7465f4004f9a1993872512acd8949002619394086dc3c1c207b424a12.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:33Z",
+  "pages": [
+    {
+      "text": "<   h                                                       Pa 4\n人     \\        4   ~     »              ’      > $y                        y  > SS   Oe   :   Ee   ay     je\n3       AAW Be pe                a Sia ae age ae            |\nitp             5    Ss        7 -一二和    es                                  yt 5      7   Fi    ie   pees\n¥en                                         Xs.                                               eG   oF      Wak aed\nSe         ae    家    Ve                             Sect est    4    ks\n:      a   5 aE      、    RE        <          这     » SSeS?\nooze   FD        oe eh,    SOE,     a. Se er\n¢                           bh eee ry eee OO\nA         £       ry Se & Soe 多    二，   wy\nKg   本  -   了        —_ 2                    ¥ >  #3 Pm  W  aa] . i               ‘            a   6                     Shares -~\nreas 光于   和               ee   Peer     1        Ref ee     f   ,    ss\ner   +                                                   i   |                   人  ,       AY}\n=a        Gs                        ,\nHy |             - UN            ‘ie\n= F    i                         a    H   .          |             wl    it\n“     y   ab =             Aa                 Sa",
+      "mean_conf": 33.07,
+      "n_tokens": 152,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "<   h                                                       Pa 4\n人     \\        4   ~     »              ’      > $y                        y  > SS   Oe   :   Ee   ay     je\n3       AAW Be pe                a Sia ae age ae            |\nitp             5    Ss        7 -一二和    es                                  yt 5      7   Fi    ie   pees\n¥en                                         Xs.                                               eG   oF      Wak aed\nSe         ae    家    Ve                             Sect est    4    ks\n:      a   5 aE      、    RE        <          这     » SSeS?\nooze   FD        oe eh,    SOE,     a. Se er\n¢                           bh eee ry eee OO\nA         £       ry Se & Soe 多    二，   wy\nKg   本  -   了        —_ 2                    ¥ >  #3 Pm  W  aa] . i               ‘            a   6                     Shares -~\nreas 光于   和               ee   Peer     1        Ref ee     f   ,    ss\ner   +                                                   i   |                   人  ,       AY}\n=a        Gs                        ,\nHy |             - UN            ‘ie\n= F    i                         a    H   .          |             wl    it\n“     y   ab =             Aa                 Sa"
+}

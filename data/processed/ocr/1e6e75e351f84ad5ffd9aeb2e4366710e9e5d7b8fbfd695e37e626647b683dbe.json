@@ -1,0 +1,20 @@
+{
+  "source_hash": "1e6e75e351f84ad5ffd9aeb2e4366710e9e5d7b8fbfd695e37e626647b683dbe",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/1e/1e6e75e351f84ad5ffd9aeb2e4366710e9e5d7b8fbfd695e37e626647b683dbe.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:17:49Z",
+  "pages": [
+    {
+      "text": "=. ~~\n14406065 40                “3\n“LB        Ses         &®\n,           eh ane an Nite   起 4\n| Gan         He PN Pee ORDER A\na   8         wa\ne!              Grsaaes        :  \"  E   E       4\nf   通入与全中TS 二      F\nae   ef  saat    3                  wa fi ate",
+      "mean_conf": 37.12,
+      "n_tokens": 48,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "=. ~~\n14406065 40                “3\n“LB        Ses         &®\n,           eh ane an Nite   起 4\n| Gan         He PN Pee ORDER A\na   8         wa\ne!              Grsaaes        :  \"  E   E       4\nf   通入与全中TS 二      F\nae   ef  saat    3                  wa fi ate"
+}

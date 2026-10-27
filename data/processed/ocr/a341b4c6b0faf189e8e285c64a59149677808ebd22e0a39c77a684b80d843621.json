@@ -1,0 +1,20 @@
+{
+  "source_hash": "a341b4c6b0faf189e8e285c64a59149677808ebd22e0a39c77a684b80d843621",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/a3/a341b4c6b0faf189e8e285c64a59149677808ebd22e0a39c77a684b80d843621.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:47Z",
+  "pages": [
+    {
+      "text": ":                —        —   a WH TTT",
+      "mean_conf": 24.66,
+      "n_tokens": 6,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": ":                —        —   a WH TTT"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "8558bf524416a766882a9fc18bfd1d5fd019c9571c83752c24a2bd9f639c1f61",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/85/8558bf524416a766882a9fc18bfd1d5fd019c9571c83752c24a2bd9f639c1f61.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:35Z",
+  "pages": [
+    {
+      "text": "}   上\n    Whe eran    a\nSh! e4\ngira:     Aedes aie? am re dt    ee Cy\nas Qe es re            bs        ya         XG OF ey =\nAT 人   人        一   7        7如     人 _ =              fie >>    ~       penn        -.                                        !         =     =\neee          as ahi ee eee OY Ts   rss &            as\nER  So         4       =二    OO               Ae an.            4            Rs          =\nRan ee   *  a    og       :  二   ee   =   es  set  ae a gan ee  六 aioe   w ie -   2   ae se    od   Le    -:  hee,\nee Ve? «ie Consist ee sk eae ie ee Se   2,\nRr BS fe   eg ee  asia      和 en eye ee ee      sit ey    Re oe  ae\noe     Re ee a! SE IR. yp aaa ide eR era Ee",
+      "mean_conf": 31.52,
+      "n_tokens": 130,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "}   上\n    Whe eran    a\nSh! e4\ngira:     Aedes aie? am re dt    ee Cy\nas Qe es re            bs        ya         XG OF ey =\nAT 人   人        一   7        7如     人 _ =              fie >>    ~       penn        -.                                        !         =     =\neee          as ahi ee eee OY Ts   rss &            as\nER  So         4       =二    OO               Ae an.            4            Rs          =\nRan ee   *  a    og       :  二   ee   =   es  set  ae a gan ee  六 aioe   w ie -   2   ae se    od   Le    -:  hee,\nee Ve? «ie Consist ee sk eae ie ee Se   2,\nRr BS fe   eg ee  asia      和 en eye ee ee      sit ey    Re oe  ae\noe     Re ee a! SE IR. yp aaa ide eR era Ee"
+}

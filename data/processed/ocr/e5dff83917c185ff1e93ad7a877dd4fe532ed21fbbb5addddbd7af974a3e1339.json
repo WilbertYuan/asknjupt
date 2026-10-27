@@ -1,0 +1,20 @@
+{
+  "source_hash": "e5dff83917c185ff1e93ad7a877dd4fe532ed21fbbb5addddbd7af974a3e1339",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/e5/e5dff83917c185ff1e93ad7a877dd4fe532ed21fbbb5addddbd7af974a3e1339.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:48:01Z",
+  "pages": [
+    {
+      "text": "NI\n只\n和\n\\  v ras   \\\nAY         =i My:       |                 和                                                                                                                 Sa     )\n                                                               区 7                  XN                          = 2     J 4     “a   a fp’ JB  |                              .\n&    1                                                                        =|              es A    Ss                              ”  =       »    NS A       yy -可  3 了 x\n\\                               TAI\n                                                    N    s .     cA    ¥                                                  .\n                                                          yi\n|       4                     }\n\\                                                                                      (\n:                                                              ,\n/                                                                                                                      ;\n&                                   . 2",
+      "mean_conf": 36.24,
+      "n_tokens": 64,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "NI\n只\n和\n\\  v ras   \\\nAY         =i My:       |                 和                                                                                                                 Sa     )\n                                                               区 7                  XN                          = 2     J 4     “a   a fp’ JB  |                              .\n&    1                                                                        =|              es A    Ss                              ”  =       »    NS A       yy -可  3 了 x\n\\                               TAI\n                                                    N    s .     cA    ¥                                                  .\n                                                          yi\n|       4                     }\n\\                                                                                      (\n:                                                              ,\n/                                                                                                                      ;\n&                                   . 2"
+}

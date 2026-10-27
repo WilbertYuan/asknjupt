@@ -1,0 +1,20 @@
+{
+  "source_hash": "dd0695799c25b7456df91357a12894a2dd7d8c430e9baf6e06916ed8cf177de6",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/dd/dd0695799c25b7456df91357a12894a2dd7d8c430e9baf6e06916ed8cf177de6.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:16Z",
+  "pages": [
+    {
+      "text": "——\n\niyi i\n\n—  noe\n\ni\n. ‘0                   .\n,    453    Sey             in\na\nY                                         t     ~ =  y\noJ oe) ae",
+      "mean_conf": 36.13,
+      "n_tokens": 24,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "——\n\niyi i\n\n—  noe\n\ni\n. ‘0                   .\n,    453    Sey             in\na\nY                                         t     ~ =  y\noJ oe) ae"
+}

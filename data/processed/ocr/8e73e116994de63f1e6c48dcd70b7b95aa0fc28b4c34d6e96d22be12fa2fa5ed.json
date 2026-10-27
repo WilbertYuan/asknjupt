@@ -1,0 +1,20 @@
+{
+  "source_hash": "8e73e116994de63f1e6c48dcd70b7b95aa0fc28b4c34d6e96d22be12fa2fa5ed",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/8e/8e73e116994de63f1e6c48dcd70b7b95aa0fc28b4c34d6e96d22be12fa2fa5ed.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:55Z",
+  "pages": [
+    {
+      "text": "Se oO. E\nOP Rt",
+      "mean_conf": 16.34,
+      "n_tokens": 5,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Se oO. E\nOP Rt"
+}

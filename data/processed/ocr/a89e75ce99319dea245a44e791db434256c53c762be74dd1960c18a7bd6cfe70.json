@@ -1,0 +1,20 @@
+{
+  "source_hash": "a89e75ce99319dea245a44e791db434256c53c762be74dd1960c18a7bd6cfe70",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/a8/a89e75ce99319dea245a44e791db434256c53c762be74dd1960c18a7bd6cfe70.pdf",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:53:50Z",
+  "pages": [
+    {
+      "text": "江苏省高校智盟卡申请\n\n关注“江苏省高校数字图书馆JALIS”微信公众号\n\n点击公众号菜单栏“智盟卡”-“申请使用指南”，参\n考“使用流程”进行注册认证\n\n认证成功或人工核验通过后，用户即开通智盟卡服务",
+      "mean_conf": 91.57,
+      "n_tokens": 69,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-p1"
+    }
+  ],
+  "text": "江苏省高校智盟卡申请\n\n关注“江苏省高校数字图书馆JALIS”微信公众号\n\n点击公众号菜单栏“智盟卡”-“申请使用指南”，参\n考“使用流程”进行注册认证\n\n认证成功或人工核验通过后，用户即开通智盟卡服务"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "9a06412955aaaec46fb5a8aafb188aaa7cf0882d410ef768da9851a7eefedeb3",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/9a/9a06412955aaaec46fb5a8aafb188aaa7cf0882d410ef768da9851a7eefedeb3.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:51Z",
+  "pages": [
+    {
+      "text": "a  he i730",
+      "mean_conf": 19.92,
+      "n_tokens": 3,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "a  he i730"
+}

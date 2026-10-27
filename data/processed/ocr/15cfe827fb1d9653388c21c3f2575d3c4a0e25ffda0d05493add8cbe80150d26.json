@@ -1,0 +1,20 @@
+{
+  "source_hash": "15cfe827fb1d9653388c21c3f2575d3c4a0e25ffda0d05493add8cbe80150d26",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/15/15cfe827fb1d9653388c21c3f2575d3c4a0e25ffda0d05493add8cbe80150d26.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:34:28Z",
+  "pages": [
+    {
+      "text": "mg-      |\npeatg ite     [ee Bestel\n4     “|     次     rae   *2\nBML CPs et Varo bal Ll\n‘  ‘   9922 9. 全\nPw ees nee he?   irae\nPOV CRA AAS 4  \\ aie\nwei:",
+      "mean_conf": 27.39,
+      "n_tokens": 34,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "mg-      |\npeatg ite     [ee Bestel\n4     “|     次     rae   *2\nBML CPs et Varo bal Ll\n‘  ‘   9922 9. 全\nPw ees nee he?   irae\nPOV CRA AAS 4  \\ aie\nwei:"
+}

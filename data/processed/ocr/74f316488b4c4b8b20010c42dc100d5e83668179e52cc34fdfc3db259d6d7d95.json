@@ -1,0 +1,20 @@
+{
+  "source_hash": "74f316488b4c4b8b20010c42dc100d5e83668179e52cc34fdfc3db259d6d7d95",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/74/74f316488b4c4b8b20010c42dc100d5e83668179e52cc34fdfc3db259d6d7d95.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:07Z",
+  "pages": [
+    {
+      "text": "= 123 机             PAY,     eee ae\n:    cat WH   im oF       }      ra      ah      |                  FF “a>              — ee |\ntL Senn REE 光华 MMMM Sane? cere sears 亡=\n了      ;     al     wae |           v= i    stg    ? Sohez (aha    ai fe =m Si) ot\nPik Sac 7 eish og, Katee: medaetcaeuahens-“iewcin otew we, cote\ny  ET    vie   ge     y aw   PS & 7 S 他   as  a    2 wal YO     es os     Pm   ~~ lly '    €) J    ,       -       瑚一\nId   - 去                ¢ 4  cent Ww    p aaa  biog , |    a: ‘ied      “二 =    人  外 ‘a &  “ ©  “  We: i 全\na 2026S» a” BOGE\n   |                    Di           q               an   |           |",
+      "mean_conf": 29.67,
+      "n_tokens": 120,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "= 123 机             PAY,     eee ae\n:    cat WH   im oF       }      ra      ah      |                  FF “a>              — ee |\ntL Senn REE 光华 MMMM Sane? cere sears 亡=\n了      ;     al     wae |           v= i    stg    ? Sohez (aha    ai fe =m Si) ot\nPik Sac 7 eish og, Katee: medaetcaeuahens-“iewcin otew we, cote\ny  ET    vie   ge     y aw   PS & 7 S 他   as  a    2 wal YO     es os     Pm   ~~ lly '    €) J    ,       -       瑚一\nId   - 去                ¢ 4  cent Ww    p aaa  biog , |    a: ‘ied      “二 =    人  外 ‘a &  “ ©  “  We: i 全\na 2026S» a” BOGE\n   |                    Di           q               an   |           |"
+}

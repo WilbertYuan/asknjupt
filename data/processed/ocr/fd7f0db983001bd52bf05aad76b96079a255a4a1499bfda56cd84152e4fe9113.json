@@ -1,0 +1,20 @@
+{
+  "source_hash": "fd7f0db983001bd52bf05aad76b96079a255a4a1499bfda56cd84152e4fe9113",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/fd/fd7f0db983001bd52bf05aad76b96079a255a4a1499bfda56cd84152e4fe9113.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:30Z",
+  "pages": [
+    {
+      "text": "(arsgeee\n   if 税务宣讲会\n|  Ae a= an: r ORG\nPa al\n小     ae\na > .        \\ | ae) |   Or =",
+      "mean_conf": 40.19,
+      "n_tokens": 24,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "(arsgeee\n   if 税务宣讲会\n|  Ae a= an: r ORG\nPa al\n小     ae\na > .        \\ | ae) |   Or ="
+}

@@ -1,0 +1,30 @@
+{
+  "source_hash": "df4af4f2c52ef6e2ca6be9cede089e71bb1e70618508be0529824915700b830f",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/df/df4af4f2c52ef6e2ca6be9cede089e71bb1e70618508be0529824915700b830f.pdf",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T14:01:38Z",
+  "pages": [
+    {
+      "text": "南京邮电大学2025年江苏省招生计划表\n\n   选考科日要求                     tell se GIA Rs\n             ET\n| | 5\n历史+不限   | 二\n\nKEDAH aR\n\n金融科技\n金融工程\n\n下\n\n物理+不限\n\n地方专项\n\n物理+化学\n\nen\ni Z FNS               a\n\n普通类               历史+不限                                 人力资源管理\n行政管理\n=                              .\n\n物流管理\n上上位培养项目)\n信息管理与信息系统\n(信息管理与信息系统+人工智能)           45\nCOLE ESE AL)\n通信工 Fi                    20\n普通类      贝尔英才学院             计算机科学与技术\n\n物理+不限\n\n电子科学与技术\n\n物理+化学                   电磁场与无线技术\nAtk fF:\n\n微电子科学与工程",
+      "mean_conf": 78.13,
+      "n_tokens": 143,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-p1"
+    },
+    {
+      "text": "焦 aa 设计与集成系统\n\nTS I. fi              一一\n网络工程                      124\n\nBe 用物理学\n\n信息与计算科学 ra sear ti)\n\n广告学\n工商管理\nse\n历史+不限                                人 iV a ca 管理                         [| os |\n[Ce\nPHC 5\nEm              [si\n 一于一一\n大数据 Ee\n经济统计学\n金融工程                2\n人合计价\n[ae\n电子 本 HER          | 一一\nfri 电 安全\nTa Per CR\n物理+化学         分子科学与工程\n材料化学\n生物医学工程\neS\n\n物理+不限\n\nfy a ae i\n邮政工程\n注，最终计划数、选考科目要求以江苏省考试院公布为准。",
+      "mean_conf": 74.68,
+      "n_tokens": 134,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 2,
+      "locator": "ocr-p2"
+    }
+  ],
+  "text": "南京邮电大学2025年江苏省招生计划表\n\n   选考科日要求                     tell se GIA Rs\n             ET\n| | 5\n历史+不限   | 二\n\nKEDAH aR\n\n金融科技\n金融工程\n\n下\n\n物理+不限\n\n地方专项\n\n物理+化学\n\nen\ni Z FNS               a\n\n普通类               历史+不限                                 人力资源管理\n行政管理\n=                              .\n\n物流管理\n上上位培养项目)\n信息管理与信息系统\n(信息管理与信息系统+人工智能)           45\nCOLE ESE AL)\n通信工 Fi                    20\n普通类      贝尔英才学院             计算机科学与技术\n\n物理+不限\n\n电子科学与技术\n\n物理+化学                   电磁场与无线技术\nAtk fF:\n\n微电子科学与工程\n\n焦 aa 设计与集成系统\n\nTS I. fi              一一\n网络工程                      124\n\nBe 用物理学\n\n信息与计算科学 ra sear ti)\n\n广告学\n工商管理\nse\n历史+不限                                人 iV a ca 管理                         [| os |\n[Ce\nPHC 5\nEm              [si\n 一于一一\n大数据 Ee\n经济统计学\n金融工程                2\n人合计价\n[ae\n电子 本 HER          | 一一\nfri 电 安全\nTa Per CR\n物理+化学         分子科学与工程\n材料化学\n生物医学工程\neS\n\n物理+不限\n\nfy a ae i\n邮政工程\n注，最终计划数、选考科目要求以江苏省考试院公布为准。"
+}

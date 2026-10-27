@@ -1,0 +1,20 @@
+{
+  "source_hash": "e3b1e215e9720acd9cc156e697d2964915bbb82226bc3d3fe03474c6dfa56268",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/e3/e3b1e215e9720acd9cc156e697d2964915bbb82226bc3d3fe03474c6dfa56268.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:42Z",
+  "pages": [
+    {
+      "text": "‘q           as aes                 多\n司 my       x _@    WT my_AVv ag :  -  a 工  —_ |     —\n— —e “aan  人     — aa — —— - Sa 到\n\"   ee                          =     1               I",
+      "mean_conf": 35.39,
+      "n_tokens": 34,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "‘q           as aes                 多\n司 my       x _@    WT my_AVv ag :  -  a 工  —_ |     —\n— —e “aan  人     — aa — —— - Sa 到\n\"   ee                          =     1               I"
+}

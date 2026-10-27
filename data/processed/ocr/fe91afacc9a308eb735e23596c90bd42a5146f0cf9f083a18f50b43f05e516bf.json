@@ -1,0 +1,20 @@
+{
+  "source_hash": "fe91afacc9a308eb735e23596c90bd42a5146f0cf9f083a18f50b43f05e516bf",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/fe/fe91afacc9a308eb735e23596c90bd42a5146f0cf9f083a18f50b43f05e516bf.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:24:09Z",
+  "pages": [
+    {
+      "text": "了 34    ry      4   |  pau            | a\n||    <i        ea 从谢 ae a    |\n和 =",
+      "mean_conf": 41.42,
+      "n_tokens": 18,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "了 34    ry      4   |  pau            | a\n||    <i        ea 从谢 ae a    |\n和 ="
+}

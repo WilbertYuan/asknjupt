@@ -1,0 +1,20 @@
+{
+  "source_hash": "1d6c56c527ee772eede4fc8115a2734865b30942ee3c1fe74f8e600385edcab9",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/1d/1d6c56c527ee772eede4fc8115a2734865b30942ee3c1fe74f8e600385edcab9.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:04Z",
+  "pages": [
+    {
+      "text": "AN\n所本     \\           Pee    ff            4\n“a  a ,' ~     \\     al  mh TAR一      一       = =         |\n1 ieee ‘i                     )         | HI}  |\new     — de       @ |  x   A  cote  i  : Hy! = \\*\n= Ve                        \\   —    加 ot 2     tl   29",
+      "mean_conf": 40.18,
+      "n_tokens": 49,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "AN\n所本     \\           Pee    ff            4\n“a  a ,' ~     \\     al  mh TAR一      一       = =         |\n1 ieee ‘i                     )         | HI}  |\new     — de       @ |  x   A  cote  i  : Hy! = \\*\n= Ve                        \\   —    加 ot 2     tl   29"
+}

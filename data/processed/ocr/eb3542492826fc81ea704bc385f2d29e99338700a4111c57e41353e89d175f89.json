@@ -1,0 +1,20 @@
+{
+  "source_hash": "eb3542492826fc81ea704bc385f2d29e99338700a4111c57e41353e89d175f89",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/eb/eb3542492826fc81ea704bc385f2d29e99338700a4111c57e41353e89d175f89.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:24Z",
+  "pages": [
+    {
+      "text": "人    已    46    -    Win    =    ai,     二      2\n             |\nOY Sg 9  eek CP ap\nCome ec,”  Saiee\n由   se  _-<     ar  .   ~    二 加 有            2 LE  a   eel  on\n\n4         Seapets        er    wy              本    = ee =",
+      "mean_conf": 30.97,
+      "n_tokens": 41,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "人    已    46    -    Win    =    ai,     二      2\n             |\nOY Sg 9  eek CP ap\nCome ec,”  Saiee\n由   se  _-<     ar  .   ~    二 加 有            2 LE  a   eel  on\n\n4         Seapets        er    wy              本    = ee ="
+}

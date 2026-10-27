@@ -1,0 +1,20 @@
+{
+  "source_hash": "1349a7790da83d3ca6d99d0590e97a13afd4c0e0a2186c8479876e8084cb743d",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/13/1349a7790da83d3ca6d99d0590e97a13afd4c0e0a2186c8479876e8084cb743d.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:16Z",
+  "pages": [
+    {
+      "text": "使用浏览器打开缴费网址，输入\n用户名:\n密 码:\n重置密码\n验证码:\n5045,\n登录",
+      "mean_conf": 87.44,
+      "n_tokens": 26,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "使用浏览器打开缴费网址，输入\n用户名:\n密 码:\n重置密码\n验证码:\n5045,\n登录"
+}

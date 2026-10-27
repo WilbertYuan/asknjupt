@@ -1,0 +1,20 @@
+{
+  "source_hash": "823356d9cd40d66a4eeb361de1bd5786c991c0a8fd4485e1bbf19a1dad243965",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/82/823356d9cd40d66a4eeb361de1bd5786c991c0a8fd4485e1bbf19a1dad243965.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:35Z",
+  "pages": [
+    {
+      "text": "一\n      a               ;   3\n——         a     pert     p< ___ aii\ny  <a  \\      本 a  i  Ca    上 了       ‘5    re eae\nbas     入        =               FN TS a = 7          2                          )\n乒  é  a =          ae ‘ P\ni                  i                           一",
+      "mean_conf": 35.89,
+      "n_tokens": 42,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "一\n      a               ;   3\n——         a     pert     p< ___ aii\ny  <a  \\      本 a  i  Ca    上 了       ‘5    re eae\nbas     入        =               FN TS a = 7          2                          )\n乒  é  a =          ae ‘ P\ni                  i                           一"
+}

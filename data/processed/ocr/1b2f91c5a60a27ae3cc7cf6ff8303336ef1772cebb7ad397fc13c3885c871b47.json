@@ -1,0 +1,20 @@
+{
+  "source_hash": "1b2f91c5a60a27ae3cc7cf6ff8303336ef1772cebb7ad397fc13c3885c871b47",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/1b/1b2f91c5a60a27ae3cc7cf6ff8303336ef1772cebb7ad397fc13c3885c871b47.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T11:46:34Z",
+  "pages": [
+    {
+      "text": "ae  1 hep\na Sar    ER\n[一 nn <\n2a         ar             7",
+      "mean_conf": 35.81,
+      "n_tokens": 12,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ae  1 hep\na Sar    ER\n[一 nn <\n2a         ar             7"
+}

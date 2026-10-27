@@ -1,0 +1,20 @@
+{
+  "source_hash": "e81fb22ddda9ec06017da2918aab17649dc12efde17502a0ec66ebb0e31dae1e",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/e8/e81fb22ddda9ec06017da2918aab17649dc12efde17502a0ec66ebb0e31dae1e.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:15:33Z",
+  "pages": [
+    {
+      "text": "i\n—  y 机\n(ca   ‘ on?    局\n|\nA\nMe    1                     |        -二\n)\n> |\n—_                       a\nSve ’             ¥\n本                      \\",
+      "mean_conf": 41.87,
+      "n_tokens": 24,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "i\n—  y 机\n(ca   ‘ on?    局\n|\nA\nMe    1                     |        -二\n)\n> |\n—_                       a\nSve ’             ¥\n本                      \\"
+}

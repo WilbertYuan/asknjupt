@@ -1,0 +1,20 @@
+{
+  "source_hash": "8ac50ee0d6b901d80d8ae6e29ddc1ee123dae2d0e93da8aad176d27de3bcbf1c",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/8a/8ac50ee0d6b901d80d8ae6e29ddc1ee123dae2d0e93da8aad176d27de3bcbf1c.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:59Z",
+  "pages": [
+    {
+      "text": "~.                                             ;                                                            3\n¥    oe     |\n      Se tb                                          wae\nJit ll                                            DA\nSN                bd                                   —                                            >                                 2\nNG                                                                                                                                               Tt  ivi\nre                                                                                                                                                  ie |\n“                                                                                              1   i  a\net     » hee            we      用\ny                           a                         Pane re    人           as                                }    Le     Z                   a,                        ‘\naw . a Fe... es     y\n         iA}  a ne        AL ah »             |  V                              1%  ily           a    一人                if\nLTT pee TT                                                                                         Wii\n=        -       1、一",
+      "mean_conf": 42.07,
+      "n_tokens": 71,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "~.                                             ;                                                            3\n¥    oe     |\n      Se tb                                          wae\nJit ll                                            DA\nSN                bd                                   —                                            >                                 2\nNG                                                                                                                                               Tt  ivi\nre                                                                                                                                                  ie |\n“                                                                                              1   i  a\net     » hee            we      用\ny                           a                         Pane re    人           as                                }    Le     Z                   a,                        ‘\naw . a Fe... es     y\n         iA}  a ne        AL ah »             |  V                              1%  ily           a    一人                if\nLTT pee TT                                                                                         Wii\n=        -       1、一"
+}

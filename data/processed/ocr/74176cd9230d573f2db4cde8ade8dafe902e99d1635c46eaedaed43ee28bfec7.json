@@ -1,0 +1,20 @@
+{
+  "source_hash": "74176cd9230d573f2db4cde8ade8dafe902e99d1635c46eaedaed43ee28bfec7",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/74/74176cd9230d573f2db4cde8ade8dafe902e99d1635c46eaedaed43ee28bfec7.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:09Z",
+  "pages": [
+    {
+      "text": "南京邮电大学\n。 易班学生工作站\n                  @ -@/                风\n一     ~~      <\n教育部易班发展中心\n2022年度",
+      "mean_conf": 75.05,
+      "n_tokens": 28,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "南京邮电大学\n。 易班学生工作站\n                  @ -@/                风\n一     ~~      <\n教育部易班发展中心\n2022年度"
+}

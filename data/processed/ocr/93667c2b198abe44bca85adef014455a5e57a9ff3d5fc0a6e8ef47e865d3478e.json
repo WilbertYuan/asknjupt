@@ -1,0 +1,20 @@
+{
+  "source_hash": "93667c2b198abe44bca85adef014455a5e57a9ff3d5fc0a6e8ef47e865d3478e",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/93/93667c2b198abe44bca85adef014455a5e57a9ff3d5fc0a6e8ef47e865d3478e.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:24:02Z",
+  "pages": [
+    {
+      "text": "COD Meh BinME (oC\n江苏省庆祝中华人团 《和国成立70周年成就展\n|        xx    a AA NAVE ae\n:    ‘        OD) LOMAS LY Oy OP\np 2's 4a & OL ke 1? ae 2 $966 VO\n| if         :   Oat    N 人    SS\n了 + ah a  RETANELH    4\n«  — — oa Bm ee  \"3",
+      "mean_conf": 40.33,
+      "n_tokens": 64,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "COD Meh BinME (oC\n江苏省庆祝中华人团 《和国成立70周年成就展\n|        xx    a AA NAVE ae\n:    ‘        OD) LOMAS LY Oy OP\np 2's 4a & OL ke 1? ae 2 $966 VO\n| if         :   Oat    N 人    SS\n了 + ah a  RETANELH    4\n«  — — oa Bm ee  \"3"
+}

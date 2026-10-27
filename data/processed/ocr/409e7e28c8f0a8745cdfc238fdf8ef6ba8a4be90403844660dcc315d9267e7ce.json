@@ -1,0 +1,20 @@
+{
+  "source_hash": "409e7e28c8f0a8745cdfc238fdf8ef6ba8a4be90403844660dcc315d9267e7ce",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/40/409e7e28c8f0a8745cdfc238fdf8ef6ba8a4be90403844660dcc315d9267e7ce.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:38Z",
+  "pages": [
+    {
+      "text": "nis |                                                       \"\n\n38      ) | 到区查询\n查询功能              | 外单位来款查询                                            |\nBIS                                   | 202048                                    \"| 到歌起始月份                                  |月                                        \"|\n命。 财务到款坦询       到吉结束年份             | 2020年              | 到歌结束月份             (108               |\n核销号               |                                                  |\n汇入单位包含全部字词\n汇入单位包含任意字词         |\n支出全阁范围 (元 )                    |                                 | 到(元)                            |\n是否包含已核销到吉          Oz 08            |                 |",
+      "mean_conf": 69.09,
+      "n_tokens": 114,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "nis |                                                       \"\n\n38      ) | 到区查询\n查询功能              | 外单位来款查询                                            |\nBIS                                   | 202048                                    \"| 到歌起始月份                                  |月                                        \"|\n命。 财务到款坦询       到吉结束年份             | 2020年              | 到歌结束月份             (108               |\n核销号               |                                                  |\n汇入单位包含全部字词\n汇入单位包含任意字词         |\n支出全阁范围 (元 )                    |                                 | 到(元)                            |\n是否包含已核销到吉          Oz 08            |                 |"
+}

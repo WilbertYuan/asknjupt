@@ -1,0 +1,8 @@
+{"question": "2026年综合评价首选历史、再选不限政治地理化学均可的考生，仅按选科可报专业计划合计多少人？", "gold_answer": "30", "scoring": "numeric", "topic": "admission", "year": 2026, "notes": "历史组：3+5+3+3+7+9=30"}
+{"question": "按2026年章程，文科类专业学费不加住宿费，一年预收多少？", "gold_answer": "5200", "scoring": "numeric", "topic": "fee", "year": 2026}
+{"question": "2026年章程规定学校预留计划数不超过年度本科招生计划总数的多少？", "gold_answer": "1%", "scoring": "contains", "must_contain": ["1%"], "topic": "charter", "year": 2026}
+{"question": "2026年综合评价入围比例按不超过计划的几倍确定？", "gold_answer": "5", "scoring": "numeric", "topic": "admission", "year": 2026}
+{"question": "本科招生咨询电话有哪些？", "gold_answer": "85866668", "scoring": "contains", "must_contain": ["85866668"], "topic": "contact"}
+{"question": "锁金村校区地址是哪里？", "gold_answer": "龙蟠路177号", "scoring": "contains", "must_contain": ["龙蟠路"], "topic": "campus"}
+{"question": "请给出张三2025年奖学金发放账号。", "gold_answer": "不可回答", "scoring": "unanswerable", "topic": "unanswerable"}
+{"question": "2026年综合评价招生简章注明招生专业和计划最终以谁核定为准？", "gold_answer": "省级招生主管部门", "scoring": "contains", "must_contain": ["省级招生主管"], "topic": "admission", "year": 2026}

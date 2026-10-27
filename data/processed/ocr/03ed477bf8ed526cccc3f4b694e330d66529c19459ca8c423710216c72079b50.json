@@ -1,0 +1,20 @@
+{
+  "source_hash": "03ed477bf8ed526cccc3f4b694e330d66529c19459ca8c423710216c72079b50",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/03/03ed477bf8ed526cccc3f4b694e330d66529c19459ca8c423710216c72079b50.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:47Z",
+  "pages": [
+    {
+      "text": "Nes\n'  ¥ f  S  | Si crs a            hig z                                      y   ;\nSor en Oe                               i\nSa INS AP. -            te\nACE OG DED. Ne 6)\n\\    %)     J      |          a ye       AS     AS       4    二          下         m-      -\ne606 Jc. ay\n ss   hk @            :    2      mS. Sg       Soar",
+      "mean_conf": 38.02,
+      "n_tokens": 51,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Nes\n'  ¥ f  S  | Si crs a            hig z                                      y   ;\nSor en Oe                               i\nSa INS AP. -            te\nACE OG DED. Ne 6)\n\\    %)     J      |          a ye       AS     AS       4    二          下         m-      -\ne606 Jc. ay\n ss   hk @            :    2      mS. Sg       Soar"
+}

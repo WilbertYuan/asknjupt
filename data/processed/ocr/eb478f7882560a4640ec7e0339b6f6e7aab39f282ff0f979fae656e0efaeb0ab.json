@@ -1,0 +1,20 @@
+{
+  "source_hash": "eb478f7882560a4640ec7e0339b6f6e7aab39f282ff0f979fae656e0efaeb0ab",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/eb/eb478f7882560a4640ec7e0339b6f6e7aab39f282ff0f979fae656e0efaeb0ab.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:34:20Z",
+  "pages": [
+    {
+      "text": "BI 外文化和攻洲万\n站动(2025年) “\na      >.\nerzciql\ni    lye &          区 有",
+      "mean_conf": 41.98,
+      "n_tokens": 21,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "BI 外文化和攻洲万\n站动(2025年) “\na      >.\nerzciql\ni    lye &          区 有"
+}

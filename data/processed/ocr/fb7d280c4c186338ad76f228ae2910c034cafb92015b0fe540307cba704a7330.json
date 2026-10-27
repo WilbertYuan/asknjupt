@@ -1,0 +1,20 @@
+{
+  "source_hash": "fb7d280c4c186338ad76f228ae2910c034cafb92015b0fe540307cba704a7330",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/fb/fb7d280c4c186338ad76f228ae2910c034cafb92015b0fe540307cba704a7330.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:56Z",
+  "pages": [
+    {
+      "text": "com\nGN =               AS     cs                       IF\n(Ni          入                 公\n=\" a                                   -      7\n小   =|     i}      a                 =                      -                      .          有\nan     xz           区元 |                  二                                                                 =",
+      "mean_conf": 41.82,
+      "n_tokens": 28,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "com\nGN =               AS     cs                       IF\n(Ni          入                 公\n=\" a                                   -      7\n小   =|     i}      a                 =                      -                      .          有\nan     xz           区元 |                  二                                                                 ="
+}

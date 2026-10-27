@@ -1,0 +1,20 @@
+{
+  "source_hash": "7004a684cbb76e0924b3b56c3ab7e7c093dce20a99c1fd411981a4c345481949",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/70/7004a684cbb76e0924b3b56c3ab7e7c093dce20a99c1fd411981a4c345481949.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:23Z",
+  "pages": [
+    {
+      "text": "ss和                                               aul\n'     a  ws                     b < “         二                   * SoC 由 en",
+      "mean_conf": 36.2,
+      "n_tokens": 14,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ss和                                               aul\n'     a  ws                     b < “         二                   * SoC 由 en"
+}

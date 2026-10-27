@@ -1,0 +1,20 @@
+{
+  "source_hash": "03def206d753d1a60bb17dbd759939e8994bcfe751f627a7d33d9a09b747dbc2",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/03/03def206d753d1a60bb17dbd759939e8994bcfe751f627a7d33d9a09b747dbc2.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:43Z",
+  "pages": [
+    {
+      "text": "¥ fy 5   ‘WV   4       tA\n4  YY   ae’  Wj.   ee\nSee et\n%   uy  r} eteeeritia?  A cy 了\n和       S009 Tie”\n   @ @ Je x Y       re o4ii    _",
+      "mean_conf": 28.48,
+      "n_tokens": 31,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "¥ fy 5   ‘WV   4       tA\n4  YY   ae’  Wj.   ee\nSee et\n%   uy  r} eteeeritia?  A cy 了\n和       S009 Tie”\n   @ @ Je x Y       re o4ii    _"
+}

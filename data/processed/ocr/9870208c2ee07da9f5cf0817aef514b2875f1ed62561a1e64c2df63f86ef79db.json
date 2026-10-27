@@ -1,0 +1,20 @@
+{
+  "source_hash": "9870208c2ee07da9f5cf0817aef514b2875f1ed62561a1e64c2df63f86ef79db",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/98/9870208c2ee07da9f5cf0817aef514b2875f1ed62561a1e64c2df63f86ef79db.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:58Z",
+  "pages": [
+    {
+      "text": "Losi pa “ 4: be be Dez AN Ii 由   既第31届南京读书月\n多   Zz    “3        Z      了    | 这\nKRMIFS- AMES\n2026年南京邮电大学主题阅读雅集\n\n   =  — =  ,          =\"\n> Cw wa        sy\n:    = sx   一一一 了 一一-一上一2  二     <  一 avin",
+      "mean_conf": 59.0,
+      "n_tokens": 66,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Losi pa “ 4: be be Dez AN Ii 由   既第31届南京读书月\n多   Zz    “3        Z      了    | 这\nKRMIFS- AMES\n2026年南京邮电大学主题阅读雅集\n\n   =  — =  ,          =\"\n> Cw wa        sy\n:    = sx   一一一 了 一一-一上一2  二     <  一 avin"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "651e40d94a84af33eab3afc85c334a48c7ff09cee6f1165868f1125000bbec10",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/65/651e40d94a84af33eab3afc85c334a48c7ff09cee6f1165868f1125000bbec10.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:16Z",
+  "pages": [
+    {
+      "text": "中行-南邮服务交流群党\nA 68)\n6 - on加\n r\ntne ee",
+      "mean_conf": 59.66,
+      "n_tokens": 18,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "中行-南邮服务交流群党\nA 68)\n6 - on加\n r\ntne ee"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "480696e9034e6808104a77a05b45a8e0628fbddb2c4ba9d1902808c560ddcec1",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/48/480696e9034e6808104a77a05b45a8e0628fbddb2c4ba9d1902808c560ddcec1.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:41Z",
+  "pages": [
+    {
+      "text": "ESS-       t        ae), 2 at eed   wt\n\nAe Ry    Mey,      OF\nrs re € 9  2   % ag eN ib, Vs bs is Shad\n— ae   goed | i a 1  _",
+      "mean_conf": 35.07,
+      "n_tokens": 32,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ESS-       t        ae), 2 at eed   wt\n\nAe Ry    Mey,      OF\nrs re € 9  2   % ag eN ib, Vs bs is Shad\n— ae   goed | i a 1  _"
+}

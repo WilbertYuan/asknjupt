@@ -1,0 +1,20 @@
+{
+  "source_hash": "2a32a2609e3cc6df322b09c6ab0c887d188824d25147ed71e160032a6b3c8d65",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/2a/2a32a2609e3cc6df322b09c6ab0c887d188824d25147ed71e160032a6b3c8d65.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:03Z",
+  "pages": [
+    {
+      "text": "Ps,\nte  Z 川避\nms,” MA 2)?\n“ ‘ .    ER  2...",
+      "mean_conf": 28.5,
+      "n_tokens": 13,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Ps,\nte  Z 川避\nms,” MA 2)?\n“ ‘ .    ER  2..."
+}

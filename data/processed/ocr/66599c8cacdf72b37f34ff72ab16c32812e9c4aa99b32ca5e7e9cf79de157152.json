@@ -1,0 +1,20 @@
+{
+  "source_hash": "66599c8cacdf72b37f34ff72ab16c32812e9c4aa99b32ca5e7e9cf79de157152",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/66/66599c8cacdf72b37f34ff72ab16c32812e9c4aa99b32ca5e7e9cf79de157152.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:37Z",
+  "pages": [
+    {
+      "text": "< 槛财云网客户鳞                      eve                 X BEEPS\n\n我的财务                《       我的到于\n\n查询功能         外单位来教查询\n\n\\  ]       @       fore)               开始日期         2020-10-27\n\nwee     ie\n\n结束日期            2020-10-27\nra\n\n最小金额\n\n最大金灾\n\n是否包含已核销到才项\n\n财务处公众号",
+      "mean_conf": 72.01,
+      "n_tokens": 64,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "< 槛财云网客户鳞                      eve                 X BEEPS\n\n我的财务                《       我的到于\n\n查询功能         外单位来教查询\n\n\\  ]       @       fore)               开始日期         2020-10-27\n\nwee     ie\n\n结束日期            2020-10-27\nra\n\n最小金额\n\n最大金灾\n\n是否包含已核销到才项\n\n财务处公众号"
+}

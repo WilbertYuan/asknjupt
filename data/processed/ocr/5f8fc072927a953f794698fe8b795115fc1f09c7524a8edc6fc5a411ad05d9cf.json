@@ -1,0 +1,20 @@
+{
+  "source_hash": "5f8fc072927a953f794698fe8b795115fc1f09c7524a8edc6fc5a411ad05d9cf",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/5f/5f8fc072927a953f794698fe8b795115fc1f09c7524a8edc6fc5a411ad05d9cf.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:31:58Z",
+  "pages": [
+    {
+      "text": "\"           -                                                                                                         本                            bi\n—_         7                                           —           .            on\n=     -    [\nva                            of",
+      "mean_conf": 31.02,
+      "n_tokens": 14,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "\"           -                                                                                                         本                            bi\n—_         7                                           —           .            on\n=     -    [\nva                            of"
+}

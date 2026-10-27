@@ -1,0 +1,20 @@
+{
+  "source_hash": "c187c0f29cf2eeeddd7bf094f4479d5ea69e5add5b99ca99b9785604d83232c9",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/c1/c187c0f29cf2eeeddd7bf094f4479d5ea69e5add5b99ca99b9785604d83232c9.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:02Z",
+  "pages": [
+    {
+      "text": "和\n      oo\nC=     /                 AT\n          -             和\na                 —_ iii]    |  中  |  I\n公            正         | 由    |  1    |\n7 a   =     有\nSH                NS\nNEES                     \\          »\n4        “an\n村、     ss.             rs)\n?            )",
+      "mean_conf": 48.72,
+      "n_tokens": 37,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "和\n      oo\nC=     /                 AT\n          -             和\na                 —_ iii]    |  中  |  I\n公            正         | 由    |  1    |\n7 a   =     有\nSH                NS\nNEES                     \\          »\n4        “an\n村、     ss.             rs)\n?            )"
+}

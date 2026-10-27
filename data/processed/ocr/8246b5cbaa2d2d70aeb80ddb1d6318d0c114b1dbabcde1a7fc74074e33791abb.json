@@ -1,0 +1,20 @@
+{
+  "source_hash": "8246b5cbaa2d2d70aeb80ddb1d6318d0c114b1dbabcde1a7fc74074e33791abb",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/82/8246b5cbaa2d2d70aeb80ddb1d6318d0c114b1dbabcde1a7fc74074e33791abb.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:48Z",
+  "pages": [
+    {
+      "text": "By    mA        f\n-            7 gi  .  P|\nO HUAWEI] Mate70 | XX. MAGE                                                a",
+      "mean_conf": 50.01,
+      "n_tokens": 15,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "By    mA        f\n-            7 gi  .  P|\nO HUAWEI] Mate70 | XX. MAGE                                                a"
+}

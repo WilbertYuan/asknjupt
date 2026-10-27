@@ -1,0 +1,20 @@
+{
+  "source_hash": "185ba55cfc798fec144d4b7c5b41643210d7a872dcf0c312772c711da3a7d64b",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/18/185ba55cfc798fec144d4b7c5b41643210d7a872dcf0c312772c711da3a7d64b.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:15Z",
+  "pages": [
+    {
+      "text": "4:28                     @ $30! S “ull Ga 96%\n\n{ BRARWA               *- | ©\n\n南京邮电大学\n\n还未扫描添加票据\n\n| — |    Y)\n扫描     提交",
+      "mean_conf": 71.98,
+      "n_tokens": 28,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "4:28                     @ $30! S “ull Ga 96%\n\n{ BRARWA               *- | ©\n\n南京邮电大学\n\n还未扫描添加票据\n\n| — |    Y)\n扫描     提交"
+}

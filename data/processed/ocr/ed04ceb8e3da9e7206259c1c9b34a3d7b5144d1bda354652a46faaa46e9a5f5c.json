@@ -1,0 +1,20 @@
+{
+  "source_hash": "ed04ceb8e3da9e7206259c1c9b34a3d7b5144d1bda354652a46faaa46e9a5f5c",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ed/ed04ceb8e3da9e7206259c1c9b34a3d7b5144d1bda354652a46faaa46e9a5f5c.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:54Z",
+  "pages": [
+    {
+      "text": "| ER\n4         Leyte at  “公民阅读活动周”既第31届丙? nik BI\na  M ig -  五洲同哈\n\n026年南京邮电大学主昌 BRAM <",
+      "mean_conf": 61.63,
+      "n_tokens": 42,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "| ER\n4         Leyte at  “公民阅读活动周”既第31届丙? nik BI\na  M ig -  五洲同哈\n\n026年南京邮电大学主昌 BRAM <"
+}

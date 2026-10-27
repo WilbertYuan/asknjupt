@@ -1,0 +1,20 @@
+{
+  "source_hash": "1f73603e5e1f1a60e66765d99604f8ab5062adb3ce3e92f287a45949cb93026d",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/1f/1f73603e5e1f1a60e66765d99604f8ab5062adb3ce3e92f287a45949cb93026d.jpeg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:15:07Z",
+  "pages": [
+    {
+      "text": "2                上\nI Ai                                   车 ;\nj           .                                                            和          TAN AN \\\n1 HAN Wy ik   ti}                                 4                                         7  ae   i Wt  | vf\ni               一                     Vey\nhae  Al                                    Wah i?  WW\n‘   3   7                                                      ;\n“4                                            af    =       ‘                                             Ps ¢\n}    2                     7                              4  ;     :                   :\nJS                               1   >             A     &                          ;                                  ;\n-  a                          ;      at                         fe”                  s       3                         P   7\nN                      ¥    }                    f\n,                                       :    N\n中    艺                  f    x             上                                        ‘4\n4               fi  x     ‘           P     ¢\nSS                   ,                    .",
+      "mean_conf": 38.7,
+      "n_tokens": 87,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "2                上\nI Ai                                   车 ;\nj           .                                                            和          TAN AN \\\n1 HAN Wy ik   ti}                                 4                                         7  ae   i Wt  | vf\ni               一                     Vey\nhae  Al                                    Wah i?  WW\n‘   3   7                                                      ;\n“4                                            af    =       ‘                                             Ps ¢\n}    2                     7                              4  ;     :                   :\nJS                               1   >             A     &                          ;                                  ;\n-  a                          ;      at                         fe”                  s       3                         P   7\nN                      ¥    }                    f\n,                                       :    N\n中    艺                  f    x             上                                        ‘4\n4               fi  x     ‘           P     ¢\nSS                   ,                    ."
+}

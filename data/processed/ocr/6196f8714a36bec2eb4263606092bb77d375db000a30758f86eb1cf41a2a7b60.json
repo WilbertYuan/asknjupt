@@ -1,0 +1,20 @@
+{
+  "source_hash": "6196f8714a36bec2eb4263606092bb77d375db000a30758f86eb1cf41a2a7b60",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/61/6196f8714a36bec2eb4263606092bb77d375db000a30758f86eb1cf41a2a7b60.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:46Z",
+  "pages": [
+    {
+      "text": "— Se                  x                            si\n本           ae                  |    ae\nZN                                          =                             j\n4          4         :\n> eS\n4      SS ett,    »  2                                       DNS\nuns    VBS      SPATE. SS                                         -     人    |\nhe ag   :   eS        x       区                                 =          Na\n上",
+      "mean_conf": 46.32,
+      "n_tokens": 38,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "— Se                  x                            si\n本           ae                  |    ae\nZN                                          =                             j\n4          4         :\n> eS\n4      SS ett,    »  2                                       DNS\nuns    VBS      SPATE. SS                                         -     人    |\nhe ag   :   eS        x       区                                 =          Na\n上"
+}

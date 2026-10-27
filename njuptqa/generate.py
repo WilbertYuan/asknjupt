@@ -1,0 +1,743 @@
+from __future__ import annotations
+
+import json
+import re
+import subprocess
+from decimal import Decimal, ROUND_HALF_UP
+from pathlib import Path
+from typing import Any
+
+from . import config
+from .compute import execute, format_computed
+from .ground import (
+    REFUSE,
+    exam_minutes,
+    ground_answer,
+    named_award,
+    policy_meeting,
+    policy_revision,
+    program_credit,
+    refuse_reason,
+)
+from .db import init_db
+from .retrieve import QueryPlan, _clauses, _independent_keywords, _match_terms, content_keywords, retrieve
+from .util import focus_text, utc_now
+
+NUM_TOKEN = re.compile(r"-?\d+(?:\.\d+)?")
+
+
+def build_pack(question: str, plan: QueryPlan, hits: list[dict[str, Any]], computed: dict[str, Any] | None) -> str:
+    parts = [f"问题：{question}"]
+    if plan.years:
+        parts.append(f"年份约束：{plan.years}")
+    if plan.academic_year:
+        parts.append(f"学年：{plan.academic_year}")
+    if computed:
+        if computed.get("error"):
+            parts.append(f"程序计算限制：{computed['error']}")
+        else:
+            parts.append("程序已完成的确定性计算结果（数字以这里为准）：")
+            parts.append(json.dumps({k: computed[k] for k in computed if k not in {"matched", "labs", "facts", "used_rules", "facts_used"}}, ensure_ascii=False, default=str)[:1800])
+            if computed.get("formula"):
+                parts.append(f"公式：{computed['formula']}")
+    parts.append("证据：")
+    budget = 1800
+    used = 0
+    for i, h in enumerate(hits[:8], 1):
+        snippet = (h.get("text") or "")[:420]
+        block = f"[{i}] {h.get('doc_title')} | {h.get('url')} | {h.get('locator')}\n{snippet}"
+        if used + len(block) > budget:
+            break
+        parts.append(block)
+        used += len(block)
+    parts.append("要求：先写结论。引用用[编号]。不要编造证据中没有的数字。")
+    return "\n".join(parts)
+
+
+def llama_available() -> bool:
+    return config.MODEL_GGUF.exists()
+
+
+def run_llama(prompt: str) -> str:
+    if not llama_available():
+        raise FileNotFoundError(f"模型不存在: {config.MODEL_GGUF}")
+    llama_bin = config.resolve_llama_bin()
+    cmd = [
+        llama_bin,
+        "-m",
+        str(config.MODEL_GGUF),
+        "--jinja",
+        "--reasoning",
+        "off" if not config.ENABLE_THINKING else "on",
+        "--temp",
+        str(config.LLAMA_TEMP),
+        "--top-k",
+        str(config.LLAMA_TOP_K),
+        "--top-p",
+        str(config.LLAMA_TOP_P),
+        "-c",
+        str(config.LLAMA_CTX),
+        "-n",
+        str(config.LLAMA_N_PREDICT),
+        "-ngl",
+        str(config.LLAMA_NGL),
+        "-st",
+        "-sys",
+        config.SYSTEM_PROMPT,
+        "-p",
+        prompt if "/no_think" in prompt or config.ENABLE_THINKING else f"{prompt}\n/no_think",
+        "--no-display-prompt",
+        "-no-cnv",
+    ]
+    proc = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
+    out = (proc.stdout or "").strip()
+    if not out:
+        err = (proc.stderr or "")[-800:]
+        raise RuntimeError(f"{llama_bin} 无输出: {err}")
+    out = re.sub(r"<think>.*?</think>", "", out, flags=re.S)
+    junk_prefixes = (
+        "build ",
+        "model ",
+        "modalities ",
+        "using custom",
+        "available commands",
+        "/exit",
+        "/regen",
+        "--no-conversation",
+        "please use llama",
+        "Loading model",
+        "Exiting",
+        "▄",
+        "▀",
+        "██",
+    )
+    lines = []
+    for line in out.splitlines():
+        s = line.strip()
+        if not s or s.startswith(junk_prefixes) or set(s) <= set("▄▀█-|/\\ "):
+            continue
+        if s.startswith(">") and not s.startswith("> 问题"):
+            continue
+        lines.append(s.lstrip("> ").strip())
+    out = "\n".join(lines).strip()
+    # if the model echoed the whole pack, keep only the last short paragraph
+    if "程序已完成的确定性计算结果" in out and "结论" in out:
+        out = out[out.rfind("结论") :]
+    return collapse_repeats(out)
+
+
+def collapse_repeats(text: str) -> str:
+    text = text.strip()
+    if not text:
+        return text
+    chunks = [c.strip() for c in re.split(r"(?=^(?:答案|结论)[：:])", text, flags=re.M) if c.strip()]
+    uniq = []
+    for c in chunks:
+        if c not in uniq:
+            uniq.append(c)
+    if uniq:
+        text = uniq[0]
+    lines, seen = [], set()
+    for line in text.splitlines():
+        s = line.strip()
+        if not s or s in seen:
+            continue
+        seen.add(s)
+        lines.append(s)
+    return "\n".join(lines).strip()
+
+
+def refs_from_hits(hits: list[dict[str, Any]], extra_docs: list[dict[str, Any]] | None = None) -> str:
+    items = []
+    seen = set()
+    for d in extra_docs or []:
+        url = d.get("url")
+        if url and url not in seen:
+            seen.add(url)
+            items.append(f"{d.get('title') or ''} {url}".strip())
+    for h in hits:
+        url = h.get("url")
+        title = h.get("doc_title") or ""
+        loc = h.get("locator") or ""
+        key = url or loc
+        if not url or key in seen:
+            continue
+        seen.add(key)
+        items.append(f"{title} {url} #{loc}".strip())
+    return " | ".join(items[:6])
+
+
+def validate_numbers(answer: str, computed: dict[str, Any] | None) -> tuple[str, bool]:
+    if not computed or computed.get("error"):
+        return answer, True
+    keys = []
+    for k in ("sum", "percent", "coef", "ratio"):
+        if k in computed and computed[k] is not None:
+            keys.append((k, computed[k]))
+    if not keys:
+        return answer, True
+    ok = True
+    for _, val in keys:
+        # accept int-equal or 2-decimal equal
+        as_int = str(int(val)) if float(val) == int(val) else None
+        as_2 = f"{float(val):.2f}"
+        as_raw = str(val)
+        if not any(x and x in answer.replace(",", "") for x in (as_int, as_2, as_raw, as_2.rstrip("0").rstrip("."))):
+            ok = False
+            break
+    if ok:
+        return answer, True
+    fallback = format_computed(computed)
+    if fallback:
+        return fallback, False
+    return answer, False
+
+
+PERSONAL_MARKERS = ("加权平均", "个人成绩", "发放账号", "银行卡", "身份证号", "张三", "某本科生", "某同学")
+
+
+PROSE_CUES = (
+    "奖学金", "助学金", "绩点", "运动员", "重修", "就业", "届", "落实率",
+    "生均", "藏书", "新增图书", "万册", "仪器设备", "购置", "立项", "参加学生", "传真", "联系方式", "三牌楼",
+    "末位", "同分", "结算", "多退少补",
+)
+
+
+_CMP = re.compile(
+    r"^(?P<left>.+?)比(?P<right>.+?)(?P<how>多|少|大|高|低)(?:多少|几)(?P<unit>平方米|万册|学分|人|元|名|个)?"
+)
+_GAP = re.compile(
+    r"^(?P<left>.+?)(?:和|与)(?P<right>.+?)相差(?:多少|几)(?P<unit>平方米|万册|学分|人|元|名|个)?"
+)
+
+
+def _first_amount(text: str) -> Decimal | None:
+    for match in re.finditer(r"(?<![\d.])\d+(?:\.\d+)?", text or ""):
+        raw = match.group()
+        if raw.isdigit() and 1990 <= int(raw) <= 2035:
+            continue
+        return Decimal(raw)
+    return None
+
+
+def _side_question(clause: str, unit: str) -> str:
+    clause = clause.strip(" ，,。；")
+    if not re.search(r"多少|是几", clause):
+        clause += "是多少" + unit
+    return clause
+
+
+def _show_diff(value: Decimal) -> str:
+    if value == value.to_integral():
+        return str(int(value))
+    return format(value, "f").rstrip("0").rstrip(".")
+
+
+def _gap_parts(question: str) -> tuple[str, str, str] | None:
+    """“相差”从最后一个连接词切开。专业名里的“与”不能当成两个问题。"""
+    matched = re.search(r"相差(?:多少|几)(?P<unit>平方米|万册|学分|人|元|名|个)?", question.strip())
+    if not matched:
+        return None
+    head = question.strip()[: matched.start()].rstrip("，, ")
+    for mark in ("，和", "，与", "和", "与"):
+        cut = head.rfind(mark)
+        if cut > 0:
+            return head[:cut], head[cut + len(mark) :], matched.group("unit") or ""
+    return None
+
+
+def compare_question(question: str) -> str | None:
+    """把“A比B多多少”拆成两个已经会答的子问题再相减。子问题不再进入比较，避免套娃。"""
+    gap = _gap_parts(question.strip())
+    matched = None if gap else _CMP.search(question.strip())
+    if gap:
+        left, right, unit = gap
+    elif matched:
+        unit = matched.group("unit") or ""
+        left = matched.group("left")
+        right = matched.group("right")
+    else:
+        return None
+    left = _side_question(left, unit)
+    right = _side_question(right, unit)
+    if not re.search(r"20\d{2}", right):
+        year = re.search(r"20\d{2}(?:年|届|版|级)", left)
+        if year:
+            right = year.group(0) + right
+    major = re.search(r"([\u4e00-\u9fff]{2,18})(?:专业|英才班|强化班)", left)
+    if major and not re.search(r"专业|英才班|强化班", right):
+        # “四年按优势专业”里的专业不是专业名，只留下最后一个名称。
+        name = re.split(r"[按的年]", major.group(1))[-1]
+        if 2 <= len(name) <= 12:
+            right = name + major.group(0)[len(major.group(1)) :] + "，" + right
+    if "学分" in left and "学分" not in right:
+        right += "的毕业总学分"
+    type_words = ("国家专项", "地方专项", "艺术类", "综合评价", "省外计划", "普通类")
+    right_has_type = any(word in right for word in type_words)
+    for key in (
+        "江苏普通类", "江苏省招生计划表", "综合评价招生简章", "省外计划",
+        "就业质量报告", "学生手册", "教学质量报告", "地方专项", "艺术类", "普通类",
+    ):
+        if key in type_words and right_has_type:
+            continue
+        if key in left and key not in right:
+            right = key + "，" + right
+    if min(len(left), len(right)) < 4:
+        return None
+    how = matched.groupdict().get("how") if matched else None
+    left_ans = answer_question(left, use_llm=False, allow_compare=False)["answer"]
+    right_ans = answer_question(right, use_llm=False, allow_compare=False)["answer"]
+    left_n = _first_amount(left_ans)
+    right_n = _first_amount(right_ans)
+    if left_n is None or right_n is None:
+        return None
+    diff = abs(left_n - right_n) if how is None else (right_n - left_n if how in {"少", "低"} else left_n - right_n)
+    if diff < 0:
+        return None
+    return f"{_show_diff(diff)}。"
+
+
+def _missing_cohort(question: str) -> str | None:
+    if not re.search(r"20\d{2}届", question):
+        return None
+    if not any(k in question for k in ("多少人", "多少名", "就业率", "落实率", "总人数", "一共")):
+        return None
+    years = re.findall(r"20\d{2}", question)
+    if not years:
+        return None
+    conn = init_db()
+    clause = " OR ".join("title LIKE ?" for _ in years)
+    n = conn.execute(
+        f"SELECT COUNT(*) FROM documents WHERE title LIKE '%就业%' AND ({clause})",
+        tuple(f"%{y}%" for y in years),
+    ).fetchone()[0]
+    conn.close()
+    if n:
+        return None
+    return REFUSE + "已入库的就业质量报告里没有这一届。"
+
+
+def _round_half_up(value: float, places: int) -> str:
+    quantum = Decimal("1") if places <= 0 else Decimal("0." + "0" * places)
+    return format(Decimal(str(value)).quantize(quantum, rounding=ROUND_HALF_UP), "f")
+
+
+def _label_hit(label: str, side: str) -> bool:
+    label = re.sub(r"^[和与及其中]", "", label)
+    if not label or not side:
+        return False
+    if label in side or side in label:
+        return True
+    return len(side) >= 4 and side[-4:] in label or len(label) >= 4 and label[-4:] in side
+
+
+def _pick_count(label: str, pairs: list[tuple[str, str]]) -> float | None:
+    best: tuple[int, float] | None = None
+    for name, value in pairs:
+        if _label_hit(name, label):
+            if best is None or len(name) > best[0]:
+                best = (len(name), float(value))
+    return None if best is None else best[1]
+
+
+def stated_arithmetic(question: str) -> str | None:
+    """题目自己已经给出了运算数时，直接算。不覆盖反推、收费和招生计划。"""
+    if any(k in question for k in ("反推", "折算系数", "生师比", "学费", "住宿", "上浮", "专业组")):
+        return None
+    if "综合评价" in question and "综合成绩" not in question and "投档分" not in question:
+        return None
+    if "综合成绩" in question and "公式" not in question and "计算公式" not in question:
+        gaokao = re.search(r"投档分\s*(\d+(?:\.\d+)?)", question)
+        test = re.search(r"测试成绩\s*(\d+(?:\.\d+)?)", question)
+        if gaokao and test:
+            val = float(gaokao.group(1)) / 750 * 80 + float(test.group(1)) / 100 * 20
+            return _round_half_up(val, 2)
+    text = focus_text(question)
+    listed = re.search(r"分别为\s*([0-9]+(?:\s*[、,，]\s*[0-9]+){1,})", text)
+    base = re.search(r"总(?:面积|人数|数|和)?(?:为|是)\s*(\d+(?:\.\d+)?)", text)
+    if listed and base and any(k in text for k in ("合计", "之和", "比例", "占比")):
+        parts = [float(x) for x in re.findall(r"\d+(?:\.\d+)?", listed.group(1))]
+        denom = float(base.group(1))
+        total = sum(parts)
+        bits: list[str] = []
+        if any(k in text for k in ("合计", "之和")):
+            bits.append(_round_half_up(total, 0 if total == int(total) else 2))
+        if denom and any(k in text for k in ("比例", "占比", "百分之")):
+            bits.append(_round_half_up(total / denom * 100, 2))
+        if bits:
+            return " ".join(bits)
+    if listed and any(k in text for k in ("合计", "一共", "总数")) and not base:
+        parts = [float(x) for x in re.findall(r"\d+(?:\.\d+)?", listed.group(1))]
+        if len(parts) >= 2:
+            total = sum(parts)
+            return _round_half_up(total, 0 if total == int(total) else 2)
+    pairs = re.findall(r"([\u4e00-\u9fff]{2,16})(\d+(?:\.\d+)?)(?:人|个|项|份)", text)
+    rel = re.search(r"([\u4e00-\u9fff]{2,12})占([\u4e00-\u9fff]{2,12}?)(?:的|之|比例)", text)
+    if pairs and rel and any(k in text for k in ("比例", "占比", "百分之")):
+        left, right = rel.group(1), rel.group(2)
+        num = den = None
+        for label, value in pairs:
+            label = re.sub(r"^[和与及]", "", label)
+            if _label_hit(label, left):
+                num = float(value)
+            if _label_hit(label, right):
+                den = float(value)
+        if num and den:
+            return _round_half_up(num / den * 100, 2)
+    senior = re.findall(r"([\u4e00-\u9fff]{2,8})(\d+)人", text)
+    if len(senior) >= 3 and "比例" in text and any("专任" in name for name, _ in senior):
+        base_n = next(float(n) for name, n in senior if "专任" in name)
+        part = sum(float(n) for name, n in senior if "专任" not in name)
+        if base_n:
+            return _round_half_up(part / base_n * 100, 2)
+    divided = re.search(r"([\u4e00-\u9fff]{2,12})数除以([\u4e00-\u9fff]{2,12})数", text)
+    if divided:
+        labeled = re.findall(r"([\u4e00-\u9fff]{2,16})(\d+(?:\.\d+)?)(?:人|项|个|份)", text)
+        left = _pick_count(divided.group(1), labeled)
+        right = _pick_count(divided.group(2), labeled)
+        if left and right:
+            val = left / right
+            if any(k in text for k in ("率", "比例", "占比", "百分之")):
+                val *= 100
+            return _round_half_up(val, 2)
+    if "相差" in text or "相差多少" in question:
+        decs = [float(x) for x in re.findall(r"\d+\.\d+", text)]
+        if len(decs) == 2:
+            return _round_half_up(abs(decs[0] - decs[1]), 2)
+        nums = []
+        for raw in re.findall(r"\d+(?:\.\d+)?", text):
+            if raw.isdigit() and 1990 <= int(raw) <= 2035:
+                continue
+            nums.append(float(raw))
+        if len(nums) == 2:
+            return _round_half_up(abs(nums[0] - nums[1]), 2)
+    if "其中" in text and any(k in text for k in ("总数", "复算", "占比")):
+        tail = text.split("其中", 1)[1]
+        bits = re.findall(r"([\u4e00-\u9fff]{2,8})(\d+(?:\.\d+)?)项", tail)
+        if len(bits) >= 2:
+            total = sum(float(n) for _, n in bits)
+            out = [_round_half_up(total, 0 if total == int(total) else 2)]
+            share = re.search(r"([\u4e00-\u9fff]{2,8})(?:获奖)?占比", text)
+            if share and total:
+                for name, n in bits:
+                    if _label_hit(name, share.group(1)):
+                        out.append(_round_half_up(float(n) / total * 100, 2))
+                        break
+            return " ".join(out)
+    if "个人" in text and "团队" in text and "总数" in text:
+        personal = team = 0.0
+        for seg in re.split(r"[、，]", text):
+            found = re.search(r"(\d+(?:\.\d+)?)\s*项", seg)
+            if not found:
+                continue
+            n = float(found.group(1))
+            if "团队" in seg:
+                team += n
+            else:
+                personal += n
+        if personal and team:
+            return f"{_round_half_up(personal, 0)} {_round_half_up(personal + team, 0)}"
+    if any(k in text for k in ("合计", "一共", "总数")) and ("、" in text):
+        chunks = re.findall(r"(\d+(?:\.\d+)?)(?:\s*项)", text)
+        if len(chunks) >= 3:
+            total = sum(float(x) for x in chunks)
+            return _round_half_up(total, 0 if total == int(total) else 2)
+    return None
+
+
+def composite_score(question: str, hits: list[dict[str, Any]]) -> str | None:
+    """问句给出三项原始分，权重从已检索到的测评办法里读，不把权重写死。"""
+    if "综合素质测评" not in question or "基准分" not in question:
+        return None
+    nums = []
+    for raw in re.findall(r"\d+(?:\.\d+)?", focus_text(question)):
+        if raw.isdigit() and 1990 <= int(raw) <= 2035:
+            continue
+        nums.append(float(raw))
+    if len(nums) < 6:
+        return None
+    pairs = list(zip(nums[0::2], nums[1::2]))[:3]
+    blob = re.sub(r"\s+", "", " ".join((h.get("text") or "") for h in hits[:6]))
+    weights = [int(x) for x in re.findall(r"[×✕]\s*(\d+)", blob)]
+    chosen = None
+    for i in range(len(weights) - 2):
+        window = weights[i : i + 3]
+        if sum(window) == 100:
+            chosen = window
+            break
+    if not chosen:
+        return None
+    total = 0.0
+    for (left, right), weight in zip(pairs, chosen):
+        if not right:
+            return None
+        total += left / right * weight
+    return _round_half_up(total, 2)
+
+
+def cohort_ratio(question: str, hits: list[dict[str, Any]]) -> str | None:
+    if not all(k in question for k in ("本科生", "研究生", "比例")):
+        return None
+    blob = re.sub(r"\s+", "", " ".join((h.get("text") or "") for h in hits[:4]))
+    under = re.search(r"普通本科生(\d+)人", blob)
+    master = re.search(r"全日制硕士研究生(\d+)人", blob)
+    doctor = re.search(r"全日制博士研究生(\d+)人", blob)
+    if not (under and master and doctor):
+        return None
+    den = int(master.group(1)) + int(doctor.group(1))
+    if not den:
+        return None
+    return _round_half_up(int(under.group(1)) / den, 2)
+
+
+def programmatic_answer(
+    question: str,
+    plan: QueryPlan,
+    hits: list[dict[str, Any]],
+    computed: dict[str, Any] | None,
+    allow_compare: bool = True,
+) -> str:
+    credit = program_credit(question)
+    if credit:
+        return credit
+    revised = policy_revision(question)
+    if revised:
+        return revised
+    meeting = policy_meeting(question)
+    if meeting:
+        return meeting
+    minutes = exam_minutes(question)
+    if minutes:
+        return minutes
+    award = named_award(question)
+    if award:
+        return award
+    reason = refuse_reason(question)
+    if reason:
+        return reason
+    if allow_compare:
+        compared = compare_question(question)
+        if compared:
+            return compared
+    stated = stated_arithmetic(question)
+    if stated:
+        return stated
+    extra = composite_score(question, hits) or cohort_ratio(question, hits)
+    if extra:
+        return extra
+    missing = _missing_cohort(question)
+    if missing:
+        return missing
+    library_page = "图书馆" in question and "教学质量报告" not in question
+    if any(k in question for k in PROSE_CUES) and not library_page:
+        grounded = ground_answer(question)
+        if grounded and not _answer_uses_question(question, grounded):
+            grounded = None
+        if grounded:
+            return grounded
+    formatted = format_computed(computed) if computed else None
+    if formatted:
+        return formatted
+    if computed and computed.get("error"):
+        if hits:
+            return f"资料不足或无法完成该项计算：{computed['error']}。相关原文见检索证据，不能给出伪精确结果。"
+        return f"资料不足：{computed['error']}。"
+    if not hits:
+        return "当前已采集资料中未检索到可支持该回答的证据。不能确定答案。"
+    keywords = [kw for kw in plan.keywords if kw and len(kw) >= 2]
+    ranked = sorted(hits, key=lambda h: h.get("score") or 0, reverse=True)
+    best = ranked[0]
+    for hit in ranked:
+        blob = (hit.get("text") or "") + (hit.get("title") or "")
+        if any(kw in blob for kw in keywords):
+            best = hit
+            break
+    raw_text = best.get("text") or ""
+    # 点名文件已经按问句挑过句子。结论数字只从这一句取，后补的上下文不能把年份抢走。
+    if best.get("focused"):
+        headline = best.get("headline") or raw_text
+        lead = _lead_number(question, headline)
+        if lead != headline:
+            snippet = f"{lead.split('。', 1)[0]}。{raw_text}"
+        else:
+            snippet = raw_text
+    else:
+        snippet = _lead_number(question, _best_sentence(raw_text, keywords, question))
+    return f"{snippet}\n（摘自 {best.get('doc_title') or ''} {best.get('url') or ''}）"
+
+
+def _answer_uses_question(question: str, text: str) -> bool:
+    """捷径答出来的长句子，至少要含问句自己的一段话。对不上就交回原文检索。"""
+    if not text or len(text) <= 24:
+        return True
+    if "资料不足" in text[:12] or "不能确定" in text[:16]:
+        return True
+    body = re.sub(r"按[^，。？?]{2,48}[，,]?", "", question, count=1)
+    body = re.sub(r"20\d{2}年\d{0,2}月?", "", body)
+    han = "".join(ch for ch in body if "\u4e00" <= ch <= "\u9fff")
+    for drop in ("什么", "多少", "哪些", "如何", "怎么", "是否", "哪一", "哪年", "何时", "几个", "分别", "具体", "可以", "南邮", "南京邮电大学"):
+        han = han.replace(drop, "")
+    flat = re.sub(r"[\s“”\"「」『』]", "", text)
+    grams = [
+        han[i : i + size]
+        for size in (4, 3)
+        for i in range(max(0, len(han) - size + 1))
+    ]
+    grams = [g for g in grams if g not in {"南京邮电", "邮电大学", "学校章程"}]
+    if not grams:
+        return True
+    return any(g in flat for g in grams)
+
+
+def _lead_number(question: str, snippet: str) -> str:
+    """点名文件之后问多少、哪一年时，把贴着问句用词的那个数字放到句首。"""
+    if "按" not in question or not any(k in question for k in ("多少", "几", "哪一", "何时", "哪年", "何年")):
+        return snippet
+    terms = [t for t in _match_terms(content_keywords(question)) if len(t) >= 2]
+    # 「2023—2024学年」里的 2023、023 不是要报的人数，别让它们把年份抬到句首。
+    if any(k in question for k in ("多少", "几")):
+        years = set(re.findall(r"(?:19|20)\d{2}", question))
+        terms = [t for t in terms if not (t.isdigit() and any(t in year for year in years))]
+    if not terms:
+        return snippet
+    matches = list(re.finditer(r"\d+(?:\.\d+)?", snippet))
+    if not matches:
+        return snippet
+    # 一个词只记在离它最近的数字上，避免前一个数字把后半句的说法也算进去。
+    scores = [0.0] * len(matches)
+    for term in terms:
+        start = 0
+        while True:
+            pos = snippet.find(term, start)
+            if pos < 0:
+                break
+            start = pos + len(term)
+            end = pos + len(term)
+            nearest, best_d = None, 11
+            for i, match in enumerate(matches):
+                if end <= match.start():
+                    dist = match.start() - end
+                elif pos >= match.end():
+                    dist = pos - match.end()
+                else:
+                    dist = 0
+                if dist < best_d:
+                    best_d, nearest = dist, i
+            if nearest is not None:
+                scores[nearest] += len(term)
+    best_num, best_score = None, 0
+    for match, score in zip(matches, scores):
+        after = snippet[match.end() : match.end() + 1]
+        before = snippet[match.start() - 1 : match.start()]
+        after2 = snippet[match.end() : match.end() + 2]
+        raw = match.group()
+        if after in "册人元个分倍项门名万%％":
+            score += 4
+        # 「表3-1」「第3条」里的序号不是要报的人数。
+        if raw.isdigit() and int(raw) < 100 and (
+            before in "表第-." or (after2[:1] in "-." and after2[1:2].isdigit())
+        ):
+            score -= 6
+        if raw.isdigit() and 1990 <= int(raw) <= 2035 and not any(k in question for k in ("哪一", "何时", "哪年", "几年")):
+            score -= 3
+        # 1.1 这种条款号要压低；3.6万这种数量要留下。
+        if "." in raw and after != "万" and float(raw) < 30 and not any(k in question for k in ("比例", "绩点", "百分之", "系数")):
+            score -= 3
+        # 「59分与60分」点了两个分数，就报这两个，不报表头上的 90。
+        named = {
+            num
+            for a, b in re.findall(r"(\d+(?:\.\d+)?)[分人元个]?(?:与|和)(\d+(?:\.\d+)?)", question)
+            for num in (a, b)
+        }
+        if raw in named:
+            score += 12
+        if score > best_score:
+            best_score = score
+            best_num = match.group()
+    if not best_num or snippet.startswith(best_num):
+        return snippet
+    return f"{best_num}。{snippet}"
+
+
+def _best_sentence(text: str, keywords: list[str], question: str = "") -> str:
+    """截含关键词的那一句，而不是文档开头。"""
+    raw = (text or "").strip()
+    parts = _clauses(raw)
+    if not parts:
+        return raw[:400]
+    asks_day = any(k in question for k in ("哪一天", "哪天", "几月几日"))
+    best_i, best_n = 0, -1.0
+    for i, sent in enumerate(parts):
+        kept = _independent_keywords(sent, _match_terms(keywords))
+        n = len(kept) * 10 + sum(len(kw) for kw in kept)
+        if asks_day and re.search(r"\d", sent) and "月" in sent and "日" in sent:
+            n += 50
+        if re.match(r"^第[一二三四五六七八九十百0-9]{1,3}章", sent) and len(sent) < 40:
+            n *= 0.3
+        if n > best_n:
+            best_n, best_i = n, i
+    chunk = parts[best_i]
+    if best_i + 1 < len(parts) and len(chunk) < 180:
+        chunk += parts[best_i + 1]
+    return chunk[:480]
+
+
+def answer_question(question: str, use_llm: bool | None = None, allow_compare: bool = True) -> dict[str, Any]:
+    plan, hits = retrieve(question)
+    computed = execute(plan)
+    pack = build_pack(question, plan, hits, computed)
+    use_llm = llama_available() if use_llm is None else use_llm
+    raw = ""
+    used_llm = False
+    llm_error = None
+    prog = programmatic_answer(question, plan, hits, computed, allow_compare=allow_compare)
+    personal = any(m in question for m in PERSONAL_MARKERS)
+    has_computed = bool(computed and not computed.get("error") and format_computed(computed))
+    # 0.6B is kept for open-ended phrasing; computed/拒答以程序为准
+    if use_llm and llama_available() and not personal and not has_computed:
+        try:
+            raw = run_llama(pack)
+            used_llm = True
+        except Exception as e:
+            raw = ""
+            used_llm = False
+            llm_error = str(e)
+    final = prog
+    if raw:
+        junk = any(k in raw for k in ("▄", "Loading model", "--no-conversation", "████", "_must", "_mine"))
+        repetitive = raw.count("结论") > 1 or raw.count("答案") > 1
+        usable = bool(raw.strip()) and raw.strip() not in {"答案：", "结论："} and not raw.strip().startswith("_")
+        final, num_ok = validate_numbers(raw, computed)
+        if junk or repetitive or not usable or (not num_ok and has_computed):
+            final = prog
+        if has_computed:
+            final = prog
+
+    extra_docs = (computed or {}).get("documents") if computed else None
+    refs = refs_from_hits(hits, extra_docs)
+    rec = {
+        "question": question,
+        "answer": final,
+        "refs": refs,
+        "plan": plan.__dict__,
+        "computed": computed,
+        "used_llm": used_llm,
+        "evidence_n": len(hits),
+    }
+    conn = init_db()
+    conn.execute(
+        """INSERT INTO run_traces(question, plan_json, evidence_json, answer, refs, created_at)
+           VALUES(?,?,?,?,?,?)""",
+        (
+            question,
+            json.dumps(plan.__dict__, ensure_ascii=False),
+            json.dumps([{"url": h.get("url"), "locator": h.get("locator")} for h in hits], ensure_ascii=False),
+            final,
+            refs,
+            utc_now(),
+        ),
+    )
+    conn.commit()
+    conn.close()
+    rec["llm_error"] = llm_error if not used_llm else None
+    return rec

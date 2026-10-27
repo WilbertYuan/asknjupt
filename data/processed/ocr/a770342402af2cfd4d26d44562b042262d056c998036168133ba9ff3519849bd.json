@@ -1,0 +1,20 @@
+{
+  "source_hash": "a770342402af2cfd4d26d44562b042262d056c998036168133ba9ff3519849bd",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/a7/a770342402af2cfd4d26d44562b042262d056c998036168133ba9ff3519849bd.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:29Z",
+  "pages": [
+    {
+      "text": "|         | ray       1]\nBet! Cin | Saas Se)\nJ  a   LAO ON   际  时 b> il     ihe   ee    SS    于   :  Ai ey 45       —~   { i ;\nNe er ON a\n一      GPE LS - a he     .         Ne ao,       Nw ,      要           a Se\n‘ Z               '           ae | Bo    y             |",
+      "mean_conf": 39.97,
+      "n_tokens": 55,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "|         | ray       1]\nBet! Cin | Saas Se)\nJ  a   LAO ON   际  时 b> il     ihe   ee    SS    于   :  Ai ey 45       —~   { i ;\nNe er ON a\n一      GPE LS - a he     .         Ne ao,       Nw ,      要           a Se\n‘ Z               '           ae | Bo    y             |"
+}

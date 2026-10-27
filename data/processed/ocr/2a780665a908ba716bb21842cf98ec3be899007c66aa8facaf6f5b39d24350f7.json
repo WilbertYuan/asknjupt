@@ -1,0 +1,20 @@
+{
+  "source_hash": "2a780665a908ba716bb21842cf98ec3be899007c66aa8facaf6f5b39d24350f7",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/2a/2a780665a908ba716bb21842cf98ec3be899007c66aa8facaf6f5b39d24350f7.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:51Z",
+  "pages": [
+    {
+      "text": "or  | Ais                                 了各   MY   A   fi   - a  ue\n人     F       —     Ve A   var Ww Ye      i “ie\n\na = i onl\n‘a 3) tes",
+      "mean_conf": 37.13,
+      "n_tokens": 28,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "or  | Ais                                 了各   MY   A   fi   - a  ue\n人     F       —     Ve A   var Ww Ye      i “ie\n\na = i onl\n‘a 3) tes"
+}

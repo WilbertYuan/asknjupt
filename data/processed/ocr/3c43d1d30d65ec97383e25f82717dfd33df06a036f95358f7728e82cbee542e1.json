@@ -1,0 +1,20 @@
+{
+  "source_hash": "3c43d1d30d65ec97383e25f82717dfd33df06a036f95358f7728e82cbee542e1",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/3c/3c43d1d30d65ec97383e25f82717dfd33df06a036f95358f7728e82cbee542e1.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:44Z",
+  "pages": [
+    {
+      "text": "|          1 we            aa，       一一      2     a ¢     ~-\n|             .     a |   1 |   |               om    — E     — =\n7        4      Tos\n.      afl             .    D>               Ming NS                                                           1\n   as                 7\"         Z    <          s                                  了用   一\n      本所本 ES ”|                 PP\n>        \\ Ja eS                oe    3                       =         .      |",
+      "mean_conf": 42.4,
+      "n_tokens": 55,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "|          1 we            aa，       一一      2     a ¢     ~-\n|             .     a |   1 |   |               om    — E     — =\n7        4      Tos\n.      afl             .    D>               Ming NS                                                           1\n   as                 7\"         Z    <          s                                  了用   一\n      本所本 ES ”|                 PP\n>        \\ Ja eS                oe    3                       =         .      |"
+}

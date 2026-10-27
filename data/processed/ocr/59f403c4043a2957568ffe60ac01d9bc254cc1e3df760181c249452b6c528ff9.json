@@ -1,0 +1,20 @@
+{
+  "source_hash": "59f403c4043a2957568ffe60ac01d9bc254cc1e3df760181c249452b6c528ff9",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/59/59f403c4043a2957568ffe60ac01d9bc254cc1e3df760181c249452b6c528ff9.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:10Z",
+  "pages": [
+    {
+      "text": "Dp                        一           .\nA ii                             _ ©&                           :\n| gee BAS ey _\nSa ee, See\n=           f     ‘ «4  人          = 7 六     . =\nwe                                            NE ~     |",
+      "mean_conf": 30.77,
+      "n_tokens": 30,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Dp                        一           .\nA ii                             _ ©&                           :\n| gee BAS ey _\nSa ee, See\n=           f     ‘ «4  人          = 7 六     . =\nwe                                            NE ~     |"
+}

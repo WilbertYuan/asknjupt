@@ -1,0 +1,20 @@
+{
+  "source_hash": "80348ff55a8b43757bb2ef68343263cf9ee04938b218eb659c6e1ce402fe5186",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/80/80348ff55a8b43757bb2ef68343263cf9ee04938b218eb659c6e1ce402fe5186.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:06Z",
+  "pages": [
+    {
+      "text": "ta SS: a:\n| .       Ty Ua of      |    aie\noe St at, ae\n\n     cS    7        SS,   |      '  a 本\n\nSs      =       4 “| a we\nN     WY       ig             NW es     4",
+      "mean_conf": 39.09,
+      "n_tokens": 33,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ta SS: a:\n| .       Ty Ua of      |    aie\noe St at, ae\n\n     cS    7        SS,   |      '  a 本\n\nSs      =       4 “| a we\nN     WY       ig             NW es     4"
+}

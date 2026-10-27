@@ -1,0 +1,20 @@
+{
+  "source_hash": "8bc8114c1fdb8fb634afd4c48c5c00f1390217901f575d1972144b713f4aba93",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/8b/8bc8114c1fdb8fb634afd4c48c5c00f1390217901f575d1972144b713f4aba93.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:41Z",
+  "pages": [
+    {
+      "text": "1      Pen\nee\n\nSEE             gg\n——————             a || oe\n\n_————        |     HII    eee fl =\n af 3 Ss yar. 1\nJ             =是     fates            ee      ey      we      wat |     a         |\n\n|             =                         SS",
+      "mean_conf": 43.37,
+      "n_tokens": 34,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "1      Pen\nee\n\nSEE             gg\n——————             a || oe\n\n_————        |     HII    eee fl =\n af 3 Ss yar. 1\nJ             =是     fates            ee      ey      we      wat |     a         |\n\n|             =                         SS"
+}

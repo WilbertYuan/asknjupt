@@ -1,0 +1,20 @@
+{
+  "source_hash": "383fba4a3c187406c7a2f71cc297f2dacb951c436021acc57bc870d58a2a5524",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/38/383fba4a3c187406c7a2f71cc297f2dacb951c436021acc57bc870d58a2a5524.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:50Z",
+  "pages": [
+    {
+      "text": "el    |                L\n\n>            —_ r= |   -    Aa\n南京邮电大学              SES\n\n 7   图书馆、 档案馆党总支  Bes\n\nEb     第一支部   \\ 区",
+      "mean_conf": 64.74,
+      "n_tokens": 30,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "el    |                L\n\n>            —_ r= |   -    Aa\n南京邮电大学              SES\n\n 7   图书馆、 档案馆党总支  Bes\n\nEb     第一支部   \\ 区"
+}

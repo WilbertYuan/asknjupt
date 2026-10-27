@@ -1,0 +1,20 @@
+{
+  "source_hash": "71334eca59e4508bf682f92622f7fabba1dfaa90af02d6cd20ea448f99875a76",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/71/71334eca59e4508bf682f92622f7fabba1dfaa90af02d6cd20ea448f99875a76.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:50Z",
+  "pages": [
+    {
+      "text": "¢                                                         yup Aly   [     |\n|\nor             a”          党 - 7 a                     uy &       4     时\nx            = aa\nJ    |                   e   &      ;    a”                          >-      ted                   |         ;             到\n     1                                     an                 一\n——wa\nN     S                             有",
+      "mean_conf": 41.33,
+      "n_tokens": 37,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "¢                                                         yup Aly   [     |\n|\nor             a”          党 - 7 a                     uy &       4     时\nx            = aa\nJ    |                   e   &      ;    a”                          >-      ted                   |         ;             到\n     1                                     an                 一\n——wa\nN     S                             有"
+}

@@ -1,0 +1,262 @@
+{
+  "source_hash": "7f3fbee215a81da84ea204d9fa565f08ec728339f21894be95dc35ac10636635",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/7f/7f3fbee215a81da84ea204d9fa565f08ec728339f21894be95dc35ac10636635.pdf",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T11:32:43Z",
+  "pages": [
+    {
+      "text": "关于开展在宁部属、省属高校财务人员 2025\n年度继续教育培训工作的通知\n在宁部属、省属高校财务人员:\n根据江苏省财政厅《关于开展 2025 年年度省级会计人员继\n续教育的通知》(苏财办会 (2025) 2 号) 要求，在宁部属、省\n属高校及教育厅事业单位财务人员 2025 年度继续教育培训,江\n苏省教育会计学会仍委托南京师范大学会计学院承办。现就培\n训有关事项通知如下:\n一、参训人员\n在宁部属、省属高校及教育厅事业单位全体在岗会计人员\n二、培训时间、地点\n时间:\n第一期; 5月7日-5月9日;\n第二期; 5月14 日-5月16 日;\n第三期; 10 月 15 日-10 月 17 日;\n£4 9:00---11:30 ”下午 13:30---16:30\n地点; 南京师范大学随园校区贻芳报告厅",
+      "mean_conf": 88.88,
+      "n_tokens": 232,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-p1"
+    },
+    {
+      "text": "三、培训内容\n本次培训将围绕高校财务预算的编制与执行、如何持续推\n进内部控制建设、固定资产全生命周期管理、人工智能在财务\n分析中的运用、财务人员心理调适与压力管理、财务人员科研\n写作与科研课题申报等内容开展培训。\n四、培训费用\n1、培训费标准: 300 元/人\n2、缴费方式: 银行汇款\n收款账户户名: 南京师范大学\n账号;43 1011419001081051\n开户行， 工商银行宁海路分行\n《请注明转账单位名称或缴费人姓名)\n五、报名事宜\n1、信息采集。根据省财政厅要求，全国会计人员统一服务\n平台已开始运行,所有人都需要登录全国平台并完成信息采集，\n否则无法查到培训信息。请各单位通知参训人员及时进行信息\n采集。采集流程见附件 3。\n2、报名时间。请于2025年4月30 日前将报名登记表 (CS\n开票信息) 发送至nju83598286@njnu. edu. cn 邮箱。\n3、发票开具。为提高工作效率，请在填写报名表时一并填\n写开票信息，以便培训时能领到发票。培训发票可在参训期间\n到南京师范大学随园校区金陵女子学院教学楼 (205%) 201",
+      "mean_conf": 90.56,
+      "n_tokens": 297,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 2,
+      "locator": "ocr-p2"
+    },
+    {
+      "text": "室领取。\n4、培训考勤。根据省财政厅要求，每次上课请携带身份证\n签到考勤。考勤记录需要提交给省财政厅。\n联系人: 魏老师、王老师、徐老师 电话: 025-83598286\nhz\nwah gee Be\nC5",
+      "mean_conf": 84.99,
+      "n_tokens": 61,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 3,
+      "locator": "ocr-p3"
+    },
+    {
+      "text": "附件 1: ESE. BRIS AR 2025 年度继续教育报名表\n单位 〈(盖章) :\n\nGRA:                                         单位指定联系人及电话:\n\n1、第一期: 5月7日-9日; 第二期: 5月14日-16 日; 第三期: 10月15 日-17日\n\n2、根据省财政厅要求，全国会计人员统一服务平台已开始运行,所有人都需要登录全国平台并\n完成信息采集，否则无法查到培训信息。\n\n3、参加江苏省教育会计学会 2025 年 3 月中和旬在厦门国家会计学院主办 “高校财务管理高级\n研修班”和“高校资产管理高级研修班”的人员，可免修本次培训。请在备注栏中注明，不需\n要缴费。",
+      "mean_conf": 89.58,
+      "n_tokens": 170,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 4,
+      "locator": "ocr-p4"
+    },
+    {
+      "text": "附件 2: 开具发票示例:\n1、车同一单位只需开具一张发票，请按下表格式填写:\n序号 |学校名| 部 | 报名| 免 | 需要 | 开票 | 发票备注 | 纳税 | 开 | 开 | 联 | 联系\n称   门 |人数 | 修 | 缴费 | 抬头 | 栏是否需 | 人识 | 票 | 票 | 系 | 方式\n名    人 | 人数    要标明部 | 别号 | 金 | 数 | 人\n称    数       门名称    额 | 量\n1 |南京师| (|20 11 1319  南京| (不用|111 | 285 ]}1 |张|188\n范大学 | 不         师范 | 写)   111 | 0    三 | 888\n用         大学     111       888\n写)               111       88\n2、若同一单位需要开具多张发票，请按下表格式填写:\n序号 | 学校名 | 部 | 报名| 免 | 需要 | 开票 | 发票备注 | 纳税 | 开 | 开 | 联 | 联系\n称  门 | 人数 | 修 | 缴费 | 抬头 | 栏是否需 | 人识 | 票 | 票 | 系 | 方式\n名    人 | 人数    要标明部 | S| 金 | 数 | 人\n称    数       门名称    额 | 量\n1 |南京师|财 |5         标明财务   750 |1 |张 |188\n范大学 | 务          处         三 | 888\n处                        888\n88\n2 |南京师| 人 17  1               1 | a | 188\n范大学 | 事                   三 | 888\n处                        888\n88\n3 |南京师                  120 |1 | 3 | 188\n范大学 | 资               0   三 | 888\n处                        888\n88\n合计          1 |19           285 | 3\nPL LPP LT fT ere\n注; 报名人数指报名表中的总人数，总人数是免修人数、缴费人数之和",
+      "mean_conf": 88.64,
+      "n_tokens": 358,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 5,
+      "locator": "ocr-p5"
+    },
+    {
+      "text": "a.     =!   ae             a       =\n全国会计人员统一服务管理平台操作指南\n1. 会计人员注册\n全国会计人员统一服务管理平台网址 (图 1-1) W: https://ausm.mof.gov.cn\n/index; 点击右上角\"*注册\"按钮，进入到注册操作页面 (图 1-2)\n@ 全合计人员统一服务管理平台\nCe Eo\n4                                               |\nl@itAREsee\nShAmaeRe            °              PAPAS KOI          °              AS MORBW,         oo\naie    °    AltA   °     AltAmemen   °o\nawaitunn 厂     iaRiaago)   °\nInQRPEsae\nMOALAMAE   °   ms和asINnaw ©   moana =O\n| Res Sa AT ee eS |\n(Bi 1-1)\nsea,                               anes\nsun               sana                | um ATR\nEn                   LATE RLOMAA, ARTI\nnn                              ac\nLaONIATORUIR, {OK\n.              nae               Paine\n，    ont @i| amen           Amatpamnalacauaavbmniaal。\n一-一一一一| cower, eam nano\ntone              veanen\n=\n(图1-2)",
+      "mean_conf": 58.39,
+      "n_tokens": 149,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 6,
+      "locator": "ocr-p6"
+    },
+    {
+      "text": "1.1.注册信息填写\n在注册页面首先选择证件类型，分为内地居民身份证、港澳居民来往内地通\n行证、台湾居民来往大陆通行证以及护照 (外国) (图 1-3) 。在选择完证件类型\n后输入证件号码、真实姓名、密码、确认密码以及手机号。在进行姓名填写时，\n如果名字中包含生僻字，点击输入框右侧生个字选择对应生僻字 (图 1-4) 。\n* 证件类型\n内地居民身份证\n港澳居民来往内地通行证\n台湾居民来往大陆通行证\n护照 〈外国)\n| 析TDV子付，轴天人与子咱，纪(了于，行味儒三5\n(图1-3)\n\nARF RA                                           x\nBBE\nfe pele fe fe fe fa\n[fe | at | te | |e | | |\nPate fe palate fel",
+      "mean_conf": 78.8,
+      "n_tokens": 198,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 7,
+      "locator": "ocr-p7"
+    },
+    {
+      "text": "侠) 全国会计人员统一服务管理平台\n可                          TAMA          magn\n* cs                             © MM AGerMVIRIEUUES                      |\n.               rr                         © an和NA\n© ma和Mn         到KFRXe\n(图2-1)\n2. 1. 登录\n在登录页面中，输入证件号码或者手机号 (注册时所填写的，两者都可以登\n录) 。填写完密码以及验证码后点击登录。登录成功后返回到首页并且页面右上\n角显示会计人员脱敏后的姓名 (图 2-2) 。\n@ 全人人员统一服务管理平台              EEC\naaa\n                            AAR              °                SPABWOUKEE           °                APSR           °\neRe       站       OtARURMARD     °o        会it人员葡名忆民      而\nmiRetAARFAN     o        aires      而\n1单位用户肛务包理\nMOSTAR     而      aostassnaE ©      nese = =O\n(Bl 2-2)\n2. 2. $e\n在登录页面点击登录按钮右下方的忘记密码 AA, 进入到找回密码页面 (图\n2-3).",
+      "mean_conf": 70.8,
+      "n_tokens": 191,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 8,
+      "locator": "ocr-p8"
+    },
+    {
+      "text": "inUHHIXIRe                                    Hem\nanaw               Rn                 aennnmstatfemTAaa mm |\n四                   Ea     LERGHONTTGHENS, HH\n™                                              mune                                                 LEREMRIE, OnE\nI\nsos                                            and                                              DUO\n   crise, ashe nse\n(Bi 2-3)\n填写证件号码、真实姓名、新密码、确认新密码、手机号以及验证码后点击\n确认重置密码。填写信息请与注册时所填信息一致，否则重置不成功。\n2. 3. 实名认证\n在信息采集前必须进行实名认证, 会计人员在首页点击信息采集时，如果未\n进行实名认证会在页面自动弹出实名认证窗口 (图 2-4) 。可以直接点击按钮进\n行支付宝实名认证，使用本人账号支付宝扫码即可完成实名认证。",
+      "mean_conf": 81.85,
+      "n_tokens": 149,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 9,
+      "locator": "ocr-p9"
+    },
+    {
+      "text": "用户实名认证\nER    快捷一键认证”一一一一\n真实姓名: |      【点击修改了\n证件号码: 。 37Oxxxkxxxxkxx5016\n特别提示:\n1.本认证只用作实名认证，不获取个人隐私信息。\n2.请确保支付宝已实名认证，且与当前登录用户姓名、证件号码一致。\n3.不能通过载图或拍照形式发送并识别二维码，请直接扫描页面二维码。\n人4请使用电脑浏览器 (谷歌、火狐、360浏览器极速模式) 进行操作。\n无法使用支付宝实名认证? 点击 【线上实名认证\n会 返回首页\n(图2-4)\n无法使用支付宝进行实名认证，可以在弹窗下方点击线上实名认证。线上实\n名认证窗口需要上传证件人像面、证件非人像面、手持证件人像面以及选择所在\n省市 (图 2-5) 。请仔细阅读文件上传要求，按要求上传证件文件。",
+      "mean_conf": 88.79,
+      "n_tokens": 224,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 10,
+      "locator": "ocr-p10"
+    },
+    {
+      "text": "人\n用户线上实名认证                                             x\nSIF LIGER:\nTAEFHRUGARA, BRR, AF 10Kb,\n2S BLE TEMADE. RIO. FIERA ME=HSH.\nSMI, [IMA RWS AM NIESE,\nTEACH              SIRE A Satin             ASA\n&         a       &         =       &         ql\n-—+§             e+                人\n-\nE         =!)       c         lJ       L         可]\nIssa               gS               IESE\n* EER:               “所在市:\n一\n(图 2-5)\n一\n言息采集\n登录成功后,点击首页的会计人员信息采集进入到信息采集页面，或者会计\n信息服务下的信息采集 (图 3-1) 。\n@ 人合计人员统一服务管理平台                     ors\nVeit A mags TE\n   Pp one ty   °    SU MARRe Ram   o\nSchone     °    PL AeA I THE   So     AARe mia    o\nBSAA ARAN   °     会讲学习    o\nROP Ie\nOAH ATRSIE   °    muritAmsiensm 全    mocinawneRinan ©",
+      "mean_conf": 52.47,
+      "n_tokens": 147,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 11,
+      "locator": "ocr-p11"
+    },
+    {
+      "text": "会计人员信息服务 /       wees      /       reser      1 maeiAnAREA /       RES\n     a     = |     固\n信息采信                  信息变更                  信息吉询                mine\n(图 3-1)\n3.1. 采集须知\n信息采集首先进入的是采集须知页面, 主要包括采集范围选择以及材料准备\n提示 (图 3-2) 。请仔细阅读并选择自己所属的采集范围。材料准备为完成信息\n采集所需的材料，提前准备以便顺利完成信息采集 。\n© or xs            seems\n! o2 ie             (> aitAR oRBATEIM .\nCHA, SINIREE 《中全人Je合计法)》 RULE, BIORUX, HOM, Gee. wibmotorTiaNR (LA下IE他] 中\n0 oan           ADSI. LSI ESA LITE AB.\nSAA SIEM SH TAOS: GER: 1、出的: 2, AR: 3. BIE, MEMO AW IEOFRA MOM: 4, a\n© os THE          A. SURQHOISRE: 5, MASOROTRIBITININOH: 6, SOSHAECRBIRENAM: 7, SHIH: RAH AMNDIE\nBSBE: 8, ASIII,\n© os atmtemn           ‘eeie ptt atom ae . ASHIMAR, BFRTAR,\nERSNUDIOXAL MBCRIOTHN, MRMETMEHEE,\nEBRSH. SHBSEROTIN. MERMNNTESItTIT.\n0 cs sna\n() FASE (BAAN SMEATON, He AORMTIDDAR,\nCS) SATIMMURS ait ALLURE TAR,\n(FY) ATID LTONURE it Li ema LAA,\nHip HOE (—) 3B CO) WARE, MEN ARAL, AAAI, Mit, AUR RAIMI, HRSA\nASPALEREEE GIA.\netait\n1, SRE. 72 GRAIOURUG ES. PER: 白 (HLF). EE. ARS. jpoliict. AFIOKBENF200K8, RHRAF OF\n(295°413po, HAN, UATE, FIEM RUIEIN. RFS RSF LIS.\n2, ABT\n3. THEME) IFO, MICH)\n4. BWUNEVEAE IMR —MOOMIVAIE (ELIFEOLO, AIO)\n(B 3-2)\n3.2. 基本信息\n采集须知页点击下一步进入到基本信息页。在基本信息页中需要上传清晰、",
+      "mean_conf": 50.45,
+      "n_tokens": 279,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 12,
+      "locator": "ocr-p12"
+    },
+    {
+      "text": "完整、近期的标准证件照片，并且要求不小于 10KB，像素>=295*413px，请仔\n细阅读上传照片框右侧的说明。基本信息中有效身份证件类型、有效身份证件号\n码、姓名、性别、出生年月以及手机号码为注册时所填信息，基本信息页不可修\n改。在填写完整基本信息后点击下一步，进入到教育经历页。\n人\n(图3-3)\n\n3. 3.教育经历\n\n在教育经历页中,点击新增进行教育经历的信息采集。新增教育经历弹窗包\n括培养方式、学校名称、学历、学位 (填写已取得证书的学历、学位) 、所学专\n业、入学时间、毕业时间、学历证书编号、学位证书编号以及根据所填信息上传\n必要的附件 (图 3-4) 。\n\n在填写完教育经历信息后页面表格会回显填写完的信息, 可以进行查看详情、\n编辑以及删除操作 (图 3-5) 。",
+      "mean_conf": 92.33,
+      "n_tokens": 245,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 13,
+      "locator": "ocr-p13"
+    },
+    {
+      "text": "REED                                                                                         x\n* SAR                                                 * PRB (SE)\nWBMWARAT                                       MACAIQE RE\n‘SH                                                     ‘FQ\nViBCF                                           请选生字位\n“月学后业\nTia T We\n“APH                                                 * 毕业时间\n口 Avon)                                            71 毕业鸣癌\n学历证书纳号                                         FOEBAS\nAMASHTHAD                         MNAFOTHSTD\n(图3-4)\nBanas                                                                                       x\nLSQTARVIEKMSH. FQ. ACLAWMBFHY. ME “—MPRAF .\n2FHFUABLASROA GRBIUIVFHFAAB, ASRADMMt SVMIRBIVAGKINKFHAS,\n教育经历\neT KO    MA     SOR       RoW       AHA       AVE       eh       4     Wate",
+      "mean_conf": 41.66,
+      "n_tokens": 71,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 14,
+      "locator": "ocr-p14"
+    },
+    {
+      "text": "(图 3-5)\n\n3.4. 工作经历\n\n教育经历页面点击下一步进入到工作经历页, 在工作经历页中点击新增进行\n工作经历的信息采集 (图 3-6) 。选择工作开始时间和工作结束时间，工作结束\n时间可以选择至今, 如果选择至今则需要上传本单位统一社会信用代码证明。 在\n填写完单位名称、统一社会信用代码、单位类型、所属行业、工作单位地址、工\n作单位电话后选择是否有会计工作经历。若选择是需要新增本单位会计工作经历。\n会计专业职务为非必填, 如果填写了会计专业职务需要选择会计专业职务聘任时\n间 (会计专业职务聘任时间不能早于工作开始时间) 以及上传聘任证明。\n\n在填写完工作经历信息后页面表格会回显填写完的信息, 可以进行查看详情、\n编辑以及删除操作 (图 3-7) 。",
+      "mean_conf": 93.63,
+      "n_tokens": 231,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 15,
+      "locator": "ocr-p15"
+    },
+    {
+      "text": "新增工作经历信息                                                             x\n* 工作开始时各                             * 工作结来时间\n| Co Lrersensta                               | 日 Cersesentl                       | 至人\n> 单位名称                               * 搞_社会信用代码\n| TAA CHO ER                     | SHO MSIE                |\n* 单位兴弄                               * 所局行业\n| 恒弦香单位针济兴轩                   ~ | | FUROR                  ~\n* 工作单位地让                            工作单位电话\n| mia mites Sit | | BQ Themen\n信计人员岗位层圾           从惠会计工作岗位           ARMM       APES           操作\n\nMFR\n\n会计专业奴务                             会计专业想务聘任四问\n| stmaseeHe Lanes                       v | |B strewwansseqecngie",
+      "mean_conf": 63.13,
+      "n_tokens": 126,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 16,
+      "locator": "ocr-p16"
+    },
+    {
+      "text": "LRG\nWIN AI SoRER\n工作JI   2019.07.05        工作IST人     RD\n全位名你     INDKER         SREB    123456769087456333\nARIA         DOR FRQALO              PMG             LAUGH, SION AEA Y\nTemmconant   ACT Aes ARERR    工作aa证\nANANTH: 及\nATTA BOON     从由会由工作交位     会让工作刀和妈时间     AIHA\nREAR           WA, SMH, BHR, ANSSEREE 。 2019-11-09            >\n会由5业由全                              AHR                    AAPM AOL)                                           2019-11-22\n工作档万\nWAT WIRE — Ga — MALATE) mo MING NINO Levys)  wey\nax MOSH —-12345678908745... MULTE. MIMOIM... 2019.07.05 。 KO\nos ha\n(图3-7)\n3. 5.会计管理部门\n工作经历页面点击下一步，进入到会计管理部门页面 (图 3-8) 。在会计管\n理部门页选择所在会计管理部门省、市、区县。关系到后续信息采集审核等一系\n列操作，请认真核对后，勾选\"承诺所提供信息真实有效\"后提交审核。",
+      "mean_conf": 62.33,
+      "n_tokens": 186,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 17,
+      "locator": "ocr-p17"
+    },
+    {
+      "text": "4. 信息变更\n登录成功后, 点击首页的会计人员信息采集然后点击信息采集右侧的信息变\n更进入到信息变更页面，或者会计人员信息服务下的信息变更 (图 4-1) 。\n@ 外信人员统一最务管理平台                 Ls sss\n1会计人员服和外更\n   BAB MOX AME   °    SALA,   °\nBie    看    AUAB BORA   °    AHARRSD   oOo\nWWAAH RAM   站    Aira)   看\n1香习用户加务全忌\nOTA A RIES  oo   moritAnniine ©   masihininonka人 故\nome AIT                   会让人员信息变页                  mm两\nnone\nSS\naitARMOH = /   mR   7   RKO   Se 7   UE\n       2 2\n{BOURIE        位gwm        位it       AROXGRONY\n(图4-1)\n4.1. 基本信息变更\n会计人员仅在信息采集审核通过状态下允许变更。信息变更默认进入到基本\n信息变更页面, 点击左侧的教育经历或者工作经历可以跳转到教育经历变更或者\n工作经历变更。基本信息变更页面展示了会计人员的基本信息，部分信息脱敏显\n示 (图 4-2) 。点击\"进行变更\"操作按钮，进入到编辑信息弹窗 (图4-3) 。",
+      "mean_conf": 72.62,
+      "n_tokens": 250,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 18,
+      "locator": "ocr-p18"
+    },
+    {
+      "text": "5                      会计人员信息变更                     nm\ncerry             mone\nO aoe            amamemtre wna          aamaaasmpttcoFhma\nae  IE从\n|       ue preaeagnn    nan sTomensor6\n© oxunvy)\namy) 2080.0022    anne at (aunaman\n    aus       ua\nWe    aa\nad ubbeuTRIEC Ta416\norzo\nzs\n(Bl 4-2)\nBARRE\nBaye       HOBRAOE          aes       37085016\naE        Skee              FSS       156****5126\nan         B               出生人月       2000.04-22\n“st              “RE                fem,\n| SENDER             “|  IRB              || amanrmonm\nnine\n| us “|| osmY || wee   S| 123456\n20%\n| waunneamlasm        |\n去\n(图4-3)\n变更保存后，可在基本信息表格上方，当前信息的右侧，点击变更记录查看\n已提交的基本信息变更记录 (图 4-4) 。点击详情可以查看详细信息，并且变更\n信息会标红显示。",
+      "mean_conf": 60.83,
+      "n_tokens": 135,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 19,
+      "locator": "ocr-p19"
+    },
+    {
+      "text": "GURU: BED           REMARMBAMIRD Bole a\nkY WARN      HARD     Town     Taye     wens)      四人\n1 Beye      mez     AEROS    eR       2024-07-08 170602 itt\n变更详情                                             X\n变更前                      变更后\n三4区型   内地回民身份证          | tess   AERA        7\nProrat]    B7oetsee48815016          | wees   somnunsyig\n姓名     oer                | 姓名     ake\n性则     男                  性别     男\n出生年月    2000-04-22              出生年月    2000-04-22\n6面肌      SPELL 《全中拭预备娩员)               eH      TASCA (GehHeREHE)\nFuk     Bid                 Fuk     mek\nStH                        oo)\nPG    156**#*5126              ASH    156**#*5126\navn    UR TTT FR-1234         这TRUE址   UR FONT F-23456\n名组                        ea\n(图4-4)\n4 2.教育经历变更\n点击左侧教育经历，进入到教育经历变更页面 (图 4-5) 。页面显示信息采\n集时新增的教育经历，可以进行查看详情、变更、变更删除的操作。也可以继续\n新增教育经历，但新增教育经历时间不得和已新增的教育经历时间交叉。",
+      "mean_conf": 67.87,
+      "n_tokens": 194,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 20,
+      "locator": "ocr-p20"
+    },
+    {
+      "text": "加 ahae        aasseicao WAZ      unvasauantuaran ss\n|         —_\names     Tae aos aoe eins anh\nOa ines\n(图4-5)\n变更保存后，可在教育经历表格上方，当前信息的右侧，点击变更记录查看\n已提交的教育经历变更记录 (图 4-6) 。信息包括审核方式、审核状态、变更类\n型、变更方式以及提交时间。 点击详情可以查看详细信息，并且变更信息会标红\n显示。\n训荫管图乱昌让侦议下! We          CG AM RM WAMEL KD K felt\nRA  SR\neS UREN     WIRD     ain     Bit     Weore     wer\n1     ATaR                ate                ROH          BR                  2024-07-08 17:39:19      om\n(图4-6)",
+      "mean_conf": 67.86,
+      "n_tokens": 136,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 21,
+      "locator": "ocr-p21"
+    },
+    {
+      "text": "4.3. 工作经历变更\n\n点击左例工作经历，进入到工作经历变更页面 (图 4-7) 。页面显示信息采\n集时新增的工作经历，可以进行查看详情、变更、变更删除的操作。也可以继续\n新增工作经历，但新增工作经历时间不得和已新增的工作经历时间交叉。\n和      neansgeurs seal     Weanemcmmiee ren aD\n© cman   1 ems nase taoeoazs-。 ema anpa。 agorog ss\n\n(图4-7)\n\n变更保存后，可在工作经历表格上方，当前信息的右侧，点击变更记录查看\n已提交的工作经历变更记录 (图 4-8) 。信息包括审核方式、审核状态、变更类\n型、变更方式以及提交时间。 点击详情可以查看详细信息，并且变更信息会标红\n显示。\n四 os+ee        to emat       GaunsmenmuasrRnTD",
+      "mean_conf": 84.96,
+      "n_tokens": 188,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 22,
+      "locator": "ocr-p22"
+    },
+    {
+      "text": "Mus: Ri\nREA                                    Bt)\ner eAotA           2019-07-05 7                   工作开外时间           2019-07-05\nAesRUAD         E>                      Lenape (a)         Eo        7\n印但名积           MOSK                   MERE           MQEK\nRE      123456789087456333  -       Pete RAR      123456789087456336\nNOE           pT                 Fa(onet           Fa\n所尿行业            assem, OVI BERS     所同行业  {eB Sth, aE\nTrent        ska terme     本    工作单但地址        senescent tnt\nLeeman                                 Leven ens\nRFR         ata                    Ae         ta\nStreet)        2019-11-22                                       PP By EAA)        2019-11-22\n变更前(会计工作经历)\n是省有全计工作租历:   是\n会计人加内位司级         ARAL AHO         会计工作开娩时问         ALR\nARTA            WA, Set, RR, (HET 。 2019-11-09             =>\n变更后【会计工作经历)\nBAA LH:   是\n会计人加岗位局级         ATATLABQ         AHL         atin\nRAAB            WA, Kit, BAR, HRSRTE 。 2019-11-09             ES\n(图4-8)\n5.，属地调转\n登录成功后, 点击首页的会计人员属地关系调转进入到会计人员信息调转页\n面，或者会计人员信息服务下的属地关系调转 (图5-1)。",
+      "mean_conf": 60.62,
+      "n_tokens": 198,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 23,
+      "locator": "ocr-p23"
+    },
+    {
+      "text": "ake Ase Beeare                  cen\nlait Blas mR\nASTA RRR   °   PAPER THT   °    |\nARUN    o    AAEA SUCRE   o     ANAALBIR   °o\nRAL Hern   o     St asBLTED   下\nLara mR\nmORitARaRE ©   anatARKMEE ©   aurinammRTan ©\n合计人员人了加务 /  5  /  went  1 mitra /  dy\n        G 日\n{SORE        qoqusnse        cnn)       基准\n(B 5-1)\n5. 1. 调转申请\n在会计人员信息调转页面中点击\"调转申请\"按钮，进入到调转申请页面 (图\n5-2)，填写调转信息。首先要选择调转原因，选择不同的调转原因需要填写不同\n类型的信息。调转原因分为工作单位所在地变动、学籍所在地变动以及户籍所在\n地或居住地变动三种类型 (图 5-3) 。",
+      "mean_conf": 69.22,
+      "n_tokens": 154,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 24,
+      "locator": "ocr-p24"
+    },
+    {
+      "text": "JINSSOTWHnD\n|s noma\nEMRE\naa en 了\n———S\n=\n(B 5-2)\nLAGUNA\n—                    Le\naa\nnana                  Jo ameom                   wmnecn\n加如文位上但\n| Me LOMAS nMNMMAAT, 个于0XD ATHAD IZING, ING, PNG. SOIUMTONT cD.\nSeite semen eae",
+      "mean_conf": 36.6,
+      "n_tokens": 41,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 25,
+      "locator": "ocr-p25"
+    },
+    {
+      "text": "ER\n\nEN\n\nEees\n\n=\n(图5-3)\n\n信息采集未完成或者信息采集尚未通过,存在审核中的信息变更申请、调转\n申请、奖惩申请以及视同教育申请。选择的调入地管理机构与当前所属管理机构\n相同。这些情况不允许提交调转申请，在提交时页面会有提示 (图 5-4) BC\n调转申请必须要上传调转证明材料, 工作岗位变动请上传统一社会信用代码证或\n工作单位证明，学籍变动请上传录取通知书、学生证或其他学习证明，户籍或居\n住地变动请上传身份证、户籍证明或居住证明。 信息填写完成并上传完证明材料\n后提交审核。",
+      "mean_conf": 90.68,
+      "n_tokens": 162,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 26,
+      "locator": "ocr-p26"
+    },
+    {
+      "text": "|\nMSNA\n= onen)              “MAPRNGRARES\na PIB UANLOU IRIN                 Wie Ra\nRSNA\n“my OW                                                   “VOAMRA Ghee\n0 PRSeent area                  UT HAT\n* BACH\nWort               inet               BFS\n(图 5-4)\n5. 2. 调转信息\n提交完调转申请后，在会计人员信息调转页面可以查看已提交的调转申请。\n信息包括调转类型、调出省市县、调入省市县、调出时间、审核状态以及证明权\n料预览 (图5-5) 。\noi ore A             会计人员信息调转            Oermm 2\naie\n=\nBa BK  BR?  Bue  Buse  Baia  wunk  BAA  Baw  Wit  六入区是   more\n1 BOA  PRS  2024-08-06 ER  DE m2AGcna     3市  了市  FB   on\n2 HABARG aM  2024-00-05 北部市  3bT市  摊SE  2024-00-05, har  WEAK 加月区双  oe\n3 PABERE PAG  2240805 = RD  国每同市议 Memes 202408.05 = Ih  北站市  REG   on",
+      "mean_conf": 60.98,
+      "n_tokens": 176,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 27,
+      "locator": "ocr-p27"
+    },
+    {
+      "text": "Sse Sua          TEER OA ENE STD                 ese               PIS\n\n是测地              江芬省-识京市-元京市玄斌区              Ase                   江苏省-南京市-南京市白下区\n单位名称          HS Ee                     Ge TBS\n\n径济类型          地方行政单位                      Fad               公共管理、柱会保障和社会组织\n单位地址                           江歼省-南京市-豆圭区                                          联系电话\n\n工作开好dj问                   2024-08-07",
+      "mean_conf": 61.77,
+      "n_tokens": 80,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 28,
+      "locator": "ocr-p28"
+    }
+  ],
+  "text": "关于开展在宁部属、省属高校财务人员 2025\n年度继续教育培训工作的通知\n在宁部属、省属高校财务人员:\n根据江苏省财政厅《关于开展 2025 年年度省级会计人员继\n续教育的通知》(苏财办会 (2025) 2 号) 要求，在宁部属、省\n属高校及教育厅事业单位财务人员 2025 年度继续教育培训,江\n苏省教育会计学会仍委托南京师范大学会计学院承办。现就培\n训有关事项通知如下:\n一、参训人员\n在宁部属、省属高校及教育厅事业单位全体在岗会计人员\n二、培训时间、地点\n时间:\n第一期; 5月7日-5月9日;\n第二期; 5月14 日-5月16 日;\n第三期; 10 月 15 日-10 月 17 日;\n£4 9:00---11:30 ”下午 13:30---16:30\n地点; 南京师范大学随园校区贻芳报告厅\n\n三、培训内容\n本次培训将围绕高校财务预算的编制与执行、如何持续推\n进内部控制建设、固定资产全生命周期管理、人工智能在财务\n分析中的运用、财务人员心理调适与压力管理、财务人员科研\n写作与科研课题申报等内容开展培训。\n四、培训费用\n1、培训费标准: 300 元/人\n2、缴费方式: 银行汇款\n收款账户户名: 南京师范大学\n账号;43 1011419001081051\n开户行， 工商银行宁海路分行\n《请注明转账单位名称或缴费人姓名)\n五、报名事宜\n1、信息采集。根据省财政厅要求，全国会计人员统一服务\n平台已开始运行,所有人都需要登录全国平台并完成信息采集，\n否则无法查到培训信息。请各单位通知参训人员及时进行信息\n采集。采集流程见附件 3。\n2、报名时间。请于2025年4月30 日前将报名登记表 (CS\n开票信息) 发送至nju83598286@njnu. edu. cn 邮箱。\n3、发票开具。为提高工作效率，请在填写报名表时一并填\n写开票信息，以便培训时能领到发票。培训发票可在参训期间\n到南京师范大学随园校区金陵女子学院教学楼 (205%) 201\n\n室领取。\n4、培训考勤。根据省财政厅要求，每次上课请携带身份证\n签到考勤。考勤记录需要提交给省财政厅。\n联系人: 魏老师、王老师、徐老师 电话: 025-83598286\nhz\nwah gee Be\nC5\n\n附件 1: ESE. BRIS AR 2025 年度继续教育报名表\n单位 〈(盖章) :\n\nGRA:                                         单位指定联系人及电话:\n\n1、第一期: 5月7日-9日; 第二期: 5月14日-16 日; 第三期: 10月15 日-17日\n\n2、根据省财政厅要求，全国会计人员统一服务平台已开始运行,所有人都需要登录全国平台并\n完成信息采集，否则无法查到培训信息。\n\n3、参加江苏省教育会计学会 2025 年 3 月中和旬在厦门国家会计学院主办 “高校财务管理高级\n研修班”和“高校资产管理高级研修班”的人员，可免修本次培训。请在备注栏中注明，不需\n要缴费。\n\n附件 2: 开具发票示例:\n1、车同一单位只需开具一张发票，请按下表格式填写:\n序号 |学校名| 部 | 报名| 免 | 需要 | 开票 | 发票备注 | 纳税 | 开 | 开 | 联 | 联系\n称   门 |人数 | 修 | 缴费 | 抬头 | 栏是否需 | 人识 | 票 | 票 | 系 | 方式\n名    人 | 人数    要标明部 | 别号 | 金 | 数 | 人\n称    数       门名称    额 | 量\n1 |南京师| (|20 11 1319  南京| (不用|111 | 285 ]}1 |张|188\n范大学 | 不         师范 | 写)   111 | 0    三 | 888\n用         大学     111       888\n写)               111       88\n2、若同一单位需要开具多张发票，请按下表格式填写:\n序号 | 学校名 | 部 | 报名| 免 | 需要 | 开票 | 发票备注 | 纳税 | 开 | 开 | 联 | 联系\n称  门 | 人数 | 修 | 缴费 | 抬头 | 栏是否需 | 人识 | 票 | 票 | 系 | 方式\n名    人 | 人数    要标明部 | S| 金 | 数 | 人\n称    数       门名称    额 | 量\n1 |南京师|财 |5         标明财务   750 |1 |张 |188\n范大学 | 务          处         三 | 888\n处                        888\n88\n2 |南京师| 人 17  1               1 | a | 188\n范大学 | 事                   三 | 888\n处                        888\n88\n3 |南京师                  120 |1 | 3 | 188\n范大学 | 资               0   三 | 888\n处                        888\n88\n合计          1 |19           285 | 3\nPL LPP LT fT ere\n注; 报名人数指报名表中的总人数，总人数是免修人数、缴费人数之和\n\na.     =!   ae             a       =\n全国会计人员统一服务管理平台操作指南\n1. 会计人员注册\n全国会计人员统一服务管理平台网址 (图 1-1) W: https://ausm.mof.gov.cn\n/index; 点击右上角\"*注册\"按钮，进入到注册操作页面 (图 1-2)\n@ 全合计人员统一服务管理平台\nCe Eo\n4                                               |\nl@itAREsee\nShAmaeRe            °              PAPAS KOI          °              AS MORBW,         oo\naie    °    AltA   °     AltAmemen   °o\nawaitunn 厂     iaRiaago)   °\nInQRPEsae\nMOALAMAE   °   ms和asINnaw ©   moana =O\n| Res Sa AT ee eS |\n(Bi 1-1)\nsea,                               anes\nsun               sana                | um ATR\nEn                   LATE RLOMAA, ARTI\nnn                              ac\nLaONIATORUIR, {OK\n.              nae               Paine\n，    ont @i| amen           Amatpamnalacauaavbmniaal。\n一-一一一一| cower, eam nano\ntone              veanen\n=\n(图1-2)\n\n1.1.注册信息填写\n在注册页面首先选择证件类型，分为内地居民身份证、港澳居民来往内地通\n行证、台湾居民来往大陆通行证以及护照 (外国) (图 1-3) 。在选择完证件类型\n后输入证件号码、真实姓名、密码、确认密码以及手机号。在进行姓名填写时，\n如果名字中包含生僻字，点击输入框右侧生个字选择对应生僻字 (图 1-4) 。\n* 证件类型\n内地居民身份证\n港澳居民来往内地通行证\n台湾居民来往大陆通行证\n护照 〈外国)\n| 析TDV子付，轴天人与子咱，纪(了于，行味儒三5\n(图1-3)\n\nARF RA                                           x\nBBE\nfe pele fe fe fe fa\n[fe | at | te | |e | | |\nPate fe palate fel\n\n侠) 全国会计人员统一服务管理平台\n可                          TAMA          magn\n* cs                             © MM AGerMVIRIEUUES                      |\n.               rr                         © an和NA\n© ma和Mn         到KFRXe\n(图2-1)\n2. 1. 登录\n在登录页面中，输入证件号码或者手机号 (注册时所填写的，两者都可以登\n录) 。填写完密码以及验证码后点击登录。登录成功后返回到首页并且页面右上\n角显示会计人员脱敏后的姓名 (图 2-2) 。\n@ 全人人员统一服务管理平台              EEC\naaa\n                            AAR              °                SPABWOUKEE           °                APSR           °\neRe       站       OtARURMARD     °o        会it人员葡名忆民      而\nmiRetAARFAN     o        aires      而\n1单位用户肛务包理\nMOSTAR     而      aostassnaE ©      nese = =O\n(Bl 2-2)\n2. 2. $e\n在登录页面点击登录按钮右下方的忘记密码 AA, 进入到找回密码页面 (图\n2-3).\n\ninUHHIXIRe                                    Hem\nanaw               Rn                 aennnmstatfemTAaa mm |\n四                   Ea     LERGHONTTGHENS, HH\n™                                              mune                                                 LEREMRIE, OnE\nI\nsos                                            and                                              DUO\n   crise, ashe nse\n(Bi 2-3)\n填写证件号码、真实姓名、新密码、确认新密码、手机号以及验证码后点击\n确认重置密码。填写信息请与注册时所填信息一致，否则重置不成功。\n2. 3. 实名认证\n在信息采集前必须进行实名认证, 会计人员在首页点击信息采集时，如果未\n进行实名认证会在页面自动弹出实名认证窗口 (图 2-4) 。可以直接点击按钮进\n行支付宝实名认证，使用本人账号支付宝扫码即可完成实名认证。\n\n用户实名认证\nER    快捷一键认证”一一一一\n真实姓名: |      【点击修改了\n证件号码: 。 37Oxxxkxxxxkxx5016\n特别提示:\n1.本认证只用作实名认证，不获取个人隐私信息。\n2.请确保支付宝已实名认证，且与当前登录用户姓名、证件号码一致。\n3.不能通过载图或拍照形式发送并识别二维码，请直接扫描页面二维码。\n人4请使用电脑浏览器 (谷歌、火狐、360浏览器极速模式) 进行操作。\n无法使用支付宝实名认证? 点击 【线上实名认证\n会 返回首页\n(图2-4)\n无法使用支付宝进行实名认证，可以在弹窗下方点击线上实名认证。线上实\n名认证窗口需要上传证件人像面、证件非人像面、手持证件人像面以及选择所在\n省市 (图 2-5) 。请仔细阅读文件上传要求，按要求上传证件文件。\n\n人\n用户线上实名认证                                             x\nSIF LIGER:\nTAEFHRUGARA, BRR, AF 10Kb,\n2S BLE TEMADE. RIO. FIERA ME=HSH.\nSMI, [IMA RWS AM NIESE,\nTEACH              SIRE A Satin             ASA\n&         a       &         =       &         ql\n-—+§             e+                人\n-\nE         =!)       c         lJ       L         可]\nIssa               gS               IESE\n* EER:               “所在市:\n一\n(图 2-5)\n一\n言息采集\n登录成功后,点击首页的会计人员信息采集进入到信息采集页面，或者会计\n信息服务下的信息采集 (图 3-1) 。\n@ 人合计人员统一服务管理平台                     ors\nVeit A mags TE\n   Pp one ty   °    SU MARRe Ram   o\nSchone     °    PL AeA I THE   So     AARe mia    o\nBSAA ARAN   °     会讲学习    o\nROP Ie\nOAH ATRSIE   °    muritAmsiensm 全    mocinawneRinan ©\n\n会计人员信息服务 /       wees      /       reser      1 maeiAnAREA /       RES\n     a     = |     固\n信息采信                  信息变更                  信息吉询                mine\n(图 3-1)\n3.1. 采集须知\n信息采集首先进入的是采集须知页面, 主要包括采集范围选择以及材料准备\n提示 (图 3-2) 。请仔细阅读并选择自己所属的采集范围。材料准备为完成信息\n采集所需的材料，提前准备以便顺利完成信息采集 。\n© or xs            seems\n! o2 ie             (> aitAR oRBATEIM .\nCHA, SINIREE 《中全人Je合计法)》 RULE, BIORUX, HOM, Gee. wibmotorTiaNR (LA下IE他] 中\n0 oan           ADSI. LSI ESA LITE AB.\nSAA SIEM SH TAOS: GER: 1、出的: 2, AR: 3. BIE, MEMO AW IEOFRA MOM: 4, a\n© os THE          A. SURQHOISRE: 5, MASOROTRIBITININOH: 6, SOSHAECRBIRENAM: 7, SHIH: RAH AMNDIE\nBSBE: 8, ASIII,\n© os atmtemn           ‘eeie ptt atom ae . ASHIMAR, BFRTAR,\nERSNUDIOXAL MBCRIOTHN, MRMETMEHEE,\nEBRSH. SHBSEROTIN. MERMNNTESItTIT.\n0 cs sna\n() FASE (BAAN SMEATON, He AORMTIDDAR,\nCS) SATIMMURS ait ALLURE TAR,\n(FY) ATID LTONURE it Li ema LAA,\nHip HOE (—) 3B CO) WARE, MEN ARAL, AAAI, Mit, AUR RAIMI, HRSA\nASPALEREEE GIA.\netait\n1, SRE. 72 GRAIOURUG ES. PER: 白 (HLF). EE. ARS. jpoliict. AFIOKBENF200K8, RHRAF OF\n(295°413po, HAN, UATE, FIEM RUIEIN. RFS RSF LIS.\n2, ABT\n3. THEME) IFO, MICH)\n4. BWUNEVEAE IMR —MOOMIVAIE (ELIFEOLO, AIO)\n(B 3-2)\n3.2. 基本信息\n采集须知页点击下一步进入到基本信息页。在基本信息页中需要上传清晰、\n\n完整、近期的标准证件照片，并且要求不小于 10KB，像素>=295*413px，请仔\n细阅读上传照片框右侧的说明。基本信息中有效身份证件类型、有效身份证件号\n码、姓名、性别、出生年月以及手机号码为注册时所填信息，基本信息页不可修\n改。在填写完整基本信息后点击下一步，进入到教育经历页。\n人\n(图3-3)\n\n3. 3.教育经历\n\n在教育经历页中,点击新增进行教育经历的信息采集。新增教育经历弹窗包\n括培养方式、学校名称、学历、学位 (填写已取得证书的学历、学位) 、所学专\n业、入学时间、毕业时间、学历证书编号、学位证书编号以及根据所填信息上传\n必要的附件 (图 3-4) 。\n\n在填写完教育经历信息后页面表格会回显填写完的信息, 可以进行查看详情、\n编辑以及删除操作 (图 3-5) 。\n\nREED                                                                                         x\n* SAR                                                 * PRB (SE)\nWBMWARAT                                       MACAIQE RE\n‘SH                                                     ‘FQ\nViBCF                                           请选生字位\n“月学后业\nTia T We\n“APH                                                 * 毕业时间\n口 Avon)                                            71 毕业鸣癌\n学历证书纳号                                         FOEBAS\nAMASHTHAD                         MNAFOTHSTD\n(图3-4)\nBanas                                                                                       x\nLSQTARVIEKMSH. FQ. ACLAWMBFHY. ME “—MPRAF .\n2FHFUABLASROA GRBIUIVFHFAAB, ASRADMMt SVMIRBIVAGKINKFHAS,\n教育经历\neT KO    MA     SOR       RoW       AHA       AVE       eh       4     Wate\n\n(图 3-5)\n\n3.4. 工作经历\n\n教育经历页面点击下一步进入到工作经历页, 在工作经历页中点击新增进行\n工作经历的信息采集 (图 3-6) 。选择工作开始时间和工作结束时间，工作结束\n时间可以选择至今, 如果选择至今则需要上传本单位统一社会信用代码证明。 在\n填写完单位名称、统一社会信用代码、单位类型、所属行业、工作单位地址、工\n作单位电话后选择是否有会计工作经历。若选择是需要新增本单位会计工作经历。\n会计专业职务为非必填, 如果填写了会计专业职务需要选择会计专业职务聘任时\n间 (会计专业职务聘任时间不能早于工作开始时间) 以及上传聘任证明。\n\n在填写完工作经历信息后页面表格会回显填写完的信息, 可以进行查看详情、\n编辑以及删除操作 (图 3-7) 。\n\n新增工作经历信息                                                             x\n* 工作开始时各                             * 工作结来时间\n| Co Lrersensta                               | 日 Cersesentl                       | 至人\n> 单位名称                               * 搞_社会信用代码\n| TAA CHO ER                     | SHO MSIE                |\n* 单位兴弄                               * 所局行业\n| 恒弦香单位针济兴轩                   ~ | | FUROR                  ~\n* 工作单位地让                            工作单位电话\n| mia mites Sit | | BQ Themen\n信计人员岗位层圾           从惠会计工作岗位           ARMM       APES           操作\n\nMFR\n\n会计专业奴务                             会计专业想务聘任四问\n| stmaseeHe Lanes                       v | |B strewwansseqecngie\n\nLRG\nWIN AI SoRER\n工作JI   2019.07.05        工作IST人     RD\n全位名你     INDKER         SREB    123456769087456333\nARIA         DOR FRQALO              PMG             LAUGH, SION AEA Y\nTemmconant   ACT Aes ARERR    工作aa证\nANANTH: 及\nATTA BOON     从由会由工作交位     会让工作刀和妈时间     AIHA\nREAR           WA, SMH, BHR, ANSSEREE 。 2019-11-09            >\n会由5业由全                              AHR                    AAPM AOL)                                           2019-11-22\n工作档万\nWAT WIRE — Ga — MALATE) mo MING NINO Levys)  wey\nax MOSH —-12345678908745... MULTE. MIMOIM... 2019.07.05 。 KO\nos ha\n(图3-7)\n3. 5.会计管理部门\n工作经历页面点击下一步，进入到会计管理部门页面 (图 3-8) 。在会计管\n理部门页选择所在会计管理部门省、市、区县。关系到后续信息采集审核等一系\n列操作，请认真核对后，勾选\"承诺所提供信息真实有效\"后提交审核。\n\n4. 信息变更\n登录成功后, 点击首页的会计人员信息采集然后点击信息采集右侧的信息变\n更进入到信息变更页面，或者会计人员信息服务下的信息变更 (图 4-1) 。\n@ 外信人员统一最务管理平台                 Ls sss\n1会计人员服和外更\n   BAB MOX AME   °    SALA,   °\nBie    看    AUAB BORA   °    AHARRSD   oOo\nWWAAH RAM   站    Aira)   看\n1香习用户加务全忌\nOTA A RIES  oo   moritAnniine ©   masihininonka人 故\nome AIT                   会让人员信息变页                  mm两\nnone\nSS\naitARMOH = /   mR   7   RKO   Se 7   UE\n       2 2\n{BOURIE        位gwm        位it       AROXGRONY\n(图4-1)\n4.1. 基本信息变更\n会计人员仅在信息采集审核通过状态下允许变更。信息变更默认进入到基本\n信息变更页面, 点击左侧的教育经历或者工作经历可以跳转到教育经历变更或者\n工作经历变更。基本信息变更页面展示了会计人员的基本信息，部分信息脱敏显\n示 (图 4-2) 。点击\"进行变更\"操作按钮，进入到编辑信息弹窗 (图4-3) 。\n\n5                      会计人员信息变更                     nm\ncerry             mone\nO aoe            amamemtre wna          aamaaasmpttcoFhma\nae  IE从\n|       ue preaeagnn    nan sTomensor6\n© oxunvy)\namy) 2080.0022    anne at (aunaman\n    aus       ua\nWe    aa\nad ubbeuTRIEC Ta416\norzo\nzs\n(Bl 4-2)\nBARRE\nBaye       HOBRAOE          aes       37085016\naE        Skee              FSS       156****5126\nan         B               出生人月       2000.04-22\n“st              “RE                fem,\n| SENDER             “|  IRB              || amanrmonm\nnine\n| us “|| osmY || wee   S| 123456\n20%\n| waunneamlasm        |\n去\n(图4-3)\n变更保存后，可在基本信息表格上方，当前信息的右侧，点击变更记录查看\n已提交的基本信息变更记录 (图 4-4) 。点击详情可以查看详细信息，并且变更\n信息会标红显示。\n\nGURU: BED           REMARMBAMIRD Bole a\nkY WARN      HARD     Town     Taye     wens)      四人\n1 Beye      mez     AEROS    eR       2024-07-08 170602 itt\n变更详情                                             X\n变更前                      变更后\n三4区型   内地回民身份证          | tess   AERA        7\nProrat]    B7oetsee48815016          | wees   somnunsyig\n姓名     oer                | 姓名     ake\n性则     男                  性别     男\n出生年月    2000-04-22              出生年月    2000-04-22\n6面肌      SPELL 《全中拭预备娩员)               eH      TASCA (GehHeREHE)\nFuk     Bid                 Fuk     mek\nStH                        oo)\nPG    156**#*5126              ASH    156**#*5126\navn    UR TTT FR-1234         这TRUE址   UR FONT F-23456\n名组                        ea\n(图4-4)\n4 2.教育经历变更\n点击左侧教育经历，进入到教育经历变更页面 (图 4-5) 。页面显示信息采\n集时新增的教育经历，可以进行查看详情、变更、变更删除的操作。也可以继续\n新增教育经历，但新增教育经历时间不得和已新增的教育经历时间交叉。\n\n加 ahae        aasseicao WAZ      unvasauantuaran ss\n|         —_\names     Tae aos aoe eins anh\nOa ines\n(图4-5)\n变更保存后，可在教育经历表格上方，当前信息的右侧，点击变更记录查看\n已提交的教育经历变更记录 (图 4-6) 。信息包括审核方式、审核状态、变更类\n型、变更方式以及提交时间。 点击详情可以查看详细信息，并且变更信息会标红\n显示。\n训荫管图乱昌让侦议下! We          CG AM RM WAMEL KD K felt\nRA  SR\neS UREN     WIRD     ain     Bit     Weore     wer\n1     ATaR                ate                ROH          BR                  2024-07-08 17:39:19      om\n(图4-6)\n\n4.3. 工作经历变更\n\n点击左例工作经历，进入到工作经历变更页面 (图 4-7) 。页面显示信息采\n集时新增的工作经历，可以进行查看详情、变更、变更删除的操作。也可以继续\n新增工作经历，但新增工作经历时间不得和已新增的工作经历时间交叉。\n和      neansgeurs seal     Weanemcmmiee ren aD\n© cman   1 ems nase taoeoazs-。 ema anpa。 agorog ss\n\n(图4-7)\n\n变更保存后，可在工作经历表格上方，当前信息的右侧，点击变更记录查看\n已提交的工作经历变更记录 (图 4-8) 。信息包括审核方式、审核状态、变更类\n型、变更方式以及提交时间。 点击详情可以查看详细信息，并且变更信息会标红\n显示。\n四 os+ee        to emat       GaunsmenmuasrRnTD\n\nMus: Ri\nREA                                    Bt)\ner eAotA           2019-07-05 7                   工作开外时间           2019-07-05\nAesRUAD         E>                      Lenape (a)         Eo        7\n印但名积           MOSK                   MERE           MQEK\nRE      123456789087456333  -       Pete RAR      123456789087456336\nNOE           pT                 Fa(onet           Fa\n所尿行业            assem, OVI BERS     所同行业  {eB Sth, aE\nTrent        ska terme     本    工作单但地址        senescent tnt\nLeeman                                 Leven ens\nRFR         ata                    Ae         ta\nStreet)        2019-11-22                                       PP By EAA)        2019-11-22\n变更前(会计工作经历)\n是省有全计工作租历:   是\n会计人加内位司级         ARAL AHO         会计工作开娩时问         ALR\nARTA            WA, Set, RR, (HET 。 2019-11-09             =>\n变更后【会计工作经历)\nBAA LH:   是\n会计人加岗位局级         ATATLABQ         AHL         atin\nRAAB            WA, Kit, BAR, HRSRTE 。 2019-11-09             ES\n(图4-8)\n5.，属地调转\n登录成功后, 点击首页的会计人员属地关系调转进入到会计人员信息调转页\n面，或者会计人员信息服务下的属地关系调转 (图5-1)。\n\nake Ase Beeare                  cen\nlait Blas mR\nASTA RRR   °   PAPER THT   °    |\nARUN    o    AAEA SUCRE   o     ANAALBIR   °o\nRAL Hern   o     St asBLTED   下\nLara mR\nmORitARaRE ©   anatARKMEE ©   aurinammRTan ©\n合计人员人了加务 /  5  /  went  1 mitra /  dy\n        G 日\n{SORE        qoqusnse        cnn)       基准\n(B 5-1)\n5. 1. 调转申请\n在会计人员信息调转页面中点击\"调转申请\"按钮，进入到调转申请页面 (图\n5-2)，填写调转信息。首先要选择调转原因，选择不同的调转原因需要填写不同\n类型的信息。调转原因分为工作单位所在地变动、学籍所在地变动以及户籍所在\n地或居住地变动三种类型 (图 5-3) 。\n\nJINSSOTWHnD\n|s noma\nEMRE\naa en 了\n———S\n=\n(B 5-2)\nLAGUNA\n—                    Le\naa\nnana                  Jo ameom                   wmnecn\n加如文位上但\n| Me LOMAS nMNMMAAT, 个于0XD ATHAD IZING, ING, PNG. SOIUMTONT cD.\nSeite semen eae\n\nER\n\nEN\n\nEees\n\n=\n(图5-3)\n\n信息采集未完成或者信息采集尚未通过,存在审核中的信息变更申请、调转\n申请、奖惩申请以及视同教育申请。选择的调入地管理机构与当前所属管理机构\n相同。这些情况不允许提交调转申请，在提交时页面会有提示 (图 5-4) BC\n调转申请必须要上传调转证明材料, 工作岗位变动请上传统一社会信用代码证或\n工作单位证明，学籍变动请上传录取通知书、学生证或其他学习证明，户籍或居\n住地变动请上传身份证、户籍证明或居住证明。 信息填写完成并上传完证明材料\n后提交审核。\n\n|\nMSNA\n= onen)              “MAPRNGRARES\na PIB UANLOU IRIN                 Wie Ra\nRSNA\n“my OW                                                   “VOAMRA Ghee\n0 PRSeent area                  UT HAT\n* BACH\nWort               inet               BFS\n(图 5-4)\n5. 2. 调转信息\n提交完调转申请后，在会计人员信息调转页面可以查看已提交的调转申请。\n信息包括调转类型、调出省市县、调入省市县、调出时间、审核状态以及证明权\n料预览 (图5-5) 。\noi ore A             会计人员信息调转            Oermm 2\naie\n=\nBa BK  BR?  Bue  Buse  Baia  wunk  BAA  Baw  Wit  六入区是   more\n1 BOA  PRS  2024-08-06 ER  DE m2AGcna     3市  了市  FB   on\n2 HABARG aM  2024-00-05 北部市  3bT市  摊SE  2024-00-05, har  WEAK 加月区双  oe\n3 PABERE PAG  2240805 = RD  国每同市议 Memes 202408.05 = Ih  北站市  REG   on\n\nSse Sua          TEER OA ENE STD                 ese               PIS\n\n是测地              江芬省-识京市-元京市玄斌区              Ase                   江苏省-南京市-南京市白下区\n单位名称          HS Ee                     Ge TBS\n\n径济类型          地方行政单位                      Fad               公共管理、柱会保障和社会组织\n单位地址                           江歼省-南京市-豆圭区                                          联系电话\n\n工作开好dj问                   2024-08-07"
+}

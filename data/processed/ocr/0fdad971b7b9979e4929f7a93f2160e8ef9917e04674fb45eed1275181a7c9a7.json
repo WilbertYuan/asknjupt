@@ -1,0 +1,20 @@
+{
+  "source_hash": "0fdad971b7b9979e4929f7a93f2160e8ef9917e04674fb45eed1275181a7c9a7",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/0f/0fdad971b7b9979e4929f7a93f2160e8ef9917e04674fb45eed1275181a7c9a7.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:17:33Z",
+  "pages": [
+    {
+      "text": "-CAE\n|\nA Bay\nLE FT,            LN",
+      "mean_conf": 33.07,
+      "n_tokens": 7,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "-CAE\n|\nA Bay\nLE FT,            LN"
+}

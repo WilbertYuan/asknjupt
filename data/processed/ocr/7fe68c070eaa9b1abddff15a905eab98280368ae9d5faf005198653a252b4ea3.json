@@ -1,0 +1,20 @@
+{
+  "source_hash": "7fe68c070eaa9b1abddff15a905eab98280368ae9d5faf005198653a252b4ea3",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/7f/7fe68c070eaa9b1abddff15a905eab98280368ae9d5faf005198653a252b4ea3.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:39Z",
+  "pages": [
+    {
+      "text": "AA  We\n一一      ——      一一     采购单荐购     eae\n图书馆主页 ED xyes (a 资源荐购                en\n\n自由荐购\n\n账号:\n教师是一卡通中间 8 位\n\n学生是学号\n初始密码: 与账号相同",
+      "mean_conf": 84.97,
+      "n_tokens": 59,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "AA  We\n一一      ——      一一     采购单荐购     eae\n图书馆主页 ED xyes (a 资源荐购                en\n\n自由荐购\n\n账号:\n教师是一卡通中间 8 位\n\n学生是学号\n初始密码: 与账号相同"
+}

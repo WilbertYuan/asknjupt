@@ -1,0 +1,20 @@
+{
+  "source_hash": "0f012355afb8ce4858241da4d687078c59938384bc3cf23143a5b3cae361ce99",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/0f/0f012355afb8ce4858241da4d687078c59938384bc3cf23143a5b3cae361ce99.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:47Z",
+  "pages": [
+    {
+      "text": "x                        账号注册\n+86\n+*真实姓名",
+      "mean_conf": 82.81,
+      "n_tokens": 8,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "x                        账号注册\n+86\n+*真实姓名"
+}

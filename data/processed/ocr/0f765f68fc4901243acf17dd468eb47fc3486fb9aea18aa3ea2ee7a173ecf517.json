@@ -1,0 +1,20 @@
+{
+  "source_hash": "0f765f68fc4901243acf17dd468eb47fc3486fb9aea18aa3ea2ee7a173ecf517",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/0f/0f765f68fc4901243acf17dd468eb47fc3486fb9aea18aa3ea2ee7a173ecf517.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:52Z",
+  "pages": [
+    {
+      "text": "多       a                st    | |\nRae, || |||       rm\noy    -一一一      ve bf  人   由         上\n                pe po        =         4\n.\n7            p 4        | |              —=        = i ox =            at        >",
+      "mean_conf": 45.25,
+      "n_tokens": 35,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "多       a                st    | |\nRae, || |||       rm\noy    -一一一      ve bf  人   由         上\n                pe po        =         4\n.\n7            p 4        | |              —=        = i ox =            at        >"
+}

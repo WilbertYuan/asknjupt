@@ -1,0 +1,20 @@
+{
+  "source_hash": "2f2b314ad3a013f271b89ee71058ca0be2e4ff4ad3a342b96850758605051974",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/2f/2f2b314ad3a013f271b89ee71058ca0be2e4ff4ad3a342b96850758605051974.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:47Z",
+  "pages": [
+    {
+      "text": "«                                     q  AN\n——   te,   —   See eo ee ee 二-一一     eS a 一 一\n—_—  ~   FS  ———————_E——— RISE  -\n\nee       Esc\n和\n|\n                  <                           nr- ,  —                                    “2\n|           a           b       eo          |       ,\n}    —=                                          =",
+      "mean_conf": 35.85,
+      "n_tokens": 41,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "«                                     q  AN\n——   te,   —   See eo ee ee 二-一一     eS a 一 一\n—_—  ~   FS  ———————_E——— RISE  -\n\nee       Esc\n和\n|\n                  <                           nr- ,  —                                    “2\n|           a           b       eo          |       ,\n}    —=                                          ="
+}

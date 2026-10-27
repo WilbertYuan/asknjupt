@@ -1,0 +1,20 @@
+{
+  "source_hash": "f973764c589f1c919ef1b553e7ac21c1a7fff28bc932227c31233d4b30cf9c5e",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/f9/f973764c589f1c919ef1b553e7ac21c1a7fff28bc932227c31233d4b30cf9c5e.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:40Z",
+  "pages": [
+    {
+      "text": "4X                                                                              eA\n}       {    ,           te? t\nWa eee       4\nPree) i. Ss |           有 人        一          if                 :\nss       7             Oo,       rs            wt |=     :    Te (i one    eer      <3]  ry —                                                           _   -     站\n                由                                  司 ”已\nvy     Fa     eA                                                  )                                                                   .       4                                                             和\nA,                                                                                                   ee\n5   ‘                                                                     Sees ORCS comes\nYY,",
+      "mean_conf": 37.0,
+      "n_tokens": 54,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "4X                                                                              eA\n}       {    ,           te? t\nWa eee       4\nPree) i. Ss |           有 人        一          if                 :\nss       7             Oo,       rs            wt |=     :    Te (i one    eer      <3]  ry —                                                           _   -     站\n                由                                  司 ”已\nvy     Fa     eA                                                  )                                                                   .       4                                                             和\nA,                                                                                                   ee\n5   ‘                                                                     Sees ORCS comes\nYY,"
+}

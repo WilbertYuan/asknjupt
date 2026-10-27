@@ -1,0 +1,20 @@
+{
+  "source_hash": "bd32ea7cd1b406a3c60e8789df49349ca0999e051ca4aaad3712fc5923af6d31",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/bd/bd32ea7cd1b406a3c60e8789df49349ca0999e051ca4aaad3712fc5923af6d31.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:24:27Z",
+  "pages": [
+    {
+      "text": "=             =       7    f     TSRAIENR                      ，                           ，         f\n=            =         so     有       1          (| 1] PN.\nrr        YA         %      ie. ED       = Se.",
+      "mean_conf": 39.54,
+      "n_tokens": 23,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "=             =       7    f     TSRAIENR                      ，                           ，         f\n=            =         so     有       1          (| 1] PN.\nrr        YA         %      ie. ED       = Se."
+}

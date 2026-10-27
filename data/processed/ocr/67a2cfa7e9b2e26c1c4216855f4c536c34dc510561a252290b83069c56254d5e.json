@@ -1,0 +1,20 @@
+{
+  "source_hash": "67a2cfa7e9b2e26c1c4216855f4c536c34dc510561a252290b83069c56254d5e",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/67/67a2cfa7e9b2e26c1c4216855f4c536c34dc510561a252290b83069c56254d5e.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:21Z",
+  "pages": [
+    {
+      "text": "到.\n>.  ae\nBe  a ie ”要二 419, Ga\n‘           ,   \\\n>                   :              下\n0     Te",
+      "mean_conf": 35.79,
+      "n_tokens": 18,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "到.\n>.  ae\nBe  a ie ”要二 419, Ga\n‘           ,   \\\n>                   :              下\n0     Te"
+}

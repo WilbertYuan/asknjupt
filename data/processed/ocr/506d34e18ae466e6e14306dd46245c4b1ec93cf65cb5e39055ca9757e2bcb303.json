@@ -1,0 +1,20 @@
+{
+  "source_hash": "506d34e18ae466e6e14306dd46245c4b1ec93cf65cb5e39055ca9757e2bcb303",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/50/506d34e18ae466e6e14306dd46245c4b1ec93cf65cb5e39055ca9757e2bcb303.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:12Z",
+  "pages": [
+    {
+      "text": "ig!   ‘=~ > aa                 q       ie      ‘Ry;\nie aS Se a Sa  So ee\n-人CORE\n，      a   Vii  次   -   a ws                |        ioe\nom              gh        a      a i   Demet \\s / 4      ok\na. 。      Nei hs 主题党日活动 |过 Ce\n333 [6 ~ : es |i    MARES een | —    <a     = N\n二 is\nSE ee oP     ep =",
+      "mean_conf": 38.19,
+      "n_tokens": 66,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ig!   ‘=~ > aa                 q       ie      ‘Ry;\nie aS Se a Sa  So ee\n-人CORE\n，      a   Vii  次   -   a ws                |        ioe\nom              gh        a      a i   Demet \\s / 4      ok\na. 。      Nei hs 主题党日活动 |过 Ce\n333 [6 ~ : es |i    MARES een | —    <a     = N\n二 is\nSE ee oP     ep ="
+}

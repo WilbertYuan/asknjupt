@@ -1,0 +1,20 @@
+{
+  "source_hash": "6ad57878cc96297458801e76320e099443484fc952efaa03e3609fdeeb6e824c",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/6a/6ad57878cc96297458801e76320e099443484fc952efaa03e3609fdeeb6e824c.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T11:46:26Z",
+  "pages": [
+    {
+      "text": "\\\nSA                  \\                               4             dex, *\nAS            \\                   )               a —\n|                                  Ze\n名                      <\n                     MBA Rema                     1                —\na  Wenoeaaman\n                                          «t                               a                        rr jm         .\na  ’       ae        ee      ,            ay  .       Cl\nMEO Ytt\nd",
+      "mean_conf": 36.72,
+      "n_tokens": 37,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "\\\nSA                  \\                               4             dex, *\nAS            \\                   )               a —\n|                                  Ze\n名                      <\n                     MBA Rema                     1                —\na  Wenoeaaman\n                                          «t                               a                        rr jm         .\na  ’       ae        ee      ,            ay  .       Cl\nMEO Ytt\nd"
+}

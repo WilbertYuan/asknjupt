@@ -1,0 +1,20 @@
+{
+  "source_hash": "ce6d37fd05764ab46ed8d01dc8b04b90e071aea2aa196e8c0b570c08fbb9317a",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ce/ce6d37fd05764ab46ed8d01dc8b04b90e071aea2aa196e8c0b570c08fbb9317a.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:55Z",
+  "pages": [
+    {
+      "text": "el Rag\n下 ont 下\nxt HE 十-",
+      "mean_conf": 35.71,
+      "n_tokens": 9,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "el Rag\n下 ont 下\nxt HE 十-"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "a7ddc8b2d3292c77224638981dca427dfb6d0b182813b93ec519b611f09231fd",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/a7/a7ddc8b2d3292c77224638981dca427dfb6d0b182813b93ec519b611f09231fd.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:02Z",
+  "pages": [
+    {
+      "text": "Seok",
+      "mean_conf": 15.83,
+      "n_tokens": 1,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Seok"
+}

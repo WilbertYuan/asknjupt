@@ -1,0 +1,110 @@
+{
+  "source_hash": "5b7c7477974071984695cad1cc3744cc350f36d204cd38ddec3da4608121d47c",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/5b/5b7c7477974071984695cad1cc3744cc350f36d204cd38ddec3da4608121d47c.pdf",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:18:56Z",
+  "pages": [
+    {
+      "text": "南京邮电大学料单填报操作说明\n访问网站\n1.1.访问网站\n教职工访问南京邮电大学官方网站，登录“智慧校园”一>“业\n\n务直通车”一>“更多”一>“智汇实验室”\n\nO aiseee ware\n\nwaned, aww        OQ ws        B rose        @ arse        Q cmmwese      图 meesm\ner\n\nQ mw         CD means        OQ next         日 wwew         @ anaren\n2 omuren\n\n@ cueesnn      PR Ame       @ wean         @ aman         加saneemsm\n2 onsen\n\n@ roman       @ avee         @ weve         加 “aaarenest    @ ens\nD meee\n\n加 cams       @ mans        A ences        加 wnsm         @ rswexe\n\nCa             回 -a              > ex\n\n1. 2. 业务入口\n点击“智汇实验室”一“实验室料单与维修”进入料单填报页\n\n面。\n\nAZO OME BERG\nwae. canwexs)       an                                                     |\nOn 446 REmERR\narm zozsMoWN208\n\nG xersese       @ sereenn       © xusanen       @ xuneeeee\nB xureeen       @ xezenen        ® curso        ose\n\n——]| | ¥o ee [ae |",
+      "mean_conf": 63.17,
+      "n_tokens": 184,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-p1"
+    },
+    {
+      "text": "2、个人信息维护\n2. 1. 首次登录完善个人信息\n\n对于首次使用系统或个人信息没有完善的用户，需先完\nBAR. RG “MZ” WARREN A, BEA.\n手机号、邮箱等。\n\nc5oveewe          \"\nDas                      -\nom\noa\nm me\nae          eenao\nsa              aeane                                    Lo T=\nonce cues ceaetas\none                  ove\nwemsees\nroeee\nmere\nv0 ow 四\n\n3、料单线上填写操作流程\n3. 1 料单填报\n3.1.1 发起流程\n点击“实验室料单与维修”一“发起流程>”，进入流程\n填报。",
+      "mean_conf": 72.4,
+      "n_tokens": 108,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 2,
+      "locator": "ocr-p2"
+    },
+    {
+      "text": "图) rseeee\n\nYD xuseseese         seEsane\n\n@ ReEGSne\n\n@ xuusuae        an  an   已办   ne   we\n下         “mee                mens                Ga)   =  =|\nB xensewe\n@ nesneee          ao xaen    Kenya    ‘erin       esene     anee     mnie      afr\n© eines             5 ER    BRB R — admwn 2003-04-08 1105-55 2075-04-08 112108 已结过202304-06 112323    ee\n“0 1           EA     adi 2023-04-09 111458 2023-04-00112821 EM 2073-04-09 11.92.15     te\nS <ueseen\n378 1        (RG am 7002-11-24 1701.08                aw                 mn ome\n@ sueenser\n214 MRE    #889 。 admwn 2022-11-03 185755 2022-11-03170129 BAM = 2022-11-03 170201    26\nokt B00? BSA RP TAS ONE (OS ANARAIATITIOS RRR\n\n3.1.2 填报说明阅读\n发起流程后，会自动弹出填报说明，用户需要阅读说明，在 9 秒\n\n后会自动号转到填报界面。\n采购方式\n\n1、预算金额<2 万，直接采购，有具体请见采购招标管理办公室相关\n办法。\n\n2、2 万入预算金额20 万，可\n\n台等方式采购，有具\n体请见采购招标管理办公室相关办法。\n\n3、预算金额之20 万元，招标采购,具体由采购招标管理办公室实施。\n=. BARK\n\n1, #ft 21500 元的仪器设备，属轩定资产范畴，在采购招标管理系\n\n统发起申请，采购到货后，任发票、分做采购记录表 (招标办采购系\n\n统自动生成)、合同、验收报告等自行直接入库，入库完品\n\n资产管理处办理资产登记手续。\n\n2、200 元委单价一1500 元的仪器设备，赁发票至实验室与建设管理\n处办理低值品登记。\n\n3、发票金额在5000元以上的〈含 5000元) 易耗曲〔如化学试剂、\n药品、耗材、电子元器件、电路板、芯片、模块等)，赁发票至实验\n室与建设管理处办理直收直发品登记。\n\n4、单价一1000 元的家具，赁发票办理家具料单登记\n\n三、维修事宜\n\n1, 200726 R<1000 元的，赁发票办理维修料单登记。\n\n2, PERP1000 元的，先填写《仪器设备维修申请表》，赁发票和\n《仪器设各维修申请表》办理维修料单登记。",
+      "mean_conf": 74.76,
+      "n_tokens": 457,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 3,
+      "locator": "ocr-p3"
+    },
+    {
+      "text": "3. 1. 3 填写流程表单\n进入填报界面需要按照填报框中的备注要求填写料单\n\n添加单据                                                      x\n* 任务创建”2023-04-24 14:22:34 ”由 20210102 创建                      任务抄送\n\n“ 流程名称 = 二级单位名称+申报物品概述 例: 理学院办公用品\n\n“经费代码 。” NY12345\n\n“ 二级单位 。 理学院       * 放置地点 。” 2-302\n“使用方向 KS       “*填单日期  2023-04-24\n\n“ 发票日期      2023-04-04\n\n分隔。例: 23412343/23412344/23412345\n\n23412343\n\n* 公司名称 。 上海圆万贸易有限公司\n\n\"WAAR 。。 收料老师姓名                            “经办人工号 = admin\n“经办人姓名                                                       “经办人电话 15888888888\n备注说明\n附件 全 上传文件\n\n请上传发票以及付款记录、采购合同等文件(格式 文稿，pdf，图片)",
+      "mean_conf": 81.8,
+      "n_tokens": 169,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 4,
+      "locator": "ocr-p4"
+    },
+    {
+      "text": "3. 1.4流程表单提交\n流程表单填写完成后一?>点击“保存”按钮一?出现“提交”按钮\n\n一?>点击“提交”按钮一>自动跳转到“新增资产明细”页面。\n添加单据                 x\n\neRe          资产明细          填报说明          流程导入\n\n“任务创建 2023-04-24 14.22.34 ”由 20210102 创建                    Eros\n\n“ 流程名称 9 _~—ROUER- RRR A: 理学院办公用品\n\n“和料单类型 anh\n\n\"BRB NY12345\n\n“二级单位 BSR           “ 放否地点 。 教2-302\n\n“* 使用方向 。 教学                                          ‘eRe         2023-04-24\n\n*RRAB         2023-04-04\n\n“RES    23412343\n\n“ 公司名称 |SADREARAE\n\n“REAR ASS                            “经办人工号 admin\n“经办人姓名          有管理                                  “经办人电话 15888888888\n备注说明\n\n附件    > 上传文件\n\n四 发票 pdf                    @",
+      "mean_conf": 77.12,
+      "n_tokens": 144,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 5,
+      "locator": "ocr-p5"
+    },
+    {
+      "text": "3.1.5 新增资产明细\n\n在资产明细中可以看到“新增”按钮，点击“新增”一>跳出新\n增明细页面一>根据发票内容填写资产名称、规格、数量、金额和税\n额。\n\n添加单据                                             es\n\n序号 rer   规格    数量    人金额    税额    小计     操作\n\n流程表单         资产明细         填报说明         流程导入\n\n暂无数据\n\n添加明细\n\n“ 资产名称 ABM\n\n规格 。 物品规格\n\n“数量\n\n数量不能为空\n\n* 金额\n\n金额不能为空\n* 税额\n\n小计",
+      "mean_conf": 88.16,
+      "n_tokens": 121,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 6,
+      "locator": "ocr-p6"
+    },
+    {
+      "text": "添加单据                                                           x\n\nREP          area          aR          流程导入\n\nBS RFS   现格    臻量    2B    RD    小计     Str\n\n1   STZ          2     2000     2     2002 RS\n2     键盘              5      1300     13     1301.3 2 BS\n3    鼠标           5     500     0     500   sex OMe\n\nHRA 3803 3 (AS Srwastaw\n\n  =\n3.1.6 提交料单至归口部门审核\n\n填写完成在流程下方点击“提交”按钮一>进入“流程导入”页\n面一>点击“提交”按钮一完成填报。\n\n添加单据                                                          ‘\n\n流程表单          资产明细          填报说明          流程导入\n\n流程名称 ”料单流程提交\n兰单流程提交                         业务类型 料单申报\n\n应用范围 FR\n\n关闭",
+      "mean_conf": 75.5,
+      "n_tokens": 125,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 7,
+      "locator": "ocr-p7"
+    },
+    {
+      "text": "3.2 料单流程查看\n3. 2. 1 查看流程\n\n流程提交后在“实验室料单与维修”模块首页一“执行步又”\n可以查看自己提交的流程。\n\n(1) 执行步骤显示“料单归口审核兴 料单已提交，等待归口部\n门审批。\n\n(2) 执行步骤显示“已结束”，料单已审批通过。\n\n(3) 执行步骤显示“已拒绝”料单审批不通过，需重新修改，\n再次提交。\n\nRH 8D Ohm\n\noe      news      Ps oe |\n\nET RES\n—               es oe Pn\n查看和签批单据                               x\n\neRe          资产明细          流程签批\n\nStart\nDEAR: SB WHA passed\n\n签收时间: 2023-04-23 20:51 完成时介: 2023-04-23 20:51\n办理意见- 流程提交\n\n料单归口审核\n\n办理人员- 邹梦玲\n\n签收时间. 2023-04-23 20:52\n\nUi =i\n\n关闭",
+      "mean_conf": 81.12,
+      "n_tokens": 163,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 8,
+      "locator": "ocr-p8"
+    },
+    {
+      "text": "3. 2. 2 下载打印料单\n流程通过审核以后，可以点击“查看”一>流程表单一?下载打印\n文件一>料单申报流程结束。\n\nTRPBEAS | HO SeRER\n\nahasone\n\nBH MD BD Of OM\n\nRaee 8   RORP sociee  Ea: Ha\nFIRS PARR\n\n85 BHeH                                                                 Rere 。 创建用户          ‘NER               Rit           wee           aan             an\n701 SRI RMR! OH: APR SS                          GRE 20210102 2023042414724 073.0424150017 = 2023.04.24 1508 =]\n查看和签批单据                                                                                                                                                     *\n\n流程表单          资产明细          流程签批\n\n任务创建 2023-04-24 14:22:34 由 20210102 ORE\n\n流程名称 “RMCAH- PROBA 例: 理学院办公用品\n\nHORE 低值设备\n\n二级单位 BSR                 RES 教2-302\n经费代码 NY12345\n\n{AMA 2023-04-24             使用方向 教学\n\n206 bSRDESARLS)\n\n发票号 23412343              SAA 2023-04-04\n总价(元) 3803.3               人金额大写 afiiaetas\nBAAR KHEGES           经办人工号 admin\n经办人姓名 超级管理员           经办人电话 15888888888\n备注说明\nBE 2 发票pdf                              @\n\n关闭",
+      "mean_conf": 70.26,
+      "n_tokens": 187,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 9,
+      "locator": "ocr-p9"
+    },
+    {
+      "text": "查看和签批单据\n\nRRSSKSRRORE\n\nRS: DELS                                                      WRIT 2023-06-26 14:22:\n: 20210102 eS:          25%         BES      85866892\nERS Eee: BEE         ease: Ff\n\n南京邮电大学料单申报表\n申报号:实低38号                                         申报时间:2023-04-24 14:22:34\n: 20210102 ”姓名:        5B AS ES       联系方式:\n低值设备 使用单位: 。” 理学院       使用方向:\n教2-302\nNY12345 发票日期: ”2023-04-04 ”公司名称:\n23412343\n\nNay fe\n\n=\nawe a Ss nw as\nA\n\n803.370; (KS) BAA 7 I\n\nAGE 经办: 。 超级管理员 。 审核人姓名: BBR",
+      "mean_conf": 70.1,
+      "n_tokens": 110,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 10,
+      "locator": "ocr-p10"
+    }
+  ],
+  "text": "南京邮电大学料单填报操作说明\n访问网站\n1.1.访问网站\n教职工访问南京邮电大学官方网站，登录“智慧校园”一>“业\n\n务直通车”一>“更多”一>“智汇实验室”\n\nO aiseee ware\n\nwaned, aww        OQ ws        B rose        @ arse        Q cmmwese      图 meesm\ner\n\nQ mw         CD means        OQ next         日 wwew         @ anaren\n2 omuren\n\n@ cueesnn      PR Ame       @ wean         @ aman         加saneemsm\n2 onsen\n\n@ roman       @ avee         @ weve         加 “aaarenest    @ ens\nD meee\n\n加 cams       @ mans        A ences        加 wnsm         @ rswexe\n\nCa             回 -a              > ex\n\n1. 2. 业务入口\n点击“智汇实验室”一“实验室料单与维修”进入料单填报页\n\n面。\n\nAZO OME BERG\nwae. canwexs)       an                                                     |\nOn 446 REmERR\narm zozsMoWN208\n\nG xersese       @ sereenn       © xusanen       @ xuneeeee\nB xureeen       @ xezenen        ® curso        ose\n\n——]| | ¥o ee [ae |\n\n2、个人信息维护\n2. 1. 首次登录完善个人信息\n\n对于首次使用系统或个人信息没有完善的用户，需先完\nBAR. RG “MZ” WARREN A, BEA.\n手机号、邮箱等。\n\nc5oveewe          \"\nDas                      -\nom\noa\nm me\nae          eenao\nsa              aeane                                    Lo T=\nonce cues ceaetas\none                  ove\nwemsees\nroeee\nmere\nv0 ow 四\n\n3、料单线上填写操作流程\n3. 1 料单填报\n3.1.1 发起流程\n点击“实验室料单与维修”一“发起流程>”，进入流程\n填报。\n\n图) rseeee\n\nYD xuseseese         seEsane\n\n@ ReEGSne\n\n@ xuusuae        an  an   已办   ne   we\n下         “mee                mens                Ga)   =  =|\nB xensewe\n@ nesneee          ao xaen    Kenya    ‘erin       esene     anee     mnie      afr\n© eines             5 ER    BRB R — admwn 2003-04-08 1105-55 2075-04-08 112108 已结过202304-06 112323    ee\n“0 1           EA     adi 2023-04-09 111458 2023-04-00112821 EM 2073-04-09 11.92.15     te\nS <ueseen\n378 1        (RG am 7002-11-24 1701.08                aw                 mn ome\n@ sueenser\n214 MRE    #889 。 admwn 2022-11-03 185755 2022-11-03170129 BAM = 2022-11-03 170201    26\nokt B00? BSA RP TAS ONE (OS ANARAIATITIOS RRR\n\n3.1.2 填报说明阅读\n发起流程后，会自动弹出填报说明，用户需要阅读说明，在 9 秒\n\n后会自动号转到填报界面。\n采购方式\n\n1、预算金额<2 万，直接采购，有具体请见采购招标管理办公室相关\n办法。\n\n2、2 万入预算金额20 万，可\n\n台等方式采购，有具\n体请见采购招标管理办公室相关办法。\n\n3、预算金额之20 万元，招标采购,具体由采购招标管理办公室实施。\n=. BARK\n\n1, #ft 21500 元的仪器设备，属轩定资产范畴，在采购招标管理系\n\n统发起申请，采购到货后，任发票、分做采购记录表 (招标办采购系\n\n统自动生成)、合同、验收报告等自行直接入库，入库完品\n\n资产管理处办理资产登记手续。\n\n2、200 元委单价一1500 元的仪器设备，赁发票至实验室与建设管理\n处办理低值品登记。\n\n3、发票金额在5000元以上的〈含 5000元) 易耗曲〔如化学试剂、\n药品、耗材、电子元器件、电路板、芯片、模块等)，赁发票至实验\n室与建设管理处办理直收直发品登记。\n\n4、单价一1000 元的家具，赁发票办理家具料单登记\n\n三、维修事宜\n\n1, 200726 R<1000 元的，赁发票办理维修料单登记。\n\n2, PERP1000 元的，先填写《仪器设备维修申请表》，赁发票和\n《仪器设各维修申请表》办理维修料单登记。\n\n3. 1. 3 填写流程表单\n进入填报界面需要按照填报框中的备注要求填写料单\n\n添加单据                                                      x\n* 任务创建”2023-04-24 14:22:34 ”由 20210102 创建                      任务抄送\n\n“ 流程名称 = 二级单位名称+申报物品概述 例: 理学院办公用品\n\n“经费代码 。” NY12345\n\n“ 二级单位 。 理学院       * 放置地点 。” 2-302\n“使用方向 KS       “*填单日期  2023-04-24\n\n“ 发票日期      2023-04-04\n\n分隔。例: 23412343/23412344/23412345\n\n23412343\n\n* 公司名称 。 上海圆万贸易有限公司\n\n\"WAAR 。。 收料老师姓名                            “经办人工号 = admin\n“经办人姓名                                                       “经办人电话 15888888888\n备注说明\n附件 全 上传文件\n\n请上传发票以及付款记录、采购合同等文件(格式 文稿，pdf，图片)\n\n3. 1.4流程表单提交\n流程表单填写完成后一?>点击“保存”按钮一?出现“提交”按钮\n\n一?>点击“提交”按钮一>自动跳转到“新增资产明细”页面。\n添加单据                 x\n\neRe          资产明细          填报说明          流程导入\n\n“任务创建 2023-04-24 14.22.34 ”由 20210102 创建                    Eros\n\n“ 流程名称 9 _~—ROUER- RRR A: 理学院办公用品\n\n“和料单类型 anh\n\n\"BRB NY12345\n\n“二级单位 BSR           “ 放否地点 。 教2-302\n\n“* 使用方向 。 教学                                          ‘eRe         2023-04-24\n\n*RRAB         2023-04-04\n\n“RES    23412343\n\n“ 公司名称 |SADREARAE\n\n“REAR ASS                            “经办人工号 admin\n“经办人姓名          有管理                                  “经办人电话 15888888888\n备注说明\n\n附件    > 上传文件\n\n四 发票 pdf                    @\n\n3.1.5 新增资产明细\n\n在资产明细中可以看到“新增”按钮，点击“新增”一>跳出新\n增明细页面一>根据发票内容填写资产名称、规格、数量、金额和税\n额。\n\n添加单据                                             es\n\n序号 rer   规格    数量    人金额    税额    小计     操作\n\n流程表单         资产明细         填报说明         流程导入\n\n暂无数据\n\n添加明细\n\n“ 资产名称 ABM\n\n规格 。 物品规格\n\n“数量\n\n数量不能为空\n\n* 金额\n\n金额不能为空\n* 税额\n\n小计\n\n添加单据                                                           x\n\nREP          area          aR          流程导入\n\nBS RFS   现格    臻量    2B    RD    小计     Str\n\n1   STZ          2     2000     2     2002 RS\n2     键盘              5      1300     13     1301.3 2 BS\n3    鼠标           5     500     0     500   sex OMe\n\nHRA 3803 3 (AS Srwastaw\n\n  =\n3.1.6 提交料单至归口部门审核\n\n填写完成在流程下方点击“提交”按钮一>进入“流程导入”页\n面一>点击“提交”按钮一完成填报。\n\n添加单据                                                          ‘\n\n流程表单          资产明细          填报说明          流程导入\n\n流程名称 ”料单流程提交\n兰单流程提交                         业务类型 料单申报\n\n应用范围 FR\n\n关闭\n\n3.2 料单流程查看\n3. 2. 1 查看流程\n\n流程提交后在“实验室料单与维修”模块首页一“执行步又”\n可以查看自己提交的流程。\n\n(1) 执行步骤显示“料单归口审核兴 料单已提交，等待归口部\n门审批。\n\n(2) 执行步骤显示“已结束”，料单已审批通过。\n\n(3) 执行步骤显示“已拒绝”料单审批不通过，需重新修改，\n再次提交。\n\nRH 8D Ohm\n\noe      news      Ps oe |\n\nET RES\n—               es oe Pn\n查看和签批单据                               x\n\neRe          资产明细          流程签批\n\nStart\nDEAR: SB WHA passed\n\n签收时间: 2023-04-23 20:51 完成时介: 2023-04-23 20:51\n办理意见- 流程提交\n\n料单归口审核\n\n办理人员- 邹梦玲\n\n签收时间. 2023-04-23 20:52\n\nUi =i\n\n关闭\n\n3. 2. 2 下载打印料单\n流程通过审核以后，可以点击“查看”一>流程表单一?下载打印\n文件一>料单申报流程结束。\n\nTRPBEAS | HO SeRER\n\nahasone\n\nBH MD BD Of OM\n\nRaee 8   RORP sociee  Ea: Ha\nFIRS PARR\n\n85 BHeH                                                                 Rere 。 创建用户          ‘NER               Rit           wee           aan             an\n701 SRI RMR! OH: APR SS                          GRE 20210102 2023042414724 073.0424150017 = 2023.04.24 1508 =]\n查看和签批单据                                                                                                                                                     *\n\n流程表单          资产明细          流程签批\n\n任务创建 2023-04-24 14:22:34 由 20210102 ORE\n\n流程名称 “RMCAH- PROBA 例: 理学院办公用品\n\nHORE 低值设备\n\n二级单位 BSR                 RES 教2-302\n经费代码 NY12345\n\n{AMA 2023-04-24             使用方向 教学\n\n206 bSRDESARLS)\n\n发票号 23412343              SAA 2023-04-04\n总价(元) 3803.3               人金额大写 afiiaetas\nBAAR KHEGES           经办人工号 admin\n经办人姓名 超级管理员           经办人电话 15888888888\n备注说明\nBE 2 发票pdf                              @\n\n关闭\n\n查看和签批单据\n\nRRSSKSRRORE\n\nRS: DELS                                                      WRIT 2023-06-26 14:22:\n: 20210102 eS:          25%         BES      85866892\nERS Eee: BEE         ease: Ff\n\n南京邮电大学料单申报表\n申报号:实低38号                                         申报时间:2023-04-24 14:22:34\n: 20210102 ”姓名:        5B AS ES       联系方式:\n低值设备 使用单位: 。” 理学院       使用方向:\n教2-302\nNY12345 发票日期: ”2023-04-04 ”公司名称:\n23412343\n\nNay fe\n\n=\nawe a Ss nw as\nA\n\n803.370; (KS) BAA 7 I\n\nAGE 经办: 。 超级管理员 。 审核人姓名: BBR"
+}

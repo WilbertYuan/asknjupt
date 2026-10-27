@@ -1,0 +1,20 @@
+{
+  "source_hash": "91f9827779e503617c2d6aecb39ef863165da191aaed3cd003516b39a8fdc051",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/91/91f9827779e503617c2d6aecb39ef863165da191aaed3cd003516b39a8fdc051.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:19Z",
+  "pages": [
+    {
+      "text": "oe |   “    1A\nMas 4 Dati 4     as\nSTO,   an     ~~\nEN \\ \\ an StF\n—\nay    y    ‘4 oe    本\nTen Se ET\nA,      ;    EP  =\na [Bee",
+      "mean_conf": 34.73,
+      "n_tokens": 32,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "oe |   “    1A\nMas 4 Dati 4     as\nSTO,   an     ~~\nEN \\ \\ an StF\n—\nay    y    ‘4 oe    本\nTen Se ET\nA,      ;    EP  =\na [Bee"
+}

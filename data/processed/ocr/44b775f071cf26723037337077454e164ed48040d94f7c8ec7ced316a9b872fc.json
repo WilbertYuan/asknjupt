@@ -1,0 +1,20 @@
+{
+  "source_hash": "44b775f071cf26723037337077454e164ed48040d94f7c8ec7ced316a9b872fc",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/44/44b775f071cf26723037337077454e164ed48040d94f7c8ec7ced316a9b872fc.pdf",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T14:01:33Z",
+  "pages": [
+    {
+      "text": "南京邮电大学2025年江苏省外国家专项招生计划表\n\n辐                                    四\n‘t         hi    机    川\nee\n\n—\n\n注，最终计划数、新高考改革省份的选考科目要求以名省 (H. BAK) 招生主管部门公布为准",
+      "mean_conf": 82.92,
+      "n_tokens": 58,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-p1"
+    }
+  ],
+  "text": "南京邮电大学2025年江苏省外国家专项招生计划表\n\n辐                                    四\n‘t         hi    机    川\nee\n\n—\n\n注，最终计划数、新高考改革省份的选考科目要求以名省 (H. BAK) 招生主管部门公布为准"
+}

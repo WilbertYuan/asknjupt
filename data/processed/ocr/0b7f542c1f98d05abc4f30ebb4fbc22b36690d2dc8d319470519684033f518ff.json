@@ -1,0 +1,20 @@
+{
+  "source_hash": "0b7f542c1f98d05abc4f30ebb4fbc22b36690d2dc8d319470519684033f518ff",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/0b/0b7f542c1f98d05abc4f30ebb4fbc22b36690d2dc8d319470519684033f518ff.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:24:04Z",
+  "pages": [
+    {
+      "text": "六 SLSR STR    erste\n\n江苏省庆祝中华人民 #和国成立70周年成就展\n\nHe LEMP\n\n @ gh we dane «(OD",
+      "mean_conf": 67.23,
+      "n_tokens": 31,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "六 SLSR STR    erste\n\n江苏省庆祝中华人民 #和国成立70周年成就展\n\nHe LEMP\n\n @ gh we dane «(OD"
+}

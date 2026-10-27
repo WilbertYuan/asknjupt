@@ -1,0 +1,20 @@
+{
+  "source_hash": "159241f4255c054e809183c7a57c5f32a21ca8f5780427eec5fc78e459d6b995",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/15/159241f4255c054e809183c7a57c5f32a21ca8f5780427eec5fc78e459d6b995.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:36Z",
+  "pages": [
+    {
+      "text": "了\nea                                                        ae\na Fee.       |\noN                  me are AAA y\niy     j  j\n1         |\ny, NS   >    ; 一                    |   | |     |\npat   ES     S    (Gi! //,  人  p      {         |\na            gy                 a. =      ~\n人             =|                  Ss    了 —\nN         2            了              =                            =  和\n=-一-        ji            取信\n一    —                          ry                  >\n=.                              eS,         os                  Z\nRearrt     RY.   和 =                            —\nCaan eee       Te\n本      人民     See eeth hase\n人ET    ES AAA\nRSS Ee NS                                       .\n人NTT             ATATTRTT                                                              -\n厂         Ri NENEEEEESSEN\nRS     SR\n     ‘      WANSERA SSCS ESSE ESRRSSES LIAS.                                            s\n=          IUNGSTERDR SRS ASO RSS S CARRS TS                                       .\n=               SHES     THI    tt\ny     i |             xP S STEERER ee ee eee etttis ee              4\nWAARSETES RES ees eersey     Ye\nMISRORARESMESTESESES SS UY           _~\nL    .              WASPS RRSSRSES       iA                   SS\n                CS       Sa\n4                                            ‘\ni ,\n|                              '\n—~                               :",
+      "mean_conf": 31.47,
+      "n_tokens": 149,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "了\nea                                                        ae\na Fee.       |\noN                  me are AAA y\niy     j  j\n1         |\ny, NS   >    ; 一                    |   | |     |\npat   ES     S    (Gi! //,  人  p      {         |\na            gy                 a. =      ~\n人             =|                  Ss    了 —\nN         2            了              =                            =  和\n=-一-        ji            取信\n一    —                          ry                  >\n=.                              eS,         os                  Z\nRearrt     RY.   和 =                            —\nCaan eee       Te\n本      人民     See eeth hase\n人ET    ES AAA\nRSS Ee NS                                       .\n人NTT             ATATTRTT                                                              -\n厂         Ri NENEEEEESSEN\nRS     SR\n     ‘      WANSERA SSCS ESSE ESRRSSES LIAS.                                            s\n=          IUNGSTERDR SRS ASO RSS S CARRS TS                                       .\n=               SHES     THI    tt\ny     i |             xP S STEERER ee ee eee etttis ee              4\nWAARSETES RES ees eersey     Ye\nMISRORARESMESTESESES SS UY           _~\nL    .              WASPS RRSSRSES       iA                   SS\n                CS       Sa\n4                                            ‘\ni ,\n|                              '\n—~                               :"
+}

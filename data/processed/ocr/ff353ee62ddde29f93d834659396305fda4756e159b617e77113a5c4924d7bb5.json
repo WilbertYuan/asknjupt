@@ -1,0 +1,20 @@
+{
+  "source_hash": "ff353ee62ddde29f93d834659396305fda4756e159b617e77113a5c4924d7bb5",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ff/ff353ee62ddde29f93d834659396305fda4756e159b617e77113a5c4924d7bb5.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:34:26Z",
+  "pages": [
+    {
+      "text": "ve TP nk oe yh tee eet Foes -\n, &   +             nail  y ie\n站   .              *-   '\n的 -*             *- o -*e '\n1 ee.  a pes        °  . S$ 2\n$     \"   sf   多     “TR\n§   >           中   =\n\\   Zoe GE.   7",
+      "mean_conf": 36.08,
+      "n_tokens": 46,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ve TP nk oe yh tee eet Foes -\n, &   +             nail  y ie\n站   .              *-   '\n的 -*             *- o -*e '\n1 ee.  a pes        °  . S$ 2\n$     \"   sf   多     “TR\n§   >           中   =\n\\   Zoe GE.   7"
+}

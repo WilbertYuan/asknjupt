@@ -1,0 +1,20 @@
+{
+  "source_hash": "142bc23ecd4a34b378d2541bc6bdbe3d5f62555b373eeb618f28aa84947f3586",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/14/142bc23ecd4a34b378d2541bc6bdbe3d5f62555b373eeb618f28aa84947f3586.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:31:26Z",
+  "pages": [
+    {
+      "text": "我们此刻所处的仙林校区图书馆，坐落于校园\n\nwal.    地理核心位置，建筑外观典牙大气、沉稳庄\nv     重。进入图书馆请在门禁处刷南京郎电大学\"\n名      校园一卡通\"或人脸识别入馆，便捷又安全。\n\nOOCRE",
+      "mean_conf": 85.33,
+      "n_tokens": 70,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "我们此刻所处的仙林校区图书馆，坐落于校园\n\nwal.    地理核心位置，建筑外观典牙大气、沉稳庄\nv     重。进入图书馆请在门禁处刷南京郎电大学\"\n名      校园一卡通\"或人脸识别入馆，便捷又安全。\n\nOOCRE"
+}

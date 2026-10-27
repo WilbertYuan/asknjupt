@@ -1,0 +1,20 @@
+{
+  "source_hash": "3039887a02c4acd8d3c34167272d27c9fe599e1c82581e42f43f6103109b4445",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/30/3039887a02c4acd8d3c34167272d27c9fe599e1c82581e42f43f6103109b4445.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:34:23Z",
+  "pages": [
+    {
+      "text": "WALT Sh hg BP fat\nNg POL 25 oe\na! 本了 AAA ve     ¢",
+      "mean_conf": 34.95,
+      "n_tokens": 15,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "WALT Sh hg BP fat\nNg POL 25 oe\na! 本了 AAA ve     ¢"
+}

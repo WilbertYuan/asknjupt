@@ -1,0 +1,20 @@
+{
+  "source_hash": "bbca9d1d2fba6a8718255ebde5a7127bf42aac7e2cc1b99d98af43de43b6ba1e",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/bb/bbca9d1d2fba6a8718255ebde5a7127bf42aac7e2cc1b99d98af43de43b6ba1e.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:31:00Z",
+  "pages": [
+    {
+      "text": "me) iS        XN }       ‘\na = 有\n者 Zina we e  AiO 2M\nPN Miter, Oe? heals   ie eter r 所  git 有\nMga\ntide    | 一\nene Bit    »   ein         ast  a\n月22日   Se          pet                          S|     sical\n= hakee?  a, &    i | Se",
+      "mean_conf": 29.55,
+      "n_tokens": 48,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "me) iS        XN }       ‘\na = 有\n者 Zina we e  AiO 2M\nPN Miter, Oe? heals   ie eter r 所  git 有\nMga\ntide    | 一\nene Bit    »   ein         ast  a\n月22日   Se          pet                          S|     sical\n= hakee?  a, &    i | Se"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "0977d5f3d78d3eceefbb96d69a15b6ec41aa36d178c1b852c2ace3e5f2cb7afd",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/09/0977d5f3d78d3eceefbb96d69a15b6ec41aa36d178c1b852c2ace3e5f2cb7afd.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:09Z",
+  "pages": [
+    {
+      "text": "] mi       —                 s\n小 er  Rat 至 和  VS ny, fa\n1 s a,     ; a <     一 恒",
+      "mean_conf": 35.83,
+      "n_tokens": 20,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "] mi       —                 s\n小 er  Rat 至 和  VS ny, fa\n1 s a,     ; a <     一 恒"
+}

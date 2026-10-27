@@ -1,0 +1,20 @@
+{
+  "source_hash": "96115bbf17981341048a326c165e8ba1533af04df3ccec14f200576d4c9866bb",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/96/96115bbf17981341048a326c165e8ba1533af04df3ccec14f200576d4c9866bb.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:31:35Z",
+  "pages": [
+    {
+      "text": "Se OSS LS    ~                                Yemen 2 2): hanes (es 一一      _——\nak 6 os a                f                             :                    a\nie      一站  用                                       LIBRARY                                  reat   ‘  ie\nSo hme apts asi                                                                                    .\n-      四                                       e\n:                    ‘                                              ®                      :             tS\n人    I, < ER EN I Sk ee A RS",
+      "mean_conf": 33.58,
+      "n_tokens": 50,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Se OSS LS    ~                                Yemen 2 2): hanes (es 一一      _——\nak 6 os a                f                             :                    a\nie      一站  用                                       LIBRARY                                  reat   ‘  ie\nSo hme apts asi                                                                                    .\n-      四                                       e\n:                    ‘                                              ®                      :             tS\n人    I, < ER EN I Sk ee A RS"
+}

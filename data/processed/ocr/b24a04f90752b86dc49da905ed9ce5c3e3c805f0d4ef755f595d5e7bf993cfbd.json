@@ -1,0 +1,20 @@
+{
+  "source_hash": "b24a04f90752b86dc49da905ed9ce5c3e3c805f0d4ef755f595d5e7bf993cfbd",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/b2/b24a04f90752b86dc49da905ed9ce5c3e3c805f0d4ef755f595d5e7bf993cfbd.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:25Z",
+  "pages": [
+    {
+      "text": "Rianee | aeaeer | maceer\nQe    e)OX carne OX amex.                                                                        |\nSet\nre pas      7                                                  quneansas\na  QEURA            Cleteus Cees CEARRLS CESSES Clams Oram\n-ma5am                             D) mane,                               RAIS\n| Keane\nRAS                               Sin                               ?电话                02585866676\nee      3                18751872399            azar                                orga\ns se    cad                                               RARER         <aa>        >\nema\n) sa@ertes\n2. amen      [es Je Fs J                                                            ana        ay\n© 2                                                           neem:                                                    |\n2. ATRSCEV ANSE SAMOS, MERU TRAM AR ALS NOSE, AAMSHITES, MOTT SET IOO,\n3, BEXAR: SMOBASEAOAT. MAPRETN, OSHVNAAIFIN. Manemas (44) RISK",
+      "mean_conf": 27.6,
+      "n_tokens": 81,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Rianee | aeaeer | maceer\nQe    e)OX carne OX amex.                                                                        |\nSet\nre pas      7                                                  quneansas\na  QEURA            Cleteus Cees CEARRLS CESSES Clams Oram\n-ma5am                             D) mane,                               RAIS\n| Keane\nRAS                               Sin                               ?电话                02585866676\nee      3                18751872399            azar                                orga\ns se    cad                                               RARER         <aa>        >\nema\n) sa@ertes\n2. amen      [es Je Fs J                                                            ana        ay\n© 2                                                           neem:                                                    |\n2. ATRSCEV ANSE SAMOS, MERU TRAM AR ALS NOSE, AAMSHITES, MOTT SET IOO,\n3, BEXAR: SMOBASEAOAT. MAPRETN, OSHVNAAIFIN. Manemas (44) RISK"
+}

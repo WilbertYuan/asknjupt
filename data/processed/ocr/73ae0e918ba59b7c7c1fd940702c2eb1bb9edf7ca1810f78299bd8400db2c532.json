@@ -1,0 +1,20 @@
+{
+  "source_hash": "73ae0e918ba59b7c7c1fd940702c2eb1bb9edf7ca1810f78299bd8400db2c532",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/73/73ae0e918ba59b7c7c1fd940702c2eb1bb9edf7ca1810f78299bd8400db2c532.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:25Z",
+  "pages": [
+    {
+      "text": "Mt\n\n|\n\n2021年学生资助工作                         |\n\niF\n\nfh\n\n1 Bt\n\n           -江苏省教育厅 江苏省财政厅   iF\n—   — at       —  ASSAY  A:            Lg:",
+      "mean_conf": 65.39,
+      "n_tokens": 29,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Mt\n\n|\n\n2021年学生资助工作                         |\n\niF\n\nfh\n\n1 Bt\n\n           -江苏省教育厅 江苏省财政厅   iF\n—   — at       —  ASSAY  A:            Lg:"
+}

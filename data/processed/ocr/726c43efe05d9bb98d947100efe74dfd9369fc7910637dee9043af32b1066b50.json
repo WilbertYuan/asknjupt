@@ -1,0 +1,20 @@
+{
+  "source_hash": "726c43efe05d9bb98d947100efe74dfd9369fc7910637dee9043af32b1066b50",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/72/726c43efe05d9bb98d947100efe74dfd9369fc7910637dee9043af32b1066b50.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:33Z",
+  "pages": [
+    {
+      "text": "&           G@ °               4       2026 > a MPS                     .\n*          +  =                     v       4            ”        a            4           本          ，\n'                      |      :                                                  \"a     4    a    a        一               4                      人\n                                                                              =                                    =      =                :               é\n.                                                            x q —  See =                                       .     7\n=                  ) =          —",
+      "mean_conf": 45.51,
+      "n_tokens": 46,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "&           G@ °               4       2026 > a MPS                     .\n*          +  =                     v       4            ”        a            4           本          ，\n'                      |      :                                                  \"a     4    a    a        一               4                      人\n                                                                              =                                    =      =                :               é\n.                                                            x q —  See =                                       .     7\n=                  ) =          —"
+}

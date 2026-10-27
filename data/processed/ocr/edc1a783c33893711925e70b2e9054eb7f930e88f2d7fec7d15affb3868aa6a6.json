@@ -1,0 +1,20 @@
+{
+  "source_hash": "edc1a783c33893711925e70b2e9054eb7f930e88f2d7fec7d15affb3868aa6a6",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ed/edc1a783c33893711925e70b2e9054eb7f930e88f2d7fec7d15affb3868aa6a6.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:31Z",
+  "pages": [
+    {
+      "text": "EN     ee, |  we So i       as (DP irthit\n《      ak  .            、  天      0            人\n=e)   esi     a? k a     ;   iF, )   Fae |    ?      ak\nSY y=      #1 \"SS!        IN \\\n:      |              十 ~ 7   加 a           és ~\nZe        A                     »        =\"   »\nSSSSWae ESUVERUV ONT NF errr E gs?\nis       AWN QUE 44,     区\nie    ;                     af |             |           a   <          —       =    |      tae y Sil ce    ”9\n             J        a\njal —_—",
+      "mean_conf": 36.08,
+      "n_tokens": 79,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "EN     ee, |  we So i       as (DP irthit\n《      ak  .            、  天      0            人\n=e)   esi     a? k a     ;   iF, )   Fae |    ?      ak\nSY y=      #1 \"SS!        IN \\\n:      |              十 ~ 7   加 a           és ~\nZe        A                     »        =\"   »\nSSSSWae ESUVERUV ONT NF errr E gs?\nis       AWN QUE 44,     区\nie    ;                     af |             |           a   <          —       =    |      tae y Sil ce    ”9\n             J        a\njal —_—"
+}

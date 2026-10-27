@@ -1,0 +1,20 @@
+{
+  "source_hash": "cd8e5637943abf212a0254d4cdcd06df368198f0572d87fa3d516406e6808790",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/cd/cd8e5637943abf212a0254d4cdcd06df368198f0572d87fa3d516406e6808790.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:44Z",
+  "pages": [
+    {
+      "text": "上    有            | 屋     i vie   \\ Bier, & Oe",
+      "mean_conf": 25.84,
+      "n_tokens": 10,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "上    有            | 屋     i vie   \\ Bier, & Oe"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "ea0d767652ca1570b581061b2f1932612098e880207b5411569d47288528bf58",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ea/ea0d767652ca1570b581061b2f1932612098e880207b5411569d47288528bf58.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:25Z",
+  "pages": [
+    {
+      "text": "MN om        i            :                                    :                 +o       -\n“ESTE   ate Cx Se ee ae |   ven ke 8   3     “2  th  a:    Ye  中  v 3           多       下\nene      7             4       .           _              了",
+      "mean_conf": 34.44,
+      "n_tokens": 33,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "MN om        i            :                                    :                 +o       -\n“ESTE   ate Cx Se ee ae |   ven ke 8   3     “2  th  a:    Ye  中  v 3           多       下\nene      7             4       .           _              了"
+}

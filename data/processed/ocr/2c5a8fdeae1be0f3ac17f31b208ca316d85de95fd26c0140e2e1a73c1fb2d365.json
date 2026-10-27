@@ -1,0 +1,20 @@
+{
+  "source_hash": "2c5a8fdeae1be0f3ac17f31b208ca316d85de95fd26c0140e2e1a73c1fb2d365",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/2c/2c5a8fdeae1be0f3ac17f31b208ca316d85de95fd26c0140e2e1a73c1fb2d365.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:52Z",
+  "pages": [
+    {
+      "text": "7 、梧     攻  >  Ca       SZ",
+      "mean_conf": 46.1,
+      "n_tokens": 7,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "7 、梧     攻  >  Ca       SZ"
+}

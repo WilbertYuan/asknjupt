@@ -1,0 +1,26 @@
+{
+  "n": 4,
+  "passed": 4,
+  "rows": [
+    {
+      "name": "year_swap_2019_empty_or_different",
+      "ok": true,
+      "detail": "2026=65 2019=None n2019=None"
+    },
+    {
+      "name": "subject_swap_history_differs",
+      "ok": true,
+      "detail": "phys=65 hist=30"
+    },
+    {
+      "name": "isolated_numeric_edit_sync",
+      "ok": true,
+      "detail": "orig=65 new=165 bumped=True"
+    },
+    {
+      "name": "chemistry_excluded_for_politics_geo",
+      "ok": true,
+      "detail": "leaked=0"
+    }
+  ]
+}

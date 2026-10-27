@@ -1,0 +1,20 @@
+{
+  "source_hash": "c557451547043be2249f4e4df11748844ecb334357cf4c35bf3838afa2be8a06",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/c5/c557451547043be2249f4e4df11748844ecb334357cf4c35bf3838afa2be8a06.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:16:11Z",
+  "pages": [
+    {
+      "text": "本             y=\nNai? a\nY\n|        /,     \\\n       人        |",
+      "mean_conf": 41.26,
+      "n_tokens": 10,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "本             y=\nNai? a\nY\n|        /,     \\\n       人        |"
+}

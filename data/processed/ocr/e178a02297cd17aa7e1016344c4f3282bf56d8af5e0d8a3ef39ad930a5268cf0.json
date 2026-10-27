@@ -1,0 +1,20 @@
+{
+  "source_hash": "e178a02297cd17aa7e1016344c4f3282bf56d8af5e0d8a3ef39ad930a5268cf0",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/e1/e178a02297cd17aa7e1016344c4f3282bf56d8af5e0d8a3ef39ad930a5268cf0.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:23Z",
+  "pages": [
+    {
+      "text": "RN                                           6: Qe Hie esos      a\ntt      NG Vaz ye    Zs   PRB SV   人二\n = 3                  /   Va +    ee de                  多 ~      4 >\n4        入> Sn        二 see     hs        2            his                                           4\nLEG maa      =               ar                              4               SSS\neT Se                                                                               .                           S=\n=      -    -     -         一   2      四   一    —\n<  5                    ELF FS       此     大      大                      =               >              本         =\nee   =    Z                 FM           V =  ye    2   ——      a     rena      、    一   :          =     =     =\nGA Pa a   -       7    Ze       一 Son “anes Re Sa >    Ss = Sa =          —— <\n—        一-        me 一           ve                                      Sica <\n          和二    <             See een                                       ~                       a\norn   apt    = J    Fon              SA OF GCE BEATEN Re                    TREE              DP: G           %        MOTE,     a     PPD",
+      "mean_conf": 42.48,
+      "n_tokens": 133,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "RN                                           6: Qe Hie esos      a\ntt      NG Vaz ye    Zs   PRB SV   人二\n = 3                  /   Va +    ee de                  多 ~      4 >\n4        入> Sn        二 see     hs        2            his                                           4\nLEG maa      =               ar                              4               SSS\neT Se                                                                               .                           S=\n=      -    -     -         一   2      四   一    —\n<  5                    ELF FS       此     大      大                      =               >              本         =\nee   =    Z                 FM           V =  ye    2   ——      a     rena      、    一   :          =     =     =\nGA Pa a   -       7    Ze       一 Son “anes Re Sa >    Ss = Sa =          —— <\n—        一-        me 一           ve                                      Sica <\n          和二    <             See een                                       ~                       a\norn   apt    = J    Fon              SA OF GCE BEATEN Re                    TREE              DP: G           %        MOTE,     a     PPD"
+}

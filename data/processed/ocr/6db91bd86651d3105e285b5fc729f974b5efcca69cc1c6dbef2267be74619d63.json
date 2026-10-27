@@ -1,0 +1,20 @@
+{
+  "source_hash": "6db91bd86651d3105e285b5fc729f974b5efcca69cc1c6dbef2267be74619d63",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/6d/6db91bd86651d3105e285b5fc729f974b5efcca69cc1c6dbef2267be74619d63.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:49Z",
+  "pages": [
+    {
+      "text": "是 aa   = a ee >: a4    & “ ge",
+      "mean_conf": 42.36,
+      "n_tokens": 10,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "是 aa   = a ee >: a4    & “ ge"
+}

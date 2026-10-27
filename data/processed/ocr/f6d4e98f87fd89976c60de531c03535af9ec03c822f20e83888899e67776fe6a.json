@@ -1,0 +1,20 @@
+{
+  "source_hash": "f6d4e98f87fd89976c60de531c03535af9ec03c822f20e83888899e67776fe6a",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/f6/f6d4e98f87fd89976c60de531c03535af9ec03c822f20e83888899e67776fe6a.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:28Z",
+  "pages": [
+    {
+      "text": "xX 待缴费项目\n\n付款金额        ¥1500\n\n点 缴 进\n费用项目   住宿费   击 费 入\n下 项 缴\n付款金额 ¥6380   方 目 费\n     .     的 及 界\n费用项目   学费    x4 if\nTt 额 ，\n付款金额  Y900   按 ”您\n钮 选 可\n费用项目   教材费    ” 择 以\n即 二\n付款金额 Y86    可 项 a\n费用项目   体检费 ee 己\nAw 项\ne 付款金额 Y89.5   费 并 中\n费用项目    军训服装费\n付款金额  ¥200\n费用项目    代收校园卡充值费\n付款金额  ¥600\n费用项目    大学生城镇居民医保\n\n=     O     <",
+      "mean_conf": 81.69,
+      "n_tokens": 117,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "xX 待缴费项目\n\n付款金额        ¥1500\n\n点 缴 进\n费用项目   住宿费   击 费 入\n下 项 缴\n付款金额 ¥6380   方 目 费\n     .     的 及 界\n费用项目   学费    x4 if\nTt 额 ，\n付款金额  Y900   按 ”您\n钮 选 可\n费用项目   教材费    ” 择 以\n即 二\n付款金额 Y86    可 项 a\n费用项目   体检费 ee 己\nAw 项\ne 付款金额 Y89.5   费 并 中\n费用项目    军训服装费\n付款金额  ¥200\n费用项目    代收校园卡充值费\n付款金额  ¥600\n费用项目    大学生城镇居民医保\n\n=     O     <"
+}

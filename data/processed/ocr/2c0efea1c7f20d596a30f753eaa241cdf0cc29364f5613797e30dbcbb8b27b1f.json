@@ -1,0 +1,20 @@
+{
+  "source_hash": "2c0efea1c7f20d596a30f753eaa241cdf0cc29364f5613797e30dbcbb8b27b1f",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/2c/2c0efea1c7f20d596a30f753eaa241cdf0cc29364f5613797e30dbcbb8b27b1f.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:35:02Z",
+  "pages": [
+    {
+      "text": "Op)\nfe) Fae",
+      "mean_conf": 21.6,
+      "n_tokens": 3,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Op)\nfe) Fae"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "a90c2c1e9d87b7c6e65e3b4842972066a1d0f8ad8d6c4e9664016f3c95deee76",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/a9/a90c2c1e9d87b7c6e65e3b4842972066a1d0f8ad8d6c4e9664016f3c95deee76.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:06Z",
+  "pages": [
+    {
+      "text": "让口",
+      "mean_conf": 10.33,
+      "n_tokens": 2,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "让口"
+}

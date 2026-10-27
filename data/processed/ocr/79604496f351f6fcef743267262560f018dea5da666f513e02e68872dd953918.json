@@ -1,0 +1,20 @@
+{
+  "source_hash": "79604496f351f6fcef743267262560f018dea5da666f513e02e68872dd953918",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/79/79604496f351f6fcef743267262560f018dea5da666f513e02e68872dd953918.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:24:18Z",
+  "pages": [
+    {
+      "text": "wy          x      co            xe      xe            看 *           a\nhe          wh      %          es     Pa     |      em. gai |     ak\n*                 =                 a                 a\n\n     NE hae te Oe Vos alae. |\nrok  £             rs      要              4                                             -   ~      oy\n| Oe,                      ® © aaa\nes S -       ist 于     —               = ©    =>          fs\nae We ie  s aS        be.                  |               y      / 让\n\n‘3                                    ie                  .                                                  a          主           2 Ris         _\n\ned                                   :     i          了 ?             一                    Genie              x                                 >",
+      "mean_conf": 39.98,
+      "n_tokens": 79,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "wy          x      co            xe      xe            看 *           a\nhe          wh      %          es     Pa     |      em. gai |     ak\n*                 =                 a                 a\n\n     NE hae te Oe Vos alae. |\nrok  £             rs      要              4                                             -   ~      oy\n| Oe,                      ® © aaa\nes S -       ist 于     —               = ©    =>          fs\nae We ie  s aS        be.                  |               y      / 让\n\n‘3                                    ie                  .                                                  a          主           2 Ris         _\n\ned                                   :     i          了 ?             一                    Genie              x                                 >"
+}

@@ -1,0 +1,241 @@
+{
+  "summary": {
+    "n": 20,
+    "accuracy": 1.0,
+    "topic_accuracy": {
+      "admission": 1.0,
+      "fee": 1.0,
+      "teacher": 1.0,
+      "lab": 1.0,
+      "charter": 1.0,
+      "campus": 1.0,
+      "academic": 1.0,
+      "unanswerable": 1.0,
+      "contact": 1.0
+    },
+    "used_llm": false,
+    "note": "样本规模有限，准确率仅反映当前开发/留出集，不是未公开测试集成绩。"
+  },
+  "rows": [
+    {
+      "split": "dev",
+      "topic": "admission",
+      "question": "2026年综合评价中，首选物理、再选政治和地理的考生，仅按选科条件筛选，可报专业的计划合计多少人？",
+      "gold": "65",
+      "pred": "65人。筛选条件：年份=2026，类型=综合评价，首选=物理，再选=['政治', '地理']。仅按选科匹配明细行（不含合计行）共5个专业：大数据管理与应用15、教育技术学10、金融工程15、经济统计学15、数字经济10。计算：sum(plan where subject conditions hold and row_role=detail)。",
+      "refs": "南京邮电大学2026年综合评价招生简章 https://zs.njupt.edu.cn/2026/0428/c2585a301108/page.htm | 南京邮电大学2026年各专业录取分数统计 https://zs.njupt.edu.cn/_upload/article/files/e5/33/28b7f96a4937a2fee78a944b71a4/1aaba4ce-f6bb-47b4-8491-229867620553.xlsx #xlsx-body#c0",
+      "ok": true,
+      "detail": "gold=[65.0] pred=[65.0, 2026.0, 5.0, 15.0, 10.0, 15.0, 15.0, 10.0]",
+      "used_llm": false
+    },
+    {
+      "split": "dev",
+      "topic": "fee",
+      "question": "按2026年章程，工科类优势学科专业的学费上浮后，加住宿费，假设标准四年不变，预收额合计多少？",
+      "gold": "31520",
+      "pred": "31520元。工科学费5800.0；上浮0.1*100%后=6380.00；住宿费1500.0；学年数4；合计=(6380.00+1500.0)*4=31520.00。",
+      "refs": "南京邮电大学2026年普通本科招生章程 https://zs.njupt.edu.cn/2026/0521/c2562a302356/page.htm | 重要信息 https://zs.njupt.edu.cn/2585/list.htm #html-block-2#c0 | 招生章程 https://zs.njupt.edu.cn/2562/list.htm #html-block-2#c0 | 重要信息 http://zs.njupt.edu.cn/2585/list.htm #html-block-2#c0 | 往年录取 https://zs.njupt.edu.cn/2564/list.htm #html-block-1#c0 | 招生计划 https://zs.njupt.edu.cn/2563/list.htm #html-block-1#c0",
+      "ok": true,
+      "detail": "gold=[31520.0] pred=[31520.0, 5800.0, 0.1, 100.0, 6380.0, 1500.0, 4.0, 6380.0, 1500.0, 4.0, 31520.0]",
+      "used_llm": false
+    },
+    {
+      "split": "dev",
+      "topic": "teacher",
+      "question": "根据2023—2024学年报告的专任、外聘及折合教师人数，反推外聘折算系数，再复算生师比。",
+      "gold": "0.5 14.86",
+      "pred": "外聘折算系数为0.5。复算生师比为14.86（报告值14.86）。折合=2318.0+外聘×k => k=(2750.0-2318.0)/864.0=0.5000；生师比=40863.2/2750.0=14.86。",
+      "refs": "本科教学质量报告 https://jwc.njupt.edu.cn/_upload/article/files/87/86/7d6a10f6413e882e76d8f5bc0de5/456a9fa8-1a41-463b-88c7-ca6dffb98e31.pdf",
+      "ok": true,
+      "detail": "gold=[0.5, 14.86] pred=[0.5, 14.86, 14.86, 2318.0, 2750.0, -2318.0, 864.0, 0.5, 40863.2, 2750.0, 14.86]",
+      "used_llm": false
+    },
+    {
+      "split": "dev",
+      "topic": "lab",
+      "question": "信息与通信、电子与光学、计算机三个实验教学中心面积之和，占报告表内总面积多少？",
+      "gold": "39.03",
+      "pred": "39.03%。信息与通信工程实验教学中心9230.0平方米、电子与光学工程实验教学中心9983.0平方米、计算机实验教学中心8056.0平方米；表内总面积69864.0平方米。9230.0+9983.0+8056.0=27269.0；27269.0/69864.0=39.03%。",
+      "refs": "本科教学质量报告 https://jwc.njupt.edu.cn/_upload/article/files/87/86/7d6a10f6413e882e76d8f5bc0de5/456a9fa8-1a41-463b-88c7-ca6dffb98e31.pdf | 南京邮电大学2025年各专业录取分数统计 https://zs.njupt.edu.cn/_upload/article/files/e8/e0/65c9f09941bb9a3086417b138570/9e680ed7-3cee-49cc-b69b-54177ec31881.xlsx #xlsx-body#c0",
+      "ok": true,
+      "detail": "gold=[39.03] pred=[39.03, 9230.0, 9983.0, 8056.0, 69864.0, 9230.0, 9983.0, 8056.0, 27269.0, 27269.0, 69864.0, 39.03]",
+      "used_llm": false
+    },
+    {
+      "split": "dev",
+      "topic": "fee",
+      "question": "南京邮电大学2026年普通本科招生章程规定的工科类专业学费预收标准是多少？",
+      "gold": "5800",
+      "pred": "5800元。工科学费5800.0；学年数1；合计=(5800.0+0)*1=5800.0。",
+      "refs": "南京邮电大学2026年普通本科招生章程 https://zs.njupt.edu.cn/2026/0521/c2562a302356/page.htm | 南京邮电大学2026年各专业录取分数统计 https://zs.njupt.edu.cn/_upload/article/files/e5/33/28b7f96a4937a2fee78a944b71a4/1aaba4ce-f6bb-47b4-8491-229867620553.xlsx #xlsx-body#c0",
+      "ok": true,
+      "detail": "gold=[5800.0] pred=[5800.0, 5800.0, 1.0, 5800.0, 0.0, 1.0, 5800.0]",
+      "used_llm": false
+    },
+    {
+      "split": "dev",
+      "topic": "fee",
+      "question": "2026年综合评价招生测试费标准是多少？",
+      "gold": "60",
+      "pred": "60元。综合评价招生测试费标准为 60 元。",
+      "refs": "南京邮电大学2026年综合评价招生简章 https://zs.njupt.edu.cn/2026/0428/c2585a301108/page.htm | 南京邮电大学2026年各专业录取分数统计 https://zs.njupt.edu.cn/_upload/article/files/e5/33/28b7f96a4937a2fee78a944b71a4/1aaba4ce-f6bb-47b4-8491-229867620553.xlsx #xlsx-北京#r0",
+      "ok": true,
+      "detail": "gold=[60.0] pred=[60.0, 60.0]",
+      "used_llm": false
+    },
+    {
+      "split": "dev",
+      "topic": "charter",
+      "question": "2026年招生章程中英语专业对应试语种有何要求？",
+      "gold": "英语",
+      "pred": "英语。english_major_language=英语。",
+      "refs": "南京邮电大学2026年普通本科招生章程 https://zs.njupt.edu.cn/2026/0521/c2562a302356/page.htm | 南京邮电大学2026年各专业录取分数统计 https://zs.njupt.edu.cn/_upload/article/files/e5/33/28b7f96a4937a2fee78a944b71a4/1aaba4ce-f6bb-47b4-8491-229867620553.xlsx #xlsx-body#c0",
+      "ok": true,
+      "detail": "must_contain=['英语']",
+      "used_llm": false
+    },
+    {
+      "split": "dev",
+      "topic": "admission",
+      "question": "2026年综合评价综合成绩如何计算？",
+      "gold": "高考投档分/750×80+测试成绩/100×20",
+      "pred": "高考投档分 /750 ） ×80+ （测试成绩 /100 ） ×20。zhpj_score_formula=高考投档分 /750 ） ×80+ （测试成绩 /100 ） ×20。",
+      "refs": "南京邮电大学2026年综合评价招生报考指南 https://zs.njupt.edu.cn/2026/0429/c2585a301155/page.htm | 南京邮电大学2026年各专业录取分数统计 https://zs.njupt.edu.cn/_upload/article/files/e5/33/28b7f96a4937a2fee78a944b71a4/1aaba4ce-f6bb-47b4-8491-229867620553.xlsx #xlsx-body#c0",
+      "ok": true,
+      "detail": "must_contain=['80', '20']",
+      "used_llm": false
+    },
+    {
+      "split": "dev",
+      "topic": "campus",
+      "question": "仙林校区地址是哪里？",
+      "gold": "文苑路9号",
+      "pred": "南京市仙林大学城文苑路 9 号。xianlin_address=南京市仙林大学城文苑路 9 号。",
+      "refs": "南京邮电大学2026年综合评价招生报考指南 https://zs.njupt.edu.cn/2026/0429/c2585a301155/page.htm | 走近南邮 https://zs.njupt.edu.cn/2589/list.htm #html-block-2#c0 | 聚焦南邮 https://zs.njupt.edu.cn/2586/list.htm #html-block-2#c0 | 重要信息 https://zs.njupt.edu.cn/2585/list.htm #html-block-2#c0 | 联系方式 https://zs.njupt.edu.cn/2581/list.htm #html-footer#c0 | 联系方式 https://zs.njupt.edu.cn/2580/list.htm #html-footer#c0",
+      "ok": true,
+      "detail": "must_contain=['文苑路9号']",
+      "used_llm": false
+    },
+    {
+      "split": "dev",
+      "topic": "academic",
+      "question": "以特殊招生形式录取的学生能否转专业？",
+      "gold": "国家有相关规定或者录取前与学校有明确约定的，不得转专业",
+      "pred": "以特殊招生形式录取的学生，国家有相关规定或者录取前与学校有明确约定的，不得转专业。special_no_transfer=以特殊招生形式录取的学生，国家有相关规定或者录取前与学校有明确约定的，不得转专业。",
+      "refs": "学籍管理办法 https://jwc.njupt.edu.cn/1535/list.htm | 校教发〔2024〕16号 https://jwc.njupt.edu.cn/_upload/article/files/a9/00/2814ed964422aa841db49618eb2d/5be4ca09-2eba-4783-bc40-be0ea7f92c1f.docx #docx-body#c0 | 教发〔2024〕24号 https://jwc.njupt.edu.cn/_upload/article/files/7e/08/d82f1b3347b4af5c73999fbd9510/0cad6e2b-d3d4-40df-82e1-441c24ab7923.docx #docx-body#c0 | 教发〔2024〕25号 https://jwc.njupt.edu.cn/_upload/article/files/7d/c6/5d5c9f574ec2bdc36563ba2e416b/864b214c-a95d-4ee3-9f64-b618bac07f52.docx #docx-body#c0 | 南京邮电大学信息公开 https://xxgk.njupt.edu.cn/ #html-block-0#c0 | 信息公开目录 https://xxgk.njupt.edu.cn/xxgkml/list.htm #html-table-0",
+      "ok": true,
+      "detail": "must_contain=['不得转专业']",
+      "used_llm": false
+    },
+    {
+      "split": "dev",
+      "topic": "unanswerable",
+      "question": "某本科生2024年个人加权平均分是多少？",
+      "gold": "不可回答",
+      "pred": "资料不足：公开知识库不收录个人成绩、账号或身份信息，不能确定答案。",
+      "refs": "南京邮电大学2024年各专业录取分数统计 https://zs.njupt.edu.cn/_upload/article/files/3d/50/f2acbcee41d8ba2251abe3547474/84cef2c7-6f10-44af-bbeb-fdd1425f64cb.xlsx #xlsx-body#c0",
+      "ok": true,
+      "detail": "refuse-like",
+      "used_llm": false
+    },
+    {
+      "split": "dev",
+      "topic": "admission",
+      "question": "2026年综合评价历史+不限的英语专业计划是多少人？",
+      "gold": "9",
+      "pred": "9人。筛选条件：年份=2026，类型=综合评价，首选=历史，再选=[]。仅按选科匹配明细行（不含合计行）共1个专业：英语9。计算：sum(plan where subject conditions hold and row_role=detail)。",
+      "refs": "南京邮电大学2026年综合评价招生简章 https://zs.njupt.edu.cn/2026/0428/c2585a301108/page.htm | 南京邮电大学2026年各专业录取分数统计 https://zs.njupt.edu.cn/_upload/article/files/e5/33/28b7f96a4937a2fee78a944b71a4/1aaba4ce-f6bb-47b4-8491-229867620553.xlsx #xlsx-body#c0",
+      "ok": true,
+      "detail": "gold=[9.0] pred=[9.0, 2026.0, 1.0, 9.0]",
+      "used_llm": false
+    },
+    {
+      "split": "holdout",
+      "topic": "admission",
+      "question": "2026年综合评价首选历史、再选不限政治地理化学均可的考生，仅按选科可报专业计划合计多少人？",
+      "gold": "30",
+      "pred": "30人。筛选条件：年份=2026，类型=综合评价，首选=历史，再选=['化学', '政治', '地理']。仅按选科匹配明细行（不含合计行）共6个专业：财务管理3、工商管理5、广告学3、人力资源管理3、社会工作7、英语9。计算：sum(plan where subject conditions hold and row_role=detail)。",
+      "refs": "南京邮电大学2026年综合评价招生简章 https://zs.njupt.edu.cn/2026/0428/c2585a301108/page.htm | 南京邮电大学2026年各专业录取分数统计 https://zs.njupt.edu.cn/_upload/article/files/e5/33/28b7f96a4937a2fee78a944b71a4/1aaba4ce-f6bb-47b4-8491-229867620553.xlsx #xlsx-body#c0",
+      "ok": true,
+      "detail": "gold=[30.0] pred=[30.0, 2026.0, 6.0, 3.0, 5.0, 3.0, 3.0, 7.0, 9.0]",
+      "used_llm": false
+    },
+    {
+      "split": "holdout",
+      "topic": "fee",
+      "question": "按2026年章程，文科类专业学费不加住宿费，一年预收多少？",
+      "gold": "5200",
+      "pred": "5200元。文科学费5200.0；学年数1；合计=(5200.0+0)*1=5200.0。",
+      "refs": "南京邮电大学2026年普通本科招生章程 https://zs.njupt.edu.cn/2026/0521/c2562a302356/page.htm | 南京邮电大学2026年各专业录取分数统计 https://zs.njupt.edu.cn/_upload/article/files/e5/33/28b7f96a4937a2fee78a944b71a4/1aaba4ce-f6bb-47b4-8491-229867620553.xlsx #xlsx-body#c0",
+      "ok": true,
+      "detail": "gold=[5200.0] pred=[5200.0, 5200.0, 1.0, 5200.0, 0.0, 1.0, 5200.0]",
+      "used_llm": false
+    },
+    {
+      "split": "holdout",
+      "topic": "charter",
+      "question": "2026年章程规定学校预留计划数不超过年度本科招生计划总数的多少？",
+      "gold": "1%",
+      "pred": "1。reserve_plan_pct=1%。",
+      "refs": "南京邮电大学2026年普通本科招生章程 https://zs.njupt.edu.cn/2026/0521/c2562a302356/page.htm | 重要信息 https://zs.njupt.edu.cn/2585/list.htm #html-block-2#c0 | 联系方式 https://zs.njupt.edu.cn/2581/list.htm #html-block-1#c0 | 联系方式 https://zs.njupt.edu.cn/2580/list.htm #html-block-1#c0 | 信息公开目录 https://xxgk.njupt.edu.cn/xxgkml/list.htm #html-table-0",
+      "ok": true,
+      "detail": "must_contain=['1%']",
+      "used_llm": false
+    },
+    {
+      "split": "holdout",
+      "topic": "admission",
+      "question": "2026年综合评价入围比例按不超过计划的几倍确定？",
+      "gold": "5",
+      "pred": "5。zhpj_shortlist_multiple=5倍。",
+      "refs": "南京邮电大学2026年综合评价招生报考指南 https://zs.njupt.edu.cn/2026/0429/c2585a301155/page.htm | 南京邮电大学2026年各专业录取分数统计 https://zs.njupt.edu.cn/_upload/article/files/e5/33/28b7f96a4937a2fee78a944b71a4/1aaba4ce-f6bb-47b4-8491-229867620553.xlsx #xlsx-北京#r0",
+      "ok": true,
+      "detail": "gold=[5.0] pred=[5.0, 5.0]",
+      "used_llm": false
+    },
+    {
+      "split": "holdout",
+      "topic": "contact",
+      "question": "本科招生咨询电话有哪些？",
+      "gold": "85866668",
+      "pred": "025-85866668。zs_phone=025-85866668。",
+      "refs": "联系方式 https://zs.njupt.edu.cn/2581/list.htm | 校教发〔2024〕16号 https://jwc.njupt.edu.cn/_upload/article/files/a9/00/2814ed964422aa841db49618eb2d/5be4ca09-2eba-4783-bc40-be0ea7f92c1f.docx #docx-body#c0 | 教发〔2024〕24号 https://jwc.njupt.edu.cn/_upload/article/files/7e/08/d82f1b3347b4af5c73999fbd9510/0cad6e2b-d3d4-40df-82e1-441c24ab7923.docx #docx-body#c0 | 教发〔2024〕25号 https://jwc.njupt.edu.cn/_upload/article/files/7d/c6/5d5c9f574ec2bdc36563ba2e416b/864b214c-a95d-4ee3-9f64-b618bac07f52.docx #docx-body#c0 | 南京邮电大学信息公开 https://xxgk.njupt.edu.cn/ #html-block-0#c0 | 信息公开目录 https://xxgk.njupt.edu.cn/xxgkml/list.htm #html-table-0",
+      "ok": true,
+      "detail": "must_contain=['85866668']",
+      "used_llm": false
+    },
+    {
+      "split": "holdout",
+      "topic": "campus",
+      "question": "锁金村校区地址是哪里？",
+      "gold": "龙蟠路177号",
+      "pred": "南京市玄武区龙蟠路177号。suojin_address=南京市玄武区龙蟠路177号。",
+      "refs": "保卫处 http://bwc.njupt.edu.cn/ | 走近南邮 https://zs.njupt.edu.cn/2589/list.htm #html-block-2#c0 | 聚焦南邮 https://zs.njupt.edu.cn/2586/list.htm #html-block-2#c0 | 重要信息 https://zs.njupt.edu.cn/2585/list.htm #html-block-2#c0 | 联系方式 https://zs.njupt.edu.cn/2581/list.htm #html-footer#c0 | 联系方式 https://zs.njupt.edu.cn/2580/list.htm #html-footer#c0",
+      "ok": true,
+      "detail": "must_contain=['龙蟠路']",
+      "used_llm": false
+    },
+    {
+      "split": "holdout",
+      "topic": "unanswerable",
+      "question": "请给出张三2025年奖学金发放账号。",
+      "gold": "不可回答",
+      "pred": "资料不足：公开知识库不收录个人成绩、账号或身份信息，不能确定答案。",
+      "refs": "南京邮电大学2025年各专业录取分数统计 https://zs.njupt.edu.cn/_upload/article/files/e8/e0/65c9f09941bb9a3086417b138570/9e680ed7-3cee-49cc-b69b-54177ec31881.xlsx #xlsx-北京#r0",
+      "ok": true,
+      "detail": "refuse-like",
+      "used_llm": false
+    },
+    {
+      "split": "holdout",
+      "topic": "admission",
+      "question": "2026年综合评价招生简章注明招生专业和计划最终以谁核定为准？",
+      "gold": "省级招生主管部门",
+      "pred": "省级招生主管部门。plan_final_authority=省级招生主管部门。",
+      "refs": "南京邮电大学2026年综合评价招生简章 https://zs.njupt.edu.cn/2026/0428/c2585a301108/page.htm | 南京邮电大学2026年各专业录取分数统计 https://zs.njupt.edu.cn/_upload/article/files/e5/33/28b7f96a4937a2fee78a944b71a4/1aaba4ce-f6bb-47b4-8491-229867620553.xlsx #xlsx-body#c0",
+      "ok": true,
+      "detail": "must_contain=['省级招生主管']",
+      "used_llm": false
+    }
+  ]
+}

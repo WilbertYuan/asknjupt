@@ -1,0 +1,20 @@
+{
+  "source_hash": "188ca97fb4a2d8f35583243371d001e2f6d3c603a9228b9231e052dde57d7e62",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/18/188ca97fb4a2d8f35583243371d001e2f6d3c603a9228b9231e052dde57d7e62.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:07Z",
+  "pages": [
+    {
+      "text": "Arenes | snaeer | meaeer\nQo   sox amcrme |\noe                          当前地本申请\n2 _mimese   Ome PREG mR SSARNKZcs\noe    O mee   2HAR      ane    “SAM   =    eae   ws  SIA  anee  Anse  880  Hwee\n1 Semana\n2 maneens\n> RAR\n4 CSP RaRMAIE\n> manos\n© Xi\n> meme\n(Ct naane ][ exnne j[* onene ] [9 nese J[s nomne ] [= aunwes J(u numenn ] | wwe J)",
+      "mean_conf": 28.7,
+      "n_tokens": 69,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Arenes | snaeer | meaeer\nQo   sox amcrme |\noe                          当前地本申请\n2 _mimese   Ome PREG mR SSARNKZcs\noe    O mee   2HAR      ane    “SAM   =    eae   ws  SIA  anee  Anse  880  Hwee\n1 Semana\n2 maneens\n> RAR\n4 CSP RaRMAIE\n> manos\n© Xi\n> meme\n(Ct naane ][ exnne j[* onene ] [9 nese J[s nomne ] [= aunwes J(u numenn ] | wwe J)"
+}

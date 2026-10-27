@@ -1,0 +1,20 @@
+{
+  "source_hash": "582bd7079826290af9d081e14297d67576ca3daf52a08a92d75b3b292f8eb93c",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/58/582bd7079826290af9d081e14297d67576ca3daf52a08a92d75b3b292f8eb93c.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:14Z",
+  "pages": [
+    {
+      "text": "1\n» San eee A\n=                                            2\n=\n~                     =                                      a\nWise Oe) ce. (AID ALAS Ae\nRN\n4 pees  nd.       as “BAY Zs:      harmo wen all  ee >   \\",
+      "mean_conf": 41.23,
+      "n_tokens": 30,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "1\n» San eee A\n=                                            2\n=\n~                     =                                      a\nWise Oe) ce. (AID ALAS Ae\nRN\n4 pees  nd.       as “BAY Zs:      harmo wen all  ee >   \\"
+}

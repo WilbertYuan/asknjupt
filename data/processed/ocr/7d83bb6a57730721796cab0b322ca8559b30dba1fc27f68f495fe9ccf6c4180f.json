@@ -1,0 +1,20 @@
+{
+  "source_hash": "7d83bb6a57730721796cab0b322ca8559b30dba1fc27f68f495fe9ccf6c4180f",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/7d/7d83bb6a57730721796cab0b322ca8559b30dba1fc27f68f495fe9ccf6c4180f.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:31:04Z",
+  "pages": [
+    {
+      "text": "》    4   .      fa)              ib     (Sx          “s  一    ‘J        !\n~ Saw     om Ue as\n\\  wea     2 多     .    ‘      :   A       4\n六                 —               ws           ,              OY\n\\§      \"                eS               ;    .                     .\n|                 »   a         7                   3   号\nJ        ath -                 es                                  Fore          \\\nKY SEE    Z Dae =\n~  iz  % 化变;          =\nHihtsg F    F, mmr 播电视集团   Gayest! Nee                 4\nNoE=> ™   ies                                 ¥      =       4\narr ee ee    Be Ae ae   pee   ray 于 i\n江苏省“全民阅读活动周”暨第31届南下读书                       上>\nah 了                        al %\n41 @    同”\n|                        人)\n,    A       .  :                               7\nae r    fe Af\n       Vat) See            六流中心         “aw Ss 4\n而  if             CS at       we\net <         一                      ds a |           »",
+      "mean_conf": 46.65,
+      "n_tokens": 142,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "》    4   .      fa)              ib     (Sx          “s  一    ‘J        !\n~ Saw     om Ue as\n\\  wea     2 多     .    ‘      :   A       4\n六                 —               ws           ,              OY\n\\§      \"                eS               ;    .                     .\n|                 »   a         7                   3   号\nJ        ath -                 es                                  Fore          \\\nKY SEE    Z Dae =\n~  iz  % 化变;          =\nHihtsg F    F, mmr 播电视集团   Gayest! Nee                 4\nNoE=> ™   ies                                 ¥      =       4\narr ee ee    Be Ae ae   pee   ray 于 i\n江苏省“全民阅读活动周”暨第31届南下读书                       上>\nah 了                        al %\n41 @    同”\n|                        人)\n,    A       .  :                               7\nae r    fe Af\n       Vat) See            六流中心         “aw Ss 4\n而  if             CS at       we\net <         一                      ds a |           »"
+}

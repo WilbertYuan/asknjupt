@@ -1,0 +1,20 @@
+{
+  "source_hash": "62d2990033262ca41114e936dac1af55c23e5c7495273e9754a6b442ff9e8690",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/62/62d2990033262ca41114e936dac1af55c23e5c7495273e9754a6b442ff9e8690.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:18Z",
+  "pages": [
+    {
+      "text": "要         ri,\n有                   am        z    了\nf a   wg )   -       ¢     ae () |\n机               J      (igs J              3           eee\n\"                          : a                           i\n_             ?       hyp\n村  Do    M327 2ERCREA                 a  ‘4   一  St  =——\nzw  /MEFAR BEN          i aos             5) =o\ni          22                     mh.   SeRnceansaace           |         ry",
+      "mean_conf": 28.21,
+      "n_tokens": 50,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "要         ri,\n有                   am        z    了\nf a   wg )   -       ¢     ae () |\n机               J      (igs J              3           eee\n\"                          : a                           i\n_             ?       hyp\n村  Do    M327 2ERCREA                 a  ‘4   一  St  =——\nzw  /MEFAR BEN          i aos             5) =o\ni          22                     mh.   SeRnceansaace           |         ry"
+}

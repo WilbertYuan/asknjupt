@@ -1,0 +1,20 @@
+{
+  "source_hash": "5d3f56e35b784e01cc80e37092ad9d5b737c3665caa348ad34fe718eb312c62c",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/5d/5d3f56e35b784e01cc80e37092ad9d5b737c3665caa348ad34fe718eb312c62c.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:35Z",
+  "pages": [
+    {
+      "text": "小             i: &  ‘a |\n. CAE -C24 / EE     ee      .\na <M Seals r 3) ee\nA 4 oD ee,   se    SEN",
+      "mean_conf": 29.85,
+      "n_tokens": 24,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "小             i: &  ‘a |\n. CAE -C24 / EE     ee      .\na <M Seals r 3) ee\nA 4 oD ee,   se    SEN"
+}

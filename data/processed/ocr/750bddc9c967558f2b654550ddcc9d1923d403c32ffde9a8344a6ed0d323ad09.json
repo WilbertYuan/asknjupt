@@ -1,0 +1,20 @@
+{
+  "source_hash": "750bddc9c967558f2b654550ddcc9d1923d403c32ffde9a8344a6ed0d323ad09",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/75/750bddc9c967558f2b654550ddcc9d1923d403c32ffde9a8344a6ed0d323ad09.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:43Z",
+  "pages": [
+    {
+      "text": "~ $ = ae   =            _   一二\n  Te   |\n二      NN     OV\nIN pe eb\nSa 4 <         =~ |    3               从    a\na 、                   a   ¢  ar | 7       *   y= »|         B      4",
+      "mean_conf": 34.76,
+      "n_tokens": 36,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "~ $ = ae   =            _   一二\n  Te   |\n二      NN     OV\nIN pe eb\nSa 4 <         =~ |    3               从    a\na 、                   a   ¢  ar | 7       *   y= »|         B      4"
+}

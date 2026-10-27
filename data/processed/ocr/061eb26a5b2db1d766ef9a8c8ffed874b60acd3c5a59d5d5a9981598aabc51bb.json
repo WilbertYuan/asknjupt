@@ -1,0 +1,20 @@
+{
+  "source_hash": "061eb26a5b2db1d766ef9a8c8ffed874b60acd3c5a59d5d5a9981598aabc51bb",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/06/061eb26a5b2db1d766ef9a8c8ffed874b60acd3c5a59d5d5a9981598aabc51bb.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:25Z",
+  "pages": [
+    {
+      "text": "二                Bs                                      .                 =      一                  1\n4                                         OT        ‘\n:                                                        Sct      *:               ,     .\n!                                                                       =                                                                                                                          |\nE                                           os\nar                                              a\nJOY\neb 2, ee\n;                                                                           一\n4    =                                  cr             ~   —  ~   <                                                      -|    A                                             |\n                                            v     >     /                                               ig         )\nXE              y >\n                                                                                  =\n.                                                                                 ad\nSO    ae cs Reese                                                                   3                                                    aa  i\n六 二  oer  : oie car Ba e              :       -  es 党 a j                                       . 6   }          ‘\n~                                                                                            ’   me                                                                ;\n4 j                                                                                      X  es.",
+      "mean_conf": 35.81,
+      "n_tokens": 81,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "二                Bs                                      .                 =      一                  1\n4                                         OT        ‘\n:                                                        Sct      *:               ,     .\n!                                                                       =                                                                                                                          |\nE                                           os\nar                                              a\nJOY\neb 2, ee\n;                                                                           一\n4    =                                  cr             ~   —  ~   <                                                      -|    A                                             |\n                                            v     >     /                                               ig         )\nXE              y >\n                                                                                  =\n.                                                                                 ad\nSO    ae cs Reese                                                                   3                                                    aa  i\n六 二  oer  : oie car Ba e              :       -  es 党 a j                                       . 6   }          ‘\n~                                                                                            ’   me                                                                ;\n4 j                                                                                      X  es."
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "b232194260a425cfdd32cb0d1258e8e0111b6162d3814ee80e747baffb15b064",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/b2/b232194260a425cfdd32cb0d1258e8e0111b6162d3814ee80e747baffb15b064.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:04Z",
+  "pages": [
+    {
+      "text": "一 登录，发现更多精彩\n\n聆听有声音的文字                        润读记录        我的笔记        我的消息        我的下载\n\nAi                       mi                                                    手机验证码登录 “账号密码登录\n数字图书馆\n\n阅读排行榜\n阅读活动\n\n系统设置\n\necs>\nbe a SANS\n%                                                                   O MEER\n\nOh BT Ht S FF 09 MH 9 ie\nat WR Ly Bie Heh 9 Be BH Ht BR\n\n豆瓣高分                                更多 >\n\n帮助与反馈                                                              Te",
+      "mean_conf": 67.95,
+      "n_tokens": 82,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "一 登录，发现更多精彩\n\n聆听有声音的文字                        润读记录        我的笔记        我的消息        我的下载\n\nAi                       mi                                                    手机验证码登录 “账号密码登录\n数字图书馆\n\n阅读排行榜\n阅读活动\n\n系统设置\n\necs>\nbe a SANS\n%                                                                   O MEER\n\nOh BT Ht S FF 09 MH 9 ie\nat WR Ly Bie Heh 9 Be BH Ht BR\n\n豆瓣高分                                更多 >\n\n帮助与反馈                                                              Te"
+}

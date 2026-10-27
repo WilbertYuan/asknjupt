@@ -1,0 +1,20 @@
+{
+  "source_hash": "7b584d13ee20bcd30765166684cc876c53ee6a502472b3d5fe9266df43d1ddd8",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/7b/7b584d13ee20bcd30765166684cc876c53ee6a502472b3d5fe9266df43d1ddd8.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:54Z",
+  "pages": [
+    {
+      "text": "—           _ .\npeer       @\noy     中国铸人\n:                                                                                                                                                           (aa                                   财务党支部           wines eb\nTe Oc\nTA {         | es   <=                 “    1 Fane        (O™® a                                  KRY       以\n     和                  ts,     ag       18)\n,               | ae                        ey ih” <a:                 RA Se\n                 a         2\n      -                                                        SLR Reig eS as a A\n\"                        _ ©                     Rint        ON\n          ie           2                                     | .                本             NASA                S\n>,           P                      “                                     ie             CARRS oy            Thy",
+      "mean_conf": 37.36,
+      "n_tokens": 71,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "—           _ .\npeer       @\noy     中国铸人\n:                                                                                                                                                           (aa                                   财务党支部           wines eb\nTe Oc\nTA {         | es   <=                 “    1 Fane        (O™® a                                  KRY       以\n     和                  ts,     ag       18)\n,               | ae                        ey ih” <a:                 RA Se\n                 a         2\n      -                                                        SLR Reig eS as a A\n\"                        _ ©                     Rint        ON\n          ie           2                                     | .                本             NASA                S\n>,           P                      “                                     ie             CARRS oy            Thy"
+}

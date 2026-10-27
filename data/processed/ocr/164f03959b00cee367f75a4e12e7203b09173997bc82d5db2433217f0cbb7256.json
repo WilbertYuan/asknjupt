@@ -1,0 +1,20 @@
+{
+  "source_hash": "164f03959b00cee367f75a4e12e7203b09173997bc82d5db2433217f0cbb7256",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/16/164f03959b00cee367f75a4e12e7203b09173997bc82d5db2433217f0cbb7256.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:17:29Z",
+  "pages": [
+    {
+      "text": "第十八届 Hike 45.”\n\nSEAS SU is BR\n\n0 全月-\n\n             +\n=       通信与 信息  ct    学院      |  |          =",
+      "mean_conf": 63.99,
+      "n_tokens": 32,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "第十八届 Hike 45.”\n\nSEAS SU is BR\n\n0 全月-\n\n             +\n=       通信与 信息  ct    学院      |  |          ="
+}

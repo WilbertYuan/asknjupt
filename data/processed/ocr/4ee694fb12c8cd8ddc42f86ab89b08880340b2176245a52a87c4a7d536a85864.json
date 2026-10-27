@@ -1,0 +1,20 @@
+{
+  "source_hash": "4ee694fb12c8cd8ddc42f86ab89b08880340b2176245a52a87c4a7d536a85864",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/4e/4ee694fb12c8cd8ddc42f86ab89b08880340b2176245a52a87c4a7d536a85864.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:04Z",
+  "pages": [
+    {
+      "text": "我和相国共成长 青挺诊显担当\n=n\n8 5\npe\n2 GB te):\noS OR NEE Es i",
+      "mean_conf": 52.06,
+      "n_tokens": 23,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "我和相国共成长 青挺诊显担当\n=n\n8 5\npe\n2 GB te):\noS OR NEE Es i"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "350d0a0acb8e119fbbec5cf968154df81d42c609fd49d0213df2c3b3cbb7f9e0",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/35/350d0a0acb8e119fbbec5cf968154df81d42c609fd49d0213df2c3b3cbb7f9e0.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:54Z",
+  "pages": [
+    {
+      "text": "~\n\n人 人          oe           9            -\naexeesnennennnnnsemesnnnneeneensr™ TT TTTTT TET TR TT TTT TTT TTT TN\nSQ\nan      财务服务进学院\n\n-人                             机关党委财务处或部",
+      "mean_conf": 48.97,
+      "n_tokens": 35,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "~\n\n人 人          oe           9            -\naexeesnennennnnnsemesnnnneeneensr™ TT TTTTT TET TR TT TTT TTT TTT TN\nSQ\nan      财务服务进学院\n\n-人                             机关党委财务处或部"
+}

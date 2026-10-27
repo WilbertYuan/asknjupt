@@ -1,0 +1,14 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+logs/*.tmp
+data/raw/
+data/processed/ocr_tmp/
+data/db/*.sqlite
+data/db/*.sqlite-journal
+data/db/*.sqlite.full
+models/*.gguf
+prompt.txt
+*.docx
+其他资料/

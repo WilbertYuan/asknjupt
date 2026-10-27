@@ -1,0 +1,20 @@
+{
+  "source_hash": "26ab3b84775cb1cda9146e62d0a34dfdec75d33cbe90827ae435cf41632b0363",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/26/26ab3b84775cb1cda9146e62d0a34dfdec75d33cbe90827ae435cf41632b0363.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:03Z",
+  "pages": [
+    {
+      "text": "ceaae",
+      "mean_conf": 0.0,
+      "n_tokens": 1,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ceaae"
+}

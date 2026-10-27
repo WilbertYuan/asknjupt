@@ -1,0 +1,20 @@
+{
+  "source_hash": "25d58c8e34021fc6b892370b98ebc215745c85ac4881dfcb04fc7918bc01a3f8",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/25/25d58c8e34021fc6b892370b98ebc215745c85ac4881dfcb04fc7918bc01a3f8.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:16:37Z",
+  "pages": [
+    {
+      "text": "T        We Ld hh\nWs   WOO ae A\nNa X  ,e HR      i   ” fin     4\nA                      7 a\n:                          A\n/\n下\nat\n at A so                                                                         “         ravers\nke pe >   ce? eta                                                egg a = i\na                                                   SSE     ae\n— a                                                                            wy\n—_.                    ra:    a...                      > =\n\"                                           ae    am                               7,  -  和\n~      EE Te Oe   wee\nDr                                Ve De ac   feo    i.                                            been\nwwe                                              ‘i. tie sete 挤       ~~ se.                                     Neenah\n    x                       ~ ee      wo      ns     ~                        an ee\nvist                       ww 写   he AY   arth\n1A   | y                           be,       AN      rm                               <\niow,                                Pi es pr       Mo CE     一                                  re\n>                     ”                                       #34   aps",
+      "mean_conf": 28.96,
+      "n_tokens": 108,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "T        We Ld hh\nWs   WOO ae A\nNa X  ,e HR      i   ” fin     4\nA                      7 a\n:                          A\n/\n下\nat\n at A so                                                                         “         ravers\nke pe >   ce? eta                                                egg a = i\na                                                   SSE     ae\n— a                                                                            wy\n—_.                    ra:    a...                      > =\n\"                                           ae    am                               7,  -  和\n~      EE Te Oe   wee\nDr                                Ve De ac   feo    i.                                            been\nwwe                                              ‘i. tie sete 挤       ~~ se.                                     Neenah\n    x                       ~ ee      wo      ns     ~                        an ee\nvist                       ww 写   he AY   arth\n1A   | y                           be,       AN      rm                               <\niow,                                Pi es pr       Mo CE     一                                  re\n>                     ”                                       #34   aps"
+}

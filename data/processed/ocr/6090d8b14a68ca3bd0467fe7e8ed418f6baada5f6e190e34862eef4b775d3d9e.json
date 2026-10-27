@@ -1,0 +1,20 @@
+{
+  "source_hash": "6090d8b14a68ca3bd0467fe7e8ed418f6baada5f6e190e34862eef4b775d3d9e",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/60/6090d8b14a68ca3bd0467fe7e8ed418f6baada5f6e190e34862eef4b775d3d9e.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:34:29Z",
+  "pages": [
+    {
+      "text": "A Ga\n.  a  ; a RT #9 > . . =\nt        '     ma wi 2   .\ny taf         |  e    村  、  x\n:      t",
+      "mean_conf": 40.89,
+      "n_tokens": 27,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "A Ga\n.  a  ; a RT #9 > . . =\nt        '     ma wi 2   .\ny taf         |  e    村  、  x\n:      t"
+}

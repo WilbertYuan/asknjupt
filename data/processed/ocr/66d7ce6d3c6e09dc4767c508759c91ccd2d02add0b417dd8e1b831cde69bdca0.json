@@ -1,0 +1,20 @@
+{
+  "source_hash": "66d7ce6d3c6e09dc4767c508759c91ccd2d02add0b417dd8e1b831cde69bdca0",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/66/66d7ce6d3c6e09dc4767c508759c91ccd2d02add0b417dd8e1b831cde69bdca0.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:33Z",
+  "pages": [
+    {
+      "text": "e »\n+   nd    Eee\n                ‘       ;    ane     ,    4  an!\n从        is,        \\              ,       :    Cm &.       \\\n|      Gee. Wess aa\n局                                              ait            1    tll\nf             9                _                  is\n|            Ra\n    2 37多    a        ay       ~\ny      ple gh",
+      "mean_conf": 37.65,
+      "n_tokens": 42,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "e »\n+   nd    Eee\n                ‘       ;    ane     ,    4  an!\n从        is,        \\              ,       :    Cm &.       \\\n|      Gee. Wess aa\n局                                              ait            1    tll\nf             9                _                  is\n|            Ra\n    2 37多    a        ay       ~\ny      ple gh"
+}

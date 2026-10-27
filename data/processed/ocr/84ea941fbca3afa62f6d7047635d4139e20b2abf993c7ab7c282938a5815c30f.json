@@ -1,0 +1,20 @@
+{
+  "source_hash": "84ea941fbca3afa62f6d7047635d4139e20b2abf993c7ab7c282938a5815c30f",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/84/84ea941fbca3afa62f6d7047635d4139e20b2abf993c7ab7c282938a5815c30f.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:16:05Z",
+  "pages": [
+    {
+      "text": "—        ae            o",
+      "mean_conf": 22.08,
+      "n_tokens": 3,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "—        ae            o"
+}

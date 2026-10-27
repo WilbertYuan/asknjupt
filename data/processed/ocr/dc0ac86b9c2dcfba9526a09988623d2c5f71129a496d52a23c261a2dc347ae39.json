@@ -1,0 +1,20 @@
+{
+  "source_hash": "dc0ac86b9c2dcfba9526a09988623d2c5f71129a496d52a23c261a2dc347ae39",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/dc/dc0ac86b9c2dcfba9526a09988623d2c5f71129a496d52a23c261a2dc347ae39.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:08Z",
+  "pages": [
+    {
+      "text": "‘f\n了    i]\n     rr     di oe poe         区    SA           °                                                                                          7      |          区     ™\n                   re       :            te hy |   SN                NS        a     ES El                ‘     /               六             AN人     >\n全四      “多“了\nae         .       ‘              {2        %               VA       SES                           SS       _ in                   »            \\ |             CF\nwe      mee      ee > tt\nhid                       4        一        aa”              一                                   SS\nwe                                        —_—        \\                  a»           SLi          a         ’                —       <",
+      "mean_conf": 36.62,
+      "n_tokens": 68,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "‘f\n了    i]\n     rr     di oe poe         区    SA           °                                                                                          7      |          区     ™\n                   re       :            te hy |   SN                NS        a     ES El                ‘     /               六             AN人     >\n全四      “多“了\nae         .       ‘              {2        %               VA       SES                           SS       _ in                   »            \\ |             CF\nwe      mee      ee > tt\nhid                       4        一        aa”              一                                   SS\nwe                                        —_—        \\                  a»           SLi          a         ’                —       <"
+}

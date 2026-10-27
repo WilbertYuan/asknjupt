@@ -1,0 +1,20 @@
+{
+  "source_hash": "ae246d38832c09ddb5814b32f4607a7a7f7d5630de3bfd4fded7532bb1d592c7",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ae/ae246d38832c09ddb5814b32f4607a7a7f7d5630de3bfd4fded7532bb1d592c7.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:02Z",
+  "pages": [
+    {
+      "text": "户名: 南京邮电大学\n\n开户行: 工商银行察哈尔路支行\n账号;， 4301011209001047531\n税务号: 320106426090859\n\n单位地址: 南京市栖霞区文苑路9号",
+      "mean_conf": 88.86,
+      "n_tokens": 36,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "户名: 南京邮电大学\n\n开户行: 工商银行察哈尔路支行\n账号;， 4301011209001047531\n税务号: 320106426090859\n\n单位地址: 南京市栖霞区文苑路9号"
+}

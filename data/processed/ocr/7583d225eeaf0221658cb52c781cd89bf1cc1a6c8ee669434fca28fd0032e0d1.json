@@ -1,0 +1,20 @@
+{
+  "source_hash": "7583d225eeaf0221658cb52c781cd89bf1cc1a6c8ee669434fca28fd0032e0d1",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/75/7583d225eeaf0221658cb52c781cd89bf1cc1a6c8ee669434fca28fd0032e0d1.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:52Z",
+  "pages": [
+    {
+      "text": "可发放\n校外 (外聘) a «SDF BH\n\n在职        其他收入\n可发放\n\n校内 | 离退休\n\n在职外夭             全年一次性奖金",
+      "mean_conf": 85.67,
+      "n_tokens": 33,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "可发放\n校外 (外聘) a «SDF BH\n\n在职        其他收入\n可发放\n\n校内 | 离退休\n\n在职外夭             全年一次性奖金"
+}

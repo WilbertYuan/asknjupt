@@ -1,0 +1,20 @@
+{
+  "source_hash": "08b4d31f47d4434572bd4ff07075c03c706e2abf8dde1f08995deebe40f8f5f4",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/08/08b4d31f47d4434572bd4ff07075c03c706e2abf8dde1f08995deebe40f8f5f4.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:54Z",
+  "pages": [
+    {
+      "text": "Ley\nH MELE\n\naap\n\n财务处党支部\n    机关党委财务处 my",
+      "mean_conf": 75.55,
+      "n_tokens": 16,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Ley\nH MELE\n\naap\n\n财务处党支部\n    机关党委财务处 my"
+}

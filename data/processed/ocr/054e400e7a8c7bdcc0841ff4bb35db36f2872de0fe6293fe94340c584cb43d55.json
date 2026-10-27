@@ -1,0 +1,20 @@
+{
+  "source_hash": "054e400e7a8c7bdcc0841ff4bb35db36f2872de0fe6293fe94340c584cb43d55",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/05/054e400e7a8c7bdcc0841ff4bb35db36f2872de0fe6293fe94340c584cb43d55.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:47Z",
+  "pages": [
+    {
+      "text": "es\n超过36000元至144000元的部分  2520\n超过420000元至660000元的部分    52920\n\n超过660000元至960000元的部分 85920",
+      "mean_conf": 91.9,
+      "n_tokens": 32,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "es\n超过36000元至144000元的部分  2520\n超过420000元至660000元的部分    52920\n\n超过660000元至960000元的部分 85920"
+}

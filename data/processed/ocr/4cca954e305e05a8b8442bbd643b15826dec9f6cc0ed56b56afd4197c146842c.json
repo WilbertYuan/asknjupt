@@ -1,0 +1,20 @@
+{
+  "source_hash": "4cca954e305e05a8b8442bbd643b15826dec9f6cc0ed56b56afd4197c146842c",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/4c/4cca954e305e05a8b8442bbd643b15826dec9f6cc0ed56b56afd4197c146842c.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:46Z",
+  "pages": [
+    {
+      "text": "ox: y                                           本\n   ees                          7\n‘ Wi\nBe                                                                                                                                                                                                           id\n:                   an |\n\n-— Fa            |         ss              =                                       a,                : 2               {           |        7         [it         -一Rs ，  L\nrs   ,                           ee = { a cna             ad  @            PT ay  四    = So   a <a   ris\n-                                              wm                                                 >\"                           mn          —— — ie ee            /\n\na                                                                                                        |        nm      4 <                                    人  =   ny\nj                                %           _.                            rs              二     a                                ae                                              |                       =\ni                                                       3                                                                     ‘ \\",
+      "mean_conf": 38.6,
+      "n_tokens": 75,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ox: y                                           本\n   ees                          7\n‘ Wi\nBe                                                                                                                                                                                                           id\n:                   an |\n\n-— Fa            |         ss              =                                       a,                : 2               {           |        7         [it         -一Rs ，  L\nrs   ,                           ee = { a cna             ad  @            PT ay  四    = So   a <a   ris\n-                                              wm                                                 >\"                           mn          —— — ie ee            /\n\na                                                                                                        |        nm      4 <                                    人  =   ny\nj                                %           _.                            rs              二     a                                ae                                              |                       =\ni                                                       3                                                                     ‘ \\"
+}

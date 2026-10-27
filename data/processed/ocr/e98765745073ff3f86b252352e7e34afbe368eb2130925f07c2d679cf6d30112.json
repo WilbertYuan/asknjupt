@@ -1,0 +1,20 @@
+{
+  "source_hash": "e98765745073ff3f86b252352e7e34afbe368eb2130925f07c2d679cf6d30112",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/e9/e98765745073ff3f86b252352e7e34afbe368eb2130925f07c2d679cf6d30112.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:48:04Z",
+  "pages": [
+    {
+      "text": "|      ; 7 =\n        am Ea      一          [一\nay      lk ofl ye      mee”   1)   f      oe\n这           i   {   |          \\o. Fy       - Fagg\n一-     生 全           (as\n1 at             =    PS     a. “                =—      ry N\n~                                                                                            =3       ae      ==       =                 ss          am [三\nie” Brasov",
+      "mean_conf": 32.99,
+      "n_tokens": 48,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "|      ; 7 =\n        am Ea      一          [一\nay      lk ofl ye      mee”   1)   f      oe\n这           i   {   |          \\o. Fy       - Fagg\n一-     生 全           (as\n1 at             =    PS     a. “                =—      ry N\n~                                                                                            =3       ae      ==       =                 ss          am [三\nie” Brasov"
+}

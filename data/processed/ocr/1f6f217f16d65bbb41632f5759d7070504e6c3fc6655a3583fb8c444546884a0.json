@@ -1,0 +1,20 @@
+{
+  "source_hash": "1f6f217f16d65bbb41632f5759d7070504e6c3fc6655a3583fb8c444546884a0",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/1f/1f6f217f16d65bbb41632f5759d7070504e6c3fc6655a3583fb8c444546884a0.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:47Z",
+  "pages": [
+    {
+      "text": "《          身份认证        下一上\na\n| Oo | a]\n.本\n可 5 2 I\n您的IP不在学校授权范围内!\n请连接学校网",
+      "mean_conf": 76.63,
+      "n_tokens": 33,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "《          身份认证        下一上\na\n| Oo | a]\n.本\n可 5 2 I\n您的IP不在学校授权范围内!\n请连接学校网"
+}

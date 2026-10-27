@@ -1,0 +1,20 @@
+{
+  "source_hash": "46ee1678899288f3e9bee8eb3292bdff926c16ee15b93941b547d2468457dce1",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/46/46ee1678899288f3e9bee8eb3292bdff926c16ee15b93941b547d2468457dce1.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:36Z",
+  "pages": [
+    {
+      "text": "贷方数量 SRR PASM BARE ”往来日期 ”项目代码 DRS 摘要 AB 。 往来单{ 《凭证号 SDA Bath 贷方全 操作\n\n202006.… 0...\n\n东南大学..12307.98 888 2020 6P.…学校",
+      "mean_conf": 72.07,
+      "n_tokens": 41,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "贷方数量 SRR PASM BARE ”往来日期 ”项目代码 DRS 摘要 AB 。 往来单{ 《凭证号 SDA Bath 贷方全 操作\n\n202006.… 0...\n\n东南大学..12307.98 888 2020 6P.…学校"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "a0ec6f9e13309882a34b0b4c702fb21d4fcafd8364a2e069af4bc4d2a4bb567e",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/a0/a0ec6f9e13309882a34b0b4c702fb21d4fcafd8364a2e069af4bc4d2a4bb567e.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:29Z",
+  "pages": [
+    {
+      "text": "《“ 南京邮电大学财务处\n\n(GB) 欢迎关注南京邮电大学财务处微信公\n~~ 众号。\n我们将竭诚为您提供财务服务, 如有\n建议, 请留言给我们, 我们将逐步改\n进完善。相信在您的支持和鼓励下，\n我们会做得更好!\n\n     常用信息         微财务\n\n=      O      <",
+      "mean_conf": 89.15,
+      "n_tokens": 76,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "《“ 南京邮电大学财务处\n\n(GB) 欢迎关注南京邮电大学财务处微信公\n~~ 众号。\n我们将竭诚为您提供财务服务, 如有\n建议, 请留言给我们, 我们将逐步改\n进完善。相信在您的支持和鼓励下，\n我们会做得更好!\n\n     常用信息         微财务\n\n=      O      <"
+}

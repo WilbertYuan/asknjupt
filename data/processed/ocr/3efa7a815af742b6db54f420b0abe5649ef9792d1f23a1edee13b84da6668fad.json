@@ -1,0 +1,20 @@
+{
+  "source_hash": "3efa7a815af742b6db54f420b0abe5649ef9792d1f23a1edee13b84da6668fad",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/3e/3efa7a815af742b6db54f420b0abe5649ef9792d1f23a1edee13b84da6668fad.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:48Z",
+  "pages": [
+    {
+      "text": "ta 2H 化 管理            Yi           .\n\\     thd     .",
+      "mean_conf": 37.86,
+      "n_tokens": 9,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ta 2H 化 管理            Yi           .\n\\     thd     ."
+}

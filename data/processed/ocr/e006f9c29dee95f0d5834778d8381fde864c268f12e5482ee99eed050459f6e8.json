@@ -1,0 +1,20 @@
+{
+  "source_hash": "e006f9c29dee95f0d5834778d8381fde864c268f12e5482ee99eed050459f6e8",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/e0/e006f9c29dee95f0d5834778d8381fde864c268f12e5482ee99eed050459f6e8.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:49Z",
+  "pages": [
+    {
+      "text": "4   ai’                  |       大一                  |     WU\n4 #21 |   ry sf           | |  二  |  六  |    ot\n|      7 \\\\ AVA           ]     f       if    ‘   /  \\  RS     NG  |      Wy\n}      BY\\\\     ay    |家本 iy   A el   4   FTV ae   NS Y   4  4\nim: EY 人@， 《三  ek a donee” 全| 人\nwe      aid     4 ww 0 gee          ;",
+      "mean_conf": 40.62,
+      "n_tokens": 67,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "4   ai’                  |       大一                  |     WU\n4 #21 |   ry sf           | |  二  |  六  |    ot\n|      7 \\\\ AVA           ]     f       if    ‘   /  \\  RS     NG  |      Wy\n}      BY\\\\     ay    |家本 iy   A el   4   FTV ae   NS Y   4  4\nim: EY 人@， 《三  ek a donee” 全| 人\nwe      aid     4 ww 0 gee          ;"
+}

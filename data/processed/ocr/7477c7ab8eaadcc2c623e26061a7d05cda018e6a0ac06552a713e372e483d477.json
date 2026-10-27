@@ -1,0 +1,20 @@
+{
+  "source_hash": "7477c7ab8eaadcc2c623e26061a7d05cda018e6a0ac06552a713e372e483d477",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/74/7477c7ab8eaadcc2c623e26061a7d05cda018e6a0ac06552a713e372e483d477.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:57Z",
+  "pages": [
+    {
+      "text": "Aig 4&, 4 aed      PI 531 eure    Gay ttncsenet=\n\nETL “PARRA” PES HIRI\n\na tape & ZN\n\n2 所 j泵邮电大学主题阅读推集\n\nAQ\nS\n\n六 四\n\n下沙的              HH RET, PERC AEM He\n\n038049228\n\n— ee",
+      "mean_conf": 55.65,
+      "n_tokens": 54,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Aig 4&, 4 aed      PI 531 eure    Gay ttncsenet=\n\nETL “PARRA” PES HIRI\n\na tape & ZN\n\n2 所 j泵邮电大学主题阅读推集\n\nAQ\nS\n\n六 四\n\n下沙的              HH RET, PERC AEM He\n\n038049228\n\n— ee"
+}

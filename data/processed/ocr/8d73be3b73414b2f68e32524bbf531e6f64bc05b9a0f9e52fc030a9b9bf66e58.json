@@ -1,0 +1,20 @@
+{
+  "source_hash": "8d73be3b73414b2f68e32524bbf531e6f64bc05b9a0f9e52fc030a9b9bf66e58",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/8d/8d73be3b73414b2f68e32524bbf531e6f64bc05b9a0f9e52fc030a9b9bf66e58.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:22Z",
+  "pages": [
+    {
+      "text": "4 ee | oe I)\n4%   SY   |   四| TAR\nSS We! a a A it eR\nee, 20 CS SW CLE SS US 00) ae ee\n:    ad    a    2016406122 Aid SO6 Oe HG\nAE 人\n一                         ES\nym ok Fone a a  iat se &  & efmete   E\nfe i: AS.  = Gli )    oe Ty IQ.\n省    oll i  Hides bee,     Re = Rt  £:    <<     1G ~ Gy  és  a    一一 fe",
+      "mean_conf": 31.25,
+      "n_tokens": 78,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "4 ee | oe I)\n4%   SY   |   四| TAR\nSS We! a a A it eR\nee, 20 CS SW CLE SS US 00) ae ee\n:    ad    a    2016406122 Aid SO6 Oe HG\nAE 人\n一                         ES\nym ok Fone a a  iat se &  & efmete   E\nfe i: AS.  = Gli )    oe Ty IQ.\n省    oll i  Hides bee,     Re = Rt  £:    <<     1G ~ Gy  és  a    一一 fe"
+}

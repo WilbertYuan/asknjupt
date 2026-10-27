@@ -1,0 +1,20 @@
+{
+  "source_hash": "a532ada60271c144d9ee5c5acca782ec1f56d3900bfcbe7e5a373f14c98c1eea",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/a5/a532ada60271c144d9ee5c5acca782ec1f56d3900bfcbe7e5a373f14c98c1eea.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:27Z",
+  "pages": [
+    {
+      "text": "RS WD i! = ic ( tr\nq @itdanat          :\n|         热烈欢迎         ie\n江苏科技大学财务处调研指导    ¢\n\n2024作4月9日",
+      "mean_conf": 65.43,
+      "n_tokens": 30,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "RS WD i! = ic ( tr\nq @itdanat          :\n|         热烈欢迎         ie\n江苏科技大学财务处调研指导    ¢\n\n2024作4月9日"
+}

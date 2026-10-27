@@ -1,0 +1,20 @@
+{
+  "source_hash": "799eaab1223a3f855fc776130df8e50d72ddbaa4ff21948d3d5cd6d2c8b4c5fb",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/79/799eaab1223a3f855fc776130df8e50d72ddbaa4ff21948d3d5cd6d2c8b4c5fb.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:08Z",
+  "pages": [
+    {
+      "text": "Lad      =)  一        了\n加      a      ¥\nm      4\n4         a      tap    |\ni         —=     |      i\n有1         =   BI  a    ss    1\nVAY    nt           \\               al\n> F z 2    J\n’     |           Eee   .\n          a   j  vy   nad i)\n一               |  a: aiilieal’         ‘                 aa\n-  —_,        be      站\n(a",
+      "mean_conf": 35.21,
+      "n_tokens": 53,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Lad      =)  一        了\n加      a      ¥\nm      4\n4         a      tap    |\ni         —=     |      i\n有1         =   BI  a    ss    1\nVAY    nt           \\               al\n> F z 2    J\n’     |           Eee   .\n          a   j  vy   nad i)\n一               |  a: aiilieal’         ‘                 aa\n-  —_,        be      站\n(a"
+}

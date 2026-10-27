@@ -1,0 +1,20 @@
+{
+  "source_hash": "64cad28fc040fbda721a2507f64054c3875875c2c8f1a19155cd1115eae3ffc1",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/64/64cad28fc040fbda721a2507f64054c3875875c2c8f1a19155cd1115eae3ffc1.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:05Z",
+  "pages": [
+    {
+      "text": "|              a |\nbag     J af We\nq      >       -               SN A\n_    了\na i           jay, N\n|村- = 了                    多7",
+      "mean_conf": 54.17,
+      "n_tokens": 24,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "|              a |\nbag     J af We\nq      >       -               SN A\n_    了\na i           jay, N\n|村- = 了                    多7"
+}

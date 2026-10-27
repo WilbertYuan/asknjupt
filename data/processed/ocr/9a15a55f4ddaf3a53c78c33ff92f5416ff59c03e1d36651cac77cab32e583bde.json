@@ -1,0 +1,20 @@
+{
+  "source_hash": "9a15a55f4ddaf3a53c78c33ff92f5416ff59c03e1d36651cac77cab32e583bde",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/9a/9a15a55f4ddaf3a53c78c33ff92f5416ff59c03e1d36651cac77cab32e583bde.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:17Z",
+  "pages": [
+    {
+      "text": "RE AP AT-MBARS EME ©\nA (178%)\nOber aO)\nes",
+      "mean_conf": 24.75,
+      "n_tokens": 10,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "RE AP AT-MBARS EME ©\nA (178%)\nOber aO)\nes"
+}

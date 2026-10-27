@@ -1,0 +1,20 @@
+{
+  "source_hash": "0c49399d5778eae47da349cd4c27beb57a515d04c6b28ff4121fc70f92f7bc38",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/0c/0c49399d5778eae47da349cd4c27beb57a515d04c6b28ff4121fc70f92f7bc38.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:16:56Z",
+  "pages": [
+    {
+      "text": "iJ 5  Ss\n-_            —\n此\nbees al                   |\n\\\n|\n1                      \"           q\n‘\n              |          |\n他   GY                f\nAA   ZA,             4\nl fi,   人               Zi”\nV,  wy           4",
+      "mean_conf": 41.9,
+      "n_tokens": 30,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "iJ 5  Ss\n-_            —\n此\nbees al                   |\n\\\n|\n1                      \"           q\n‘\n              |          |\n他   GY                f\nAA   ZA,             4\nl fi,   人               Zi”\nV,  wy           4"
+}

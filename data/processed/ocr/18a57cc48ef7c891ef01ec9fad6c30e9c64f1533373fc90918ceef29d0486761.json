@@ -1,0 +1,20 @@
+{
+  "source_hash": "18a57cc48ef7c891ef01ec9fad6c30e9c64f1533373fc90918ceef29d0486761",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/18/18a57cc48ef7c891ef01ec9fad6c30e9c64f1533373fc90918ceef29d0486761.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:31:16Z",
+  "pages": [
+    {
+      "text": "Met wm 55    南京邮电大学\n|\n一、本馆概况 opm\n\n@=,\n1\n\n‘\n\n‘\n4\n\nAP\n\n二、入馆须知 ORE\n\n      |   四,电子资源 On\n=,      \\          en\n/        N     ———, -  —_     N\n        =   mk | :\n\n图书馆新生入馆培训数据库\n\n(nal of?\n\nAy 站 Ona\n\nae\n\n— eee ee arn eee.\n\n\\\n/\n\n 4\na eV |三、图书借还.〇EE3\n\n .\n\n六、 Se",
+      "mean_conf": 64.87,
+      "n_tokens": 88,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Met wm 55    南京邮电大学\n|\n一、本馆概况 opm\n\n@=,\n1\n\n‘\n\n‘\n4\n\nAP\n\n二、入馆须知 ORE\n\n      |   四,电子资源 On\n=,      \\          en\n/        N     ———, -  —_     N\n        =   mk | :\n\n图书馆新生入馆培训数据库\n\n(nal of?\n\nAy 站 Ona\n\nae\n\n— eee ee arn eee.\n\n\\\n/\n\n 4\na eV |三、图书借还.〇EE3\n\n .\n\n六、 Se"
+}

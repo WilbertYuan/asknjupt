@@ -1,0 +1,20 @@
+{
+  "source_hash": "e518741e4b02df1d8a9934c76fe5d46bcc0fdbd174435a7e39a3f637b8a0171b",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/e5/e518741e4b02df1d8a9934c76fe5d46bcc0fdbd174435a7e39a3f637b8a0171b.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:17:47Z",
+  "pages": [
+    {
+      "text": "有                  ia,                                                                       =        也\n—  5             :    _—        J                  A                              bat\nY          D          三-和于                                                            ’       F\n.       NT Ae                a\n\\                                                   |            «\n区                                       *\n’               “f\n=\nWr l -=                  /         -\n;",
+      "mean_conf": 29.13,
+      "n_tokens": 36,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "有                  ia,                                                                       =        也\n—  5             :    _—        J                  A                              bat\nY          D          三-和于                                                            ’       F\n.       NT Ae                a\n\\                                                   |            «\n区                                       *\n’               “f\n=\nWr l -=                  /         -\n;"
+}

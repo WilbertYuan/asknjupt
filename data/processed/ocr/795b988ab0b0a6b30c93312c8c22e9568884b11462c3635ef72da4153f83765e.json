@@ -1,0 +1,20 @@
+{
+  "source_hash": "795b988ab0b0a6b30c93312c8c22e9568884b11462c3635ef72da4153f83765e",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/79/795b988ab0b0a6b30c93312c8c22e9568884b11462c3635ef72da4153f83765e.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:31:12Z",
+  "pages": [
+    {
+      "text": "|      ee              一\nene, es. AA   ile.  =\nTS —\nave   RS    hee\n|  LJ. sgeoeee  Eeea a es   qm\nB-\n-区\n江苏省高校图书情报工作委员会情报咨询专委名\n2025年学术年会\n| ma|\ni\n*  |  =\n|g       |                                                =",
+      "mean_conf": 51.7,
+      "n_tokens": 52,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "|      ee              一\nene, es. AA   ile.  =\nTS —\nave   RS    hee\n|  LJ. sgeoeee  Eeea a es   qm\nB-\n-区\n江苏省高校图书情报工作委员会情报咨询专委名\n2025年学术年会\n| ma|\ni\n*  |  =\n|g       |                                                ="
+}

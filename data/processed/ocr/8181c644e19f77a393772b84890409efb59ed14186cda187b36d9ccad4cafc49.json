@@ -1,0 +1,20 @@
+{
+  "source_hash": "8181c644e19f77a393772b84890409efb59ed14186cda187b36d9ccad4cafc49",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/81/8181c644e19f77a393772b84890409efb59ed14186cda187b36d9ccad4cafc49.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:27Z",
+  "pages": [
+    {
+      "text": "一      RH At AE           Hh\n5    四  7  :        > %                 | |\n>         一                =             f\n>        x !    EF LY oy   f          从   二一一   1              —\ny          :         :      ‘ Z                     |\nJ          1  y)                 Y",
+      "mean_conf": 48.35,
+      "n_tokens": 40,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "一      RH At AE           Hh\n5    四  7  :        > %                 | |\n>         一                =             f\n>        x !    EF LY oy   f          从   二一一   1              —\ny          :         :      ‘ Z                     |\nJ          1  y)                 Y"
+}

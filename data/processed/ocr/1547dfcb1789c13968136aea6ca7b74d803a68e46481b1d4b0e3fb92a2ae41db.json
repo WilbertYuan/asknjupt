@@ -1,0 +1,20 @@
+{
+  "source_hash": "1547dfcb1789c13968136aea6ca7b74d803a68e46481b1d4b0e3fb92a2ae41db",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/15/1547dfcb1789c13968136aea6ca7b74d803a68e46481b1d4b0e3fb92a2ae41db.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:03Z",
+  "pages": [
+    {
+      "text": "《    区  == 4\ni       4             ee la                =\n—Z\n—— | | ]    ial         J\nVWI TOA A\n-                             上   =\n:              a      a     F              psi     1       1,     @*             7 YW        -      —\n人     7                     :              a  =       ;            1    SS            一       =    =\nates                   =                          aS, aS iim              :\nae                       or ~'\n=    i                              08 6 OW ae.\n|                                        “a Go             1    = =       SS\n=                  =                                   ;       eo Oa             \\\n人       \\.                               SS ena  Og, Lge  pe ei         .\n—                  ‘                      8      2S oF 5\nSam |       .      a.         全       SEE\n\\   .             了          ip 258 8g Se a;  sa 2  5a >\nSS         —          i389 RRS Bg ¢\n\\     |      SS                        oP sci? 2 o Boyd SoZ ae\nNI             \\_ |                       9 29 60 gp®o OG ~",
+      "mean_conf": 35.81,
+      "n_tokens": 131,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "《    区  == 4\ni       4             ee la                =\n—Z\n—— | | ]    ial         J\nVWI TOA A\n-                             上   =\n:              a      a     F              psi     1       1,     @*             7 YW        -      —\n人     7                     :              a  =       ;            1    SS            一       =    =\nates                   =                          aS, aS iim              :\nae                       or ~'\n=    i                              08 6 OW ae.\n|                                        “a Go             1    = =       SS\n=                  =                                   ;       eo Oa             \\\n人       \\.                               SS ena  Og, Lge  pe ei         .\n—                  ‘                      8      2S oF 5\nSam |       .      a.         全       SEE\n\\   .             了          ip 258 8g Se a;  sa 2  5a >\nSS         —          i389 RRS Bg ¢\n\\     |      SS                        oP sci? 2 o Boyd SoZ ae\nNI             \\_ |                       9 29 60 gp®o OG ~"
+}

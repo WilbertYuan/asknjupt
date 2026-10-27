@@ -1,0 +1,20 @@
+{
+  "source_hash": "0c3d3c2680884c3247665a11f0b568af73025e440e5d96303855230e9fb3d1f7",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/0c/0c3d3c2680884c3247665a11f0b568af73025e440e5d96303855230e9fb3d1f7.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:27Z",
+  "pages": [
+    {
+      "text": "Zw      OX 报销单管理 OX 增值税发票_\nwe!\n> meses      7               增值税发票查验               7          其他发村\n0 ”报销单管理                                    销售方\n有     增值税发票认证，三种方式:\n有 SIU: 在以下界面手工输入发票相关信息 (AMHR) 后，点击“查看认证记        —=\nj RRR                                   “FRAM   yyyy-mm-dd\nA 公生卡清费内证    “发票类型    普通电子发票或专用发票            -   .本\n[samme |                                     “ria\n> eR       “RRS                                      发票附件\n*开票日期虱式:\n昌。 发族计划业务       yyymmdd如\n20170101)\n命。 报销单查询\n”11 ae      >\n\ncopyright 2013 S288 版权所有",
+      "mean_conf": 72.83,
+      "n_tokens": 139,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Zw      OX 报销单管理 OX 增值税发票_\nwe!\n> meses      7               增值税发票查验               7          其他发村\n0 ”报销单管理                                    销售方\n有     增值税发票认证，三种方式:\n有 SIU: 在以下界面手工输入发票相关信息 (AMHR) 后，点击“查看认证记        —=\nj RRR                                   “FRAM   yyyy-mm-dd\nA 公生卡清费内证    “发票类型    普通电子发票或专用发票            -   .本\n[samme |                                     “ria\n> eR       “RRS                                      发票附件\n*开票日期虱式:\n昌。 发族计划业务       yyymmdd如\n20170101)\n命。 报销单查询\n”11 ae      >\n\ncopyright 2013 S288 版权所有"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "93a02ccb679abc042418f9b02a9483bac0492fd24a3dfe84ddf0cbddbca2c935",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/93/93a02ccb679abc042418f9b02a9483bac0492fd24a3dfe84ddf0cbddbca2c935.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:59Z",
+  "pages": [
+    {
+      "text": "tag Oo ee OS.\nMee, tee iS ee a ae me SE\nates   Se. eet  Bett se    二和和   ie        :\n2 RIS iy op aE ail 0%  ¥ gf 4 全 Ps)   于， ] ay\nWe ey WAT: ig PD oe eee   _\nME i one\ni” =      lii    , in        ORE ecb Ou Ls\n局    二 二 Jn            mT   a  | AL Se\niy oe Gell © eee    ali    li\nsai: | oral | | go. 1 ll i pi\nae ae! ee en\n(xa: AOE APLAR, Derenann Cyortre 6 Fe  my |   AX ol \\ pa\ntee tes 6 te ae      1 Ver Or me Ac\na) |   ed *| | as \\    a Sa. Y   io\n: pina), F. See\nshoe | 二  2      oa == —— 4  \\   =  a S ]   7 vy  >\n>  ait   se",
+      "mean_conf": 32.83,
+      "n_tokens": 144,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "tag Oo ee OS.\nMee, tee iS ee a ae me SE\nates   Se. eet  Bett se    二和和   ie        :\n2 RIS iy op aE ail 0%  ¥ gf 4 全 Ps)   于， ] ay\nWe ey WAT: ig PD oe eee   _\nME i one\ni” =      lii    , in        ORE ecb Ou Ls\n局    二 二 Jn            mT   a  | AL Se\niy oe Gell © eee    ali    li\nsai: | oral | | go. 1 ll i pi\nae ae! ee en\n(xa: AOE APLAR, Derenann Cyortre 6 Fe  my |   AX ol \\ pa\ntee tes 6 te ae      1 Ver Or me Ac\na) |   ed *| | as \\    a Sa. Y   io\n: pina), F. See\nshoe | 二  2      oa == —— 4  \\   =  a S ]   7 vy  >\n>  ait   se"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "610fab13b5f78ab797371b667721007ada4e5db2b75895fb4acd95c7d751fea5",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/61/610fab13b5f78ab797371b667721007ada4e5db2b75895fb4acd95c7d751fea5.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:06Z",
+  "pages": [
+    {
+      "text": "Q wer\n高效率:高质量.全流程\n从迹题到写作 SNS ink\noss\nONO\n扫码立即体验学术辅导写作",
+      "mean_conf": 73.25,
+      "n_tokens": 25,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Q wer\n高效率:高质量.全流程\n从迹题到写作 SNS ink\noss\nONO\n扫码立即体验学术辅导写作"
+}

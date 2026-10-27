@@ -1,0 +1,20 @@
+{
+  "source_hash": "e567789463a214b3d5453c2393943b810fe07b47909f4432f9a3ed6c3179b59c",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/e5/e567789463a214b3d5453c2393943b810fe07b47909f4432f9a3ed6c3179b59c.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T11:46:28Z",
+  "pages": [
+    {
+      "text": "ET |\n a oe i asia «9 S46, Sen L.\nme & 2.  6'9%% 49.9 6 3.\nSs. | mi  mn | Td  | 上 9 Ay",
+      "mean_conf": 34.46,
+      "n_tokens": 27,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ET |\n a oe i asia «9 S46, Sen L.\nme & 2.  6'9%% 49.9 6 3.\nSs. | mi  mn | Td  | 上 9 Ay"
+}

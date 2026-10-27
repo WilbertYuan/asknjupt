@@ -1,0 +1,20 @@
+{
+  "source_hash": "c876553526a3a7affbe4e2e62cd5b898daa6cedc0cb8ab1c36341fc6b95b49c7",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/c8/c876553526a3a7affbe4e2e62cd5b898daa6cedc0cb8ab1c36341fc6b95b49c7.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:27Z",
+  "pages": [
+    {
+      "text": "人                                。 庆祝渡江战役胜利暨南京解放76周年   3\nscat |    DF i?       A as    ]    天      re L        a\n二本六:   &   a UNG:   各  SS & we  Sym da Na 全 &£   = ee\n—    UM   最     oe  cere  SS     a        a 7  fm > ‘ .   <     所\nical «         oe en ee)\n>        5            {   |   | \\        N                   .",
+      "mean_conf": 51.83,
+      "n_tokens": 70,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "人                                。 庆祝渡江战役胜利暨南京解放76周年   3\nscat |    DF i?       A as    ]    天      re L        a\n二本六:   &   a UNG:   各  SS & we  Sym da Na 全 &£   = ee\n—    UM   最     oe  cere  SS     a        a 7  fm > ‘ .   <     所\nical «         oe en ee)\n>        5            {   |   | \\        N                   ."
+}

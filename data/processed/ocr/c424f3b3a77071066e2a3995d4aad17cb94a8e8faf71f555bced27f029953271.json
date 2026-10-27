@@ -1,0 +1,20 @@
+{
+  "source_hash": "c424f3b3a77071066e2a3995d4aad17cb94a8e8faf71f555bced27f029953271",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/c4/c424f3b3a77071066e2a3995d4aad17cb94a8e8faf71f555bced27f029953271.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:24:32Z",
+  "pages": [
+    {
+      "text": "iw                                          = “3 > aa                             j  e.,\nal                                           .    | 本             wt       '\"\ni es   ; ™~ »                                                             <          -                         ,     |\n\nerr                              是。\nie.                       =\n—_———- Assistent Service Ares -一             ©                          |\n一  y                                        i]     |\n£.                                   ”和= &  eee        :      |\n|    7    . -   上  a                                       i\nsr      ‘   ~  了    =-                  P        ,      AfN   la\n—           »     -      a.                                          ¢ SEF.                     .\n.                     了              y   A     wy                     ,                       一\nYNSRI                ~ ae                    [>\n\\          |  F |      |                              ;   |                                            有\ner               de 4         站                we                    =        ng\n人一-                -                            Maa       4",
+      "mean_conf": 40.66,
+      "n_tokens": 98,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "iw                                          = “3 > aa                             j  e.,\nal                                           .    | 本             wt       '\"\ni es   ; ™~ »                                                             <          -                         ,     |\n\nerr                              是。\nie.                       =\n—_———- Assistent Service Ares -一             ©                          |\n一  y                                        i]     |\n£.                                   ”和= &  eee        :      |\n|    7    . -   上  a                                       i\nsr      ‘   ~  了    =-                  P        ,      AfN   la\n—           »     -      a.                                          ¢ SEF.                     .\n.                     了              y   A     wy                     ,                       一\nYNSRI                ~ ae                    [>\n\\          |  F |      |                              ;   |                                            有\ner               de 4         站                we                    =        ng\n人一-                -                            Maa       4"
+}

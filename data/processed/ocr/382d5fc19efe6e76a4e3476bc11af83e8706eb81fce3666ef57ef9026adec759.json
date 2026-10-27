@@ -1,0 +1,20 @@
+{
+  "source_hash": "382d5fc19efe6e76a4e3476bc11af83e8706eb81fce3666ef57ef9026adec759",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/38/382d5fc19efe6e76a4e3476bc11af83e8706eb81fce3666ef57ef9026adec759.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:47Z",
+  "pages": [
+    {
+      "text": "——_—_ ———— sae |\nBP2900P1..                                                     enV                                            oOo x\n9  o                                                                                              04:1      bt  格视图 >    os\ngt                   一                                                                                                       正在讲话: BEN;\nae           f                                                               钟伟                 em\n3P2900PI... §      四\n& BER)             ex                B:xaz           © thes                & BER\nAicrosoft 日\nEdge          2 赵海涛                                 &MZH                                   % 王镇海                               SmAB                               oS\n)极速浏览                                                                                              _\n器     杨丽花                 SKA              SBE              多杨梅                & EST\nee @ @\nrome SFE             $ ER           多邵文泽           施政              AD. Oem\n€-m-o wo&£ m=» F&F @®@' 8                             25x",
+      "mean_conf": 53.1,
+      "n_tokens": 86,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "——_—_ ———— sae |\nBP2900P1..                                                     enV                                            oOo x\n9  o                                                                                              04:1      bt  格视图 >    os\ngt                   一                                                                                                       正在讲话: BEN;\nae           f                                                               钟伟                 em\n3P2900PI... §      四\n& BER)             ex                B:xaz           © thes                & BER\nAicrosoft 日\nEdge          2 赵海涛                                 &MZH                                   % 王镇海                               SmAB                               oS\n)极速浏览                                                                                              _\n器     杨丽花                 SKA              SBE              多杨梅                & EST\nee @ @\nrome SFE             $ ER           多邵文泽           施政              AD. Oem\n€-m-o wo&£ m=» F&F @®@' 8                             25x"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "b1346c33a941a8886da43de8cd770a55b072cdf189c822f27e7a65c6c7a052df",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/b1/b1346c33a941a8886da43de8cd770a55b072cdf189c822f27e7a65c6c7a052df.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:28Z",
+  "pages": [
+    {
+      "text": "=      N    一一一-\n一二           加                                                                             |\n——              SF 2E AE                       I\nof     y              iS        ea ae                /     7») |\n[           X          As AD  4    2             |       人 /                     /          ”\na        a           p                                        ]",
+      "mean_conf": 47.95,
+      "n_tokens": 38,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "=      N    一一一-\n一二           加                                                                             |\n——              SF 2E AE                       I\nof     y              iS        ea ae                /     7») |\n[           X          As AD  4    2             |       人 /                     /          ”\na        a           p                                        ]"
+}

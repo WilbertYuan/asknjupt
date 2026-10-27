@@ -1,0 +1,20 @@
+{
+  "source_hash": "600aceaaab46a6f6b49b37f1755d2185f50b936c44eed7af5447403be0895b2b",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/60/600aceaaab46a6f6b49b37f1755d2185f50b936c44eed7af5447403be0895b2b.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:53Z",
+  "pages": [
+    {
+      "text": "|        填写委托单\n\n委托人提出申请\n\nL_ |        提供相关技术资料\n[|        确定接受查新委托\n                                   订立查新合同\n|            缴纳预付款\n站 |        分析项目及查新点\n\n拟定检索策略\n\n选获取必要的全文文献\nReeets       an      a th 3t th\n\n草拟查新报告\n\n审核 EF 盖章\n\n交付查新报告\n\n文件 归档\n\n记录到查新工作数据库",
+      "mean_conf": 86.39,
+      "n_tokens": 115,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "|        填写委托单\n\n委托人提出申请\n\nL_ |        提供相关技术资料\n[|        确定接受查新委托\n                                   订立查新合同\n|            缴纳预付款\n站 |        分析项目及查新点\n\n拟定检索策略\n\n选获取必要的全文文献\nReeets       an      a th 3t th\n\n草拟查新报告\n\n审核 EF 盖章\n\n交付查新报告\n\n文件 归档\n\n记录到查新工作数据库"
+}

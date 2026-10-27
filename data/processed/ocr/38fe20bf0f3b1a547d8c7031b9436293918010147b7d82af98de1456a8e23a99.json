@@ -1,0 +1,20 @@
+{
+  "source_hash": "38fe20bf0f3b1a547d8c7031b9436293918010147b7d82af98de1456a8e23a99",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/38/38fe20bf0f3b1a547d8c7031b9436293918010147b7d82af98de1456a8e23a99.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:24:08Z",
+  "pages": [
+    {
+      "text": "ry                         一        77                       o~\n—        |   ~                                                   —\n\nve oak  3  I nd    '   3 )  可 Se .     Z  ge ¢*        人           > ¢           i,        >       ke       /\nCE | Speedie Ss          \\ Re ge ie\n\n‘N                 \\,                                »    |               Ty.                                      \\    \\     \\ as ;                                      -_— > 6       A                       .    a",
+      "mean_conf": 44.07,
+      "n_tokens": 53,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ry                         一        77                       o~\n—        |   ~                                                   —\n\nve oak  3  I nd    '   3 )  可 Se .     Z  ge ¢*        人           > ¢           i,        >       ke       /\nCE | Speedie Ss          \\ Re ge ie\n\n‘N                 \\,                                »    |               Ty.                                      \\    \\     \\ as ;                                      -_— > 6       A                       .    a"
+}

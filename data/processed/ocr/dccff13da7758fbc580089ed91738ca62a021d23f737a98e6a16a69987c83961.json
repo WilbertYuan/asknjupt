@@ -1,0 +1,20 @@
+{
+  "source_hash": "dccff13da7758fbc580089ed91738ca62a021d23f737a98e6a16a69987c83961",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/dc/dccff13da7758fbc580089ed91738ca62a021d23f737a98e6a16a69987c83961.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:24Z",
+  "pages": [
+    {
+      "text": "~                    Wem’ ’ ”\n       SS ee     ———S——\"\naie                   a |\nae ir  —   =  Sy\na     or  | Se              (AM",
+      "mean_conf": 38.25,
+      "n_tokens": 20,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "~                    Wem’ ’ ”\n       SS ee     ———S——\"\naie                   a |\nae ir  —   =  Sy\na     or  | Se              (AM"
+}

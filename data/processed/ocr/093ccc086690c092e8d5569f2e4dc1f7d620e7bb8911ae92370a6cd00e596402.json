@@ -1,0 +1,20 @@
+{
+  "source_hash": "093ccc086690c092e8d5569f2e4dc1f7d620e7bb8911ae92370a6cd00e596402",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/09/093ccc086690c092e8d5569f2e4dc1f7d620e7bb8911ae92370a6cd00e596402.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:44Z",
+  "pages": [
+    {
+      "text": "4  1\n,                  一-                2\n\na                   her}                ie\n\nwuss           A\nEP         ae             3         s Saar\n=            全 be 8     ~       ==\nPy    TAN     oY ar)               —\n0 iia) SA * 3               =\nsafe’ Now? | 本  1 9\n--   |  MK >    让4       pA  a\nq\nme        | ase ise:     ‘\n=     a   :      a a",
+      "mean_conf": 38.13,
+      "n_tokens": 58,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "4  1\n,                  一-                2\n\na                   her}                ie\n\nwuss           A\nEP         ae             3         s Saar\n=            全 be 8     ~       ==\nPy    TAN     oY ar)               —\n0 iia) SA * 3               =\nsafe’ Now? | 本  1 9\n--   |  MK >    让4       pA  a\nq\nme        | ase ise:     ‘\n=     a   :      a a"
+}

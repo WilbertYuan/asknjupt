@@ -1,0 +1,20 @@
+{
+  "source_hash": "18dcc983db37882673760729f0e7ccde4d2676e26bda238e93a9249990c7cacd",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/18/18dcc983db37882673760729f0e7ccde4d2676e26bda238e93a9249990c7cacd.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:08Z",
+  "pages": [
+    {
+      "text": "TEA\n一\n\n  让 =  earns\n~     wah NI  ’",
+      "mean_conf": 25.28,
+      "n_tokens": 9,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "TEA\n一\n\n  让 =  earns\n~     wah NI  ’"
+}

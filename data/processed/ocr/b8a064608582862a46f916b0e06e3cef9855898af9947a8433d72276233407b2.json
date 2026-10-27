@@ -1,0 +1,20 @@
+{
+  "source_hash": "b8a064608582862a46f916b0e06e3cef9855898af9947a8433d72276233407b2",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/b8/b8a064608582862a46f916b0e06e3cef9855898af9947a8433d72276233407b2.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:46:02Z",
+  "pages": [
+    {
+      "text": "Ve (Uo   A  a.       é    hig! |.       有 人\n4 \\     =f: 2         Ty             Y Sie         大一      :     :\n%    加     ft.   ml Fy,    &      j rs     4  区   7 i     ¥       aa\nrare, Bore era. om ae\ny :      '     z ay , o         /     wl /   J   1 四     yy  .     “\n     ae ey PP      f 4    '    ER ao   2\n‘  .      :      a     .   7              ea Se\nPSY \\     一  re he   me -       <\n2 9 -nnE     1 We       hoa?\n> 一   NS             =    ;     vc ge Pe _\neh). we teh\n—         A  vel = a  4          4... I]               > yj       nS\nv,;        Fe       =             eet                  Vy\n|       nn     ‘          . ies hc",
+      "mean_conf": 38.9,
+      "n_tokens": 120,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Ve (Uo   A  a.       é    hig! |.       有 人\n4 \\     =f: 2         Ty             Y Sie         大一      :     :\n%    加     ft.   ml Fy,    &      j rs     4  区   7 i     ¥       aa\nrare, Bore era. om ae\ny :      '     z ay , o         /     wl /   J   1 四     yy  .     “\n     ae ey PP      f 4    '    ER ao   2\n‘  .      :      a     .   7              ea Se\nPSY \\     一  re he   me -       <\n2 9 -nnE     1 We       hoa?\n> 一   NS             =    ;     vc ge Pe _\neh). we teh\n—         A  vel = a  4          4... I]               > yj       nS\nv,;        Fe       =             eet                  Vy\n|       nn     ‘          . ies hc"
+}

@@ -1,0 +1,12 @@
+{"question": "2026年综合评价中，首选物理、再选政治和地理的考生，仅按选科条件筛选，可报专业的计划合计多少人？", "gold_answer": "65", "scoring": "numeric", "topic": "admission", "year": 2026, "must_evidence": "2026综合评价招生简章", "notes": "物理+不限明细之和，不含物理+化学，不含合计行"}
+{"question": "按2026年章程，工科类优势学科专业的学费上浮后，加住宿费，假设标准四年不变，预收额合计多少？", "gold_answer": "31520", "scoring": "numeric", "topic": "fee", "year": 2026, "must_evidence": "2026招生章程第十七条"}
+{"question": "根据2023—2024学年报告的专任、外聘及折合教师人数，反推外聘折算系数，再复算生师比。", "gold_answer": "0.5 14.86", "scoring": "numeric", "topic": "teacher", "academic_year": "2023-2024", "tol": 0.02, "notes": "以报告页实际附件为准；若出现冲突应拒答或标明冲突"}
+{"question": "信息与通信、电子与光学、计算机三个实验教学中心面积之和，占报告表内总面积多少？", "gold_answer": "39.03", "scoring": "numeric", "topic": "lab", "academic_year": "2023-2024", "tol": 0.05}
+{"question": "南京邮电大学2026年普通本科招生章程规定的工科类专业学费预收标准是多少？", "gold_answer": "5800", "scoring": "numeric", "topic": "fee", "year": 2026}
+{"question": "2026年综合评价招生测试费标准是多少？", "gold_answer": "60", "scoring": "numeric", "topic": "fee", "year": 2026}
+{"question": "2026年招生章程中英语专业对应试语种有何要求？", "gold_answer": "英语", "scoring": "contains", "must_contain": ["英语"], "topic": "charter", "year": 2026}
+{"question": "2026年综合评价综合成绩如何计算？", "gold_answer": "高考投档分/750×80+测试成绩/100×20", "scoring": "contains", "must_contain": ["80", "20"], "topic": "admission", "year": 2026}
+{"question": "仙林校区地址是哪里？", "gold_answer": "文苑路9号", "scoring": "contains", "must_contain": ["文苑路9号"], "topic": "campus"}
+{"question": "以特殊招生形式录取的学生能否转专业？", "gold_answer": "国家有相关规定或者录取前与学校有明确约定的，不得转专业", "scoring": "contains", "must_contain": ["不得转专业"], "topic": "academic"}
+{"question": "某本科生2024年个人加权平均分是多少？", "gold_answer": "不可回答", "scoring": "unanswerable", "topic": "unanswerable"}
+{"question": "2026年综合评价历史+不限的英语专业计划是多少人？", "gold_answer": "9", "scoring": "numeric", "topic": "admission", "year": 2026}

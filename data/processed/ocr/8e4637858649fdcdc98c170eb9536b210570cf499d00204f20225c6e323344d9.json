@@ -1,0 +1,20 @@
+{
+  "source_hash": "8e4637858649fdcdc98c170eb9536b210570cf499d00204f20225c6e323344d9",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/8e/8e4637858649fdcdc98c170eb9536b210570cf499d00204f20225c6e323344d9.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:24:01Z",
+  "pages": [
+    {
+      "text": "————\n“h 15 A\nee ola,\na                 -) |       ” 的                               二二二二\n——                             )                           T 人相同相仿\n             a    ,       ’ 4 y           ”  af  | , Weaad lip  a a\neens of 8° 8 OS. COR Ay\n,       -  }    =      te          _   < 4 4 了  LS,  =",
+      "mean_conf": 36.85,
+      "n_tokens": 53,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "————\n“h 15 A\nee ola,\na                 -) |       ” 的                               二二二二\n——                             )                           T 人相同相仿\n             a    ,       ’ 4 y           ”  af  | , Weaad lip  a a\neens of 8° 8 OS. COR Ay\n,       -  }    =      te          _   < 4 4 了  LS,  ="
+}

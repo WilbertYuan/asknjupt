@@ -1,0 +1,20 @@
+{
+  "source_hash": "d44cfdfddf667f43129b39e7931427892ab15ce1ee726e432541e963bcc53a81",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/d4/d44cfdfddf667f43129b39e7931427892ab15ce1ee726e432541e963bcc53a81.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:21Z",
+  "pages": [
+    {
+      "text": "od   和 ee OP 电大 HK\n\nty A AE Ai th ee MARK)\n\nSS halle + Ful   VY    2 > Bes\nLL   Rs   e       <¢\n\n i-inr",
+      "mean_conf": 41.58,
+      "n_tokens": 26,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "od   和 ee OP 电大 HK\n\nty A AE Ai th ee MARK)\n\nSS halle + Ful   VY    2 > Bes\nLL   Rs   e       <¢\n\n i-inr"
+}

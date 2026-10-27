@@ -1,0 +1,20 @@
+{
+  "source_hash": "4b407a19eb72596a34501933bcc81dd76bfc705abb4742fe052d2f0973de9ea8",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/4b/4b407a19eb72596a34501933bcc81dd76bfc705abb4742fe052d2f0973de9ea8.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:16:53Z",
+  "pages": [
+    {
+      "text": "™       \\\nas RSs.  WSS <",
+      "mean_conf": 33.89,
+      "n_tokens": 6,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "™       \\\nas RSs.  WSS <"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "748661b5a263b3146bf4837acfc8b33d83f3410550f716a7762bef97dec12040",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/74/748661b5a263b3146bf4837acfc8b33d83f3410550f716a7762bef97dec12040.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:18Z",
+  "pages": [
+    {
+      "text": "—— ; mr AL\n-                  .\npas |\n*\n4                                                                                   -   mm.\n(ars =                                                          T                                   My aaa (4\n2      y)                                                                                                    >\n在我们党，国家、       “全由                                          |      |\na8. 8            ¢            省    四                 ae              了 \\\npe 上的作\n   更 Ate\nARR A                                                                                                                                     \\\nURSA\" 的                                                        :     RN\nwma.                                            on   eit             lh\n mente                                                            at          ‘  »)                 |\nWETTER                                                              ) , |\nMRR hk                                                                                          :    人             E\n—                                ‘                                          >        了 E> ‘- .",
+      "mean_conf": 42.15,
+      "n_tokens": 79,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "—— ; mr AL\n-                  .\npas |\n*\n4                                                                                   -   mm.\n(ars =                                                          T                                   My aaa (4\n2      y)                                                                                                    >\n在我们党，国家、       “全由                                          |      |\na8. 8            ¢            省    四                 ae              了 \\\npe 上的作\n   更 Ate\nARR A                                                                                                                                     \\\nURSA\" 的                                                        :     RN\nwma.                                            on   eit             lh\n mente                                                            at          ‘  »)                 |\nWETTER                                                              ) , |\nMRR hk                                                                                          :    人             E\n—                                ‘                                          >        了 E> ‘- ."
+}

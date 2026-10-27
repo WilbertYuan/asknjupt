@@ -1,0 +1,20 @@
+{
+  "source_hash": "bda36f87447f232fa5106f9e96c754cbd53634692c31a006cc67318b2f99828b",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/bd/bda36f87447f232fa5106f9e96c754cbd53634692c31a006cc67318b2f99828b.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:23Z",
+  "pages": [
+    {
+      "text": "UY                                                                      ™    a SS\n-\n—\" =                                                                                      Fi       |)  ——                     as        -          .\n“Ss                                                                   wf.   Z 2: PP一                      于到            —=\n~       ids?       a\n»                                               ae”     —                   ————      4    ae\n—         入     -                 二                 Czy 局阅\nen        a     ) Ys 一    i      .       Ass              [is          y        .\na)                           wy /                   5           os\n   rr ae                                             上         tay 2.    ma By\n‘       A    Nie\n|                                                        x =        as      x Ue, .           }                          a\n~       oe  Ca                |  SS     ty     |            is\n                |   ai                             ty tay AR        |\n                                                    “=         ‘                                                   i                              ]            3 yy SS        |     |       =                  、\n       i)         —      : wat,  Re, aay  |\noe                                    cS               SN ty  |                .\nNS        |      aS\n—                    SS SR       f      mast\nall                                           NS a   |         NS\n           4 OA RN  |          bs",
+      "mean_conf": 40.74,
+      "n_tokens": 129,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "UY                                                                      ™    a SS\n-\n—\" =                                                                                      Fi       |)  ——                     as        -          .\n“Ss                                                                   wf.   Z 2: PP一                      于到            —=\n~       ids?       a\n»                                               ae”     —                   ————      4    ae\n—         入     -                 二                 Czy 局阅\nen        a     ) Ys 一    i      .       Ass              [is          y        .\na)                           wy /                   5           os\n   rr ae                                             上         tay 2.    ma By\n‘       A    Nie\n|                                                        x =        as      x Ue, .           }                          a\n~       oe  Ca                |  SS     ty     |            is\n                |   ai                             ty tay AR        |\n                                                    “=         ‘                                                   i                              ]            3 yy SS        |     |       =                  、\n       i)         —      : wat,  Re, aay  |\noe                                    cS               SN ty  |                .\nNS        |      aS\n—                    SS SR       f      mast\nall                                           NS a   |         NS\n           4 OA RN  |          bs"
+}

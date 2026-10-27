@@ -1,0 +1,20 @@
+{
+  "source_hash": "bcc7f10e21d21cfcdf1b2b3e79ac0226cd28ee4a87c2db4e08046228ebdbd2ae",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/bc/bcc7f10e21d21cfcdf1b2b3e79ac0226cd28ee4a87c2db4e08046228ebdbd2ae.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:23Z",
+  "pages": [
+    {
+      "text": "“BK G205\nAa” es ame sat\n\n@rreree\n\né\n\n“2",
+      "mean_conf": 32.99,
+      "n_tokens": 10,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "“BK G205\nAa” es ame sat\n\n@rreree\n\né\n\n“2"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "e35ab27e6f5cdb764c2d706756bbf5a2dfbc60fc0f09867557e8b89feb15a1bb",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/e3/e35ab27e6f5cdb764c2d706756bbf5a2dfbc60fc0f09867557e8b89feb15a1bb.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T11:46:34Z",
+  "pages": [
+    {
+      "text": "oe, Ab\n\n3 we oe\nNJIUPT\n\n:      Gress",
+      "mean_conf": 34.74,
+      "n_tokens": 8,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "oe, Ab\n\n3 we oe\nNJIUPT\n\n:      Gress"
+}

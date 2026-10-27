@@ -1,0 +1,20 @@
+{
+  "source_hash": "69cbce7709cda1224288b36984f3eeea1b40f9e35cec5edddfe525d826adfefd",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/69/69cbce7709cda1224288b36984f3eeea1b40f9e35cec5edddfe525d826adfefd.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:50Z",
+  "pages": [
+    {
+      "text": "Insp Yae > Stolk (Fost\n> RST AO RISES Sie\n主办单位: DRUMS At FACES  iva\nDD Be > PBR MR HARA                    FF\n2   ‘| N     |   y   a a    区- *     a 4 |\n2 8 athe. € 124 2 28!\nSO Ala OF 人\nfe OE ee\n|               a)",
+      "mean_conf": 35.58,
+      "n_tokens": 52,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Insp Yae > Stolk (Fost\n> RST AO RISES Sie\n主办单位: DRUMS At FACES  iva\nDD Be > PBR MR HARA                    FF\n2   ‘| N     |   y   a a    区- *     a 4 |\n2 8 athe. € 124 2 28!\nSO Ala OF 人\nfe OE ee\n|               a)"
+}

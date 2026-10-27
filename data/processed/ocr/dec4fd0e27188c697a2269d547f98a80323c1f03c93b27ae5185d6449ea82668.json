@@ -1,0 +1,20 @@
+{
+  "source_hash": "dec4fd0e27188c697a2269d547f98a80323c1f03c93b27ae5185d6449ea82668",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/de/dec4fd0e27188c697a2269d547f98a80323c1f03c93b27ae5185d6449ea82668.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:34Z",
+  "pages": [
+    {
+      "text": "如 en 月\niit                                             TT\n】\ni               \\          -站\n|= a         \\ ae\n@. Fa | ae     a FL He pee\nam .- ES reese |             —     i   la ir    : a\n(RE            4",
+      "mean_conf": 33.48,
+      "n_tokens": 34,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "如 en 月\niit                                             TT\n】\ni               \\          -站\n|= a         \\ ae\n@. Fa | ae     a FL He pee\nam .- ES reese |             —     i   la ir    : a\n(RE            4"
+}

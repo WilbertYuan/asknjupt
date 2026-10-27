@@ -1,0 +1,20 @@
+{
+  "source_hash": "3c09fc8375f8cd250384dc1fbd0817340225e2676fc555157d26e20da6e7118d",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/3c/3c09fc8375f8cd250384dc1fbd0817340225e2676fc555157d26e20da6e7118d.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:17:43Z",
+  "pages": [
+    {
+      "text": ":   )      7  站 “-\n    人 Me el\nie   va!   Wf) 7)\na    i 】\n      <= a,     一fs",
+      "mean_conf": 36.72,
+      "n_tokens": 19,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": ":   )      7  站 “-\n    人 Me el\nie   va!   Wf) 7)\na    i 】\n      <= a,     一fs"
+}

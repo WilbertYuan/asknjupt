@@ -1,0 +1,20 @@
+{
+  "source_hash": "e7db36f1c626a4d322bf103a34604936c9be07e06d3af50e2c0ba6027701a09c",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/e7/e7db36f1c626a4d322bf103a34604936c9be07e06d3af50e2c0ba6027701a09c.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:15:31Z",
+  "pages": [
+    {
+      "text": "C\npoy EVERY DAY",
+      "mean_conf": 89.53,
+      "n_tokens": 9,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "C\npoy EVERY DAY"
+}

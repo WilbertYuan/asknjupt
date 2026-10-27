@@ -1,0 +1,20 @@
+{
+  "source_hash": "193342939f105e54ae26e77fe070f2008ecd1f265063f3f174525b5e3d20e722",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/19/193342939f105e54ae26e77fe070f2008ecd1f265063f3f174525b5e3d20e722.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T11:46:32Z",
+  "pages": [
+    {
+      "text": "pm一            一 一-  _\n\nes           Fog > ~os a              —\n\na  IX   :      <a\n\naie  es      Get ha we\n- SS      ;     ;\n\nrhe ot        a  of   De",
+      "mean_conf": 33.82,
+      "n_tokens": 29,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "pm一            一 一-  _\n\nes           Fog > ~os a              —\n\na  IX   :      <a\n\naie  es      Get ha we\n- SS      ;     ;\n\nrhe ot        a  of   De"
+}

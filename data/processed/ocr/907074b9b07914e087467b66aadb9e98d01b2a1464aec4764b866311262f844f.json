@@ -1,0 +1,20 @@
+{
+  "source_hash": "907074b9b07914e087467b66aadb9e98d01b2a1464aec4764b866311262f844f",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/90/907074b9b07914e087467b66aadb9e98d01b2a1464aec4764b866311262f844f.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:17Z",
+  "pages": [
+    {
+      "text": "Oo Lets Oo\nee L\nOpp sote",
+      "mean_conf": 21.29,
+      "n_tokens": 7,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Oo Lets Oo\nee L\nOpp sote"
+}

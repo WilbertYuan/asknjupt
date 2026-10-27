@@ -1,0 +1,20 @@
+{
+  "source_hash": "34257f2d3d3419525f9f8aef1ffddbf987ebe3826f186d58e0703cd8d2d32c83",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/34/34257f2d3d3419525f9f8aef1ffddbf987ebe3826f186d58e0703cd8d2d32c83.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:48Z",
+  "pages": [
+    {
+      "text": "登    ;\necee 4 E*]\n\n获取验证码\n\n本人已阅读并同意《京东速书专业版隐私政策》\n\nCARSI账号登录",
+      "mean_conf": 80.69,
+      "n_tokens": 27,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "登    ;\necee 4 E*]\n\n获取验证码\n\n本人已阅读并同意《京东速书专业版隐私政策》\n\nCARSI账号登录"
+}

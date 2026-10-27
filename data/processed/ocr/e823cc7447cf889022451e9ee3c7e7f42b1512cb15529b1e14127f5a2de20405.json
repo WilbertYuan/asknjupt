@@ -1,0 +1,20 @@
+{
+  "source_hash": "e823cc7447cf889022451e9ee3c7e7f42b1512cb15529b1e14127f5a2de20405",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/e8/e823cc7447cf889022451e9ee3c7e7f42b1512cb15529b1e14127f5a2de20405.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:17:32Z",
+  "pages": [
+    {
+      "text": "wee      * aes\nae,   Peak 56.5                  — 0 saan      ve cs ee cet        1             沪\n                       ma      tes ;            —     wires |      ae BE as BE oes i i   6g oP igs 5\n:                      $s                      Wines ja oem       a ee eT ye ee\nF      a        Ty i.   1g Aga...     ~ e\negies     5 1       志        a va i  iss   NA hy get   ”之  ee ae\na | |      儿\n           Nis oo Fe >",
+      "mean_conf": 32.29,
+      "n_tokens": 72,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "wee      * aes\nae,   Peak 56.5                  — 0 saan      ve cs ee cet        1             沪\n                       ma      tes ;            —     wires |      ae BE as BE oes i i   6g oP igs 5\n:                      $s                      Wines ja oem       a ee eT ye ee\nF      a        Ty i.   1g Aga...     ~ e\negies     5 1       志        a va i  iss   NA hy get   ”之  ee ae\na | |      儿\n           Nis oo Fe >"
+}

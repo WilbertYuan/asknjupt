@@ -1,0 +1,20 @@
+{
+  "source_hash": "a60edeb0312a652161de720ce25bbbd3110bd0aff595135b21fcf3f1ae35b5a1",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/a6/a60edeb0312a652161de720ce25bbbd3110bd0aff595135b21fcf3f1ae35b5a1.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T11:46:35Z",
+  "pages": [
+    {
+      "text": "| e° ‘7\ne “e A  i   .\nNOAA wih 2 Sy,\n~s AARGET  =. .\n= 2 |©O) =:\n\"\\c%    x > *e\nOf @\n4 i; 让 xy\nfa",
+      "mean_conf": 31.58,
+      "n_tokens": 31,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "| e° ‘7\ne “e A  i   .\nNOAA wih 2 Sy,\n~s AARGET  =. .\n= 2 |©O) =:\n\"\\c%    x > *e\nOf @\n4 i; 让 xy\nfa"
+}

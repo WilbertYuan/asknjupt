@@ -1,0 +1,20 @@
+{
+  "source_hash": "dc0d12c46d1cb63a29cbe46d7df710ea1954b7e6c8887e78a58d856299172a0f",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/dc/dc0d12c46d1cb63a29cbe46d7df710ea1954b7e6c8887e78a58d856299172a0f.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:16:23Z",
+  "pages": [
+    {
+      "text": "LP\ny            ry",
+      "mean_conf": 42.58,
+      "n_tokens": 3,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "LP\ny            ry"
+}

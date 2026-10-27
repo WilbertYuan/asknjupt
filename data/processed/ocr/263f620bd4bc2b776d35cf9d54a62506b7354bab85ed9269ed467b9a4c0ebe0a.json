@@ -1,0 +1,20 @@
+{
+  "source_hash": "263f620bd4bc2b776d35cf9d54a62506b7354bab85ed9269ed467b9a4c0ebe0a",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/26/263f620bd4bc2b776d35cf9d54a62506b7354bab85ed9269ed467b9a4c0ebe0a.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:07Z",
+  "pages": [
+    {
+      "text": "和                                             br     yy :\n—_             Se   云锦路党支部\nA\n— , —y              4 UST ARS\non                  aw ve                       one 务咨询\ney                        Kise,\n   i | = =             sz,              ra SS\nIb       pa,\n\\       \\ »               REI oa 4 We dae, «\n=           四、            NG\n7.                                                           4       rac RRA\n|                                       <                 .               RO\n;            :                                      a                       <            NCR Rite",
+      "mean_conf": 35.53,
+      "n_tokens": 61,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "和                                             br     yy :\n—_             Se   云锦路党支部\nA\n— , —y              4 UST ARS\non                  aw ve                       one 务咨询\ney                        Kise,\n   i | = =             sz,              ra SS\nIb       pa,\n\\       \\ »               REI oa 4 We dae, «\n=           四、            NG\n7.                                                           4       rac RRA\n|                                       <                 .               RO\n;            :                                      a                       <            NCR Rite"
+}

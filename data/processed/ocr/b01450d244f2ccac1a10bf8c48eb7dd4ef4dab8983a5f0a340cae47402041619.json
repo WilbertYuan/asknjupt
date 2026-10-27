@@ -1,0 +1,20 @@
+{
+  "source_hash": "b01450d244f2ccac1a10bf8c48eb7dd4ef4dab8983a5f0a340cae47402041619",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/b0/b01450d244f2ccac1a10bf8c48eb7dd4ef4dab8983a5f0a340cae47402041619.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:14Z",
+  "pages": [
+    {
+      "text": "\\    LNG                      5     :   es     33 2 = Spee Sa ;    :\n可     二     EFM GET      teed        ~~     =  aga ae a     (=\n\\         Hs           ee Sra      }   2        Pec) So             ee pee ee     :\n|        salty         rate          ete MN oe are ae\n:         CO     rel           3          ip   3       5        SB      ‘                  99 ea,   3 iL PRY    Ok     2\n,    val aes   NPN Roth ee ee of sail       H    二二三   eee AS\n和          Ps        FE\n   g       o Px  P      aS         ca       全  m ay   ay     er a ;\nMs      4                en               a                 fa          v>\\        ml J      me          =      a     S     <\nof oe FA fC   =      =   a   (_~-   —- 2                | oe * 修 =    ‘    iy   ‘    :   if\n习近年同志为核心的党               到”  &     : 和          是   四   _ ©    =        >   |   <     oat ie  — XS  (= EN\nsee IT, 95 Jy A    局       Se)         MY                      |                 w 全  二一) EN\n站     we    NP,    i      °               \\       vender.     Zo     |   = 5\nbe                    }             上                                                       -”     Z 人        人       > a      ，             7 \\     2 Re\natta.       ——      |      ses     a i         oe\n一一一   ag arf   We Tt 了 oy  e     NPR ij   ae    :  5 M   =          |         ie                            S    >  SA Se xa\n“A          ~            c     R                         |       \\                 一  Te      \\       .       :",
+      "mean_conf": 36.94,
+      "n_tokens": 230,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "\\    LNG                      5     :   es     33 2 = Spee Sa ;    :\n可     二     EFM GET      teed        ~~     =  aga ae a     (=\n\\         Hs           ee Sra      }   2        Pec) So             ee pee ee     :\n|        salty         rate          ete MN oe are ae\n:         CO     rel           3          ip   3       5        SB      ‘                  99 ea,   3 iL PRY    Ok     2\n,    val aes   NPN Roth ee ee of sail       H    二二三   eee AS\n和          Ps        FE\n   g       o Px  P      aS         ca       全  m ay   ay     er a ;\nMs      4                en               a                 fa          v>\\        ml J      me          =      a     S     <\nof oe FA fC   =      =   a   (_~-   —- 2                | oe * 修 =    ‘    iy   ‘    :   if\n习近年同志为核心的党               到”  &     : 和          是   四   _ ©    =        >   |   <     oat ie  — XS  (= EN\nsee IT, 95 Jy A    局       Se)         MY                      |                 w 全  二一) EN\n站     we    NP,    i      °               \\       vender.     Zo     |   = 5\nbe                    }             上                                                       -”     Z 人        人       > a      ，             7 \\     2 Re\natta.       ——      |      ses     a i         oe\n一一一   ag arf   We Tt 了 oy  e     NPR ij   ae    :  5 M   =          |         ie                            S    >  SA Se xa\n“A          ~            c     R                         |       \\                 一  Te      \\       .       :"
+}

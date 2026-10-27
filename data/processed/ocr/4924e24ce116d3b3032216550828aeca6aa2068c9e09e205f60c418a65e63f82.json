@@ -1,0 +1,20 @@
+{
+  "source_hash": "4924e24ce116d3b3032216550828aeca6aa2068c9e09e205f60c418a65e63f82",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/49/4924e24ce116d3b3032216550828aeca6aa2068c9e09e205f60c418a65e63f82.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T11:46:31Z",
+  "pages": [
+    {
+      "text": "&@  2 he\n\nHy   Lah a ay 2\n\n到 ea 22\n      ee\n\nisis",
+      "mean_conf": 47.84,
+      "n_tokens": 15,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "&@  2 he\n\nHy   Lah a ay 2\n\n到 ea 22\n      ee\n\nisis"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "dab668dcd39b1ade78a405b0abb95900babfa0a2f48c64088c6dd41383afc2ad",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/da/dab668dcd39b1ade78a405b0abb95900babfa0a2f48c64088c6dd41383afc2ad.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:39Z",
+  "pages": [
+    {
+      "text": "上 Ni\n\n-\n\n|   me a\n\n|   a\n   家 eS te         é\n\n| |          \\ FZ           人\nSN  =   4j\n区   | a ae  = 1    i   2 |\n\n       |       a                ee &    <\n3      y          5  =",
+      "mean_conf": 42.01,
+      "n_tokens": 38,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "上 Ni\n\n-\n\n|   me a\n\n|   a\n   家 eS te         é\n\n| |          \\ FZ           人\nSN  =   4j\n区   | a ae  = 1    i   2 |\n\n       |       a                ee &    <\n3      y          5  ="
+}

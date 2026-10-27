@@ -1,0 +1,20 @@
+{
+  "source_hash": "06ac6230683fe614771c263e8a1dadd1a9f2e3235e7a5b697d0253c4f343bc9c",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/06/06ac6230683fe614771c263e8a1dadd1a9f2e3235e7a5b697d0253c4f343bc9c.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:24:24Z",
+  "pages": [
+    {
+      "text": "一-一    1)               -\n          1              人\na           <eep tne   V                    PSE   |   me 9 ;   A\nat   -       ER iS ' 4.\nGIS             = N  )        ee.\nee BO eee\n一                             5  ea -- Cua A\nyf pe ee\n-        3            Gi    a eeet 1 iA\nRU HES      Daley\nPad             ~                          有     <\nAS                                               So     2\nES\n      [一 SS                _             _                         Rey |      f |",
+      "mean_conf": 38.74,
+      "n_tokens": 65,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "一-一    1)               -\n          1              人\na           <eep tne   V                    PSE   |   me 9 ;   A\nat   -       ER iS ' 4.\nGIS             = N  )        ee.\nee BO eee\n一                             5  ea -- Cua A\nyf pe ee\n-        3            Gi    a eeet 1 iA\nRU HES      Daley\nPad             ~                          有     <\nAS                                               So     2\nES\n      [一 SS                _             _                         Rey |      f |"
+}

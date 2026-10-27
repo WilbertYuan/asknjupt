@@ -1,0 +1,20 @@
+{
+  "source_hash": "f294b7186f506af3ed6979b21449d2446c7f134e0f1a1d9615780780f7dcb698",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/f2/f294b7186f506af3ed6979b21449d2446c7f134e0f1a1d9615780780f7dcb698.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:31:08Z",
+  "pages": [
+    {
+      "text": "=    =                  =      =    —_     =    —     =\n加 Aa kéd 2     F sass Beene   Gatien\nSETA “SRA” MES Un AS A\n>  x   >           2   =\nRMS: AWS\n2.08 Fo SAS \"CSGl eee 92 55 Fen\niw Se Ae SY Va V.        w\\ ae?    Wh A\nSN                         Ya                          |       ’                a)  |\n=                                                        .              Wem’ Af AR a  Ss\n—* 六 eM      Mime ~  &  be     Wh     ><   Me ee  a <5\niy     l              s     A  a    y    ‘   而   Pe                                ~ ane   PS” 由\n       ME)                  a   |                  |       |                  |                       iW   MM  if    *\nPO se         Hines\nRosey delice eae Soe tila LUE TPES Pine 5 i Ricerca Pe",
+      "mean_conf": 37.16,
+      "n_tokens": 111,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "=    =                  =      =    —_     =    —     =\n加 Aa kéd 2     F sass Beene   Gatien\nSETA “SRA” MES Un AS A\n>  x   >           2   =\nRMS: AWS\n2.08 Fo SAS \"CSGl eee 92 55 Fen\niw Se Ae SY Va V.        w\\ ae?    Wh A\nSN                         Ya                          |       ’                a)  |\n=                                                        .              Wem’ Af AR a  Ss\n—* 六 eM      Mime ~  &  be     Wh     ><   Me ee  a <5\niy     l              s     A  a    y    ‘   而   Pe                                ~ ane   PS” 由\n       ME)                  a   |                  |       |                  |                       iW   MM  if    *\nPO se         Hines\nRosey delice eae Soe tila LUE TPES Pine 5 i Ricerca Pe"
+}

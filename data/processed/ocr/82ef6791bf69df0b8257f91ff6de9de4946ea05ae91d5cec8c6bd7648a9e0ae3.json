@@ -1,0 +1,20 @@
+{
+  "source_hash": "82ef6791bf69df0b8257f91ff6de9de4946ea05ae91d5cec8c6bd7648a9e0ae3",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/82/82ef6791bf69df0b8257f91ff6de9de4946ea05ae91d5cec8c6bd7648a9e0ae3.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:34Z",
+  "pages": [
+    {
+      "text": "_ Fi                                [ oe\n:        |  a ‘|      —\n\\               a\n\nen ee ee   i iS 2a:\na                              a2 ‘el\nTe  — om\n7 A = Ta   一让 oo  二 =e —se  r = SS 3\nSe OT ae as toe. te o      Ee -—- -« aa se   a EC  一4  -~ Bey.",
+      "mean_conf": 37.2,
+      "n_tokens": 55,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "_ Fi                                [ oe\n:        |  a ‘|      —\n\\               a\n\nen ee ee   i iS 2a:\na                              a2 ‘el\nTe  — om\n7 A = Ta   一让 oo  二 =e —se  r = SS 3\nSe OT ae as toe. te o      Ee -—- -« aa se   a EC  一4  -~ Bey."
+}

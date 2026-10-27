@@ -1,0 +1,20 @@
+{
+  "source_hash": "3f86f7b1c91c1e263181dfd8d6deffd104ef65c4a3be5a0f4475bf5a1efbb150",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/3f/3f86f7b1c91c1e263181dfd8d6deffd104ef65c4a3be5a0f4475bf5a1efbb150.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:52Z",
+  "pages": [
+    {
+      "text": "|     MOREA Sy\nEe bash                    5 WARS RH\n和    2025494108    -",
+      "mean_conf": 35.51,
+      "n_tokens": 11,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "|     MOREA Sy\nEe bash                    5 WARS RH\n和    2025494108    -"
+}

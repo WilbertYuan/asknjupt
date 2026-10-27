@@ -1,0 +1,20 @@
+{
+  "source_hash": "31c40f47bff648b01588709650d45114877bad2332b92b11303f7b68b7dc7759",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/31/31c40f47bff648b01588709650d45114877bad2332b92b11303f7b68b7dc7759.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:59Z",
+  "pages": [
+    {
+      "text": "ue  3 AE LM reece                                                                                                                              返回主页 O\n\n南京邮电大学                      了\n手机号/出箱/用户名\n6-16位密码，区分大小写，不能用空格\n\n目 记住密码                    忘记父码 ?\n\n登录\n\n| Oars  fa CARSI                 立即注册",
+      "mean_conf": 74.46,
+      "n_tokens": 51,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ue  3 AE LM reece                                                                                                                              返回主页 O\n\n南京邮电大学                      了\n手机号/出箱/用户名\n6-16位密码，区分大小写，不能用空格\n\n目 记住密码                    忘记父码 ?\n\n登录\n\n| Oars  fa CARSI                 立即注册"
+}

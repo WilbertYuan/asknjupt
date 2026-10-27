@@ -1,0 +1,20 @@
+{
+  "source_hash": "92fd8f72ee9e4472afa5e6838f1c1ffa4d4d83a8d5338770eeb20287ce022cf1",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/92/92fd8f72ee9e4472afa5e6838f1c1ffa4d4d83a8d5338770eeb20287ce022cf1.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:09Z",
+  "pages": [
+    {
+      "text": "aD): RE RAS Ss SRS\nRet Se Bt",
+      "mean_conf": 27.66,
+      "n_tokens": 8,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "aD): RE RAS Ss SRS\nRet Se Bt"
+}

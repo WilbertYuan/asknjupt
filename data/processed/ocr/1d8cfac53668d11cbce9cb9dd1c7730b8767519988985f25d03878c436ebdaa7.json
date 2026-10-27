@@ -1,0 +1,20 @@
+{
+  "source_hash": "1d8cfac53668d11cbce9cb9dd1c7730b8767519988985f25d03878c436ebdaa7",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/1d/1d8cfac53668d11cbce9cb9dd1c7730b8767519988985f25d03878c436ebdaa7.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:35Z",
+  "pages": [
+    {
+      "text": "人 南京邮电大学计算机学院\n软件学院网络空间安全学院\nKG         root OF Commute sexosct soup\n\nQ\n\n学条例 守党纪 恪守工作纪律\n一一财务政策及财务报销宣讲会\n\n2024年5月22日",
+      "mean_conf": 80.74,
+      "n_tokens": 50,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "人 南京邮电大学计算机学院\n软件学院网络空间安全学院\nKG         root OF Commute sexosct soup\n\nQ\n\n学条例 守党纪 恪守工作纪律\n一一财务政策及财务报销宣讲会\n\n2024年5月22日"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "4f6cb2a10ec09d0e9a80d06c7e8cdcd79947d57f87ad15c39b92a24d3925c261",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/4f/4f6cb2a10ec09d0e9a80d06c7e8cdcd79947d57f87ad15c39b92a24d3925c261.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:16Z",
+  "pages": [
+    {
+      "text": "\"Tae.\na                       2                         \"\n=   =                                           4\n— |              /             \\\né                                         ’\n>                           é           一             —_              -\n=  Er  一 =              |\nSe            o\n_        . :  天",
+      "mean_conf": 43.21,
+      "n_tokens": 29,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "\"Tae.\na                       2                         \"\n=   =                                           4\n— |              /             \\\né                                         ’\n>                           é           一             —_              -\n=  Er  一 =              |\nSe            o\n_        . :  天"
+}

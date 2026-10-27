@@ -1,0 +1,20 @@
+{
+  "source_hash": "5ed724fa8ab9a8e0f708f1c7f7e8b9e9730edc4c4a034300583cd841667e5194",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/5e/5ed724fa8ab9a8e0f708f1c7f7e8b9e9730edc4c4a034300583cd841667e5194.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:18:14Z",
+  "pages": [
+    {
+      "text": "me Rt ORE lS 2\n:    . a as         区  ¢ Zi\n:   <   际          + 4,   yd\nes                 At g\nf\n4     (eee   44    a   Mead ete",
+      "mean_conf": 22.17,
+      "n_tokens": 28,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "me Rt ORE lS 2\n:    . a as         区  ¢ Zi\n:   <   际          + 4,   yd\nes                 At g\nf\n4     (eee   44    a   Mead ete"
+}

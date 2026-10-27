@@ -1,0 +1,20 @@
+{
+  "source_hash": "7c9d2fc3728f91dc48c9bbb298d4f45d988142753c1e4da4f46af9221003dd10",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/7c/7c9d2fc3728f91dc48c9bbb298d4f45d988142753c1e4da4f46af9221003dd10.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:56Z",
+  "pages": [
+    {
+      "text": "严\niii  | =                :      本    al\n . |  |                          >:     |       ms     |      ”aa\n有                               |\n= |              ‘= Fe        |          a EF\n|    I                  bee =         i ,    ge               |e      =\na | ee ae\n4                               w PLY                    /                                                                          1",
+      "mean_conf": 43.64,
+      "n_tokens": 42,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "严\niii  | =                :      本    al\n . |  |                          >:     |       ms     |      ”aa\n有                               |\n= |              ‘= Fe        |          a EF\n|    I                  bee =         i ,    ge               |e      =\na | ee ae\n4                               w PLY                    /                                                                          1"
+}

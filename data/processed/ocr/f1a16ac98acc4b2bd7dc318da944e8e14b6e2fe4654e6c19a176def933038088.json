@@ -1,0 +1,20 @@
+{
+  "source_hash": "f1a16ac98acc4b2bd7dc318da944e8e14b6e2fe4654e6c19a176def933038088",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/f1/f1a16ac98acc4b2bd7dc318da944e8e14b6e2fe4654e6c19a176def933038088.pdf",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:53:51Z",
+  "pages": [
+    {
+      "text": "自然科学民口横向科研合同审核流程\n\n项目负责人                项目负责单位               产学研合作处              Sune\n\n将合同电子版、法\n律确认单发送至\nkfb邮箱审核",
+      "mean_conf": 91.49,
+      "n_tokens": 44,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-p1"
+    }
+  ],
+  "text": "自然科学民口横向科研合同审核流程\n\n项目负责人                项目负责单位               产学研合作处              Sune\n\n将合同电子版、法\n律确认单发送至\nkfb邮箱审核"
+}

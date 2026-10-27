@@ -1,0 +1,20 @@
+{
+  "source_hash": "ec1e8ad2b60a60e0bebd1758a7a7f527e951ad8d586d0c8e1d7bbc517f942f65",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ec/ec1e8ad2b60a60e0bebd1758a7a7f527e951ad8d586d0c8e1d7bbc517f942f65.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:17:18Z",
+  "pages": [
+    {
+      "text": "SS\n月\n2\n3\nA  Vi                                    \\\n‘                                    ‘\nq. X                                    !\n时\n»              7  >            有\nJ\ni\n‘i\n2\n区 ge:                                    i   人NS\nRN                    Se\n5  RP;   ig. NR Been cence aS 4 s Estee eee 有  人",
+      "mean_conf": 29.25,
+      "n_tokens": 41,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "SS\n月\n2\n3\nA  Vi                                    \\\n‘                                    ‘\nq. X                                    !\n时\n»              7  >            有\nJ\ni\n‘i\n2\n区 ge:                                    i   人NS\nRN                    Se\n5  RP;   ig. NR Been cence aS 4 s Estee eee 有  人"
+}

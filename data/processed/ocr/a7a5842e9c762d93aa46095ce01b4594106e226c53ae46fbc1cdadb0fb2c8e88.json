@@ -1,0 +1,20 @@
+{
+  "source_hash": "a7a5842e9c762d93aa46095ce01b4594106e226c53ae46fbc1cdadb0fb2c8e88",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/a7/a7a5842e9c762d93aa46095ce01b4594106e226c53ae46fbc1cdadb0fb2c8e88.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:53Z",
+  "pages": [
+    {
+      "text": "日贡报销政策及退单情形\n®\nthe\nve\n@  ~\nis\n及;\nWe\n, v\n\n‘Ms                                               =              .\n7                   ~~\nXl\n人\n二                 科",
+      "mean_conf": 56.72,
+      "n_tokens": 31,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "日贡报销政策及退单情形\n®\nthe\nve\n@  ~\nis\n及;\nWe\n, v\n\n‘Ms                                               =              .\n7                   ~~\nXl\n人\n二                 科"
+}

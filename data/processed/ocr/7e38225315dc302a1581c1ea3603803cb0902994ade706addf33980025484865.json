@@ -1,0 +1,20 @@
+{
+  "source_hash": "7e38225315dc302a1581c1ea3603803cb0902994ade706addf33980025484865",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/7e/7e38225315dc302a1581c1ea3603803cb0902994ade706addf33980025484865.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:15Z",
+  "pages": [
+    {
+      "text": "=          \\ |\n=           1       ae 十|川      -BE        7\nee\nAe ~\\    a  Six os . =.     SS rh ha ,    ‘aS\nVn —s     ps4  yl    if        =f    =",
+      "mean_conf": 35.7,
+      "n_tokens": 31,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "=          \\ |\n=           1       ae 十|川      -BE        7\nee\nAe ~\\    a  Six os . =.     SS rh ha ,    ‘aS\nVn —s     ps4  yl    if        =f    ="
+}

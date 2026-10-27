@@ -1,0 +1,20 @@
+{
+  "source_hash": "d85081c5c97c1a8b177a5ed98ddaf83bf5736b899ac122278b7f437bdbe05aaf",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/d8/d85081c5c97c1a8b177a5ed98ddaf83bf5736b899ac122278b7f437bdbe05aaf.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:24:14Z",
+  "pages": [
+    {
+      "text": "Pa ia\n(Li i ai ae ia 41 aide wl hg RN\n3                 |      |                              my\n|    |",
+      "mean_conf": 44.39,
+      "n_tokens": 18,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Pa ia\n(Li i ai ae ia 41 aide wl hg RN\n3                 |      |                              my\n|    |"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "ed4145c7c7891474c4f4b79c92ba0699c226f160c3352654cbe11796da2e5005",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ed/ed4145c7c7891474c4f4b79c92ba0699c226f160c3352654cbe11796da2e5005.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:58Z",
+  "pages": [
+    {
+      "text": "回 a aa ; 4  回\nSey ott a   :\neurianeee\nfrie Os ae\nUnie arts\n\nots  a Oe   t rod",
+      "mean_conf": 27.22,
+      "n_tokens": 21,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "回 a aa ; 4  回\nSey ott a   :\neurianeee\nfrie Os ae\nUnie arts\n\nots  a Oe   t rod"
+}

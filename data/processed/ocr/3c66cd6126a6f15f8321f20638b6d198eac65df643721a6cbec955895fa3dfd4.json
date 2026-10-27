@@ -1,0 +1,20 @@
+{
+  "source_hash": "3c66cd6126a6f15f8321f20638b6d198eac65df643721a6cbec955895fa3dfd4",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/3c/3c66cd6126a6f15f8321f20638b6d198eac65df643721a6cbec955895fa3dfd4.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:24:15Z",
+  "pages": [
+    {
+      "text": "oO    o  -     o  oO     re  se    o\n*  - *   *  =  *  站  x  >  *  中  *\nt    y        Re  | PEIN a\niy, S ifs  t     RSS证全5 A 1S She :  My\nFES ER ie at ae ane Ode coo BS Sake\n:  下 EC T® r    by   ri   ae   KS  —\neS Wei) ee ee   15    6 EY:\nele     <   》\n下一    i ee   户|    Ril   站",
+      "mean_conf": 30.63,
+      "n_tokens": 77,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "oO    o  -     o  oO     re  se    o\n*  - *   *  =  *  站  x  >  *  中  *\nt    y        Re  | PEIN a\niy, S ifs  t     RSS证全5 A 1S She :  My\nFES ER ie at ae ane Ode coo BS Sake\n:  下 EC T® r    by   ri   ae   KS  —\neS Wei) ee ee   15    6 EY:\nele     <   》\n下一    i ee   户|    Ril   站"
+}

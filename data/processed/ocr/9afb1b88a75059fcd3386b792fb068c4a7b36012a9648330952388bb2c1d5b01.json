@@ -1,0 +1,20 @@
+{
+  "source_hash": "9afb1b88a75059fcd3386b792fb068c4a7b36012a9648330952388bb2c1d5b01",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/9a/9afb1b88a75059fcd3386b792fb068c4a7b36012a9648330952388bb2c1d5b01.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:48Z",
+  "pages": [
+    {
+      "text": "ao, &  eS Ag\né  Ww  ,  从\nDe Rahman es\n\nGg Mikes MAHA\ns\n\ncee a",
+      "mean_conf": 47.95,
+      "n_tokens": 20,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ao, &  eS Ag\né  Ww  ,  从\nDe Rahman es\n\nGg Mikes MAHA\ns\n\ncee a"
+}

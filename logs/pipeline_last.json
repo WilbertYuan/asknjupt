@@ -1,0 +1,47 @@
+{
+  "started_at": "2026-10-26T06:57:13Z",
+  "discover": {
+    "registered": 100,
+    "blocked": [
+      {
+        "url": "https://www.njupt.edu.cn/",
+        "reason": "marked_blocked"
+      }
+    ]
+  },
+  "crawl": {
+    "fetched": 90,
+    "stored": 89,
+    "failed": 3,
+    "skipped": 0,
+    "login": 0
+  },
+  "parse": {
+    "parsed": 84,
+    "skipped_dup": 3,
+    "failed": 0
+  },
+  "extract": {
+    "admission_plans": 0,
+    "fee_rules": 7,
+    "lab_centers": 19,
+    "facts": 11
+  },
+  "validate": {
+    "documents": 84,
+    "parsed": 63,
+    "tables": 105,
+    "admission_plans": 0,
+    "fee_rules": 7,
+    "lab_centers": 19,
+    "open_quality": 1,
+    "issues": [
+      {
+        "kind": "lab_sum_info",
+        "detail": "已抽取实验中心19条，面积合计60407.9",
+        "document_id": null
+      }
+    ]
+  },
+  "model_ready": false
+}

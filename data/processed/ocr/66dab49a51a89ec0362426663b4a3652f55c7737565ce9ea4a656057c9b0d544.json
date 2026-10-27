@@ -1,0 +1,20 @@
+{
+  "source_hash": "66dab49a51a89ec0362426663b4a3652f55c7737565ce9ea4a656057c9b0d544",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/66/66dab49a51a89ec0362426663b4a3652f55c7737565ce9ea4a656057c9b0d544.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:25Z",
+  "pages": [
+    {
+      "text": "ae 1) dake 3 H                                         政策及则务报销专题培训\na a es     em           :\n—    i? =      ;  x                  :",
+      "mean_conf": 49.38,
+      "n_tokens": 23,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ae 1) dake 3 H                                         政策及则务报销专题培训\na a es     em           :\n—    i? =      ;  x                  :"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "ffeac90878471ae2e15e8cf617b1f643767c77a00f39a07beb820bf75a01ef77",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ff/ffeac90878471ae2e15e8cf617b1f643767c77a00f39a07beb820bf75a01ef77.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:06Z",
+  "pages": [
+    {
+      "text": "AAA    Fa              “          >    =\n\\                           y:                  Zs\n,      |   AN (= @\n                     1a Bi\n\nA       Se * r   + )            r 4 7\n\n2 人 L  a   人      |\n\n     4                     昌                         J                                   = ry   ‘\nPg    {   #           |       ,                         _~",
+      "mean_conf": 34.55,
+      "n_tokens": 42,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "AAA    Fa              “          >    =\n\\                           y:                  Zs\n,      |   AN (= @\n                     1a Bi\n\nA       Se * r   + )            r 4 7\n\n2 人 L  a   人      |\n\n     4                     昌                         J                                   = ry   ‘\nPg    {   #           |       ,                         _~"
+}

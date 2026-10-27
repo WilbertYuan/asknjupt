@@ -1,0 +1,20 @@
+{
+  "source_hash": "2aca40caf61aff8862a07505ed02daa12d939e80fde05f1d77e05909a0f0e429",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/2a/2aca40caf61aff8862a07505ed02daa12d939e80fde05f1d77e05909a0f0e429.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:19Z",
+  "pages": [
+    {
+      "text": "3:::       i\n-                                  ET  » one                                                         °     Vie fi         3\n’                 ~ Ae                                          a                              of    :\n区",
+      "mean_conf": 33.11,
+      "n_tokens": 17,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "3:::       i\n-                                  ET  » one                                                         °     Vie fi         3\n’                 ~ Ae                                          a                              of    :\n区"
+}

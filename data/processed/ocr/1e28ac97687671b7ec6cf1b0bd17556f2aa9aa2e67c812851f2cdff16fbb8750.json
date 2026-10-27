@@ -1,0 +1,20 @@
+{
+  "source_hash": "1e28ac97687671b7ec6cf1b0bd17556f2aa9aa2e67c812851f2cdff16fbb8750",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/1e/1e28ac97687671b7ec6cf1b0bd17556f2aa9aa2e67c812851f2cdff16fbb8750.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:49Z",
+  "pages": [
+    {
+      "text": "“二  ss  Se © 2 IE   >  4  »   -         i  s\nag AOS 7 fe BSG Sek rE wg       wy\nSR   =  St YE aed i    ee iy  ‘ak Oe 2区    ‘fe:         Be; yi  Wy               q    ge)\n1     _ |         A     ?下     人\nx        , ak        :               C    |    fi         :\n«      加  |    )          ，     Ay) 1 f [s        :      d\n_¥                               |    .          ]         ay                                   |\n)                                                                   a",
+      "mean_conf": 31.09,
+      "n_tokens": 72,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "“二  ss  Se © 2 IE   >  4  »   -         i  s\nag AOS 7 fe BSG Sek rE wg       wy\nSR   =  St YE aed i    ee iy  ‘ak Oe 2区    ‘fe:         Be; yi  Wy               q    ge)\n1     _ |         A     ?下     人\nx        , ak        :               C    |    fi         :\n«      加  |    )          ，     Ay) 1 f [s        :      d\n_¥                               |    .          ]         ay                                   |\n)                                                                   a"
+}

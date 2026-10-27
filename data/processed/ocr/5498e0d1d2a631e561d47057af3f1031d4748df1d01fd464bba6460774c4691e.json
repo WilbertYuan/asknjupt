@@ -1,0 +1,20 @@
+{
+  "source_hash": "5498e0d1d2a631e561d47057af3f1031d4748df1d01fd464bba6460774c4691e",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/54/5498e0d1d2a631e561d47057af3f1031d4748df1d01fd464bba6460774c4691e.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:50Z",
+  "pages": [
+    {
+      "text": "APS 期刊名称\n\nPhysical Review A: Atomic, Molecular, and Optical Physics\nPhysical Review B: Condensed Matter and materials Physics\nPhysical Review C: Nuclear Physics\nPhysical Review D: Particles, Fields, Gravitation, and Cosmology\n_Review of Modern Physics\nPhysical Review Applied\nPhysical Review Special Topics- Accelerators and Beams (OA)\nPhysical Review Special Topics- Physics Education Research (OA)",
+      "mean_conf": 95.29,
+      "n_tokens": 92,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "APS 期刊名称\n\nPhysical Review A: Atomic, Molecular, and Optical Physics\nPhysical Review B: Condensed Matter and materials Physics\nPhysical Review C: Nuclear Physics\nPhysical Review D: Particles, Fields, Gravitation, and Cosmology\n_Review of Modern Physics\nPhysical Review Applied\nPhysical Review Special Topics- Accelerators and Beams (OA)\nPhysical Review Special Topics- Physics Education Research (OA)"
+}

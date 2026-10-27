@@ -1,0 +1,1416 @@
+{
+  "source": "njupt-suburl.txt",
+  "n_unique": 156,
+  "probed_at": "2026-10-26T11:12:21Z",
+  "counts": {
+    "public": 89,
+    "skip_auth_or_infra": 36,
+    "unreachable": 31
+  },
+  "hosts": [
+    {
+      "host": "acm.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPSConnectionPool(host='acm.njupt.edu.cn', port=443): Read timed out. (read timeout=8)",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "admin.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "ai.njupt.edu.cn",
+      "class": "public",
+      "url": "https://ai.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦äººå·¥æºè½å­¦é¢",
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "alumni.njupt.edu.cn",
+      "class": "public",
+      "url": "https://alumni.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "404找不到页面",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "bc.njupt.edu.cn",
+      "class": "public",
+      "url": "https://bc.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ç®¡çå­¦é¢",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "bhs.njupt.edu.cn",
+      "class": "public",
+      "url": "https://bhs.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "è´å°è±æå­¦é¢",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "bklqcx.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "bwcsn.njupt.edu.cn",
+      "class": "public",
+      "url": "https://bwcsn.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦å®½å¸¦æ çº¿æè²é¨éç¹å®éªå®¤",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "bysj.njupt.edu.cn",
+      "class": "public",
+      "url": "https://bysj.njupt.edu.cn/bysj",
+      "status": 200,
+      "error": null,
+      "title": "首页|南京邮电大学毕业设计（论文）管理系统",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "c.njupt.edu.cn",
+      "class": "public",
+      "url": "https://c.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "程序设计类课程教辅平台",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "cgb.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='cgb.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='cgb.njupt.edu.cn', port=80): Failed to resolve 'cgb.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "ciciot.njupt.edu.cn",
+      "class": "public",
+      "url": "https://ciciot.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "æ±èçç©èç½ææ¯ä¸åºç¨åååæ°ä¸­å¿",
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "ciot.njupt.edu.cn",
+      "class": "public",
+      "url": "https://ciot.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ç©èç½å­¦é¢",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "cjzm.njupt.edu.cn",
+      "class": "public",
+      "url": "http://cjzm.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "Apache Tomcat/9.0.102",
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "class.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "client.webvpn.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "cm.njupt.edu.cn",
+      "class": "public",
+      "url": "https://cm.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "æ°å­åªä½ä¸è®¾è®¡èºæ¯å­¦é¢",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "cmsodsfx.njupt.edu.cn",
+      "class": "public",
+      "url": "https://cmsodsfx.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "èæä»¿çå®éªç®¡çå¹³å°",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "coa.njupt.edu.cn",
+      "class": "public",
+      "url": "https://coa.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "èªå¨åå­¦é¢",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "coalab.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='coalab.njupt.edu.cn', port=80): Read timed out. (read timeout=8)",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "cpcscie.njupt.edu.cn",
+      "class": "public",
+      "url": "https://cpcscie.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "éä¿¡ä¸ä¿¡æ¯å·¥ç¨å­¦é¢å å§",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "cs.njupt.edu.cn",
+      "class": "public",
+      "url": "https://cs.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "è®¡ç®æºå­¦é¢ãè½¯ä»¶å­¦é¢ãç½ç»ç©ºé´å®å ¨å­¦é¢--åäº¬é®çµå¤§å­¦",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "ctf.njupt.edu.cn",
+      "class": "public",
+      "url": "https://ctf.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "小绿草信息安全实验室-X1cT34m",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "ctie.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='ctie.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='ctie.njupt.edu.cn', port=80): Failed to resolve 'ctie.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "cwcxx.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "cxyhzjg.njupt.edu.cn",
+      "class": "public",
+      "url": "https://cxyhzjg.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "äº§å­¦ç æºæ §å¹³å°",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "dmtzk.njupt.edu.cn",
+      "class": "public",
+      "url": "https://dmtzk.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "多媒体教室智能网络监管控系统|登录",
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "dzkx.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='dzkx.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='dzkx.njupt.edu.cn', port=80): Failed to resolve 'dzkx.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "dzzc.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='dzzc.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='dzzc.njupt.edu.cn', port=80): Failed to resolve 'dzzc.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "edu.njupt.edu.cn",
+      "class": "public",
+      "url": "https://edu.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "æè²ç§å­¦ä¸ææ¯å­¦é¢",
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "em.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='em.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='em.njupt.edu.cn', port=80): Failed to resolve 'em.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "eoe.njupt.edu.cn",
+      "class": "public",
+      "url": "https://eoe.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "çµå­ä¸å å­¦å·¥ç¨å­¦é¢",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "exchange.njupt.edu.cn",
+      "class": "public",
+      "url": "https://exchange.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦-å½é äº¤æµåä½å¤",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "facerec.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "fld.njupt.edu.cn",
+      "class": "public",
+      "url": "https://fld.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "å¤å½è¯­å­¦é¢",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "forms.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "gdgc.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='gdgc.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='gdgc.njupt.edu.cn', port=80): Failed to resolve 'gdgc.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "gfs.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='gfs.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='gfs.njupt.edu.cn', port=80): Failed to resolve 'gfs.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "gonghui.njupt.edu.cn",
+      "class": "public",
+      "url": "https://gonghui.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦å·¥ä¼å§åä¼",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "hjdzz.njupt.edu.cn",
+      "class": "public",
+      "url": "https://hjdzz.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åå¤ãåºå»ºå æ»æ¯",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "i.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "iac.njupt.edu.cn",
+      "class": "public",
+      "url": "https://iac.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "iam.njupt.edu.cn",
+      "class": "public",
+      "url": "https://iam.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ææç§å­¦ä¸å·¥ç¨å­¦é¢ãä¿¡æ¯ç§å­¦ä¸çº³ç±³ææ¯ç ç©¶é¢",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "ids6.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "iids.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "iiism.njupt.edu.cn",
+      "class": "public",
+      "url": "https://iiism.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ä¿¡æ¯äº§ä¸åæ°ä¸å®å ¨ç®¡çç ç©¶ä¸­å¿",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "imap.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "iot.njupt.edu.cn",
+      "class": "public",
+      "url": "https://iot.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ç©èç½äº§ä¸åå±ç ç©¶åºå°",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "iotlab.njupt.edu.cn",
+      "class": "public",
+      "url": "https://iotlab.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ç©èç½åºç¨ææ¯å®è·µæè²ä¸­å¿",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "iotrobot.njupt.edu.cn",
+      "class": "public",
+      "url": "https://iotrobot.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "æ±èçç©èç½æºè½æºå¨äººå·¥ç¨å®éªå®¤",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "ip.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "jgdw.njupt.edu.cn",
+      "class": "public",
+      "url": "https://jgdw.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "æºå ³å å§",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "jjc.njupt.edu.cn",
+      "class": "public",
+      "url": "https://jjc.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦-Nanjing University of Posts and Telecommunications|åºå»ºå¤",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "jjxy.njupt.edu.cn",
+      "class": "public",
+      "url": "https://jjxy.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ç»æµå­¦é¢",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "jjy.njupt.edu.cn",
+      "class": "public",
+      "url": "https://jjy.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ç»§ç»­æè²å­¦é¢",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "jjywsxx.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='jjywsxx.njupt.edu.cn', port=80): Read timed out. (read timeout=8)",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "jsfz.njupt.edu.cn",
+      "class": "public",
+      "url": "https://jsfz.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦ï¼æªæ¥æå¸åå±ä¸­å¿",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "juxt.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='juxt.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='juxt.njupt.edu.cn', port=80): Failed to resolve 'juxt.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "juxtaposed.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='juxtaposed.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='juxtaposed.njupt.edu.cn', port=80): Failed to resolve 'juxtaposed.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "jw.njupt.edu.cn",
+      "class": "public",
+      "url": "https://jw.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦çºªæ£çå¯æºæ",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "jwc.njupt.edu.cn",
+      "class": "public",
+      "url": "https://jwc.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "æ¬ç§çé¢",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "jwxt.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "jxzx.njupt.edu.cn",
+      "class": "public",
+      "url": "https://jxzx.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "æå­¦è´¨éçæ§ä¸è¯ä¼°ä¸­å¿",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "kjc.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='kjc.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='kjc.njupt.edu.cn', port=80): Failed to resolve 'kjc.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "lab.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='lab.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='lab.njupt.edu.cn', port=80): Failed to resolve 'lab.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "lib.njupt.edu.cn",
+      "class": "public",
+      "url": "https://lib.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "å¾ä¹¦é¦",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "ltxzgc.njupt.edu.cn",
+      "class": "public",
+      "url": "https://ltxzgc.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ç¦»éä¼å·¥ä½å¤",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "lwps.njupt.edu.cn",
+      "class": "unreachable",
+      "url": "http://lwps.njupt.edu.cn/",
+      "status": 403,
+      "error": "http 403",
+      "title": "403 - ½ûÖ¹·ÃÎÊ: ·ÃÎÊ±»¾Ü¾ø¡£",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "lxy.njupt.edu.cn",
+      "class": "public",
+      "url": "https://lxy.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "çå­¦é¢",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "m.njupt.edu.cn",
+      "class": "public",
+      "url": "https://m.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "mail.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "matrix.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='matrix.njupt.edu.cn', port=80): Read timed out. (read timeout=8)",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "mba.njupt.edu.cn",
+      "class": "public",
+      "url": "https://mba.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ç®¡çå­¦é¢MBAä¸­å¿ç½ç«",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "mcm.njupt.edu.cn",
+      "class": "public",
+      "url": "https://mcm.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦æ°æ¨¡ç½",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "mdis.njupt.edu.cn",
+      "class": "public",
+      "url": "https://mdis.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "æ±èç°ä»£ä¿¡æ¯æå¡ä¸ç ç©¶åºå°",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "mirrors.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "mjf.njupt.edu.cn",
+      "class": "public",
+      "url": "http://mjf.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "my.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "my.webvpn.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "my2.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "myoa.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "news.njupt.edu.cn",
+      "class": "public",
+      "url": "https://news.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦æ°é»ç½",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "njupt.edu.cn",
+      "class": "public",
+      "url": "https://njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "Welcome to Synjones!",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "ntp1.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "ntp2.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "nysk.njupt.edu.cn",
+      "class": "unreachable",
+      "url": "http://nysk.njupt.edu.cn/",
+      "status": 403,
+      "error": "http 403",
+      "title": "403",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "nytx.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='nytx.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='nytx.njupt.edu.cn', port=80): Failed to resolve 'nytx.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "nyzr.njupt.edu.cn",
+      "class": "unreachable",
+      "url": "http://nyzr.njupt.edu.cn/",
+      "status": 403,
+      "error": "http 403",
+      "title": "403",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "oamobile.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "opac.lib.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "opac.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "overseas.njupt.edu.cn",
+      "class": "public",
+      "url": "https://overseas.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "æµ·å¤æè²å­¦é¢ï¼æ°ï¼",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "p.njupt.edu.cn",
+      "class": "public",
+      "url": "https://p.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "上网登录页",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "pay.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "pg.njupt.edu.cn",
+      "class": "public",
+      "url": "https://pg.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ç ç©¶çé¢",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "pgrc.njupt.edu.cn",
+      "class": "public",
+      "url": "https://pgrc.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "æªå¤æ¡ï¼é»æ­",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "pgyouth.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='pgyouth.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='pgyouth.njupt.edu.cn', port=80): Failed to resolve 'pgyouth.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "pop.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "pop3.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "psu.njupt.edu.cn",
+      "class": "public",
+      "url": "https://psu.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦æ³¢ç¹å °å­¦é¢",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "qingyou-git.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "qingyou.njupt.edu.cn",
+      "class": "public",
+      "url": "https://qingyou.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "éæå·¥ä½å®¤ - ç¨ç­ç±åé æ éå¯è½",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "qiyeweixin.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "qks.njupt.edu.cn",
+      "class": "public",
+      "url": "https://qks.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "æåç¤¾",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "qsmzqxt.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='qsmzqxt.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='qsmzqxt.njupt.edu.cn', port=80): Failed to resolve 'qsmzqxt.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "quantum.njupt.edu.cn",
+      "class": "public",
+      "url": "https://quantum.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "éå­å å­¦ä¸éå­å¯ç è¯¾é¢ç»",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "rsc.njupt.edu.cn",
+      "class": "public",
+      "url": "https://rsc.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "äººäºå¤",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "rzfw.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "sast.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='sast.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='sast.njupt.edu.cn', port=80): Failed to resolve 'sast.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "shiziyinjin.njupt.edu.cn",
+      "class": "public",
+      "url": "http://shiziyinjin.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦äººäºç®¡çç³»ç»",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "sicoeid.njupt.edu.cn",
+      "class": "public",
+      "url": "https://sicoeid.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦ææºçµå­ä¸ä¿¡æ¯æ¾ç¤ºåååæ°ä¸­å¿",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "simp.njupt.edu.cn",
+      "class": "public",
+      "url": "https://simp.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦ç°ä»£é®æ¿å­¦é¢",
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "sjc.njupt.edu.cn",
+      "class": "public",
+      "url": "https://sjc.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "å®¡è®¡å¤",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "skc.njupt.edu.cn",
+      "class": "public",
+      "url": "https://skc.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ç¤¾ç§å¤",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "skloeid.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='skloeid.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='skloeid.njupt.edu.cn', port=80): Failed to resolve 'skloeid.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "smse.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='smse.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='smse.njupt.edu.cn', port=80): Failed to resolve 'smse.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "sps.njupt.edu.cn",
+      "class": "public",
+      "url": "https://sps.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ç¤¾ä¼ä¸äººå£å­¦é¢",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "swzl.njupt.edu.cn",
+      "class": "public",
+      "url": "https://swzl.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": null,
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "szgw.njupt.edu.cn",
+      "class": "public",
+      "url": "http://szgw.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "Welcome to nginx!",
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "tdxy.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='tdxy.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='tdxy.njupt.edu.cn', port=80): Failed to resolve 'tdxy.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "tu.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='tu.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='tu.njupt.edu.cn', port=80): Failed to resolve 'tu.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "tyb.njupt.edu.cn",
+      "class": "public",
+      "url": "https://tyb.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ä½è²é¨",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "tycj.njupt.edu.cn",
+      "class": "public",
+      "url": "https://tycj.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ä½è²æç»©å½å ¥",
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "vpn.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "wcd.njupt.edu.cn",
+      "class": "public",
+      "url": "https://wcd.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åé®æè²é¨å·¥ç¨ä¸­å¿",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "wechat.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "wicom.njupt.edu.cn",
+      "class": "public",
+      "url": "https://wicom.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "æ çº¿éä¿¡ä¸ç©èç½çé«æ ¡éç¹å®éªå®¤ï¼åäº¬é®çµå¤§å­¦ï¼",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "wlaq.njupt.edu.cn",
+      "class": "public",
+      "url": "https://wlaq.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦ç½ç»å®å ¨ä¸é¢ç½ç«",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "wsn.njupt.edu.cn",
+      "class": "public",
+      "url": "https://wsn.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "æ±èçç©èç½æºè½æç¥ä¸è®¡ç®éç¹å®éªå®¤",
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "www.njupt.edu.cn",
+      "class": "public",
+      "url": "https://www.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "wxcard.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "xb.njupt.edu.cn",
+      "class": "public",
+      "url": "https://xb.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "å å§åå ¬å®¤ãæ ¡é¿åå ¬å®¤ï¼æ³å¶åå ¬å®¤ï¼ãä¿å¯å§åä¼åå ¬å®",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "xgwx.njupt.edu.cn",
+      "class": "public",
+      "url": "https://xgwx.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "welcome",
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "xkb.njupt.edu.cn",
+      "class": "public",
+      "url": "https://xkb.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ä¸æµå­¦ç§åé«æ°´å¹³å¤§å­¦å»ºè®¾åå ¬å®¤",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "xnfz.njupt.edu.cn",
+      "class": "public",
+      "url": "https://xnfz.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "南京邮电大学",
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "xsc.njupt.edu.cn",
+      "class": "public",
+      "url": "https://xsc.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "å­¦çå·¥ä½é¨ï¼å¤ï¼",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "xsswzx.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='xsswzx.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='xsswzx.njupt.edu.cn', port=80): Failed to resolve 'xsswzx.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "xxb.njupt.edu.cn",
+      "class": "public",
+      "url": "https://xxb.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ä¿¡æ¯åå»ºè®¾ä¸ç®¡çåå ¬å®¤",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "xyh.njupt.edu.cn",
+      "class": "public",
+      "url": "https://xyh.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦æ ¡åä¼",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "xyqyj.njupt.edu.cn",
+      "class": "unreachable",
+      "url": "http://xyqyj.njupt.edu.cn/",
+      "status": 502,
+      "error": "http 502",
+      "title": "502 Bad Gateway",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "ycbigdata.njupt.edu.cn",
+      "class": "public",
+      "url": "https://ycbigdata.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦çåå¤§æ°æ®ç ç©¶é¢",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "ydxy.njupt.edu.cn",
+      "class": "public",
+      "url": "https://ydxy.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦AMSCç³»ç»",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "ygb.njupt.edu.cn",
+      "class": "public",
+      "url": "https://ygb.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ç ç©¶çå·¥ä½é¨",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "yjs.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": "http://i.njupt.edu.cn/user-login?service=527694E49E80328AF2348210C484E062",
+      "status": 200,
+      "error": "redirected_to_i.njupt.edu.cn",
+      "title": "åäº¬é®çµå¤§å­¦èº«ä»½ä¸­å°é¨æ·",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "yktapp.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "yktydpt.njupt.edu.cn",
+      "class": "public",
+      "url": "https://yktydpt.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "Welcome to Synjones!",
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "yzb.njupt.edu.cn",
+      "class": "public",
+      "url": "https://yzb.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦ ç ç©¶çæçä¿¡æ¯ç½",
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "zbb.njupt.edu.cn",
+      "class": "public",
+      "url": "https://zbb.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "南京邮电大学采购招标管理办公室 - 首页",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "zccx.tyb.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='zccx.tyb.njupt.edu.cn', port=80): Read timed out. (read timeout=8)",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:05Z"
+    },
+    {
+      "host": "zcgs.njupt.edu.cn",
+      "class": "public",
+      "url": "https://zcgs.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åäº¬é®çµå¤§å­¦èµäº§ç»è¥æéè´£ä»»å ¬å¸",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "zfw.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='zfw.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPConnection(host='zfw.njupt.edu.cn', port=80): Failed to establish a new connection: [Errno 61] Connection refused\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "zhxf.njupt.edu.cn",
+      "class": "public",
+      "url": "https://zhxf.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "åé®æºæ §æ¶é²",
+      "probed_at": "2026-10-26T11:12:03Z"
+    },
+    {
+      "host": "zs.njupt.edu.cn",
+      "class": "public",
+      "url": "https://zs.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "æ¬ç§æçç½",
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "zscx.njupt.edu.cn",
+      "class": "skip_auth_or_infra",
+      "url": null,
+      "status": null,
+      "error": "skipped_by_policy",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "zsjyc.njupt.edu.cn",
+      "class": "unreachable",
+      "url": null,
+      "status": null,
+      "error": "HTTPConnectionPool(host='zsjyc.njupt.edu.cn', port=80): Max retries exceeded with url: / (Caused by NameResolutionError(\"HTTPConnection(host='zsjyc.njupt.edu.cn', port=80): Failed to resolve 'zsjyc.njupt.edu.cn' ([Errno 8] nodename nor servname provided, or not known)\"))",
+      "title": null,
+      "probed_at": "2026-10-26T11:12:04Z"
+    },
+    {
+      "host": "zzb.njupt.edu.cn",
+      "class": "public",
+      "url": "https://zzb.njupt.edu.cn/",
+      "status": 200,
+      "error": null,
+      "title": "ç»ç»é¨",
+      "probed_at": "2026-10-26T11:12:04Z"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "77af559ae1275f2ffe2819fa5e50140998fa1b98bd54eaa5c0698bdc4d96ade7",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/77/77af559ae1275f2ffe2819fa5e50140998fa1b98bd54eaa5c0698bdc4d96ade7.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:23Z",
+  "pages": [
+    {
+      "text": "定与本办法不一致的，以本办法为准。\n第十八条 ”本办法由省委办公斤、省政府办公打会同省\n财政打负责解释。\n\n 中共江苏省委办公斤 2012年7月30日印发\n\n一8 一",
+      "mean_conf": 88.79,
+      "n_tokens": 60,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "定与本办法不一致的，以本办法为准。\n第十八条 ”本办法由省委办公斤、省政府办公打会同省\n财政打负责解释。\n\n 中共江苏省委办公斤 2012年7月30日印发\n\n一8 一"
+}

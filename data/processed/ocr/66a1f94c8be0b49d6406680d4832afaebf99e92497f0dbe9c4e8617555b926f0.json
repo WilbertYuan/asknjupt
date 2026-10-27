@@ -1,0 +1,20 @@
+{
+  "source_hash": "66a1f94c8be0b49d6406680d4832afaebf99e92497f0dbe9c4e8617555b926f0",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/66/66a1f94c8be0b49d6406680d4832afaebf99e92497f0dbe9c4e8617555b926f0.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:51Z",
+  "pages": [
+    {
+      "text": "Ra        7             s    ae\na=\nZs                                                                                                       i                                               SS\n加-~   —          r\n|   {  | a    [   if  ;          ,                 i\na             =                            SS EE AT\ni                                          4                                                                     aaa           Be.                                       ie    =n                                      ait\n‘                                                                                                                                                                      地                            Peat) ¥ 3                                                                                                                                  Nett, .e\n3                     .            - 4 Oh                                                                      <",
+      "mean_conf": 33.33,
+      "n_tokens": 46,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Ra        7             s    ae\na=\nZs                                                                                                       i                                               SS\n加-~   —          r\n|   {  | a    [   if  ;          ,                 i\na             =                            SS EE AT\ni                                          4                                                                     aaa           Be.                                       ie    =n                                      ait\n‘                                                                                                                                                                      地                            Peat) ¥ 3                                                                                                                                  Nett, .e\n3                     .            - 4 Oh                                                                      <"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "a9d67f1f2bb834d014ae49e7dd15601ca4888a392863336ec49f87fed1e98091",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/a9/a9d67f1f2bb834d014ae49e7dd15601ca4888a392863336ec49f87fed1e98091.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:31:09Z",
+  "pages": [
+    {
+      "text": "8\n南京邮电大学2025年度“阅读之星”\na           2 9.0              e 2\n| O92 2 BB: 2: 9 © gas\n—_— 4a Lhe   =?   ae SS   a",
+      "mean_conf": 59.35,
+      "n_tokens": 34,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "8\n南京邮电大学2025年度“阅读之星”\na           2 9.0              e 2\n| O92 2 BB: 2: 9 © gas\n—_— 4a Lhe   =?   ae SS   a"
+}

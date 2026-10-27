@@ -1,0 +1,20 @@
+{
+  "source_hash": "40576371ddf058a88498d036bda2ec765020103434a56a0d0ad7232d98be397f",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/40/40576371ddf058a88498d036bda2ec765020103434a56a0d0ad7232d98be397f.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:37Z",
+  "pages": [
+    {
+      "text": "oma aN mee NG  二 f..5 7%\nee ON SN ER st ee ie a    SONY\npF ei ihe Ra Ne Be\nDS Vag, aS Ae Las emma, “Ch SNA\nECV oe IE\n+ = iW AN ry) Waar Os Ove ty, . We im\n人     yd ~~       > ~    ee       ‘           1        1      |\na  ‘SN  \\ \\ ors        a ye  “|  “»  aw          oP.  P\nA ire: -\nAZ bei:      on ide (mn\n‘        P                       -      4   Ss   “Sa",
+      "mean_conf": 25.95,
+      "n_tokens": 81,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "oma aN mee NG  二 f..5 7%\nee ON SN ER st ee ie a    SONY\npF ei ihe Ra Ne Be\nDS Vag, aS Ae Las emma, “Ch SNA\nECV oe IE\n+ = iW AN ry) Waar Os Ove ty, . We im\n人     yd ~~       > ~    ee       ‘           1        1      |\na  ‘SN  \\ \\ ors        a ye  “|  “»  aw          oP.  P\nA ire: -\nAZ bei:      on ide (mn\n‘        P                       -      4   Ss   “Sa"
+}

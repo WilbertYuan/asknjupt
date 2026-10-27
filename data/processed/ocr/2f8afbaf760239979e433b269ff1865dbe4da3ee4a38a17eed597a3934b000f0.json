@@ -1,0 +1,20 @@
+{
+  "source_hash": "2f8afbaf760239979e433b269ff1865dbe4da3ee4a38a17eed597a3934b000f0",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/2f/2f8afbaf760239979e433b269ff1865dbe4da3ee4a38a17eed597a3934b000f0.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:31:33Z",
+  "pages": [
+    {
+      "text": "-       v\na ae         a 45 Ae okie!         a\n   ee -    a) 证   加   j  -|  “   QO,  Beit.   wi   4!  *\n=                    +  ,            « }\n4        3",
+      "mean_conf": 30.73,
+      "n_tokens": 29,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "-       v\na ae         a 45 Ae okie!         a\n   ee -    a) 证   加   j  -|  “   QO,  Beit.   wi   4!  *\n=                    +  ,            « }\n4        3"
+}

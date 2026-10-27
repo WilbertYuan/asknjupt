@@ -1,0 +1,20 @@
+{
+  "source_hash": "67abc66f5d8f48b5bf0b1bbf5eb1742146ced30218a13fd6b606c1e5f1813580",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/67/67abc66f5d8f48b5bf0b1bbf5eb1742146ced30218a13fd6b606c1e5f1813580.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:48:22Z",
+  "pages": [
+    {
+      "text": "MELLEL LL =\nlahat to\n\n可\n\nSif\n\n==\n\nTae an awe\n\nzi\n\nOrssier\n\nhuateares ete teehee\n\n一一欢迎2026级新同学",
+      "mean_conf": 61.14,
+      "n_tokens": 33,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "MELLEL LL =\nlahat to\n\n可\n\nSif\n\n==\n\nTae an awe\n\nzi\n\nOrssier\n\nhuateares ete teehee\n\n一一欢迎2026级新同学"
+}

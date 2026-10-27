@@ -1,0 +1,20 @@
+{
+  "source_hash": "27a074eb1b6ddcb7a6d7335a287206ecdc9a1a96ec07b50c7d46bf1291fddd44",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/27/27a074eb1b6ddcb7a6d7335a287206ecdc9a1a96ec07b50c7d46bf1291fddd44.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:25:22Z",
+  "pages": [
+    {
+      "text": "有                        S\nbe                    AS =                                      <       -  a\n—      ad                                                                                                          —_—\n                                                         ‘           '     i) #\nTI     yl                     |\n~                           i           ti)                 |\nos                    TFT             |\n¥,     一         了     Zz  ral        ae                       上           ~ x\n~_,  =                      = a  way:                  — a.    ’ =     |  |  AAA            aA           <一       =               J\n-                               ~ Feng          了         了      st       ——\nA \\\\ Sa Se Oe   i -               CE\n忆铺  也  5 z       ag Pe,  a ee ee iW                                 ee i © we         an        as\na \\             Ne ae          _    (  —        | ay\n~ 要                           |",
+      "mean_conf": 40.37,
+      "n_tokens": 95,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "有                        S\nbe                    AS =                                      <       -  a\n—      ad                                                                                                          —_—\n                                                         ‘           '     i) #\nTI     yl                     |\n~                           i           ti)                 |\nos                    TFT             |\n¥,     一         了     Zz  ral        ae                       上           ~ x\n~_,  =                      = a  way:                  — a.    ’ =     |  |  AAA            aA           <一       =               J\n-                               ~ Feng          了         了      st       ——\nA \\\\ Sa Se Oe   i -               CE\n忆铺  也  5 z       ag Pe,  a ee ee iW                                 ee i © we         an        as\na \\             Ne ae          _    (  —        | ay\n~ 要                           |"
+}

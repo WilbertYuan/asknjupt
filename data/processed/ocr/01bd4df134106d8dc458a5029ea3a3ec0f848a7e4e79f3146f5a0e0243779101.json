@@ -1,0 +1,20 @@
+{
+  "source_hash": "01bd4df134106d8dc458a5029ea3a3ec0f848a7e4e79f3146f5a0e0243779101",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/01/01bd4df134106d8dc458a5029ea3a3ec0f848a7e4e79f3146f5a0e0243779101.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:58Z",
+  "pages": [
+    {
+      "text": "SR   il |      7\nmes ew eka",
+      "mean_conf": 33.52,
+      "n_tokens": 7,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "SR   il |      7\nmes ew eka"
+}

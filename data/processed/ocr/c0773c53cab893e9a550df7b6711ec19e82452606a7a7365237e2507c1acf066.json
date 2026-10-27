@@ -1,0 +1,20 @@
+{
+  "source_hash": "c0773c53cab893e9a550df7b6711ec19e82452606a7a7365237e2507c1acf066",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/c0/c0773c53cab893e9a550df7b6711ec19e82452606a7a7365237e2507c1acf066.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:45Z",
+  "pages": [
+    {
+      "text": "画| 画本| 3:    | a, , ae 7    ra? i    有FRR\n十 ow it Ee ee ee          i\not     =     天    At    ~_ Sipe ee\n国人\n\n“      < ae      一一欢迎2026级新则学一一      ee an\n—   Ze  anil                                =\nee RRR RRR",
+      "mean_conf": 44.2,
+      "n_tokens": 52,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "画| 画本| 3:    | a, , ae 7    ra? i    有FRR\n十 ow it Ee ee ee          i\not     =     天    At    ~_ Sipe ee\n国人\n\n“      < ae      一一欢迎2026级新则学一一      ee an\n—   Ze  anil                                =\nee RRR RRR"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "966dd9dfc6d5471396975c54d71f68408b7afe7bcc26739338ff961bf2c6b0de",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/96/966dd9dfc6d5471396975c54d71f68408b7afe7bcc26739338ff961bf2c6b0de.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:34:19Z",
+  "pages": [
+    {
+      "text": "Tie oe meee ee me\nd   -              而\n& “?   i     y   alll\nPay           P<?\nSet\" o 8 «4     <4\n了                   =",
+      "mean_conf": 31.32,
+      "n_tokens": 22,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Tie oe meee ee me\nd   -              而\n& “?   i     y   alll\nPay           P<?\nSet\" o 8 «4     <4\n了                   ="
+}

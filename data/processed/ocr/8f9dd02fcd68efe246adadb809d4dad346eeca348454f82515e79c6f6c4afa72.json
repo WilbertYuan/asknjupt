@@ -1,0 +1,20 @@
+{
+  "source_hash": "8f9dd02fcd68efe246adadb809d4dad346eeca348454f82515e79c6f6c4afa72",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/8f/8f9dd02fcd68efe246adadb809d4dad346eeca348454f82515e79c6f6c4afa72.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:19Z",
+  "pages": [
+    {
+      "text": "LL     5 ES Reet 7 9 hy         —_— =\n~    =     ge     SS SSS     ——     SS\n  Pezas=co Se\nLFF SS SS SSS Se",
+      "mean_conf": 35.54,
+      "n_tokens": 23,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "LL     5 ES Reet 7 9 hy         —_— =\n~    =     ge     SS SSS     ——     SS\n  Pezas=co Se\nLFF SS SS SSS Se"
+}

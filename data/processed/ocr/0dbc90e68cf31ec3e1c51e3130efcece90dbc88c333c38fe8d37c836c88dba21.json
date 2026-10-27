@@ -1,0 +1,20 @@
+{
+  "source_hash": "0dbc90e68cf31ec3e1c51e3130efcece90dbc88c333c38fe8d37c836c88dba21",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/0d/0dbc90e68cf31ec3e1c51e3130efcece90dbc88c333c38fe8d37c836c88dba21.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:17:16Z",
+  "pages": [
+    {
+      "text": "站                                                cS\n?                                                                  a\n二                                                ]\na                                           |'\nma X              te\n°\na\n4\nB\nee tase te                             SSR  ie yo\nPOZO   SS tee                                    Saran ee          Phe Soe AR\nCESSES cea us      ine Mit,                        Sie had ie     .        ay  ae    ro\nFr PON ts    ao    EGR      4    Pe Pe EL te.               BIRT aS te Oe okies A    YY    5    aie   5\nBea    RCN Tig MME) CS ee vy ER OR Pee ees TREC ces Rea   aa:  Pe\nUSES ARRRER SIE NESE OI. Sir LAS Be BUNCE PUI BGA ON RL waster UT na Bene aaa: |      aot.\naM Ae   hit      A    AN    ON    DOSE   AT’ Meee AT Te    Leet HRS    Tae     ye    Me\n人全。 马克    AN eNO RAINY CI PAs DA ONG CANE BEN SS we aaa CBG ey    e     Basen 歼.   Me",
+      "mean_conf": 22.83,
+      "n_tokens": 135,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "站                                                cS\n?                                                                  a\n二                                                ]\na                                           |'\nma X              te\n°\na\n4\nB\nee tase te                             SSR  ie yo\nPOZO   SS tee                                    Saran ee          Phe Soe AR\nCESSES cea us      ine Mit,                        Sie had ie     .        ay  ae    ro\nFr PON ts    ao    EGR      4    Pe Pe EL te.               BIRT aS te Oe okies A    YY    5    aie   5\nBea    RCN Tig MME) CS ee vy ER OR Pee ees TREC ces Rea   aa:  Pe\nUSES ARRRER SIE NESE OI. Sir LAS Be BUNCE PUI BGA ON RL waster UT na Bene aaa: |      aot.\naM Ae   hit      A    AN    ON    DOSE   AT’ Meee AT Te    Leet HRS    Tae     ye    Me\n人全。 马克    AN eNO RAINY CI PAs DA ONG CANE BEN SS we aaa CBG ey    e     Basen 歼.   Me"
+}

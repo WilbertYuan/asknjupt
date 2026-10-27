@@ -1,0 +1,20 @@
+{
+  "source_hash": "4505619e60c9303c7bdae29bc2ae068e972778b456063ca6291749604797478b",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/45/4505619e60c9303c7bdae29bc2ae068e972778b456063ca6291749604797478b.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:03Z",
+  "pages": [
+    {
+      "text": "ar 8  企业庆生  ie O     |\nBG ae ar Ge\nNae                cal          :   =F =   y/\n\\ Vr             NE       a ie",
+      "mean_conf": 34.97,
+      "n_tokens": 22,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ar 8  企业庆生  ie O     |\nBG ae ar Ge\nNae                cal          :   =F =   y/\n\\ Vr             NE       a ie"
+}

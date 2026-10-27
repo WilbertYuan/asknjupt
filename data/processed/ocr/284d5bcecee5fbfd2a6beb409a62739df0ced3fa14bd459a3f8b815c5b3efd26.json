@@ -1,0 +1,20 @@
+{
+  "source_hash": "284d5bcecee5fbfd2a6beb409a62739df0ced3fa14bd459a3f8b815c5b3efd26",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/28/284d5bcecee5fbfd2a6beb409a62739df0ced3fa14bd459a3f8b815c5b3efd26.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:00Z",
+  "pages": [
+    {
+      "text": "a   本                ee           =\n司       公开 BE AE          Hy  |\n民 南京邮电大学  q                |    |\n| a                 内部控制建设领导小组会议\ni                          '    SS   2026年0有oo日     |                     ie\nj        ee Sam  n>     a    i i\"\nj                   — EP                                — Ft                >| | Nee",
+      "mean_conf": 57.39,
+      "n_tokens": 55,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "a   本                ee           =\n司       公开 BE AE          Hy  |\n民 南京邮电大学  q                |    |\n| a                 内部控制建设领导小组会议\ni                          '    SS   2026年0有oo日     |                     ie\nj        ee Sam  n>     a    i i\"\nj                   — EP                                — Ft                >| | Nee"
+}

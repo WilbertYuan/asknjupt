@@ -1,0 +1,20 @@
+{
+  "source_hash": "df9f4b4259f3b0758c35be6751b469e04b0fa9bd57286c872669aa0236c3cbe9",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/df/df9f4b4259f3b0758c35be6751b469e04b0fa9bd57286c872669aa0236c3cbe9.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:31:49Z",
+  "pages": [
+    {
+      "text": "ge ee —   |\n\ni | ian   iB    - £   He   i  he\n=—_ oo sae                            |   i\na |                      a\na  Eid                   f=  eval  ¥ 是\nen      eee |] |: Sale       ce\nSSS SS SS",
+      "mean_conf": 27.95,
+      "n_tokens": 36,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ge ee —   |\n\ni | ian   iB    - £   He   i  he\n=—_ oo sae                            |   i\na |                      a\na  Eid                   f=  eval  ¥ 是\nen      eee |] |: Sale       ce\nSSS SS SS"
+}

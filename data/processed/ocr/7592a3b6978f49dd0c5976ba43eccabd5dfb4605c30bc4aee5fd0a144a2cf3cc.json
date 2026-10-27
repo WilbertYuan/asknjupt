@@ -1,0 +1,20 @@
+{
+  "source_hash": "7592a3b6978f49dd0c5976ba43eccabd5dfb4605c30bc4aee5fd0a144a2cf3cc",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/75/7592a3b6978f49dd0c5976ba43eccabd5dfb4605c30bc4aee5fd0a144a2cf3cc.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:41Z",
+  "pages": [
+    {
+      "text": "|      | fl 4               eS Lg ge",
+      "mean_conf": 40.28,
+      "n_tokens": 7,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "|      | fl 4               eS Lg ge"
+}

@@ -1,0 +1,91 @@
+{
+  "source_hash": "8cbef2f78c4de22592323f42d6cac2f97d28cf045f69cd00d08caeeb41890a01",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/8c/8cbef2f78c4de22592323f42d6cac2f97d28cf045f69cd00d08caeeb41890a01.pdf",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T11:37:43Z",
+  "pages": [
+    {
+      "text": "附件2\nmw Bh        can\nPee a\nan        r        HE       /\n                                   (\nSt#% (2010) 286 号\n财政部 教育部关于调整国家公派留学\n人员奖学金资助标准的通知\n驻外使、领馆教育〔文化) 处《组小\n1      随着我国改革开放事业的不断深入，国家公派留学工作取得\n|    了长足发展，为社会主义现代化建设培养了大批优秀人才. 为更\n好地贯彻执行国家公派留学政策，加大人才培养力度，综合考虑\n国外物价上涨、公派留学人员学习生活需要以及国家财力等因\n宜通知如下:\n一、国家公派留学人员奖学金是指国家给公派留学人员在国\n全后",
+      "mean_conf": 87.03,
+      "n_tokens": 159,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-p1"
+    },
+    {
+      "text": "外学习期间的基本生活学习费用。包括: KR. ERR. Ea\n费、交通费、电话费、书籍资料费、医疗保险看、交际费、一次\n性安置费、签证延长费、零用顷和学术活动补助费等。具体标准\n详见附件1\n\n二、艰若地区补贴是指国家对赴高原、多病、艰苦、高温国\n家(地区) 的国家公派留学人员发放的特殊生活补贴，具体标准\n详见附件2。\n\n三、国家公派留学人员奖学金、艰苦地区补贴为每人每月的\n资助标准，在国家规定的留学期限内、依据国家公派留学人员在\n国外实际留学的时间，按月或季度发放，不足一个月的，按实际\n天数发放。\n\n四、除国家吨有规定外，已领取奖学金和艰苦地区补贴的国\n家公派留学人员因故中途回国或提前结束学业回国的，应退还中\n途回国期间或提前结束学业期间的奖学金和艰苦地区补贴。 退还\n奖学金和艰苦地区补贴的数额原则上以天为单位计算。因回国航\n班原因造成提前回国的国家公派留学人员，在七日以内的，可不\n退还奖学金和艰苦地区补贴.\n\n五、通过两国政府同交流协议派出的互换奖学金项目留学人\n员，对方提供的奖学金标准高于国家公派留学资助标准的，奖学\n爹全部归留学人员个人; 低于国家公派留学资助标准的，由国家\n提供部分补贴。 具体标准由教育部根据本文件规定和对方国家提\n\n      供的资助情况确定，\nES",
+      "mean_conf": 87.98,
+      "n_tokens": 385,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 2,
+      "locator": "ocr-p2"
+    },
+    {
+      "text": "六、享受国家公派留学人员奖学金的留学人员，既要发扬吉\n俭节约的优良传统，又要注意维护国家公派留学人员的普严，保\n证硕利完成在外的学习、科研任务并按期回国服务。\n七、本标准实施后，此前公布的有关国家公派留学人员奖学\n金资助标准停止执行。\n八、本通知自2010年9月1日起执行。\nWE: 1. 国家公派留学人员奖学金标准               |\n2. 国家公派留学人员艰苦地区补贴标准\n  (EBD\nSe te \\ Fete ie\nise",
+      "mean_conf": 84.74,
+      "n_tokens": 130,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 3,
+      "locator": "ocr-p3"
+    },
+    {
+      "text": "主题词: 调整 留学 标准 通知\n信息公开选项: 依申请公开\n抄送: 各省、自治区、直辖市、计划单列市财政厅(局)、教\n育厅(教委、局), 新疆生产建设兵团财务局、教育局，\n各中央部门直属高校，国家留学基金管理委员会秘书\n处，中国贸学服务中心。\n财政部办公打       印发290份        2010年8月27日印发\n                   |",
+      "mean_conf": 89.72,
+      "n_tokens": 102,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 4,
+      "locator": "ocr-p4"
+    },
+    {
+      "text": "附件1:\n国家公派留学人员奖学金标准\n单位，外币元/人/月\n生生汪汪 ee a\nee ee as ee\n人\n=     po ia nee cea Cea\nen ee ee |\nee oe ee\neee ee ee\nee ee ee\nee ee es\nScam Dele fia el cal es cee\npee ee et\nae oe a\neo aes ee a\na oalen ln sel oe eel\noe ee\nae ee ae oe\nesc ea al\nae eee ae ae ae\nae en\nig nl ete oR\neee ea\nee ee ee\nei ee a\ncee a a ee\nmeee ee a eg\nSe aa So Ra eo\n[a7 ae eT a a |\na oa a ae\nea ee a\nia ee a a oe\n1",
+      "mean_conf": 38.35,
+      "n_tokens": 132,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 5,
+      "locator": "ocr-p5"
+    },
+    {
+      "text": "oem |和| ol 加  so\n全 eee see: | lol 6o| 560| 50\nle ak ise |, noo) eol so so\nes sim |关| lo 6o| 560 sod\neee Sie | lol eol so ao\nbs eee [sex | lim eol 560| 50\nbs fae |着| lo oo] 5 so\nbr BE多 (see | lo eol 5 so\nfoo peice xl eol so so\njefe fe | 89)\n\nes ee es ee eee ee\n(er RA oak | altar ease |e Ea\n[a fem seep (see | 2 re00] 17o| 16og\n| 癸加(kg) [sex | 2000] 17o0| se00]___ 100]\n[fem eesam [sexe | 200] 1400) 1300] 200\nleo leew (aes | sno! eol sso] 5o\na jue «ise: «| ol eol so so\nae (ee ol ao 5ol io\nas jemi | ol eol sm双\n7 feat | uol| eol 5 io\nlas farwiaeein (se: | ll cool 5 io\nje pase be | unt ef sf ae\nee unl | ca es | ea (Ge\n[Cea aC Ee ed ee\n[so mrERE (ex | ol rool cool __—s0o)\n[a |ms (ee | to roll enol so\njs faves ex | uot so) 2, 88\n[oa [peau\n[ss [aasm (see | ll ao zol io\n(os ga (sere | ol ao zol io\n加 |和 元| eol la lol lo\n[seas see | ll 60] 晤\n[so ae |zm| zol 9ol aiol 7iol\n\nFs",
+      "mean_conf": 36.07,
+      "n_tokens": 246,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 6,
+      "locator": "ocr-p6"
+    },
+    {
+      "text": "[co wm ——*imee | il so lo lo\nle seaE (se | ol ?ol ao im\n[os |spWWB (pee | ol ?ol eol 5ogl\n[sc [= lex: [| ao lao lo lol\nlor pease [exe | _sno0l ?ol eol io\noe |而尔吉其斯坦 (sess | imo] rondo        500\nfo fee 全 aol ro so so\n[oz [atx | ol ol eol 5\n由gs亚 iste | ol rol eol om\n2 arrese ‘ieee | ____snool rool eol so\nls [poem [exe | rsool ol eol 5o\na [ase ise | ol roo) eol so\n[sxs (ex | riool ?ol| eol 5o\nre [emew iste | _—_ssoo) _——ool_—cool__sod\n内 四 [328% | ao loo asool aoo\nle [mer (exe | eol unol oo am\ngt 民明| zol 2000] loo| 17o\n四 eta |类| ol ro eol 5o\nleew [ex | rio] aol zol eol\nlex [emmys [sexe | ol ?ol eol| 50\nlee ae (see | at ao zol cod\njos eae (se | tuol too] eol so\nles [mcr (exe | ao ol lo aol\nle lara ie | lo ao ?ol io\n的 see (see | lol rool eol so\nBo lgk利 (ake ao aol lo so\n[ox (sete ewan [ae | r4ool 5 lo aso]\n| fee crew) [se | 1400! 000] 90 8\nfc [meas leks | eol 1100] lo ao\n3",
+      "mean_conf": 39.37,
+      "n_tokens": 234,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 7,
+      "locator": "ocr-p7"
+    },
+    {
+      "text": "后 [wae dike | laol| laol 1200 10\n|\neleva fae: [2000] lol 1 nol\n站\nfumes fee | ll sol ao ro\nao [gaJW坦 |类元| lol eol 5 sol\nfio fase exe [100] goo] sol ol\nhoz fee 人类元| tool cool 5iol 5o|\nho [ewe foe [noo] ?il rol ol\npo fawn exe [100 sol rool ol\nhm fase gee [tool eol 5 5o|\nPo6 [ak可 |关元| lol eol sl so|\n|\nos [mimi sexe [noo eol sol io|\njroo fata te [| lol eol sol 5ol\nnro [eve sexe [noo] eol 5 io|\n[mL as上 [see [soo] coo] sl io\nPa [em ise [tool soo] 6 soo)\nfia forage dee TO lol soo] 5 so\nfuss fiera sexe [ tso0f goof sol sa]\nae [eae ee | aoo] cool 5 so\npz [oem dae [200] lol sol ao|\n        500\nuo [eueeme see [noo eol 55ol so\nfo fe sexe [soo] eol sso so\nal fueefee [no0l eol sl io\nfizz [ee sexe [too] eol si io\npe fe | tal cat id       500)\n 关元          uso] 600] 550)        500\n5 se天 sexe [noo] eol sl 5o|\nPs jaafk夫 sexe [noo] cool sol so\n27 [yremania sexe [sol so sol ro|\nas [ote gee [noo] eol sso] so\nzo [xe [se [anol cool sol son}\n4",
+      "mean_conf": 37.36,
+      "n_tokens": 230,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 8,
+      "locator": "ocr-p8"
+    },
+    {
+      "text": "附件 2\n国家公派留学人员艰苦地区补贴标准\n一类: 每人每月 100 美元\n亚洲: 蒙古、印度、巴基斯坦\nHH: AREA. ARLE. RU. HEL. PEAS. MEK\nAE\nf  欧洲: LER. WE. WUE. BRT. BERNE. ARF\n斯、鸟克兰、格鲁吉亚\n美洲: 古巴\n=H: 每人每月 200 美元\nEa: AW. BR. RAN. BO. ELH. LER. Be\n阿富汗、也门、伊拉克\naH: 塞尔维亚和黑山、阿尔巴尼亚\nAa: HM, BALE. RALK. Gili. SAE BA\n加尔\n_ 三类: 每人每月 300 美元\n非洲; RERLE. HER REAL. WGA RHA. RCA).\n刚果 (4). we. WF. SH. wh, FARE\n美洲: 墨西哥、哥伦比亚\n四类: 每人每月 400 美元\nEW: 几内亚、尼日尔、马里、苏丹、吉布提\n5",
+      "mean_conf": 73.95,
+      "n_tokens": 159,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 9,
+      "locator": "ocr-p9"
+    }
+  ],
+  "text": "附件2\nmw Bh        can\nPee a\nan        r        HE       /\n                                   (\nSt#% (2010) 286 号\n财政部 教育部关于调整国家公派留学\n人员奖学金资助标准的通知\n驻外使、领馆教育〔文化) 处《组小\n1      随着我国改革开放事业的不断深入，国家公派留学工作取得\n|    了长足发展，为社会主义现代化建设培养了大批优秀人才. 为更\n好地贯彻执行国家公派留学政策，加大人才培养力度，综合考虑\n国外物价上涨、公派留学人员学习生活需要以及国家财力等因\n宜通知如下:\n一、国家公派留学人员奖学金是指国家给公派留学人员在国\n全后\n\n外学习期间的基本生活学习费用。包括: KR. ERR. Ea\n费、交通费、电话费、书籍资料费、医疗保险看、交际费、一次\n性安置费、签证延长费、零用顷和学术活动补助费等。具体标准\n详见附件1\n\n二、艰若地区补贴是指国家对赴高原、多病、艰苦、高温国\n家(地区) 的国家公派留学人员发放的特殊生活补贴，具体标准\n详见附件2。\n\n三、国家公派留学人员奖学金、艰苦地区补贴为每人每月的\n资助标准，在国家规定的留学期限内、依据国家公派留学人员在\n国外实际留学的时间，按月或季度发放，不足一个月的，按实际\n天数发放。\n\n四、除国家吨有规定外，已领取奖学金和艰苦地区补贴的国\n家公派留学人员因故中途回国或提前结束学业回国的，应退还中\n途回国期间或提前结束学业期间的奖学金和艰苦地区补贴。 退还\n奖学金和艰苦地区补贴的数额原则上以天为单位计算。因回国航\n班原因造成提前回国的国家公派留学人员，在七日以内的，可不\n退还奖学金和艰苦地区补贴.\n\n五、通过两国政府同交流协议派出的互换奖学金项目留学人\n员，对方提供的奖学金标准高于国家公派留学资助标准的，奖学\n爹全部归留学人员个人; 低于国家公派留学资助标准的，由国家\n提供部分补贴。 具体标准由教育部根据本文件规定和对方国家提\n\n      供的资助情况确定，\nES\n\n六、享受国家公派留学人员奖学金的留学人员，既要发扬吉\n俭节约的优良传统，又要注意维护国家公派留学人员的普严，保\n证硕利完成在外的学习、科研任务并按期回国服务。\n七、本标准实施后，此前公布的有关国家公派留学人员奖学\n金资助标准停止执行。\n八、本通知自2010年9月1日起执行。\nWE: 1. 国家公派留学人员奖学金标准               |\n2. 国家公派留学人员艰苦地区补贴标准\n  (EBD\nSe te \\ Fete ie\nise\n\n主题词: 调整 留学 标准 通知\n信息公开选项: 依申请公开\n抄送: 各省、自治区、直辖市、计划单列市财政厅(局)、教\n育厅(教委、局), 新疆生产建设兵团财务局、教育局，\n各中央部门直属高校，国家留学基金管理委员会秘书\n处，中国贸学服务中心。\n财政部办公打       印发290份        2010年8月27日印发\n                   |\n\n附件1:\n国家公派留学人员奖学金标准\n单位，外币元/人/月\n生生汪汪 ee a\nee ee as ee\n人\n=     po ia nee cea Cea\nen ee ee |\nee oe ee\neee ee ee\nee ee ee\nee ee es\nScam Dele fia el cal es cee\npee ee et\nae oe a\neo aes ee a\na oalen ln sel oe eel\noe ee\nae ee ae oe\nesc ea al\nae eee ae ae ae\nae en\nig nl ete oR\neee ea\nee ee ee\nei ee a\ncee a a ee\nmeee ee a eg\nSe aa So Ra eo\n[a7 ae eT a a |\na oa a ae\nea ee a\nia ee a a oe\n1\n\noem |和| ol 加  so\n全 eee see: | lol 6o| 560| 50\nle ak ise |, noo) eol so so\nes sim |关| lo 6o| 560 sod\neee Sie | lol eol so ao\nbs eee [sex | lim eol 560| 50\nbs fae |着| lo oo] 5 so\nbr BE多 (see | lo eol 5 so\nfoo peice xl eol so so\njefe fe | 89)\n\nes ee es ee eee ee\n(er RA oak | altar ease |e Ea\n[a fem seep (see | 2 re00] 17o| 16og\n| 癸加(kg) [sex | 2000] 17o0| se00]___ 100]\n[fem eesam [sexe | 200] 1400) 1300] 200\nleo leew (aes | sno! eol sso] 5o\na jue «ise: «| ol eol so so\nae (ee ol ao 5ol io\nas jemi | ol eol sm双\n7 feat | uol| eol 5 io\nlas farwiaeein (se: | ll cool 5 io\nje pase be | unt ef sf ae\nee unl | ca es | ea (Ge\n[Cea aC Ee ed ee\n[so mrERE (ex | ol rool cool __—s0o)\n[a |ms (ee | to roll enol so\njs faves ex | uot so) 2, 88\n[oa [peau\n[ss [aasm (see | ll ao zol io\n(os ga (sere | ol ao zol io\n加 |和 元| eol la lol lo\n[seas see | ll 60] 晤\n[so ae |zm| zol 9ol aiol 7iol\n\nFs\n\n[co wm ——*imee | il so lo lo\nle seaE (se | ol ?ol ao im\n[os |spWWB (pee | ol ?ol eol 5ogl\n[sc [= lex: [| ao lao lo lol\nlor pease [exe | _sno0l ?ol eol io\noe |而尔吉其斯坦 (sess | imo] rondo        500\nfo fee 全 aol ro so so\n[oz [atx | ol ol eol 5\n由gs亚 iste | ol rol eol om\n2 arrese ‘ieee | ____snool rool eol so\nls [poem [exe | rsool ol eol 5o\na [ase ise | ol roo) eol so\n[sxs (ex | riool ?ol| eol 5o\nre [emew iste | _—_ssoo) _——ool_—cool__sod\n内 四 [328% | ao loo asool aoo\nle [mer (exe | eol unol oo am\ngt 民明| zol 2000] loo| 17o\n四 eta |类| ol ro eol 5o\nleew [ex | rio] aol zol eol\nlex [emmys [sexe | ol ?ol eol| 50\nlee ae (see | at ao zol cod\njos eae (se | tuol too] eol so\nles [mcr (exe | ao ol lo aol\nle lara ie | lo ao ?ol io\n的 see (see | lol rool eol so\nBo lgk利 (ake ao aol lo so\n[ox (sete ewan [ae | r4ool 5 lo aso]\n| fee crew) [se | 1400! 000] 90 8\nfc [meas leks | eol 1100] lo ao\n3\n\n后 [wae dike | laol| laol 1200 10\n|\neleva fae: [2000] lol 1 nol\n站\nfumes fee | ll sol ao ro\nao [gaJW坦 |类元| lol eol 5 sol\nfio fase exe [100] goo] sol ol\nhoz fee 人类元| tool cool 5iol 5o|\nho [ewe foe [noo] ?il rol ol\npo fawn exe [100 sol rool ol\nhm fase gee [tool eol 5 5o|\nPo6 [ak可 |关元| lol eol sl so|\n|\nos [mimi sexe [noo eol sol io|\njroo fata te [| lol eol sol 5ol\nnro [eve sexe [noo] eol 5 io|\n[mL as上 [see [soo] coo] sl io\nPa [em ise [tool soo] 6 soo)\nfia forage dee TO lol soo] 5 so\nfuss fiera sexe [ tso0f goof sol sa]\nae [eae ee | aoo] cool 5 so\npz [oem dae [200] lol sol ao|\n        500\nuo [eueeme see [noo eol 55ol so\nfo fe sexe [soo] eol sso so\nal fueefee [no0l eol sl io\nfizz [ee sexe [too] eol si io\npe fe | tal cat id       500)\n 关元          uso] 600] 550)        500\n5 se天 sexe [noo] eol sl 5o|\nPs jaafk夫 sexe [noo] cool sol so\n27 [yremania sexe [sol so sol ro|\nas [ote gee [noo] eol sso] so\nzo [xe [se [anol cool sol son}\n4\n\n附件 2\n国家公派留学人员艰苦地区补贴标准\n一类: 每人每月 100 美元\n亚洲: 蒙古、印度、巴基斯坦\nHH: AREA. ARLE. RU. HEL. PEAS. MEK\nAE\nf  欧洲: LER. WE. WUE. BRT. BERNE. ARF\n斯、鸟克兰、格鲁吉亚\n美洲: 古巴\n=H: 每人每月 200 美元\nEa: AW. BR. RAN. BO. ELH. LER. Be\n阿富汗、也门、伊拉克\naH: 塞尔维亚和黑山、阿尔巴尼亚\nAa: HM, BALE. RALK. Gili. SAE BA\n加尔\n_ 三类: 每人每月 300 美元\n非洲; RERLE. HER REAL. WGA RHA. RCA).\n刚果 (4). we. WF. SH. wh, FARE\n美洲: 墨西哥、哥伦比亚\n四类: 每人每月 400 美元\nEW: 几内亚、尼日尔、马里、苏丹、吉布提\n5"
+}

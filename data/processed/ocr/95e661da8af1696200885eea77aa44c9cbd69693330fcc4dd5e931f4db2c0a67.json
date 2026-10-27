@@ -1,0 +1,20 @@
+{
+  "source_hash": "95e661da8af1696200885eea77aa44c9cbd69693330fcc4dd5e931f4db2c0a67",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/95/95e661da8af1696200885eea77aa44c9cbd69693330fcc4dd5e931f4db2c0a67.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:34:18Z",
+  "pages": [
+    {
+      "text": "区       aS 村 ener\ni                    14         eZ\n         和          ro          _\nSs    a         = |.\n— —Yy          So  ———",
+      "mean_conf": 26.99,
+      "n_tokens": 18,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "区       aS 村 ener\ni                    14         eZ\n         和          ro          _\nSs    a         = |.\n— —Yy          So  ———"
+}

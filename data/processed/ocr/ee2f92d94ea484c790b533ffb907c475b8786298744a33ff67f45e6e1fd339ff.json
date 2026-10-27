@@ -1,0 +1,20 @@
+{
+  "source_hash": "ee2f92d94ea484c790b533ffb907c475b8786298744a33ff67f45e6e1fd339ff",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ee/ee2f92d94ea484c790b533ffb907c475b8786298744a33ff67f45e6e1fd339ff.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:40Z",
+  "pages": [
+    {
+      "text": "24:00前               5月25日前        5月31日前\n\nATMS ”确认测试并缴费\n通过名单 (逾期未确认或未缴费\n效视为放弃测试资格)\n\n测试考核\n\n网上报名\n(无需邮寄报名材料)\n\n6月28-7月2日\n\nERD Saa\nEAB ES\n\nARAB\n考生名单",
+      "mean_conf": 84.3,
+      "n_tokens": 74,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "24:00前               5月25日前        5月31日前\n\nATMS ”确认测试并缴费\n通过名单 (逾期未确认或未缴费\n效视为放弃测试资格)\n\n测试考核\n\n网上报名\n(无需邮寄报名材料)\n\n6月28-7月2日\n\nERD Saa\nEAB ES\n\nARAB\n考生名单"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "3c26613ab4131fa476469e5525e8ef43826b76ece92a32eeb6ac030d520ab6ce",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/3c/3c26613ab4131fa476469e5525e8ef43826b76ece92a32eeb6ac030d520ab6ce.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:13Z",
+  "pages": [
+    {
+      "text": "Pe RIOT XH\n\nHAR (2012) 44 号\n*\n\n省委办公打”省政府办公打\n关于印发《江苏省省级机关会议管理办法》 的通知\n\n各市、县(市、区 ) 委，各市、县(市、区 ) 人民政府，省委\n各部委，省各委办厅局，省各直属单位:\n\n《江苏省省级机关会议管理办法》已经省委、省政府领导\n同志同意，现印发给你们，请遵照执行。\n\n中共江苏省委办公打\n江苏省人民政府办公厅\n2012 #7 A 30 4\n\n(此件发至县 )",
+      "mean_conf": 88.29,
+      "n_tokens": 135,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Pe RIOT XH\n\nHAR (2012) 44 号\n*\n\n省委办公打”省政府办公打\n关于印发《江苏省省级机关会议管理办法》 的通知\n\n各市、县(市、区 ) 委，各市、县(市、区 ) 人民政府，省委\n各部委，省各委办厅局，省各直属单位:\n\n《江苏省省级机关会议管理办法》已经省委、省政府领导\n同志同意，现印发给你们，请遵照执行。\n\n中共江苏省委办公打\n江苏省人民政府办公厅\n2012 #7 A 30 4\n\n(此件发至县 )"
+}

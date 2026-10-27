@@ -1,0 +1,30 @@
+{
+  "source_hash": "280a1d89ac8fa1979378281b344e5669ae9f1a00a9a73588b8911e736adbae92",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/28/280a1d89ac8fa1979378281b344e5669ae9f1a00a9a73588b8911e736adbae92.pdf",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T14:02:09Z",
+  "pages": [
+    {
+      "text": "商系邮电大学文件\n\n校研发 (2022)\n\n关于公布新增研究生导师名单的通知\n\n各学院、各相关单位:\n\nvoce, huecuweneeewee\n发 (2022) 455) ，经校第五届学位评定委员会第二十二\n议审批通过，新增高层次人才陈冰为博士研究生导师。\n\n新增博士研究生导师名单\n\n| 招收学术学位博士生、硕士生学科 | 。 招收专业学位\n\n姓名\n+  一级学科 | 。 二级学科 。 | 硕士生专业《方向)\n\n(me | 电子科学与技术“| 。 物理电子学 | BFR CBF)",
+      "mean_conf": 86.46,
+      "n_tokens": 136,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-p1"
+    },
+    {
+      "text": "(此页无正文)\n南京邮电大学校长办公室              2022年11月2日印发\n 2 rene",
+      "mean_conf": 86.66,
+      "n_tokens": 22,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 2,
+      "locator": "ocr-p2"
+    }
+  ],
+  "text": "商系邮电大学文件\n\n校研发 (2022)\n\n关于公布新增研究生导师名单的通知\n\n各学院、各相关单位:\n\nvoce, huecuweneeewee\n发 (2022) 455) ，经校第五届学位评定委员会第二十二\n议审批通过，新增高层次人才陈冰为博士研究生导师。\n\n新增博士研究生导师名单\n\n| 招收学术学位博士生、硕士生学科 | 。 招收专业学位\n\n姓名\n+  一级学科 | 。 二级学科 。 | 硕士生专业《方向)\n\n(me | 电子科学与技术“| 。 物理电子学 | BFR CBF)\n\n(此页无正文)\n南京邮电大学校长办公室              2022年11月2日印发\n 2 rene"
+}

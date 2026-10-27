@@ -1,0 +1,20 @@
+{
+  "source_hash": "d831ec2d02f88e4ae2d9b51ca5d6fb5e03034688a06c588a9d2ebcc151225cdf",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/d8/d831ec2d02f88e4ae2d9b51ca5d6fb5e03034688a06c588a9d2ebcc151225cdf.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:01Z",
+  "pages": [
+    {
+      "text": "ORO\ni",
+      "mean_conf": 22.86,
+      "n_tokens": 2,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ORO\ni"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "25fbeed7fb5d7278994665d3eb2378c4a66b15cf4b0387534fa04121858956b6",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/25/25fbeed7fb5d7278994665d3eb2378c4a66b15cf4b0387534fa04121858956b6.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:54Z",
+  "pages": [
+    {
+      "text": "ZG  D>   Vins\n\nA et I}  tt\n\nA Gp          aaa\na        A   /  2    wy  -; Y                |\n四 . =    Q \\3             上    ]    i eB      |  .\n\n.U     LAs       W) oe       q               a        = |\n\nNA及 oe)  | y  oS ei",
+      "mean_conf": 39.49,
+      "n_tokens": 44,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ZG  D>   Vins\n\nA et I}  tt\n\nA Gp          aaa\na        A   /  2    wy  -; Y                |\n四 . =    Q \\3             上    ]    i eB      |  .\n\n.U     LAs       W) oe       q               a        = |\n\nNA及 oe)  | y  oS ei"
+}

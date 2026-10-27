@@ -1,0 +1,20 @@
+{
+  "source_hash": "ff9b4cd83d0459818ca37ca66efa31b8564a5f4fa5b9122dd2436ab7ead18c8a",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ff/ff9b4cd83d0459818ca37ca66efa31b8564a5f4fa5b9122dd2436ab7ead18c8a.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:27:14Z",
+  "pages": [
+    {
+      "text": "Arenem | snaeer | maneer                .\nQe   e)/OX am (Ox mame.\nI                  cane\na  One 7 a ma\nee [5 ww  295%    ane   esos  ae   ean  us  sae, | noe RN | KEN Home\n1 mane\n2 memes\n> RRR\n4 Asem\nry\n> wees\nid\n> noone\n<7                                   ;",
+      "mean_conf": 36.79,
+      "n_tokens": 50,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Arenem | snaeer | maneer                .\nQe   e)/OX am (Ox mame.\nI                  cane\na  One 7 a ma\nee [5 ww  295%    ane   esos  ae   ean  us  sae, | noe RN | KEN Home\n1 mane\n2 memes\n> RRR\n4 Asem\nry\n> wees\nid\n> noone\n<7                                   ;"
+}

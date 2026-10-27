@@ -1,0 +1,20 @@
+{
+  "source_hash": "7adec7fe7b70bfc1055d50aec7fc0e868a91743482f1cfa9d3519c879824e807",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/7a/7adec7fe7b70bfc1055d50aec7fc0e868a91743482f1cfa9d3519c879824e807.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:17:12Z",
+  "pages": [
+    {
+      "text": "ty                  SN\n二\nSS)\n\n\\\\\n/|\n\n。             儿\nYy\n\n4\n\n/      /\n\n上      yl\n\n      }\n\nf      有",
+      "mean_conf": 48.64,
+      "n_tokens": 17,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ty                  SN\n二\nSS)\n\n\\\\\n/|\n\n。             儿\nYy\n\n4\n\n/      /\n\n上      yl\n\n      }\n\nf      有"
+}

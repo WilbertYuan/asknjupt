@@ -1,0 +1,20 @@
+{
+  "source_hash": "6f173d7a3ed5aa4650cd8d1429316a09cd6f347b6237d00b6903bd1bd9636c25",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/6f/6f173d7a3ed5aa4650cd8d1429316a09cd6f347b6237d00b6903bd1bd9636c25.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:26:04Z",
+  "pages": [
+    {
+      "text": "a\n| =) ‘         \\\" ay  i Se ~ Mh   Ta\nBT                          NE   f) na                      站      \"8       cree   一\nFEA Cite ee Sh 2). Ge a\n|     ye   x  we Dice  a =f             eS se    pa =               rm              ~~\nae Ey   5       -    本   ~/ ES    :     会  4  !      人   A          =      有    ap    '             N\nsee af   =    4  Ve  AE), ie Ss ye    ‘ ee -有   ias 的 ee  ds  .     一一=\nmess            OS ie |            ‘        和            AAA\n于     ‘E34     _—     —        7                 “S47 - f=       Sea\n-      ' “Peds” 主题党日活动 Ve. ae    =\nCy                                  nl he a\nFWD ee    i   i k eS\n= Sy 司   z= a ¥  >     2                  —      oI     Z   ‘                  E\n=<. 3U gees eo 'B Eg ef =    是 |    t- 2 E.\n~< ee a Bt 2 ee          ae cz\nSS ae es oe ee ee, ee} Ly Gy",
+      "mean_conf": 36.62,
+      "n_tokens": 156,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "a\n| =) ‘         \\\" ay  i Se ~ Mh   Ta\nBT                          NE   f) na                      站      \"8       cree   一\nFEA Cite ee Sh 2). Ge a\n|     ye   x  we Dice  a =f             eS se    pa =               rm              ~~\nae Ey   5       -    本   ~/ ES    :     会  4  !      人   A          =      有    ap    '             N\nsee af   =    4  Ve  AE), ie Ss ye    ‘ ee -有   ias 的 ee  ds  .     一一=\nmess            OS ie |            ‘        和            AAA\n于     ‘E34     _—     —        7                 “S47 - f=       Sea\n-      ' “Peds” 主题党日活动 Ve. ae    =\nCy                                  nl he a\nFWD ee    i   i k eS\n= Sy 司   z= a ¥  >     2                  —      oI     Z   ‘                  E\n=<. 3U gees eo 'B Eg ef =    是 |    t- 2 E.\n~< ee a Bt 2 ee          ae cz\nSS ae es oe ee ee, ee} Ly Gy"
+}

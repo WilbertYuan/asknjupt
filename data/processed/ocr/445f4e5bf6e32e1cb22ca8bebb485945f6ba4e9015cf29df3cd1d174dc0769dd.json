@@ -1,0 +1,20 @@
+{
+  "source_hash": "445f4e5bf6e32e1cb22ca8bebb485945f6ba4e9015cf29df3cd1d174dc0769dd",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/44/445f4e5bf6e32e1cb22ca8bebb485945f6ba4e9015cf29df3cd1d174dc0769dd.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:00Z",
+  "pages": [
+    {
+      "text": "首页        =\n4\nDb\n)   ZF es gl\n9     hie 27\ni Pd tal ie\nan ——_,\ngo       3\n     8           &     a\n电子书    数据库    听书     报纸     期刊\n天国。 两个世界的战争:2500年来东方与西_\nOA   中华古都文化之旅\nwa \\\n.  SS 百年美国华人文学中的中国形象",
+      "mean_conf": 64.79,
+      "n_tokens": 67,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "首页        =\n4\nDb\n)   ZF es gl\n9     hie 27\ni Pd tal ie\nan ——_,\ngo       3\n     8           &     a\n电子书    数据库    听书     报纸     期刊\n天国。 两个世界的战争:2500年来东方与西_\nOA   中华古都文化之旅\nwa \\\n.  SS 百年美国华人文学中的中国形象"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "f88d0b23ccd4f0cc8d3f8d5b4002a43dab315a8b2e703720b2b0eed4c3f6e0d0",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/f8/f88d0b23ccd4f0cc8d3f8d5b4002a43dab315a8b2e703720b2b0eed4c3f6e0d0.jpeg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:16:57Z",
+  "pages": [
+    {
+      "text": "S      x          SRY :\naan,\nCn\na         :",
+      "mean_conf": 24.78,
+      "n_tokens": 8,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "S      x          SRY :\naan,\nCn\na         :"
+}

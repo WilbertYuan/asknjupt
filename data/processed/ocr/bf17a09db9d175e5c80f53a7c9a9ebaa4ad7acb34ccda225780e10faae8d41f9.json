@@ -1,0 +1,20 @@
+{
+  "source_hash": "bf17a09db9d175e5c80f53a7c9a9ebaa4ad7acb34ccda225780e10faae8d41f9",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/bf/bf17a09db9d175e5c80f53a7c9a9ebaa4ad7acb34ccda225780e10faae8d41f9.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:40Z",
+  "pages": [
+    {
+      "text": "读者检索图书信息〈书名、索书号、作者等 )\n\n|\n\n读者赁本人智慧校园卡〈已经过图书馆认证)，进入图\n书馆各阅览室(报刊阅览室报刊不外借, 仙林馆密集书库图\n书闭架委托借阅)\n\n|\n\n查找图书\n\n|\n\n昔还服务台借还《三牌楼馆借还服务台位于一楼大厅，\n仙林馆借还服务台位于二楼大厅)",
+      "mean_conf": 88.44,
+      "n_tokens": 110,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "读者检索图书信息〈书名、索书号、作者等 )\n\n|\n\n读者赁本人智慧校园卡〈已经过图书馆认证)，进入图\n书馆各阅览室(报刊阅览室报刊不外借, 仙林馆密集书库图\n书闭架委托借阅)\n\n|\n\n查找图书\n\n|\n\n昔还服务台借还《三牌楼馆借还服务台位于一楼大厅，\n仙林馆借还服务台位于二楼大厅)"
+}

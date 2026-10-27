@@ -1,0 +1,20 @@
+{
+  "source_hash": "3c5f07d6f6c175fe4c9ad36e9b5d52650377b519ef2b3ffed8172030a684bf56",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/3c/3c5f07d6f6c175fe4c9ad36e9b5d52650377b519ef2b3ffed8172030a684bf56.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:29:14Z",
+  "pages": [
+    {
+      "text": "LE 。” A中行-南邮服务交流群过\nOA (158%)",
+      "mean_conf": 69.19,
+      "n_tokens": 15,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "LE 。” A中行-南邮服务交流群过\nOA (158%)"
+}

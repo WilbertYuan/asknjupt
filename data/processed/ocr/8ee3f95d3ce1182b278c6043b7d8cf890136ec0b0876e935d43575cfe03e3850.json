@@ -1,0 +1,20 @@
+{
+  "source_hash": "8ee3f95d3ce1182b278c6043b7d8cf890136ec0b0876e935d43575cfe03e3850",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/8e/8ee3f95d3ce1182b278c6043b7d8cf890136ec0b0876e935d43575cfe03e3850.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:17:24Z",
+  "pages": [
+    {
+      "text": "JED  y,     /   ;\n\n共青团中央      HP.\n\n中国科学技术护会 / mix ver\n\n教育部       y\n\n中国社会科学院   3 Va\n中华全国字村联合安  AGRI)\n\n足州省人民政府    THA\n\nfeciwise|\n\n8 sjesias 5 pit\n\nSchool of come and aicdivane. alee",
+      "mean_conf": 59.74,
+      "n_tokens": 54,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "JED  y,     /   ;\n\n共青团中央      HP.\n\n中国科学技术护会 / mix ver\n\n教育部       y\n\n中国社会科学院   3 Va\n中华全国字村联合安  AGRI)\n\n足州省人民政府    THA\n\nfeciwise|\n\n8 sjesias 5 pit\n\nSchool of come and aicdivane. alee"
+}

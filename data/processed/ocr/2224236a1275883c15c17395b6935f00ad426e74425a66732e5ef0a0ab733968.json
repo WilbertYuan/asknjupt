@@ -1,0 +1,64 @@
+{
+  "source_hash": "2224236a1275883c15c17395b6935f00ad426e74425a66732e5ef0a0ab733968",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/22/2224236a1275883c15c17395b6935f00ad426e74425a66732e5ef0a0ab733968.pdf",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T11:31:37Z",
+  "pages": [
+    {
+      "text": "oye   |\nmz                        4\nP)3)\n，\n4\n苏财行【2017 ] 525\n江苏省财政厅关于印发《江苏省省级机关\n国内差旅住宿费标准明细表》的通知\n省各部、委、办、厅、局，省各直属单位:\n根据《江苏省财政厅关于调整省级机关差旅住宿费标准等有\n关问题的通知》(苏财行[2015 ] 83号 ) 要求，省级单位工作人\n员到全国各省会城市、直辖市、计划单列市出差， 执行文件规定\n的住宿费上限标准; HAS. BHR, BRP. RBA\n地、州、市《县 ) 出差，执行当地财政部门制定的差旅住宿费上\n限标准。目前全国各地财政部门已将差旅住宿费标准细化到地\n市，现根据财政部财行[2016 ] 71号文件，制定《江苏省省级机\n关国内差旅住宿费标准明细表》并印发给你们，自2017年8月1\n— 1 tia\n|",
+      "mean_conf": 87.51,
+      "n_tokens": 227,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-p1"
+    },
+    {
+      "text": "|                 re,\n.\n     日起执行。\n各设区市、县 ( 市、区 ) 党政机关国内差旅住宿费标准，应\n严格按本通知规定的上限标准，参照执行。\n       WH: 江苏省省级机关国内差旅住宿费标准明细表\nSR Ie\nOR ES\n3017£7A 2!\n|\n|\n信息公开选项: 依申请公开\n抄送: 财政部，各设区市、县 ( 市 ) 财政局。\n江苏省财政厅办公室           2017年7月25日印发\n一 2 一",
+      "mean_conf": 86.77,
+      "n_tokens": 112,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 2,
+      "locator": "ocr-p2"
+    },
+    {
+      "text": "附件\n江苏省省级机关国内差旅住宿费标准明细表\n单位:元/人“。天\n全和生生                   旺季上浮价\n序          地区              正副厅                     正副厅\n号      (城市)      省级及 长及相 | 其他  旺季地区  旺季 | 省级及 长及相 | 其他\n相当职 | :            期间 |相当职\nBAR 当职级 | AR            级人员 当职级 | 人员\n人员                      人员\nfe=~ ws |\n6个中心城区 、滨海新区、东丽区、\n西青区、津南区、北辰区、武清区 | 800   480 | 380\n2 | AM |, RRR. MK. HS\n| fw fom fof TT\n石家庄市、张家口市、秦皇岛市、   300    50 | 350\n3) 河北\n[wees fm [wie> | | | 1.\nees tm fm [mf | |. td\n山西\nwp | | 1 14\nvores |wlwll | | | 1 |\n海拉尔市、满洲 | - 。 -=\n    -9月 | 1200      480\n其他地区        800   460 | 320\ncae [oa [oo | a [|\nwe fe fefey TT TT\n辽宁\na\np[=[ ss [wf [ol ae [ra [ om [o [|\n长春市、吉林市、延边州、长白山        .    a, | 吉林市、延边州| >          -    5\nar rors sen eel ws | wo [a [Pez eaa] roe | = | 9 [|\n[wee [tole | 111",
+      "mean_conf": 72.63,
+      "n_tokens": 276,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 3,
+      "locator": "ocr-p3"
+    },
+    {
+      "text": "|\n住宿费标准           TSR Sn\nre       地区          EMF               正副厅\n      Ss      wax (Em | 其他| 。脖季地区 | we lawn EMT] 其他\n相当职 |当职级 | 人员       期间 |相当职 |当职级 | 人员\n级人员               级人员\nAB               AB\nase fo eo ee\nRae       其他地区       750   450  300 eee  6-85      540  360\na      ” | SS lie, RUTH.\nSa\nFs\n:     11| 江苏 上\n一\n| Tom fom fof TT TC\n12| 浙江\narp Po ff\nCrs EN本困有本\n     pf emf 和\n             wa Pep]\npefan | ee Tm Tm fmf TTT\nnen] sep fp 本是是\na MM. RE. RAT                       ;\n. Men. Bye. Fee. ex | 800 | 480 | 380 AEE. RAE      960 | 570 | 450\n18| 山东 |市、威海市、日照市            - Bee\naa aa TD\nial we [av | ow | [se] ae [an [ow [om [oe\neee oP PT\n20                             7\n| ene | mo [om fm] ame [oP | a | om | 90]\n   Fa]\nia | aaa              | sso |       | | | ht\nss fo =} |\n   Pe [oof J\nvol sea            | ao |           | {| | | |\n[ee Pe Poe)",
+      "mean_conf": 55.22,
+      "n_tokens": 222,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 4,
+      "locator": "ocr-p4"
+    },
+    {
+      "text": "=            旺季浮动标准\n住宿费标准              三季上浮价\n序       地区       1   正副厅               正副厅\n号      《城市)      省级及 |长及相 | 其他 | EERE  ES |省级及|长及相 | 其他\n相当职 |当职级 | 人员       期间 |相当职|当职级 | 人员\n级人员               级人员  中\n人员                人员\n广州市、珠海市、佛山市、东莞市    esa | aso\n23| 广东|、中山市、江门市\nxs aa |\nET\n[|\n25| 广西                          1月\n其他地区     800 | 470 | 330 |桂林市、北海市 | 7-9月 | 1040    430\nMO. Soi. mA. Bid                       昌\n市、文昌市、琼海市、万宁市、东         — 11-28 | 1040 | 650 | 450\nAit. RH. ER. BAS.   800   500 | 350 .\n26| 海南 |临高县、白沙县、昌江县、乐东县\n开发区\n琼海市、万宁市\n> RAB. RF | 11-3月 | 1040 | 650 | 450\n县\n[Se [ie [oe Pow] See [ioe [ie | re\nee eo)\nae] || 11\njul ee fefefef | |. 1)\nee eee\nwe fete[>f | | [TI\na\na                                | | | |\nas     Pwo fio foot Tt",
+      "mean_conf": 74.5,
+      "n_tokens": 248,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 5,
+      "locator": "ocr-p5"
+    },
+    {
+      "text": "at)           aan lene [xe] S*82 | SH leaner | xe\n级人员|交呈级 [Am            aK | Re | 人\nA\n[ems fom | wo oof TTT\n[a\nOs hr\nae ee | wo [ow Pow | i\n二三生计\neT mm hh hh |\nwa wae | ao [200 fom | | | |\n[xan | ow [om feof || | 1\n| ve; fete fet —_§f ++\n[xen wo oe ef TI\nEe\nse] ew [wen me [on | on [oo fn, men] son [oe | ss [|\nee\nee\nee |\n35) 宁夏\n[ene fom Poo fof |\nware we fw [wo] |. | 1\nES\nRH. SAR. MN. ok | 800   480 | 340\n番市、哈密地区、巴州、和田地区\ni a 2 cD\na |\nremem fw fof | Sid\n[eee Po foe ri",
+      "mean_conf": 43.36,
+      "n_tokens": 151,
+      "engine": "tesseract 5.5.2",
+      "returncode": 0,
+      "page": 6,
+      "locator": "ocr-p6"
+    }
+  ],
+  "text": "oye   |\nmz                        4\nP)3)\n，\n4\n苏财行【2017 ] 525\n江苏省财政厅关于印发《江苏省省级机关\n国内差旅住宿费标准明细表》的通知\n省各部、委、办、厅、局，省各直属单位:\n根据《江苏省财政厅关于调整省级机关差旅住宿费标准等有\n关问题的通知》(苏财行[2015 ] 83号 ) 要求，省级单位工作人\n员到全国各省会城市、直辖市、计划单列市出差， 执行文件规定\n的住宿费上限标准; HAS. BHR, BRP. RBA\n地、州、市《县 ) 出差，执行当地财政部门制定的差旅住宿费上\n限标准。目前全国各地财政部门已将差旅住宿费标准细化到地\n市，现根据财政部财行[2016 ] 71号文件，制定《江苏省省级机\n关国内差旅住宿费标准明细表》并印发给你们，自2017年8月1\n— 1 tia\n|\n\n|                 re,\n.\n     日起执行。\n各设区市、县 ( 市、区 ) 党政机关国内差旅住宿费标准，应\n严格按本通知规定的上限标准，参照执行。\n       WH: 江苏省省级机关国内差旅住宿费标准明细表\nSR Ie\nOR ES\n3017£7A 2!\n|\n|\n信息公开选项: 依申请公开\n抄送: 财政部，各设区市、县 ( 市 ) 财政局。\n江苏省财政厅办公室           2017年7月25日印发\n一 2 一\n\n附件\n江苏省省级机关国内差旅住宿费标准明细表\n单位:元/人“。天\n全和生生                   旺季上浮价\n序          地区              正副厅                     正副厅\n号      (城市)      省级及 长及相 | 其他  旺季地区  旺季 | 省级及 长及相 | 其他\n相当职 | :            期间 |相当职\nBAR 当职级 | AR            级人员 当职级 | 人员\n人员                      人员\nfe=~ ws |\n6个中心城区 、滨海新区、东丽区、\n西青区、津南区、北辰区、武清区 | 800   480 | 380\n2 | AM |, RRR. MK. HS\n| fw fom fof TT\n石家庄市、张家口市、秦皇岛市、   300    50 | 350\n3) 河北\n[wees fm [wie> | | | 1.\nees tm fm [mf | |. td\n山西\nwp | | 1 14\nvores |wlwll | | | 1 |\n海拉尔市、满洲 | - 。 -=\n    -9月 | 1200      480\n其他地区        800   460 | 320\ncae [oa [oo | a [|\nwe fe fefey TT TT\n辽宁\na\np[=[ ss [wf [ol ae [ra [ om [o [|\n长春市、吉林市、延边州、长白山        .    a, | 吉林市、延边州| >          -    5\nar rors sen eel ws | wo [a [Pez eaa] roe | = | 9 [|\n[wee [tole | 111\n\n|\n住宿费标准           TSR Sn\nre       地区          EMF               正副厅\n      Ss      wax (Em | 其他| 。脖季地区 | we lawn EMT] 其他\n相当职 |当职级 | 人员       期间 |相当职 |当职级 | 人员\n级人员               级人员\nAB               AB\nase fo eo ee\nRae       其他地区       750   450  300 eee  6-85      540  360\na      ” | SS lie, RUTH.\nSa\nFs\n:     11| 江苏 上\n一\n| Tom fom fof TT TC\n12| 浙江\narp Po ff\nCrs EN本困有本\n     pf emf 和\n             wa Pep]\npefan | ee Tm Tm fmf TTT\nnen] sep fp 本是是\na MM. RE. RAT                       ;\n. Men. Bye. Fee. ex | 800 | 480 | 380 AEE. RAE      960 | 570 | 450\n18| 山东 |市、威海市、日照市            - Bee\naa aa TD\nial we [av | ow | [se] ae [an [ow [om [oe\neee oP PT\n20                             7\n| ene | mo [om fm] ame [oP | a | om | 90]\n   Fa]\nia | aaa              | sso |       | | | ht\nss fo =} |\n   Pe [oof J\nvol sea            | ao |           | {| | | |\n[ee Pe Poe)\n\n=            旺季浮动标准\n住宿费标准              三季上浮价\n序       地区       1   正副厅               正副厅\n号      《城市)      省级及 |长及相 | 其他 | EERE  ES |省级及|长及相 | 其他\n相当职 |当职级 | 人员       期间 |相当职|当职级 | 人员\n级人员               级人员  中\n人员                人员\n广州市、珠海市、佛山市、东莞市    esa | aso\n23| 广东|、中山市、江门市\nxs aa |\nET\n[|\n25| 广西                          1月\n其他地区     800 | 470 | 330 |桂林市、北海市 | 7-9月 | 1040    430\nMO. Soi. mA. Bid                       昌\n市、文昌市、琼海市、万宁市、东         — 11-28 | 1040 | 650 | 450\nAit. RH. ER. BAS.   800   500 | 350 .\n26| 海南 |临高县、白沙县、昌江县、乐东县\n开发区\n琼海市、万宁市\n> RAB. RF | 11-3月 | 1040 | 650 | 450\n县\n[Se [ie [oe Pow] See [ioe [ie | re\nee eo)\nae] || 11\njul ee fefefef | |. 1)\nee eee\nwe fete[>f | | [TI\na\na                                | | | |\nas     Pwo fio foot Tt\n\nat)           aan lene [xe] S*82 | SH leaner | xe\n级人员|交呈级 [Am            aK | Re | 人\nA\n[ems fom | wo oof TTT\n[a\nOs hr\nae ee | wo [ow Pow | i\n二三生计\neT mm hh hh |\nwa wae | ao [200 fom | | | |\n[xan | ow [om feof || | 1\n| ve; fete fet —_§f ++\n[xen wo oe ef TI\nEe\nse] ew [wen me [on | on [oo fn, men] son [oe | ss [|\nee\nee\nee |\n35) 宁夏\n[ene fom Poo fof |\nware we fw [wo] |. | 1\nES\nRH. SAR. MN. ok | 800   480 | 340\n番市、哈密地区、巴州、和田地区\ni a 2 cD\na |\nremem fw fof | Sid\n[eee Po foe ri"
+}

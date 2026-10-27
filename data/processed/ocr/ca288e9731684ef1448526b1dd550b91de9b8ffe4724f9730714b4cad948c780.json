@@ -1,0 +1,20 @@
+{
+  "source_hash": "ca288e9731684ef1448526b1dd550b91de9b8ffe4724f9730714b4cad948c780",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/ca/ca288e9731684ef1448526b1dd550b91de9b8ffe4724f9730714b4cad948c780.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:28:40Z",
+  "pages": [
+    {
+      "text": "NE\n=                                ‘         =\nVa             ye\n>   0  时    9  ¥                         ‘     ‘ »    i =~\nj      [                            ie “<",
+      "mean_conf": 48.95,
+      "n_tokens": 20,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "NE\n=                                ‘         =\nVa             ye\n>   0  时    9  ¥                         ‘     ‘ »    i =~\nj      [                            ie “<"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "cfe3c01d0292ddc22b53bd2b7d13514c2712378e80f67c145f828747579344b7",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/cf/cfe3c01d0292ddc22b53bd2b7d13514c2712378e80f67c145f828747579344b7.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:08Z",
+  "pages": [
+    {
+      "text": "x                          SEM\n<                           EMH\n— oo\n\n«2\nas\n您的 IP 不在授权范围内\n\n健的IP; 3\n\n—s\n\nBEM\n\nx    fos\n\n〇”搜索书和名、作者、出版社\n\nST\n\n《好吃的经济学》\n\nOnes 5ReSn aaa\n\n>\nce\n\nAl未来进行式\n\n抽 Oe\n\nom\n\noe tt am\n\nRe",
+      "mean_conf": 65.14,
+      "n_tokens": 63,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "x                          SEM\n<                           EMH\n— oo\n\n«2\nas\n您的 IP 不在授权范围内\n\n健的IP; 3\n\n—s\n\nBEM\n\nx    fos\n\n〇”搜索书和名、作者、出版社\n\nST\n\n《好吃的经济学》\n\nOnes 5ReSn aaa\n\n>\nce\n\nAl未来进行式\n\n抽 Oe\n\nom\n\noe tt am\n\nRe"
+}

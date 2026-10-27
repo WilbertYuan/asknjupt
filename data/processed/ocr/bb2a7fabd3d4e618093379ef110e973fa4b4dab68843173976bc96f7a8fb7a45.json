@@ -1,0 +1,20 @@
+{
+  "source_hash": "bb2a7fabd3d4e618093379ef110e973fa4b4dab68843173976bc96f7a8fb7a45",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/bb/bb2a7fabd3d4e618093379ef110e973fa4b4dab68843173976bc96f7a8fb7a45.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:30:31Z",
+  "pages": [
+    {
+      "text": "了    了   =\n—___           ~                           :\n——                       d\n人    开       WN         去           7\nCA         oy                        TAMA AA\n全加    |\n公 JE                   | i) iH)            |     一\nne    \\    = ee     §n e            |   | |      | ii\ny     .               一                        |    |         |\n，                  EARL      Se                f\n                 a)\n=. FS\nN             Ss                              -\n\\          ap             |                be                rs              Ve\n一一一站                   os\n下                                六\ncad    ——                         =               =            ”3\n“N                                                   中                    ES\nI< 二         B   \\        , ae.      2»    x      和 六\nsr          SS\nARP ee          SSR\nAR    CSTE\nSSE AD SSSRAATERS TS)                                         -\nPa       HMA REESE SS:   TTTTTTT SSStAN                                                    有\nPUMPS TEES Steet eee es eeertth aay\n.                NSS   习习RAT人       ty    \\\nom |            ST PRTTARRSASSADE ASS SRR SSTSSS ST             .\n:          UMARDESS Sea rese aes eeetsy   7\ny               WORSE S REARS 全           we                       从\nWSs            i)                               :\nSEISSSS8 54                                             1\nof                                                            f   g                       “a\n“= p                               =\n1         a                            ;\n| 二      AAAT                                             q                            7\n|\n;",
+      "mean_conf": 31.39,
+      "n_tokens": 164,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "了    了   =\n—___           ~                           :\n——                       d\n人    开       WN         去           7\nCA         oy                        TAMA AA\n全加    |\n公 JE                   | i) iH)            |     一\nne    \\    = ee     §n e            |   | |      | ii\ny     .               一                        |    |         |\n，                  EARL      Se                f\n                 a)\n=. FS\nN             Ss                              -\n\\          ap             |                be                rs              Ve\n一一一站                   os\n下                                六\ncad    ——                         =               =            ”3\n“N                                                   中                    ES\nI< 二         B   \\        , ae.      2»    x      和 六\nsr          SS\nARP ee          SSR\nAR    CSTE\nSSE AD SSSRAATERS TS)                                         -\nPa       HMA REESE SS:   TTTTTTT SSStAN                                                    有\nPUMPS TEES Steet eee es eeertth aay\n.                NSS   习习RAT人       ty    \\\nom |            ST PRTTARRSASSADE ASS SRR SSTSSS ST             .\n:          UMARDESS Sea rese aes eeetsy   7\ny               WORSE S REARS 全           we                       从\nWSs            i)                               :\nSEISSSS8 54                                             1\nof                                                            f   g                       “a\n“= p                               =\n1         a                            ;\n| 二      AAAT                                             q                            7\n|\n;"
+}

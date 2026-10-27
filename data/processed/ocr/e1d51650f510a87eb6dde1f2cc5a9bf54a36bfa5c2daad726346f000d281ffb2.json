@@ -1,0 +1,20 @@
+{
+  "source_hash": "e1d51650f510a87eb6dde1f2cc5a9bf54a36bfa5c2daad726346f000d281ffb2",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/e1/e1d51650f510a87eb6dde1f2cc5a9bf54a36bfa5c2daad726346f000d281ffb2.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:33:01Z",
+  "pages": [
+    {
+      "text": "口 二 口\nopeles",
+      "mean_conf": 50.67,
+      "n_tokens": 4,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "口 二 口\nopeles"
+}

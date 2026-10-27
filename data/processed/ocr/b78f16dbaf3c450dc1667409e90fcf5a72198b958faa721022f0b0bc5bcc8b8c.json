@@ -1,0 +1,20 @@
+{
+  "source_hash": "b78f16dbaf3c450dc1667409e90fcf5a72198b958faa721022f0b0bc5bcc8b8c",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/b7/b78f16dbaf3c450dc1667409e90fcf5a72198b958faa721022f0b0bc5bcc8b8c.png",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:22:15Z",
+  "pages": [
+    {
+      "text": "Sle 生计",
+      "mean_conf": 44.53,
+      "n_tokens": 2,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "Sle 生计"
+}

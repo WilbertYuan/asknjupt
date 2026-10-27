@@ -1,0 +1,20 @@
+{
+  "source_hash": "f7ec4d301a73762e6a811625990a36d7cffafced8cc26cc6e07f5b11d5913fcd",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/f7/f7ec4d301a73762e6a811625990a36d7cffafced8cc26cc6e07f5b11d5913fcd.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:03Z",
+  "pages": [
+    {
+      "text": "JUCRRDDoooogCCVRDOOOOg       40,0909             ZB,    ‘                VIA 5 90.4.0,\nERY x NYA WY     NY RY    i      !   RRR)          RRR\n\nae\noe = WED\n\nCertificate of Honor\n\n— SYODPS\n\n为表彰 2023 年“苏乡永助”资助育人主题\n活动“江苏学生资助宣传大使”, 特颁发此证书，\n以资鼓励!\n\n宣传大使: ke\n\n指导老师: % Z\n\n推荐单位: 南京邮电大学\n\nED           naa\n\nb\nXs YW NAN =  RARER MNS",
+      "mean_conf": 66.67,
+      "n_tokens": 90,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "JUCRRDDoooogCCVRDOOOOg       40,0909             ZB,    ‘                VIA 5 90.4.0,\nERY x NYA WY     NY RY    i      !   RRR)          RRR\n\nae\noe = WED\n\nCertificate of Honor\n\n— SYODPS\n\n为表彰 2023 年“苏乡永助”资助育人主题\n活动“江苏学生资助宣传大使”, 特颁发此证书，\n以资鼓励!\n\n宣传大使: ke\n\n指导老师: % Z\n\n推荐单位: 南京邮电大学\n\nED           naa\n\nb\nXs YW NAN =  RARER MNS"
+}

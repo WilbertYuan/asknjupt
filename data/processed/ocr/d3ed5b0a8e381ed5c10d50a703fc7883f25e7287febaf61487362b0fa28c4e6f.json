@@ -1,0 +1,20 @@
+{
+  "source_hash": "d3ed5b0a8e381ed5c10d50a703fc7883f25e7287febaf61487362b0fa28c4e6f",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/d3/d3ed5b0a8e381ed5c10d50a703fc7883f25e7287febaf61487362b0fa28c4e6f.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:23:01Z",
+  "pages": [
+    {
+      "text": "ee 6 eee eae 9.8 oe\nShip alice\n5,     N        5    Bet    Wipe sn\n人   = »,osiara Lie   ET  yee   i   去中\na@s eg) ie     PS on Cia a\n3 “2 Sty?    VO aio! tin\n?         9 BB",
+      "mean_conf": 25.97,
+      "n_tokens": 39,
+      "engine": "tesseract 5.5.2",
+      "psm": "6",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "ee 6 eee eae 9.8 oe\nShip alice\n5,     N        5    Bet    Wipe sn\n人   = »,osiara Lie   ET  yee   i   去中\na@s eg) ie     PS on Cia a\n3 “2 Sty?    VO aio! tin\n?         9 BB"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "476cba996f20757c3444b78c2c707436a8540d65a5d051ade9411fab5a68ab35",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/47/476cba996f20757c3444b78c2c707436a8540d65a5d051ade9411fab5a68ab35.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T13:45:43Z",
+  "pages": [
+    {
+      "text": "| RAE 4\n\nNanjing University of JPosts and Telecommunications\n\nPa SBF AAU Sod\n*\n\nSidMin\n及家长休息区\n\n*\n\n综合评价\n测试处\n\nO 南邮校史馆                    nz tne\n\n通信展览馆               An和\n\n邮政文化馆                    Ba  es       wr\n© #2 (知行楼)                te * 8g 8 oy  有\n© a3 USER )                    aad 有 2 oe  +  4\n@ 二 ~          wis GBGLED iw\n\ni At              ° gee    6\n© 南三食堂                        %\n\n党\n立",
+      "mean_conf": 59.35,
+      "n_tokens": 87,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "| RAE 4\n\nNanjing University of JPosts and Telecommunications\n\nPa SBF AAU Sod\n*\n\nSidMin\n及家长休息区\n\n*\n\n综合评价\n测试处\n\nO 南邮校史馆                    nz tne\n\n通信展览馆               An和\n\n邮政文化馆                    Ba  es       wr\n© #2 (知行楼)                te * 8g 8 oy  有\n© a3 USER )                    aad 有 2 oe  +  4\n@ 二 ~          wis GBGLED iw\n\ni At              ° gee    6\n© 南三食堂                        %\n\n党\n立"
+}

@@ -1,0 +1,20 @@
+{
+  "source_hash": "db1ccddfbf344799081b42f9f2a603dd076ed830df0f8b423b6732856c521662",
+  "source_path": "/Users/wilbertyuan/app/vscode/BigDataWork/data/raw/db/db1ccddfbf344799081b42f9f2a603dd076ed830df0f8b423b6732856c521662.jpg",
+  "engine": "tesseract 5.5.2",
+  "lang": "chi_sim+eng",
+  "created_at": "2026-10-26T12:32:37Z",
+  "pages": [
+    {
+      "text": "读者登录图书馆主页，选择“读者服务”下的“论文\n\n提交”\n\n|\n\n阅读“南京邮电大学图书馆研究生论文提交流程? 点\n击“快速提交入口?，登录后进行论文提交操作。\n\n|\n癌图书馆呈交一本纸质学位论文\n|\n\n到服务总台办理离校手续",
+      "mean_conf": 88.35,
+      "n_tokens": 79,
+      "engine": "tesseract 5.5.2",
+      "psm": "4",
+      "returncode": 0,
+      "page": 1,
+      "locator": "ocr-image"
+    }
+  ],
+  "text": "读者登录图书馆主页，选择“读者服务”下的“论文\n\n提交”\n\n|\n\n阅读“南京邮电大学图书馆研究生论文提交流程? 点\n击“快速提交入口?，登录后进行论文提交操作。\n\n|\n癌图书馆呈交一本纸质学位论文\n|\n\n到服务总台办理离校手续"
+}
