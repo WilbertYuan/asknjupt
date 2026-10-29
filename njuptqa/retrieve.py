@@ -1246,8 +1246,18 @@ def _clauses(text: str) -> list[str]:
     if buf:
         glued.append(buf)
     parts: list[str] = []
+    # 「1.1在职…1.2上述…2.3当天」粘在同一段里。只在条款号后接汉字时切开，
+    # 4.5分、2.80、3.4万这种小数不切。
+    outline = re.compile(
+        r"(?<=[\u4e00-\u9fff）)])(?=[1-9]\.[1-9](?![0-9分万亿元人个%倍]))"
+    )
     for piece in glued:
-        parts.extend(p.strip() for p in re.split(r"(?<=[。！？；])", piece) if p and len(p.strip()) >= 8)
+        for p in re.split(r"(?<=[。！？；])", piece):
+            p = p.strip()
+            if len(p) < 8:
+                continue
+            bits = [b.strip() for b in outline.split(p)] if len(p) >= 180 else [p]
+            parts.extend(b for b in bits if len(b) >= 8)
     return parts
 
 
@@ -1369,4 +1379,5 @@ def retrieve(question: str, k: int = 10) -> tuple[QueryPlan, list[dict[str, Any]
                 vr["_score"] = vr.get("_score", 0.0) + (2.0 if vr.get("_vec_rank", 99) < 4 else 1.0)
                 hits.append(vr)
                 have.add(vr["id"])
-    return plan, hits
+    from .docresolve import focus_hits
+    return plan, focus_hits(question, hits)

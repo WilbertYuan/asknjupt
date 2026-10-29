@@ -109,3 +109,21 @@ def resolve_documents(question: str) -> dict[str, Any]:
         return {"family": family["id"], "year": None, "document_ids": [], "confidence": "ambiguous"}
     finally:
         conn.close()
+
+
+def focus_hits(question: str, hits: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """问句点了文件名，而且检索结果里已经有这份文件时，丢掉其他文件。
+
+    保持原来的先后顺序，不按重合度重排，也不把文件里没被检索到的段落补进来。
+    """
+    if not hits:
+        return hits
+    cue = ""
+    for fam in _FAMILIES:
+        for name in fam["cues"]:
+            if name in (question or "") and len(name) > len(cue):
+                cue = name
+    if len(cue) < 4:
+        return hits
+    kept = [h for h in hits if cue in (h.get("doc_title") or "")]
+    return kept or hits

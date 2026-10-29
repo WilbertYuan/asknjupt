@@ -235,6 +235,9 @@ def answer_from_tables(question: str, terms: list[str]) -> tuple[str, str, str] 
     单键问题取第一个解析出唯一值的键；多槽位问题（分别/和/与枚举）
     每个槽位都要解析出唯一值，任一槽位多值或缺失就整体放弃。
     """
+    # 排名、次数写在条款里。金额表里的格子会把「多少」接走。
+    if re.search(r"排名|几次|多少次", question or "") and "表" not in (question or ""):
+        return None
     conn = init_db()
     try:
         tids = _candidate_tables(conn, terms)

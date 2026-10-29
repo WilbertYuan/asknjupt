@@ -307,7 +307,8 @@ _NAV_WORDS = ("首页", "概况", "列表", "更多", "上一篇", "下一篇", 
               "当前位置", "栏目", "专题", " English", "旧版", "手机版")
 
 
-_OCR_GARBAGE = re.compile(r"[$#%!&*『』「」<>@~^]")
+# 百分号是排名和比例的正文，不计入 OCR 噪声。
+_OCR_GARBAGE = re.compile(r"[$#!&*『』「」<>@~^]")
 
 
 def _is_noise(sentence: str) -> bool:
@@ -1026,6 +1027,16 @@ def extract_answer(question: str, hits: list[dict[str, Any]]) -> str | None:
             return _trim(ranked[0][1]) + "。"
         return None
     if qtype == "NUMBER":
+        # 「几次」要的是次数。百分比条款即使文字几乎相同，也不是这个数。
+        if re.search(r"几次|多少次|几回", question):
+            top = re.sub(r"\s+", "", ranked[0][1])
+            if not re.search(r"[一二两三四五六七八九十\d]次", top):
+                return None
+        # 「排名要求是多少」不能拿奖学金金额表里的数字来答。
+        if "排名" in question:
+            top = re.sub(r"\s+", "", ranked[0][1])
+            if "排名" not in top:
+                return None
         if not groups and _clear_lead(ignore_numbers=False):
             return _compose_number(ranked, groups, question, terms)
         return None
@@ -1034,6 +1045,16 @@ def extract_answer(question: str, hits: list[dict[str, Any]]) -> str | None:
         # 定义/美誉/标识信号：「被誉为」「校训」「X是…」「X：…」。
         # 这类信号本身足够强（问句就是冲着它来的），不要求首句领先。
         definitional = re.search(r"被誉为|校训|校风|南邮精神|是新中国|是一所", top)
+        # 简介里的「被誉为」「是一所」会粘在收费、年份问题的检索块上。
+        # 问句自己的内容词一个都没出现在这句里，就不是在回答这道题。
+        if definitional:
+            distinctive = [
+                t for t in terms
+                if len(t) >= 4 and t not in {"南京邮电", "邮电大学", "南京邮电大学", "学校简介"}
+            ]
+            flat_top = re.sub(r"\s+", "", top)
+            if distinctive and not any(t in flat_top for t in distinctive):
+                definitional = None
         if definitional:
             return _compose_statement(ranked)
         if _clear_lead() and re.search(r"^[一-鿿]{2,12}[是为：:]", top):

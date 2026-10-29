@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import json
 import re
 from decimal import Decimal, ROUND_HALF_UP
@@ -218,6 +219,75 @@ def filter_plans(plan: QueryPlan) -> dict[str, Any]:
     }
 
 
+def _province_headline(plan: QueryPlan, total: int) -> str | None:
+    """问开展省份和计划合计时，省份和核定口径用简章原句，人数用计划表合计。"""
+    q = plan.question
+    if "计划合计" not in q or "哪个省" not in q or len(plan.years) != 1:
+        return None
+    year = plan.years[0]
+    conn = init_db()
+    docs = conn.execute(
+        "SELECT id FROM documents WHERE title LIKE ?",
+        (f"%{year}年综合评价招生简章%",),
+    ).fetchall()
+    provinces: set[str] = set()
+    has_final = False
+    for doc in docs:
+        parts = conn.execute(
+            "SELECT text FROM retrieval_units WHERE document_id=? ORDER BY id",
+            (doc["id"],),
+        ).fetchall()
+        blob = re.sub(r"\s+", "", "".join(part["text"] or "" for part in parts))
+        provinces.update(re.findall(r"在([\u4e00-\u9fff]{2,3})省开展", blob))
+        if "最终以省级招生主管部门核定为准" in blob:
+            has_final = True
+    conn.close()
+    if provinces != {"江苏"} or not has_final:
+        return None
+    return f"在江苏省开展，计划合计{total}人，最终以省级招生主管部门核定为准"
+
+
+def plan_exact_size(plan: QueryPlan, size: int) -> dict[str, Any]:
+    """问「哪些专业的计划为 N 人」时，只列出计划数恰好是 N 的专业。"""
+    result = filter_plans(plan)
+    if result.get("error"):
+        return result
+    names: list[str] = []
+    for row in result.get("matched") or []:
+        if int(row.get("plan") or 0) != size:
+            continue
+        name = re.sub(r"\s+", "", str(row.get("major") or ""))
+        if name and name not in names:
+            names.append(name)
+    if not names:
+        return {"op": "filter_sum_plans", "error": "没有这个计划数", "filters": result.get("filters")}
+    picked = dict(result)
+    picked["headline"] = "、".join(names)
+    picked["matched"] = [row for row in result.get("matched") or [] if int(row.get("plan") or 0) == size]
+    picked["count"] = len(picked["matched"])
+    picked["sum"] = size * len(names)
+    return picked
+
+
+def plan_share(plan: QueryPlan) -> dict[str, Any]:
+    """某一首选科目的计划占该类型全部计划的比例。分子分母都来自同一张计划表。"""
+    part = filter_plans(plan)
+    whole_plan = copy.copy(plan)
+    whole_plan.first_subject = None
+    whole_plan.second_subjects = []
+    whole_plan.literal_subject = False
+    whole_plan.literal_target = None
+    whole = filter_plans(whole_plan)
+    if part.get("error") or whole.get("error") or not whole.get("sum"):
+        return {"op": "filter_sum_plans", "error": "计划比例缺少分子或分母", "filters": part.get("filters")}
+    pct = _q(_dec(part["sum"]) / _dec(whole["sum"]) * 100, 2)
+    shown = _show(pct)
+    shared = dict(part)
+    shared["headline"] = f"{shown}%"
+    shared["formula"] = f"{part['sum']}/{whole['sum']}={shown}%"
+    return shared
+
+
 def _study_years(question: str) -> int:
     """学年数看问句本身。“不要按四年”和“有人按四年”里的年数不算。"""
     focus = focus_text(question)
@@ -410,9 +480,11 @@ def lookup_fact(plan: QueryPlan) -> dict[str, Any]:
         if name == "tuimian_policy" and any(
             k in plan.question
             for k in (
-                "对象", "排名", "条件", "哪些", "不含", "以内", "英语", "取消", "一次",
+                "对象", "排名", "条件", "哪些", "不含", "以内", "英语", "外语", "取消", "一次",
                 "微专业", "学分", "年级", "竞赛", "论文", "实验班", "专升本",
                 "月份", "每年", "何时", "时间", "几月",
+                # 事实库只有政策名称。次数、区别、后果都在原文条款里。
+                "几次", "机会", "区别", "怎样", "影响", "吗",
             )
         ):
             continue
@@ -705,7 +777,17 @@ def execute(plan: QueryPlan) -> dict[str, Any] | None:
         or ("实验室" in q and ("面积" in q or "多少" in q))
         or ("面积" in q and any(k in q for k in ("最大", "最小", "平方米", "实验中心", "行数", "相加")))
     )
-    asks_plan = any(k in q for k in ("多少人", "计划数", "可报", "有哪些", "多少个", "列出了多少", "相加", "单元格"))
+    asks_plan = any(
+        k in q
+        for k in ("多少人", "计划数", "可报", "能报", "合计多少", "有哪些", "多少个", "列出了多少", "相加", "单元格")
+    )
+    asks_share = (
+        bool(plan.first_subject)
+        and bool(plan.admission_type)
+        and "计划" in q
+        and any(k in q for k in ("比例", "占比"))
+        and "倍" not in q
+    )
     has_plan = bool(
         plan.admission_type
         or plan.province
@@ -716,10 +798,19 @@ def execute(plan: QueryPlan) -> dict[str, Any] | None:
         or plan.major_exact
     )
     blocked = any(k in q for k in ("测试费", "入围", "几倍", "语种", "预留", "学费", "住宿费"))
+    exact_size = re.search(r"计划(?:仅为|为)\s*(\d+)\s*人", q)
     if wants_lab and "招生计划" not in q and "多少人" not in q:
         result = lab_share(plan)
+    elif exact_size and "哪些" in q and has_plan and not blocked:
+        result = plan_exact_size(plan, int(exact_size.group(1)))
+    elif asks_share and has_plan and not blocked:
+        result = plan_share(plan)
     elif asks_plan and has_plan and not blocked:
         result = filter_plans(plan)
+        if result and not result.get("error") and result.get("sum") is not None:
+            head = _province_headline(plan, int(result["sum"]))
+            if head:
+                result["headline"] = head
     elif "测试费" in q:
         result = lookup_test_fee(plan)
     elif any(
@@ -792,6 +883,65 @@ def execute(plan: QueryPlan) -> dict[str, Any] | None:
         conn.commit()
         conn.close()
     return result
+
+
+def complete_postal(question: str, value: str) -> str | None:
+    """问句要邮编、事实只有门牌时，从原文里取紧挨着这扇门牌的邮编。
+
+    同一门牌对应多个邮编就放弃。返回的是原文切片，不是拼出来的句子。
+    """
+    if "邮编" not in (question or "") or not value:
+        return None
+    campuses = [c for c in ("锁金村", "三牌楼", "仙林") if c in question]
+    if len(campuses) != 1:
+        return None
+    campus = campuses[0]
+    # 从长到短试门牌。「玄武区龙蟠路177号」对不上原文，退到「龙蟠路177号」。
+    # 「仙林大学城文苑路9号」能唯一对上邮编时，不要再缩短成「文苑路9号」。
+    compact_value = re.sub(r"\s+", "", value)
+    tails = [compact_value]
+    cut = re.search(r".*[省市区县](.+?\d+号)$", compact_value)
+    if cut and cut.group(1) not in tails:
+        tails.append(cut.group(1))
+    short = re.search(r"([\u4e00-\u9fff]{2,3}?[路街道巷]\d+号)$", compact_value)
+    if short and short.group(1) not in tails:
+        tails.append(short.group(1))
+    conn = init_db()
+    try:
+        for street in tails:
+            if not re.search(r"\d+号$", street):
+                continue
+            rows = conn.execute(
+                """SELECT text FROM retrieval_units
+                   WHERE replace(replace(text, ' ', ''), '　', '') LIKE ?
+                     AND text LIKE '%邮编%'""",
+                (f"%{street}%",),
+            ).fetchall()
+            counts: dict[str, int] = {}
+            quotes: dict[str, str] = {}
+            for (text,) in rows:
+                compact = re.sub(r"\s+", "", text or "")
+                for m in re.finditer(re.escape(street) + r"邮编[:：]?(\d{6})", compact):
+                    zip_code = m.group(1)
+                    counts[zip_code] = counts.get(zip_code, 0) + 1
+                    label = campus + "校区地址"
+                    start = compact.rfind(label, max(0, m.start() - 24), m.start() + 1)
+                    quote = compact[start if start >= 0 else m.start() : m.end()]
+                    prev = quotes.get(zip_code)
+                    if prev is None or (label in quote and label not in prev) or len(quote) < len(prev):
+                        if label in quote or prev is None:
+                            quotes[zip_code] = quote
+            if not counts:
+                continue
+            ranked = sorted(counts.items(), key=lambda item: (-item[1], item[0]))
+            zip_code, n = ranked[0]
+            second = ranked[1][1] if len(ranked) > 1 else 0
+            if n < 5 or n < second * 10:
+                continue
+            return quotes.get(zip_code)
+    finally:
+        conn.close()
+    return None
 
 
 def format_computed(result: dict[str, Any]) -> str | None:

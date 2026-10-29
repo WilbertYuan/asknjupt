@@ -262,10 +262,114 @@ def exam_minutes(question: str) -> str | None:
     return None
 
 
+_AWARD_PAIR = re.compile(
+    r"(本科生|研究生|硕士研究生)[:：](\d+)(名|人)，(?:每学年奖学金标准为)?(\d+)元[/／]人"
+)
+
+
+def _award_pairs(bodies: list[str]) -> tuple[tuple[str, str, str, str], ...] | None:
+    parsed = []
+    for body in bodies:
+        found = tuple(_AWARD_PAIR.findall(body))
+        if found:
+            parsed.append(found)
+    if not parsed or len(set(parsed)) != 1:
+        return None
+    return parsed[0]
+
+
+def _award_quota_lines(bodies: list[str]) -> str | None:
+    """本科和研究生各只有一档时，才把两档名额和金额一起报出。"""
+    pairs = _award_pairs(bodies)
+    if not pairs:
+        return None
+    under = [item for item in pairs if item[0] == "本科生"]
+    grad = [item for item in pairs if item[0] in {"研究生", "硕士研究生"}]
+    if len(under) != 1 or len(grad) != 1:
+        return None
+    _, un, uu, um = under[0]
+    _, gn, gu, gm = grad[0]
+    return f"本科生{un}{uu}、每人{um}元；研究生{gn}{gu}、每人{gm}元。"
+
+
+def _award_roll(bodies: list[str], focus: str) -> str | None:
+    """各档名额乘以单人金额，只在问合计人数或发放总额时相加。"""
+    pairs = _award_pairs(bodies)
+    if not pairs:
+        return None
+    people = sum(int(item[1]) for item in pairs)
+    money = sum(int(item[1]) * int(item[3]) for item in pairs)
+    if "总额" in focus:
+        if money % 10000 == 0 and money >= 100000:
+            return f"{money // 10000}万元"
+        return f"{money}元"
+    if "名额" in focus and any(k in focus for k in ("合计", "一共", "全部")):
+        return f"{people}人"
+    return None
+
+
+def _precise_award(question: str) -> str | None:
+    """办法标题被问句完整点名时，才把各档名额相加或并列报出。"""
+    focus = focus_text(question)
+    wants_split = (
+        "本科" in focus
+        and ("研究生" in focus or "硕士" in focus)
+        and any(k in focus for k in ("分别", "名额", "金额"))
+    )
+    wants_money = "总额" in focus
+    wants_people = "名额" in focus and any(k in focus for k in ("合计", "一共", "全部"))
+    if not wants_split and not wants_money and not wants_people:
+        return None
+    conn = init_db()
+    rows = conn.execute(
+        """
+        SELECT id, title FROM documents
+        WHERE parse_status='parsed' AND (title LIKE '%奖学金%' OR title LIKE '%奖助学金%')
+        """
+    ).fetchall()
+    found: list[tuple[int, int, str]] = []
+    for row in rows:
+        title = re.sub(r"\s+", "", row["title"] or "")
+        matched = re.findall(r"[\u4e00-\u9fff]{2,12}奖助学金|[\u4e00-\u9fff]{2,12}奖学金", title)
+        for name in matched:
+            if name.startswith("国家") or name not in question:
+                continue
+            found.append((len(name), row["id"], name))
+    if not found:
+        conn.close()
+        return None
+    best = max(item[0] for item in found)
+    bodies = []
+    for length, doc_id, _name in found:
+        if length != best:
+            continue
+        body = re.sub(
+            r"\s+",
+            "",
+            "".join(
+                b["text"] or ""
+                for b in conn.execute("SELECT text FROM blocks WHERE document_id=? ORDER BY id", (doc_id,))
+            ),
+        )
+        if body:
+            bodies.append(body)
+    conn.close()
+    if wants_split:
+        quoted = _award_quota_lines(bodies)
+        if quoted:
+            return quoted
+    if wants_money or wants_people:
+        return _award_roll(bodies, focus)
+    return None
+
+
 def named_award(question: str) -> str | None:
     """点名的校内奖学金。国家奖助学金仍走原文打分，比较题留给拆句。"""
     if re.search(r"比.{0,40}(多|少|大|高|低)(?:多少|几)|相差", question):
         return None
+    precise = _precise_award(question)
+    if precise:
+        return precise
     focus = focus_text(question)
     named = re.search(r"([\u4e00-\u9fff]{2,6}?)(特等奖学金|励志奖学金|奖学金|助学金)", focus)
     if not named or named.group(1).startswith("国家"):
@@ -470,6 +574,9 @@ def teacher_count(question: str) -> str | None:
         return None
     # 「反推系数」「复算生师比」是计算题，不能在这里提前答人数。
     if any(k in question for k in ("反推", "复算", "折算系数", "系数", "生师比")):
+        return None
+    # 问的是职称、学位或年龄结构，不是专任教师总人数。
+    if any(k in question for k in ("正高", "副高", "中级", "学位", "学缘", "年龄结构")):
         return None
     # 点名单个学院时不抢答校级口径，避免拿全校数去答某学院。
     if re.search(r"[\u4e00-\u9fff]{2,20}学院", question) and "学校" not in question and "全校" not in question and "南邮" not in question:

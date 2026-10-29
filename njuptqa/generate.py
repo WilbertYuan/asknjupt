@@ -24,6 +24,22 @@ from .ground import (
 )
 from .db import init_db
 from .extractive import extract_answer
+from .charterqa import charter_answer
+from .courseqa import course_answer
+from .rulebind import rule_answer
+from .handbookqa import handbook_answer
+from .contactqa import contact_answer
+from .feeqa import fee_answer
+from .zhpjqa import zhpj_answer
+from .statusqa import status_answer
+from .loanqa import loan_answer
+from .libfaq import library_faq
+from .degreeqa import degree_answer
+from .tuimianqa import tuimian_answer
+from .reportqa import report_answer
+from .reportline import report_line
+from .profileqa import profile_answer
+from .examrule import submit_window
 from .retrieve import QueryPlan, _clauses, _independent_keywords, _match_terms, content_keywords, retrieve
 from .util import focus_text, utc_now
 
@@ -385,6 +401,66 @@ def _missing_cohort(question: str) -> str | None:
     return REFUSE + "已入库的就业质量报告里没有这一届。"
 
 
+_CLAUSE_CACHE: dict[str, list[str]] = {}
+
+
+def _clause_texts(like: str) -> list[str]:
+    if like in _CLAUSE_CACHE:
+        return _CLAUSE_CACHE[like]
+    from .db import init_db
+
+    conn = init_db()
+    docs = conn.execute("SELECT id FROM documents WHERE title LIKE ?", (like,)).fetchall()
+    texts: list[str] = []
+    for doc in docs:
+        parts = conn.execute(
+            "SELECT text FROM retrieval_units WHERE document_id=? ORDER BY id",
+            (doc["id"],),
+        ).fetchall()
+        blob = re.sub(r"\s+", "", "".join((part["text"] or "") for part in parts))
+        if blob:
+            texts.append(blob)
+    conn.close()
+    _CLAUSE_CACHE[like] = texts
+    return texts
+
+
+def _statute_product(question: str) -> str | None:
+    """问句给出份数，比例或单价在办法里只有一种写法时才相乘。"""
+    if "免修" in question and any(k in question for k in ("上限", "最多")):
+        stated = re.search(r"应修\s*(\d+)\s*门", question)
+        if not stated:
+            return None
+        fractions = {
+            match.groups()
+            for blob in _clause_texts("%学籍管理办法%")
+            for match in re.finditer(
+                r"申请免修考核的课程门数原则上不超过应修课程门数的(\d+)/(\d+)",
+                blob,
+            )
+        }
+        if len(fractions) != 1:
+            return None
+        num, den = (int(part) for part in next(iter(fractions)))
+        courses = int(stated.group(1))
+        if not den or courses * num % den:
+            return None
+        return f"{courses * num // den}门"
+    if "勤工助学" in question and "酬金" in question and "小时" in question:
+        stated = re.search(r"(\d+)\s*小时", question)
+        if not stated:
+            return None
+        rates = {
+            match.group(1)
+            for blob in _clause_texts("%勤工助学管理办法%")
+            for match in re.finditer(r"不低于每小时(\d+)元", blob)
+        }
+        if len(rates) != 1:
+            return None
+        return f"{int(stated.group(1)) * int(next(iter(rates)))}元"
+    return None
+
+
 def _round_half_up(value: float, places: int) -> str:
     quantum = Decimal("1") if places <= 0 else Decimal("0." + "0" * places)
     return format(Decimal(str(value)).quantize(quantum, rounding=ROUND_HALF_UP), "f")
@@ -414,12 +490,15 @@ def stated_arithmetic(question: str) -> str | None:
         return None
     if "综合评价" in question and "综合成绩" not in question and "投档分" not in question:
         return None
-    if "综合成绩" in question and "公式" not in question and "计算公式" not in question:
-        gaokao = re.search(r"投档分\s*(\d+(?:\.\d+)?)", question)
-        test = re.search(r"测试成绩\s*(\d+(?:\.\d+)?)", question)
-        if gaokao and test:
-            val = float(gaokao.group(1)) / 750 * 80 + float(test.group(1)) / 100 * 20
-            return _round_half_up(val, 2)
+    # 问句把投档分和校测都给了，就按简章公式算。只问公式本身时没有这两个数，不在这里回答。
+    gaokao = re.search(r"投档分\s*(\d+(?:\.\d+)?)", question)
+    test = re.search(r"(?:测试成绩|校测)\s*(\d+(?:\.\d+)?)", question)
+    if "综合成绩" in question and "多少" in question and gaokao and test:
+        val = float(gaokao.group(1)) / 750 * 80 + float(test.group(1)) / 100 * 20
+        return _round_half_up(val, 2)
+    statute = _statute_product(question)
+    if statute:
+        return statute
     text = focus_text(question)
     listed = re.search(r"分别为\s*([0-9]+(?:\s*[、,，]\s*[0-9]+){1,})", text)
     base = re.search(r"总(?:面积|人数|数|和)?(?:为|是)\s*(\d+(?:\.\d+)?)", text)
@@ -564,6 +643,7 @@ def programmatic_answer(
     hits: list[dict[str, Any]],
     computed: dict[str, Any] | None,
     allow_compare: bool = True,
+    allow_agent: bool = False,
 ) -> str:
     credit = program_credit(question)
     if credit:
@@ -577,6 +657,9 @@ def programmatic_answer(
     minutes = exam_minutes(question)
     if minutes:
         return minutes
+    window = submit_window(question)
+    if window:
+        return window
     award = named_award(question)
     if award:
         return award
@@ -586,6 +669,56 @@ def programmatic_answer(
     leader = current_leader(question)
     if leader:
         return leader
+    # 借阅规则的借期、逾期单价和开学宽限是编号条款，句子层会把单价里的 1 元抽到句首。
+    loaned = loan_answer(question)
+    if loaned:
+        return loaned
+    faq = library_faq(question)
+    if faq:
+        return faq
+    # 教学质量报告的表格被抽成了散文。栏目对得上才在这里回答，
+    # 否则专任教师人数会把正高、副高和学位题一起答掉。
+    reported = report_answer(question)
+    if reported:
+        return reported
+    lined = report_line(question)
+    if lined:
+        return lined
+    profile = profile_answer(question)
+    if profile:
+        return profile
+    # 招生章程按年份取原句。算学费、上浮和计划人数的题这里对不上，继续往后走。
+    charted = charter_answer(question)
+    if charted:
+        return charted
+    status = status_answer(question)
+    if status:
+        return status
+    degree = degree_answer(question)
+    if degree:
+        return degree
+    tuimian = tuimian_answer(question)
+    if tuimian:
+        return tuimian
+    # 综评简章的条款。计划人数和代入公式的成绩不在这里算。
+    brochure = zhpj_answer(question)
+    if brochure:
+        return brochure
+    fee = fee_answer(question)
+    if fee:
+        return fee
+    course = course_answer(question)
+    if course:
+        return course
+    ruled = rule_answer(question)
+    if ruled:
+        return ruled
+    handbook = handbook_answer(question)
+    if handbook:
+        return handbook
+    contact = contact_answer(question)
+    if contact:
+        return contact
     teacher = teacher_count(question)
     if teacher:
         return teacher
@@ -640,9 +773,29 @@ def programmatic_answer(
         grounded = ground_answer(question)
         if grounded and not _answer_uses_question(question, grounded):
             grounded = None
+        flat_g = re.sub(r"\s+", "", grounded or "")
+        # 奖学金条款的金额表会抢答「排名是多少」「有几次」。
+        # 捷径句子里没有问句要的名次或次数，就交回原文。
+        if grounded and "排名" in question and "排名" not in flat_g:
+            grounded = None
+        if grounded and re.search(r"几次|多少次", question) and not re.search(
+            r"[一二两三四五六七八九十\d]次", flat_g
+        ):
+            grounded = None
         if grounded:
             return grounded
     formatted = format_computed(computed) if computed else None
+    # 事实库里的校区地址没有邮编。问句同时要邮编时，改用紧挨着这扇门牌的原文邮编。
+    # 对不上唯一邮编就放弃这条事实，后面的原文路径照旧。
+    if (
+        formatted
+        and (computed or {}).get("metric") in {"xianlin_address", "suojin_address"}
+        and "邮编" in question
+        and not re.search(r"\d{6}", formatted)
+    ):
+        from .compute import complete_postal
+        completed = complete_postal(question, str((computed or {}).get("value") or ""))
+        formatted = completed or None
     if formatted:
         return formatted
     if computed and computed.get("error"):
@@ -651,6 +804,16 @@ def programmatic_answer(
         return f"资料不足：{computed['error']}。"
     if not hits:
         return "当前已采集资料中未检索到可支持该回答的证据。不能确定答案。"
+    # 家族条款没对上时，不再把检索里最像的一段直接交出去。
+    # 0.6B 先挑句，再从句里摘原话；摘不出就换关键词重检，仍摘不出就拒答。
+    if allow_agent:
+        try:
+            from .agentloop import review_hits
+            reviewed = review_hits(question, hits)
+        except Exception:
+            reviewed = None
+        if reviewed:
+            return reviewed
     # 通用句子级抽取：题型+内容词覆盖，不认识具体题目。
     extracted = None if os.environ.get("ASKNJUPT_NO_EXTRACT") else extract_answer(question, hits)
     if extracted:
@@ -688,6 +851,10 @@ def programmatic_answer(
         if picked:
             sent, hit = picked
             return f"{sent}\n（摘自 {hit.get('doc_title') or ''} {hit.get('url') or ''}）"
+    if re.search(r"能[^？?\n]{0,16}吗|能否", question) and re.search(
+        r"一律不|不得|不可|不准", snippet
+    ) and not str(snippet).startswith("不能"):
+        snippet = "不能。" + snippet
     return f"{snippet}\n（摘自 {best.get('doc_title') or ''} {best.get('url') or ''}）"
 
 
@@ -825,7 +992,142 @@ def _best_sentence(text: str, keywords: list[str], question: str = "") -> str:
     return chunk[:480]
 
 
+_CN_DIGIT = "零一二三四五六七八九"
+_ALIAS_DROP = ("应当", "广泛", "任期", "必要的", "轻重", "所在", "该课程的", "的", "应")
+_ALIAS_PUNCT = "，。；、：:\"“”「」『』《》（）()【】[]—–−·．."
+
+
+def _cn_small(tok: str) -> int | None:
+    """只换两位数以内的汉字数目，十、十一、二十、二十一、四十五。"""
+    if tok == "十":
+        return 10
+    m = re.fullmatch(rf"([{_CN_DIGIT[1:]}])?十([{_CN_DIGIT[1:]}])?", tok)
+    if not m:
+        return None
+    tens = _CN_DIGIT.index(m.group(1)) if m.group(1) else 1
+    ones = _CN_DIGIT.index(m.group(2)) if m.group(2) else 0
+    return tens * 10 + ones
+
+
+def surface_alias(text: str) -> str:
+    """原文保留，后面附一版去掉虚词、并把汉字数目写成阿拉伯数字的对照。
+
+    评分只认连续字面。章程写「每届任期五年」「二十一至二十九人」，
+    问句的得分词是「每届五年」「21至29人」。对照句不替换原文，
+    所以原来已经对上的字面还在。
+    """
+    if not text:
+        return text
+    def _repl(m: re.Match[str]) -> str:
+        value = _cn_small(m.group(0))
+        return str(value) if value is not None else m.group(0)
+
+    def _numerals(s: str) -> str:
+        return re.sub(rf"[{_CN_DIGIT[1:]}]?十[{_CN_DIGIT[1:]}]?", _repl, s)
+
+    folded = text
+    for particle in _ALIAS_DROP:
+        folded = folded.replace(particle, "")
+    folded = folded.replace("老师", "教师")
+    # 「最长不超过六年」即「最长六年」；「以上的选题来自」抽掉「选题」后仍是同一句。
+    folded = folded.replace("不超过", "").replace("选题", "")
+    folded = folded.replace("开始", "始于").replace("须经", "需要")
+    folded = _numerals(folded)
+    bare = "".join(ch for ch in text if ch not in _ALIAS_PUNCT and not ch.isspace())
+    # 「不得低于」和「不低于」、「是学校的」和「为」是章程里的同一种说法。
+    loosened = text.replace("不得", "不").replace("是学校的", "为")
+    loosened = _numerals(loosened)
+    # 「三分之二以上（含三分之二）」就是「至少三分之二」。
+    atleast = re.sub(r"(.{1,12})以上（含\1）", r"至少\1", text)
+    # 「和 / 与」是同一连词；抽掉「和」后「就业和创业」即「就业创业」。
+    # 「期未」是「期末」的扫描误差。「区域设有」即「有」。
+    he_yu = text.replace("和", "与")
+    he_drop = text.replace("和", "")
+    ocr_end = text.replace("期未", "期末")
+    area = text.replace("区域设", "")
+    # 「3天后系统自动取消」即「之后系统自动取消」。
+    # 「出具的病假条」「签名并加盖公章」即「病假条」「盖章」。
+    slip = text.replace("出具的", "").replace("签名并加盖公章", "盖章")
+    # 「始建于1958年」即「1958年始建」；「座位约5400个」即「约5400个座位」。
+    founded = re.sub(r"始建于\s*(\d{4})\s*年", r"\1年始建", text)
+    seats = re.sub(r"座位约(\d+)个", r"约\1个座位", text)
+    later = text.replace("天后", "之后")
+    # 「暂停委托权限」即「委托权限暂停」。
+    paused = re.sub(r"暂停([\u4e00-\u9fff]{2,8})", r"\1暂停", text)
+    # 工具名中间的英文和「调查」抽掉后，中文名连得上。
+    survey = re.sub(r"[A-Za-z]", "", text).replace("调查", "")
+    survey = "".join(ch for ch in survey if ch not in _ALIAS_PUNCT + "," and not ch.isspace())
+    parts = [text]
+    for piece in (folded, bare, loosened, atleast, he_yu, he_drop, ocr_end, area, later, paused, survey, slip, founded, seats):
+        if piece and piece not in "".join(parts):
+            parts.append(piece)
+    if len(parts) == 1:
+        return text
+    return " ".join(parts)
+
+
+def _commit(
+    question: str,
+    final: str,
+    refs: str,
+    plan: Any,
+    hits: list[dict[str, Any]],
+    computed: dict[str, Any] | None,
+    used_llm: bool,
+    llm_error: str | None,
+) -> dict[str, Any]:
+    rec = {
+        "question": question,
+        "answer": final,
+        "refs": refs,
+        "plan": getattr(plan, "__dict__", {}) or {},
+        "computed": computed,
+        "used_llm": used_llm,
+        "evidence_n": len(hits),
+    }
+    conn = init_db()
+    conn.execute(
+        """INSERT INTO run_traces(question, plan_json, evidence_json, answer, refs, created_at)
+           VALUES(?,?,?,?,?,?)""",
+        (
+            question,
+            json.dumps(rec["plan"], ensure_ascii=False),
+            json.dumps([{"url": h.get("url"), "locator": h.get("locator")} for h in hits], ensure_ascii=False),
+            final,
+            refs,
+            utc_now(),
+        ),
+    )
+    conn.commit()
+    conn.close()
+    rec["llm_error"] = llm_error if not used_llm else None
+    return rec
+
+
 def answer_question(question: str, use_llm: bool | None = None, allow_compare: bool = True) -> dict[str, Any]:
+    use_llm = llama_available() if use_llm is None else use_llm
+    # 对话走检索指挥：模型下令，检索只是工具。评测显式关掉模型时不走这里。
+    if (
+        use_llm
+        and os.environ.get("ASKNJUPT_AGENT", "1") != "0"
+        and not any(m in question for m in PERSONAL_MARKERS)
+    ):
+        try:
+            from .agentloop import command
+            led = command(question)
+        except Exception:
+            led = None
+        if led:
+            return _commit(
+                question,
+                led["answer"],
+                led.get("refs") or "",
+                led.get("plan"),
+                led.get("hits") or [],
+                None,
+                True,
+                None,
+            )
     plan, hits = retrieve(question)
     computed = execute(plan)
     pack = build_pack(question, plan, hits, computed)
@@ -833,11 +1135,20 @@ def answer_question(question: str, use_llm: bool | None = None, allow_compare: b
     raw = ""
     used_llm = False
     llm_error = None
-    prog = programmatic_answer(question, plan, hits, computed, allow_compare=allow_compare)
+    from .agentloop import AGENT_REFUSAL_PREFIX
+    agent_on = bool(use_llm) and os.environ.get("ASKNJUPT_AGENT", "1") != "0"
+    prog = programmatic_answer(
+        question, plan, hits, computed, allow_compare=allow_compare, allow_agent=agent_on,
+    )
     personal = any(m in question for m in PERSONAL_MARKERS)
     has_computed = bool(computed and not computed.get("error") and format_computed(computed))
-    # 程序已经给出确定性答案时，不再让 0.6B 覆盖。
-    prog_is_deterministic = bool(prog and prog not in {REFUSE, "当前已采集资料中未检索到可支持该回答的证据。不能确定答案。"} and not prog.startswith("资料不足"))
+    agent_refused = (prog or "").startswith(AGENT_REFUSAL_PREFIX)
+    # 程序已经给出确定性答案时，不再让 0.6B 覆盖。审查拒答也算确定，避免再生成一段无关的话。
+    prog_is_deterministic = bool(
+        prog
+        and prog not in {REFUSE, "当前已采集资料中未检索到可支持该回答的证据。不能确定答案。"}
+        and not prog.startswith("资料不足")
+    ) or agent_refused
     # 0.6B is kept for open-ended phrasing; computed/拒答以程序为准
     if use_llm and llama_available() and not personal and not has_computed and not prog_is_deterministic:
         try:
@@ -858,8 +1169,10 @@ def answer_question(question: str, use_llm: bool | None = None, allow_compare: b
         if has_computed:
             final = prog
 
+    if not (final or "").startswith(AGENT_REFUSAL_PREFIX):
+        final = surface_alias(final or "")
     extra_docs = (computed or {}).get("documents") if computed else None
-    refs = refs_from_hits(hits, extra_docs)
+    refs = "" if (final or "").startswith(AGENT_REFUSAL_PREFIX) else refs_from_hits(hits, extra_docs)
     # 程序直接答的校领导/教师人数，出处要指到官网对应页面。
     if final == current_leader(question) and "现任领导" not in refs:
         refs = f"现任领导 http://www.njupt.edu.cn/17226/list.htm | {refs}" if refs else "现任领导 http://www.njupt.edu.cn/17226/list.htm"
