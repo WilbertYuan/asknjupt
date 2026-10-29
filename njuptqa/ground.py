@@ -339,6 +339,178 @@ def refuse_reason(question: str) -> str | None:
     return None
 
 
+@lru_cache(maxsize=1)
+def _leaders() -> list[tuple[str, str]]:
+    """官网“现任领导”页：按行解析「南京邮电大学职务 姓名」。"""
+    conn = init_db()
+    row = conn.execute(
+        "SELECT d.id FROM documents d WHERE d.url='http://www.njupt.edu.cn/17226/list.htm'"
+    ).fetchone()
+    if not row:
+        conn.close()
+        return []
+    blocks = conn.execute(
+        "SELECT text FROM blocks WHERE document_id=? ORDER BY id", (row[0],)
+    ).fetchall()
+    conn.close()
+    text = "\n".join(b["text"] or "" for b in blocks)
+    for junk in ("南邮概况", "首页", "南邮校歌", "南邮校史", "学校简介", "学校章程",
+                 "南邮精神", "校标校训", "现任领导", "视频展播", "校园实景漫游", "校园景色",
+                 "校区地图"):
+        text = text.replace(junk, " ")
+    text = re.sub(r"(?<=[\u4e00-\u9fff]) (?=[\u4e00-\u9fff])", "", text)
+    lines = [l.strip() for l in text.splitlines() if l.strip()]
+    pairs: list[tuple[str, str]] = []
+    i = 0
+    while i < len(lines):
+        line = lines[i]
+        if not line.startswith("南京邮电大学") and not line.startswith("省纪委监委"):
+            i += 1
+            continue
+        m = re.search(r"南京邮电大学(.+)$", line)
+        if not m:
+            i += 1
+            continue
+        rest = m.group(1).rstrip("，, ")
+        if "南京邮电大学" in rest or "校区" in rest or not (2 <= len(rest) <= 24):
+            i += 1
+            continue
+        # 下一行若是 2-3 个汉字，且是「南京邮电大学职务」重复行，则本行 rest = 职务+姓名。
+        if i + 1 < len(lines) and lines[i + 1].startswith("南京邮电大学"):
+            m2 = re.search(r"南京邮电大学(.+)$", lines[i + 1])
+            if m2 and m2.group(1).rstrip("，, ") == rest[: len(m2.group(1).rstrip("，, "))]:
+                name = rest[len(m2.group(1).rstrip("，, ")) :]
+                role = m2.group(1).rstrip("，, ")
+                if re.fullmatch(r"[\u4e00-\u9fff]{2,3}", name):
+                    pairs.append((role, name))
+                    i += 2
+                    continue
+        # 下一行若是纯人名，本行 rest 可能是职务（姜小舜式）或职务+姓名（刘青山式）。
+        if i + 1 < len(lines) and re.fullmatch(r"[\u4e00-\u9fff]{2,3}", lines[i + 1]):
+            next_name = lines[i + 1]
+            if rest.endswith(next_name):
+                role = rest[: -len(next_name)]
+                if role and 2 <= len(role) <= 24:
+                    pairs.append((role, next_name))
+                    i += 2
+                    continue
+            pairs.append((rest, next_name))
+            i += 2
+            continue
+        i += 1
+    # 人名去重，保持出现顺序。
+    found: list[tuple[str, str]] = []
+    seen_names = set()
+    for role, name in pairs:
+        if name not in seen_names:
+            seen_names.add(name)
+            found.append((role, name))
+    return found
+
+
+def current_leader(question: str) -> str | None:
+    """问现任校领导（校长/书记/副校长/某人是干什么的）。"""
+    leaders = _leaders()
+    if not leaders:
+        return None
+    focus = focus_text(question)
+    # 问具体某个人：从现任名单里点名。
+    for role, name in leaders:
+        if name and name in focus:
+            return f"{name}现任{role}。"
+    if not any(k in question for k in ("校长", "副校长", "党委书记", "校领导", "现任领导", "领导")):
+        return None
+    asks_president = "校长" in focus and "副校长" not in focus
+    asks_secretary = "党委书记" in focus and "副书记" not in focus
+    if "校长" in focus and "党委书记" in focus and "副校长" not in focus:
+        asks_president = asks_secretary = True
+    pres = next((n for r, n in leaders if "校长" in r and "副校长" not in r), None)
+    sec = next((n for r, n in leaders if r == "党委书记" or (r.endswith("党委书记") and "副" not in r)), None)
+    if asks_president and asks_secretary:
+        if pres and sec:
+            return f"现任校长是{pres}，党委书记是{sec}。"
+        if pres:
+            return f"现任校长是{pres}。"
+        if sec:
+            return f"现任党委书记是{sec}。"
+        return None
+    if asks_president:
+        if pres:
+            return f"现任校长是{pres}。"
+        return None
+    if asks_secretary:
+        if sec:
+            return f"现任党委书记是{sec}。"
+        return None
+    if "副校长" in focus:
+        vps = [n for r, n in leaders if "副校长" in r]
+        if vps:
+            return "、".join(vps)
+        return None
+    # 「现任领导有哪些」这类宽问题：列主要职务。
+    if any(k in focus for k in ("现任领导", "校领导", "领导有哪些", "领导是谁")):
+        head = [f"{n}（{r}）" for r, n in leaders[:8]]
+        return "；".join(head) + "。"
+    return None
+
+
+def teacher_count(question: str) -> str | None:
+    """问全校教师规模（多少老师/多少教师/教职工多少人/师资情况）。"""
+    if not any(k in question for k in ("多少老师", "多少教师", "多少名教师", "多少位教师", "教师人数",
+                                       "专任教师", "教职工", "师资", "多少教职工", "有多少教师")):
+        return None
+    # 「教职工借期/图书」不是在问教师人数。这个捷径若先返回，
+    # 会挡住后面按槽位组装的证据。
+    if any(k in question for k in ("借期", "借阅", "图书", "册")) and not any(
+        k in question for k in ("多少人", "人数", "多少名")
+    ):
+        return None
+    # 「A比B多多少」要走两个指标相减，不能在这里先吐出一个人数。
+    if re.search(r"比.{1,30}(?:多|少|高|低)(?:多少|几)", question):
+        return None
+    # 「反推系数」「复算生师比」是计算题，不能在这里提前答人数。
+    if any(k in question for k in ("反推", "复算", "折算系数", "系数", "生师比")):
+        return None
+    # 点名单个学院时不抢答校级口径，避免拿全校数去答某学院。
+    if re.search(r"[\u4e00-\u9fff]{2,20}学院", question) and "学校" not in question and "全校" not in question and "南邮" not in question:
+        return None
+    conn = init_db()
+    rows = conn.execute(
+        """
+        SELECT f.metric, f.value, f.year, f.source_locator, d.title, d.url
+        FROM facts f JOIN documents d ON d.id=f.source_document_id
+        WHERE f.metric IN ('fulltime','adjunct','equivalent','ratio')
+          AND f.scope='全校' AND d.title LIKE '%本科教学质量报告%'
+        ORDER BY f.year DESC, f.id
+        """
+    ).fetchall()
+    conn.close()
+    if not rows:
+        return None
+    # 报告正文是「截止2023-2024学年末」，facts 表里 fulltime 记成了 2022。取最大学年作为口径年。
+    years = [int(r["year"]) for r in rows if r["year"]]
+    if not years:
+        return None
+    best_year = max(years)
+    ft = next((r for r in rows if r["metric"] == "fulltime"), None)
+    adj = next((r for r in rows if r["metric"] == "adjunct"), None)
+    eq = next((r for r in rows if r["metric"] == "equivalent"), None)
+    if "专任教师" in question or "师资" in question or "多少老师" in question or "多少教师" in question:
+        if ft:
+            return f"截止{best_year}-{best_year+1}学年末，学校有专任教师{int(float(ft['value']))}人。"
+    if "教职工" in question or "教师" in question or "老师" in question:
+        parts = []
+        if ft:
+            parts.append(f"专任教师{int(float(ft['value']))}人")
+        if adj:
+            parts.append(f"聘请校外教师{int(float(adj['value']))}人")
+        if eq:
+            parts.append(f"折合教师总数{int(float(eq['value']))}人")
+        if parts:
+            return f"截止{best_year}-{best_year+1}学年末，学校" + "，".join(parts) + "。"
+    return None
+
+
 def _terms(question: str) -> list[str]:
     """从连续汉字里切出 3 到 8 字的片段。长句不会被一次吞成一个匹配不到的词。"""
     out: list[str] = []

@@ -276,7 +276,13 @@ def score_case(case: dict[str, Any], pred: dict[str, Any]) -> dict[str, Any]:
         ok = all(_key_hit(k, ans, compact) for k in keys if k)
         legacy = all(k in ans or k in compact for k in keys if k)
         detail = f"must_contain={keys}"
-    strict = ok
+    # automatic：机械匹配，不含人工式豁免。
+    # adjudicated：沿用原来的 ok，便于和历史日志比较。
+    # no_source 表示标准答案的特征片段在检索单元里找不到，于是把
+    # 这题改判为对。它掩盖的是采集缺口，不是回答正确。方案取舍看
+    # automatic_score，不要只看被 no_source 抬高的 adjudicated。
+    automatic = ok
+    reason = None
     if not ok:
         reason = _fair_reason(case, ans)
         if reason == "wording":
@@ -285,7 +291,16 @@ def score_case(case: dict[str, Any], pred: dict[str, Any]) -> dict[str, Any]:
         elif reason == "no_source":
             ok = True
             detail = f"已入库材料没有这句话的出处。{detail}"
-    return {"ok": ok, "strict_ok": strict, "legacy_ok": legacy, "detail": detail, "scoring": scoring}
+    return {
+        "ok": ok,
+        "strict_ok": automatic,
+        "legacy_ok": legacy,
+        "detail": detail,
+        "scoring": scoring,
+        "automatic_score": automatic,
+        "adjudicated_score": ok,
+        "adjudication_reason": reason,
+    }
 
 
 def evaluate(split: str | None = None, use_llm: bool | None = None) -> dict[str, Any]:
@@ -305,6 +320,9 @@ def evaluate(split: str | None = None, use_llm: bool | None = None) -> dict[str,
             "refs": pred.get("refs"),
             "ok": sc["ok"],
             "strict_ok": sc.get("strict_ok", sc["ok"]),
+            "automatic_score": sc.get("automatic_score", sc.get("strict_ok", sc["ok"])),
+            "adjudicated_score": sc.get("adjudicated_score", sc["ok"]),
+            "adjudication_reason": sc.get("adjudication_reason"),
             "legacy_ok": sc["legacy_ok"],
             "detail": sc["detail"],
             "used_llm": pred.get("used_llm"),
@@ -314,12 +332,19 @@ def evaluate(split: str | None = None, use_llm: bool | None = None) -> dict[str,
     n = len(rows)
     acc = (sum(1 for r in rows if r["ok"]) / n) if n else 0.0
     strict = (sum(1 for r in rows if r.get("strict_ok")) / n) if n else 0.0
+    automatic = (sum(1 for r in rows if r.get("automatic_score")) / n) if n else 0.0
+    nosrc = sum(1 for r in rows if r.get("adjudication_reason") == "no_source")
+    wording = sum(1 for r in rows if r.get("adjudication_reason") == "wording")
     legacy = (sum(1 for r in rows if r["legacy_ok"]) / n) if n else 0.0
     topic_acc = {k: (sum(v) / len(v) if v else 0) for k, v in by_topic.items()}
     summary = {
         "n": n,
         "accuracy": acc,
+        "adjudicated_accuracy": acc,
+        "automatic_accuracy": automatic,
         "strict_accuracy": strict,
+        "wording_lift": wording,
+        "no_source_lift": nosrc,
         "legacy_accuracy": legacy,
         "topic_accuracy": topic_acc,
         "used_llm": use_llm,

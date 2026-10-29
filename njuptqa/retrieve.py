@@ -258,6 +258,8 @@ _ANCHORS = (
     "咨询电话", "综合成绩", "测试费", "文苑路", "龙蟠路", "新模范马路",
     "国家专项", "地方专项", "普通类", "博士后流动站", "南邮精神",
     "校训", "校风", "校歌", "校庆", "校标", "校旗",
+    "校长", "党委书记", "副校长", "党委副书记", "现任领导",
+    "专任教师", "教职工", "师资", "教师",
 )
 # 整词等于这些才丢掉。不从专业名内部删。
 _DROP_WORDS = {
@@ -308,6 +310,13 @@ def content_keywords(question: str) -> list[str]:
         if word in full or word in _DROP_WORDS:
             continue
         full.append(word)
+    # 长疑问句里“是谁/叫什么/现任”会拼出 FTS 查不到的词，补上可检索的短锚点。
+    if any(a in full for a in ("校长", "党委书记", "副校长", "现任领导")):
+        for extra in ("现任领导", "校长", "党委书记"):
+            if extra in raw and extra not in full:
+                full.append(extra)
+    if "教师" in raw and "专任教师" in full and "专任教师" not in full:
+        full.append("专任教师")
     slices: list[str] = []
     for word in full:
         if len(word) <= 6:
@@ -681,6 +690,24 @@ def lexical_search(question: str, plan: QueryPlan, k: int = 12) -> list[dict[str
             k in text for k in ("文苑路", "85866668", "龙蟠路", "新模范")
         ):
             score += 4
+        # 问校领导时，官网“现任领导”页要压过书名、新闻和学院页。
+        if any(k in question for k in ("校长", "副校长", "党委书记", "现任领导", "校领导")):
+            if (r.get("url") or "") == "http://www.njupt.edu.cn/17226/list.htm":
+                score += 30
+            elif "现任领导" in (r["doc_title"] or "") and "njupt.edu.cn" in (r.get("url") or ""):
+                score += 8
+            if any(k in (r["doc_title"] or "") for k in ("阅读学研究会", "书香园地", "Sheet0", "历任领导")):
+                score -= 12
+        # 问教师规模时，师资指标页优先于慰问、捐赠等新闻。
+        if any(k in question for k in ("多少老师", "多少教师", "教师人数", "教职工", "师资")):
+            if "专任教师" in (r["doc_title"] or "") or "本科教学质量报告" in (r["doc_title"] or ""):
+                score += 16
+            if any(k in (r["doc_title"] or "") for k in ("慰问", "捐赠", "看望", "书香")):
+                score -= 10
+            # 乱码标题的 PDF 不是可读来源，降权。
+            title_blob = (r["doc_title"] or "") + (r.get("url") or "")
+            if "\x00" in title_blob or "t¥" in title_blob or "M˜" in title_blob:
+                score -= 30
         score += _title_bonus(question, r["doc_title"] or "", r["title"] or "")
         title_blob = (r["doc_title"] or "") + (r["title"] or "") + (r.get("url") or "")
         blob0 = (text or "")[:120]
@@ -1297,7 +1324,49 @@ def _promote_best_sentence(conn, hits: list[dict[str, Any]], keywords: list[str]
     return [promoted] + [h for h in hits if h.get("id") != promoted.get("id")]
 
 
+def _semantic_rows(conn: Any, question: str, limit: int = 12) -> list[dict[str, Any]]:
+    """向量召回的补充候选块。模型/索引不可用时返回空表，静默降级。"""
+    try:
+        from . import semantic
+        ranked_ids = semantic.vector_rank(question, top=limit * 3)
+        if not ranked_ids:
+            return []
+        marks = ",".join("?" * len(ranked_ids))
+        rows = conn.execute(
+            f"""
+            SELECT ru.id, ru.document_id, ru.unit_type, ru.title, ru.text, ru.locator,
+                   ru.year, ru.academic_year, d.url, d.title AS doc_title, d.org
+            FROM retrieval_units ru JOIN documents d ON d.id = ru.document_id
+            WHERE ru.id IN ({marks})
+            """,
+            ranked_ids,
+        ).fetchall()
+        by_id = {dict(r)["id"]: dict(r) for r in rows}
+        # 保持向量相似度顺序，并带上向量名次供融合使用。
+        out = []
+        for pos, rid in enumerate(ranked_ids):
+            if rid in by_id:
+                by_id[rid]["_vec_rank"] = pos
+                out.append(by_id[rid])
+        return out[:limit]
+    except Exception:
+        return []
+
+
 def retrieve(question: str, k: int = 10) -> tuple[QueryPlan, list[dict[str, Any]]]:
     plan = plan_query(question)
     hits = lexical_search(question, plan, k=k)
+    # 混合检索：向量召回一路补充候选块。关键词路擅长精确术语，
+    # 向量路补「跳级→提前修读」这类语义不匹配；两路 RRF 融合排序，
+    # 原有规则打分仍然生效（向量块走同一套打分，只额外加召回加成）。
+    conn = init_db()
+    vec_rows = _semantic_rows(conn, question, limit=k)
+    if vec_rows:
+        have = {h.get("id") for h in hits}
+        for vr in vec_rows:
+            if vr["id"] not in have:
+                # 向量路召回但关键词路没有的块：给召回加成，进入同一打分体系。
+                vr["_score"] = vr.get("_score", 0.0) + (2.0 if vr.get("_vec_rank", 99) < 4 else 1.0)
+                hits.append(vr)
+                have.add(vr["id"])
     return plan, hits

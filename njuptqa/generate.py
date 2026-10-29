@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import re
 import subprocess
 from decimal import Decimal, ROUND_HALF_UP
@@ -11,6 +12,7 @@ from . import config
 from .compute import execute, format_computed
 from .ground import (
     REFUSE,
+    current_leader,
     exam_minutes,
     ground_answer,
     named_award,
@@ -18,8 +20,10 @@ from .ground import (
     policy_revision,
     program_credit,
     refuse_reason,
+    teacher_count,
 )
 from .db import init_db
+from .extractive import extract_answer
 from .retrieve import QueryPlan, _clauses, _independent_keywords, _match_terms, content_keywords, retrieve
 from .util import focus_text, utc_now
 
@@ -101,8 +105,6 @@ def run_llama(prompt: str) -> str:
         "modalities ",
         "using custom",
         "available commands",
-        "/exit",
-        "/regen",
         "--no-conversation",
         "please use llama",
         "Loading model",
@@ -114,12 +116,18 @@ def run_llama(prompt: str) -> str:
     lines = []
     for line in out.splitlines():
         s = line.strip()
+        # 模型空转时只吐 slash-token（如 /exit、/flag、/think），这类行必须丢掉。
+        if re.fullmatch(r"/[A-Za-z]+", s):
+            continue
         if not s or s.startswith(junk_prefixes) or set(s) <= set("▄▀█-|/\\ "):
             continue
         if s.startswith(">") and not s.startswith("> 问题"):
             continue
         lines.append(s.lstrip("> ").strip())
     out = "\n".join(lines).strip()
+    # 整个回答就是 slash-token 时，直接视为无输出，让上层走拒答路径。
+    if re.fullmatch(r"(?:/[A-Za-z]+\s*)+", out):
+        out = ""
     # if the model echoed the whole pack, keep only the last short paragraph
     if "程序已完成的确定性计算结果" in out and "结论" in out:
         out = out[out.rfind("结论") :]
@@ -246,8 +254,68 @@ def _gap_parts(question: str) -> tuple[str, str, str] | None:
     return None
 
 
+_TEACHER_METRICS = (
+    ("折合", "equivalent"),
+    ("外聘", "adjunct"),
+    ("校外教师", "adjunct"),
+    ("专任", "fulltime"),
+)
+
+
+def teacher_metric_diff(question: str) -> str | None:
+    """「折合教师比专任教师多多少人」：同一份教学质量报告里的两个指标相减。
+
+    每个指标在该报告里必须只有一个值。对不上的指标（例如外籍教师）
+    不估算。年份字段在入库时有过偏差，所以按文档而不是按年份对齐。
+    """
+    matched = _CMP.search((question or "").strip())
+    if not matched or matched.group("how") not in {"多", "少", "高", "低"}:
+        return None
+
+    def which(side: str) -> str | None:
+        # 「外籍专任」不是专任教师指标，库里没有这一列就不能减。
+        if "外籍" in side:
+            return None
+        for cue, name in _TEACHER_METRICS:
+            if cue in side:
+                return name
+        return None
+
+    left_name = which(matched.group("left"))
+    right_name = which(matched.group("right"))
+    if not left_name or not right_name or left_name == right_name:
+        return None
+    conn = init_db()
+    try:
+        rows = conn.execute(
+            """
+            SELECT f.metric, f.value
+            FROM facts f JOIN documents d ON d.id = f.source_document_id
+            WHERE f.scope = '全校' AND d.title LIKE '%教学质量报告%'
+              AND f.metric IN (?, ?)
+            """,
+            (left_name, right_name),
+        ).fetchall()
+    finally:
+        conn.close()
+    got: dict[str, set[str]] = {}
+    for metric, value in rows:
+        got.setdefault(metric, set()).add(str(value))
+    if set(got.get(left_name) or []) != set() and len(got.get(left_name) or []) == 1 and len(got.get(right_name) or []) == 1:
+        left_n = Decimal(next(iter(got[left_name])))
+        right_n = Decimal(next(iter(got[right_name])))
+        diff = right_n - left_n if matched.group("how") in {"少", "低"} else left_n - right_n
+        if diff < 0:
+            return None
+        return f"{_show_diff(diff)}。"
+    return None
+
+
 def compare_question(question: str) -> str | None:
     """把“A比B多多少”拆成两个已经会答的子问题再相减。子问题不再进入比较，避免套娃。"""
+    # 教师人数差只认事实表里对得上的两个指标，避免两边都读到专任人数后算出 0。
+    if "教师" in (question or "") or "老师" in (question or ""):
+        return None
     gap = _gap_parts(question.strip())
     matched = None if gap else _CMP.search(question.strip())
     if gap:
@@ -515,6 +583,15 @@ def programmatic_answer(
     reason = refuse_reason(question)
     if reason:
         return reason
+    leader = current_leader(question)
+    if leader:
+        return leader
+    teacher = teacher_count(question)
+    if teacher:
+        return teacher
+    differed = teacher_metric_diff(question)
+    if differed:
+        return differed
     if allow_compare:
         compared = compare_question(question)
         if compared:
@@ -529,6 +606,36 @@ def programmatic_answer(
     if missing:
         return missing
     library_page = "图书馆" in question and "教学质量报告" not in question
+    # 结构化表格直查：PDF 抽文本会把表格打成乱序碎片，句子层和
+    # 段落兜底在这种证据上必错；库里 table_rows 存了列对齐的格子，
+    # 键×属性交叉取值更可靠。它只查表不依赖 hits，放在最前面。
+    if os.environ.get("ASKNJUPT_NO_TABLEQA") != "1":
+        try:
+            from .tableqa import answer_from_tables
+            from .extractive import content_terms as _ct
+            tab = answer_from_tables(question, _ct(question))
+        except Exception:
+            tab = None
+        if tab:
+            ans, ttitle, turl = tab
+            if ttitle:
+                return f"{ans}\n（摘自 {ttitle} {turl}）"
+            return ans
+    # 多槽位证据组装：每个槽位都绑到唯一值才提交。
+    # 缺槽位或同一范围内值冲突时不替换，后面的路径照旧。
+    if os.environ.get("ASKNJUPT_NO_ASSEMBLE") != "1":
+        try:
+            from .assemble import assemble_answer
+            cand = assemble_answer(question)
+        except Exception:
+            cand = None
+        if cand and cand.get("validation_status") == "verified" and cand.get("answer"):
+            ans = cand["answer"]
+            title = cand.get("doc_title") or ""
+            url = cand.get("url") or ""
+            if title:
+                return f"{ans}\n（摘自 {title} {url}）"
+            return ans
     if any(k in question for k in PROSE_CUES) and not library_page:
         grounded = ground_answer(question)
         if grounded and not _answer_uses_question(question, grounded):
@@ -544,6 +651,13 @@ def programmatic_answer(
         return f"资料不足：{computed['error']}。"
     if not hits:
         return "当前已采集资料中未检索到可支持该回答的证据。不能确定答案。"
+    # 通用句子级抽取：题型+内容词覆盖，不认识具体题目。
+    extracted = None if os.environ.get("ASKNJUPT_NO_EXTRACT") else extract_answer(question, hits)
+    if extracted:
+        best_doc = _best_hit_for_answer(extracted, hits)
+        if best_doc:
+            return f"{extracted}\n（摘自 {best_doc.get('doc_title') or ''} {best_doc.get('url') or ''}）"
+        return extracted
     keywords = [kw for kw in plan.keywords if kw and len(kw) >= 2]
     ranked = sorted(hits, key=lambda h: h.get("score") or 0, reverse=True)
     best = ranked[0]
@@ -563,7 +677,36 @@ def programmatic_answer(
             snippet = raw_text
     else:
         snippet = _lead_number(question, _best_sentence(raw_text, keywords, question))
+    # 规则抽不出句子时，才让 0.6B 在短名单里另选一句原文。
+    # 只有选中句比这段兜底覆盖更多问句要点才替换；嵌套比较子问题不走这里。
+    if allow_compare and os.environ.get("ASKNJUPT_LLM_SELECT", "1") != "0":
+        try:
+            from .lmselect import select_fallback
+            picked = select_fallback(question, hits, baseline=snippet)
+        except Exception:
+            picked = None
+        if picked:
+            sent, hit = picked
+            return f"{sent}\n（摘自 {hit.get('doc_title') or ''} {hit.get('url') or ''}）"
     return f"{snippet}\n（摘自 {best.get('doc_title') or ''} {best.get('url') or ''}）"
+
+
+def _best_hit_for_answer(answer: str, hits: list[dict[str, Any]]) -> dict[str, Any] | None:
+    """答案是从哪块证据里抽出来的，出处就引哪块。"""
+    flat = re.sub(r"[\s，,。；;：:（）()、]", "", answer or "")[:40]
+    if not flat:
+        return hits[0] if hits else None
+    best, best_n = None, 0
+    for hit in hits:
+        text = re.sub(r"[\s，,。；;：:（）()、]", "", hit.get("text") or "")
+        n = 0
+        for size in (20, 12):
+            for i in range(0, len(flat) - size + 1, size):
+                if flat[i : i + size] in text:
+                    n += 1
+        if n > best_n:
+            best, best_n = hit, n
+    return best or (hits[0] if hits else None)
 
 
 def _answer_uses_question(question: str, text: str) -> bool:
@@ -693,8 +836,10 @@ def answer_question(question: str, use_llm: bool | None = None, allow_compare: b
     prog = programmatic_answer(question, plan, hits, computed, allow_compare=allow_compare)
     personal = any(m in question for m in PERSONAL_MARKERS)
     has_computed = bool(computed and not computed.get("error") and format_computed(computed))
+    # 程序已经给出确定性答案时，不再让 0.6B 覆盖。
+    prog_is_deterministic = bool(prog and prog not in {REFUSE, "当前已采集资料中未检索到可支持该回答的证据。不能确定答案。"} and not prog.startswith("资料不足"))
     # 0.6B is kept for open-ended phrasing; computed/拒答以程序为准
-    if use_llm and llama_available() and not personal and not has_computed:
+    if use_llm and llama_available() and not personal and not has_computed and not prog_is_deterministic:
         try:
             raw = run_llama(pack)
             used_llm = True
@@ -715,6 +860,11 @@ def answer_question(question: str, use_llm: bool | None = None, allow_compare: b
 
     extra_docs = (computed or {}).get("documents") if computed else None
     refs = refs_from_hits(hits, extra_docs)
+    # 程序直接答的校领导/教师人数，出处要指到官网对应页面。
+    if final == current_leader(question) and "现任领导" not in refs:
+        refs = f"现任领导 http://www.njupt.edu.cn/17226/list.htm | {refs}" if refs else "现任领导 http://www.njupt.edu.cn/17226/list.htm"
+    if final == teacher_count(question) and "本科教学质量报告" not in refs:
+        refs = f"本科教学质量报告 https://jwc.njupt.edu.cn/_upload/article/files/87/86/7d6a10f6413e882e76d8f5bc0de5/456a9fa8-1a41-463b-88c7-ca6dffb98e31.pdf | {refs}" if refs else "本科教学质量报告 https://jwc.njupt.edu.cn/_upload/article/files/87/86/7d6a10f6413e882e76d8f5bc0de5/456a9fa8-1a41-463b-88c7-ca6dffb98e31.pdf"
     rec = {
         "question": question,
         "answer": final,
