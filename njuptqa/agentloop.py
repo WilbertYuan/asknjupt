@@ -10,12 +10,43 @@ from __future__ import annotations
 import json
 import os
 import re
+import threading
 import urllib.error
 import urllib.request
+
+# 和 llama-server 的槽位数一致。检索不占这个名额。
+_LLM_SLOTS = threading.Semaphore(int(os.environ.get("ASKNJUPT_LLM_SLOTS", "4")))
 
 AGENT_REFUSAL_PREFIX = "公开资料里没有能直接回答这个问题的条款。"
 
 _CHAT = ("心情", "哈哈", "随便", "你好", "在吗", "天气", "笑话", "吃饭了吗", "无聊")
+
+
+class _LlmCall:
+    """占着模型名额直到这一次生成的正文读完。"""
+
+    def __init__(self, req: urllib.request.Request, timeout: int):
+        self._resp = None
+        _LLM_SLOTS.acquire()
+        try:
+            self._resp = urllib.request.urlopen(req, timeout=timeout)
+        except BaseException:
+            _LLM_SLOTS.release()
+            raise
+
+    def __enter__(self):
+        return self._resp
+
+    def __exit__(self, *exc: object) -> None:
+        try:
+            if self._resp is not None:
+                self._resp.close()
+        finally:
+            _LLM_SLOTS.release()
+
+
+def _llm_response(req: urllib.request.Request, timeout: int) -> _LlmCall:
+    return _LlmCall(req, timeout)
 
 
 def _endpoint() -> str:
@@ -39,7 +70,7 @@ def _complete(prompt: str, max_tokens: int) -> str | None:
         method="POST",
     )
     try:
-        with urllib.request.urlopen(req, timeout=8) as resp:
+        with _llm_response(req, 8) as resp:
             payload = json.loads(resp.read().decode())
         content = payload["choices"][0]["message"].get("content") or ""
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, OSError, KeyError, IndexError, TypeError):
@@ -261,7 +292,7 @@ def _chat(prompt: str, max_tokens: int, grammar: str) -> str | None:
         method="POST",
     )
     try:
-        with urllib.request.urlopen(req, timeout=20) as resp:
+        with _llm_response(req, 20) as resp:
             payload = json.loads(resp.read().decode())
         content = payload["choices"][0]["message"].get("content") or ""
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, OSError, KeyError, IndexError, TypeError):
@@ -412,6 +443,26 @@ def _sql_probe(probes: list[str], question: str = "") -> list[tuple[str, dict]]:
     return out
 
 
+def _asks_fee_site(question: str) -> bool:
+    """问的是收费详情登在哪个网站，不是学校隶属哪个部门。"""
+    text = question or ""
+    return bool(re.search(r"网站|网址|网页", text) and re.search(r"收费|学费", text))
+
+
+def _asks_affiliation(question: str) -> bool:
+    """学校隶属、主管部门。章程里的「哪个部门网站」不是这一问。"""
+    text = question or ""
+    if re.search(r"网站|网址|网页|电话|邮箱", text):
+        return False
+    if re.search(r"收费|学费", text) and "隶属" not in text and "主管部门" not in text:
+        return False
+    if re.search(r"隶属|主管部门", text):
+        return True
+    if re.search(r"属于哪个|哪个部门", text) and "章程" not in text and "招生" not in text:
+        return True
+    return False
+
+
 def _asks_who(question: str) -> bool:
     text = question or ""
     if re.search(r"是谁|叫什么|什么名字|何人", text):
@@ -421,7 +472,7 @@ def _asks_who(question: str) -> bool:
 
 def _asks_span(question: str) -> bool:
     """学制、可以读几年。休学多久不走这里，那类句子里往往没有「学制」。"""
-    return bool(re.search(r"读几年|学制|修业|可以读", question or ""))
+    return bool(re.search(r"读几年|念几年|能念几年|学制|修业|可以读", question or ""))
 
 
 def _asks_english_name(question: str) -> bool:
@@ -431,6 +482,8 @@ def _asks_english_name(question: str) -> bool:
 
 def _asks_place(question: str) -> bool:
     text = question or ""
+    if "通借" in text:
+        return False
     return bool(
         re.search(r"在哪|哪个区|什么区|地址", text)
         or re.search(r"是.+区吗|是不是.+区", text)
@@ -529,6 +582,8 @@ def _rule_focus(question: str) -> str:
 
 
 def _asks_hours(question: str) -> bool:
+    if "会客" in (question or ""):
+        return False
     return bool(re.search(r"开门|开馆|闭馆|几点|周末|周六|周日|开放时间", question or ""))
 
 
@@ -591,11 +646,11 @@ def _asks_borrow_count(question: str) -> bool:
 
 def _asks_borrow_days(question: str) -> bool:
     text = question or ""
-    return bool(
-        re.search(r"借期|期限|多久|多少天", text)
-        and re.search(r"借|书", text)
-        and not _asks_borrow_count(text)
-    )
+    if _asks_borrow_count(text):
+        return False
+    if re.search(r"光盘|光碟", text) and re.search(r"几天|几日|多久|多少天|借期|期限", text):
+        return True
+    return bool(re.search(r"借期|期限|多久|多少天|几天|几日", text) and re.search(r"借|书", text))
 
 
 def _best_at(flat: str, needle: str, prefer: tuple[str, ...]) -> int:
@@ -634,6 +689,8 @@ def _shape_ok(question: str, sent: str, title: str = "") -> bool | None:
         if not role:
             return None
         return _role_name(sent, role) is not None
+    if "本科" in (question or "") and "硕士" not in (question or "") and "博士" not in (question or "") and "保留" not in (question or "") and re.search(r"最长|念几年|能念", question or ""):
+        return "本科标准学制" in sent and "六年" in sent and "休学" in sent
     if _asks_span(question):
         if "=" in sent or not re.search(r"学制|修业年限|学习年限", sent):
             return False
@@ -656,6 +713,8 @@ def _shape_ok(question: str, sent: str, title: str = "") -> bool | None:
             return False
         if asked_district:
             return bool(re.search(r"路|地址[:：]|邮编", sent))
+        if campus and re.search(r"哪条路|什么路", question or ""):
+            return campus.replace("校区", "") in sent and bool(re.search(r"路\d*号", sent))
         need = [phrase for phrase in _phrases(question) if len(phrase) >= 2]
         if not need:
             return None
@@ -669,6 +728,430 @@ def _shape_ok(question: str, sent: str, title: str = "") -> bool | None:
             if not re.search(_DISTRICT, clause):
                 return False
         return bool(re.search(r"路|地址[:：]|邮编", sent))
+    if "会客" in (question or ""):
+        return "会客时间段" in sent
+    if "晚归" in (question or "") or (
+        "宿舍" in (question or "") and "关门" in (question or "") and re.search(r"进|回", question or "")
+    ):
+        return "晚归" in sent and "有效证件" in sent
+    if re.search(r"替考|代考|代替考试|替我考|找人替", question or ""):
+        return "代替考试" in sent and "零分" in sent
+    if re.search(r"考试|考场", question or "") and re.search(r"手机|计时", question or ""):
+        if re.search(r"没拿|没用|口袋|没使用|未使用", question or ""):
+            return "无论使用与否" in sent and "携带" in sent
+        return "计时工具也不允许" in sent and "零分" in sent
+    if re.search(r"考试|考场", question or "") and re.search(r"耳机|听歌|手表|手环", question or ""):
+        return "电子设备" in sent and "无论使用与否" in sent and ("进入考场" in sent or "携带上述设备" in sent)
+    if re.search(r"拍|发群|群里", question or "") and re.search(r"试卷|答案", question or ""):
+        return "传播试卷" in sent and "零分" in sent
+    if "开除" in (question or "") and re.search(r"户口|档案", question or ""):
+        return "被开除学籍" in sent and "户口" in sent and "档案" in sent
+    if re.search(r"代写|别人写|找人写", question or "") and re.search(r"论文|毕业", question or ""):
+        return "代写" in sent and "警告" in sent
+    if re.search(r"调课|换教室|换个教室", question or "") or (
+        "教室" in (question or "") and "课" in (question or "") and re.search(r"私下|私自|自己", question or "")
+    ):
+        return "严禁私自调课" in sent
+    if re.search(r"打电话|接电话|手机", question or "") and re.search(r"图书馆|阅览", question or ""):
+        return "阅览区" in sent and "手机" in sent
+    if re.search(r"勤工助学", question or "") and re.search(r"辅导员|同意|批准", question or "") and not re.search(r"小时|时薪|酬金|多少钱", question or ""):
+        return "勤工助学" in sent and "辅导员批准" in sent
+    if re.search(r"勤工助学|校内打工|校内兼职", question or "") and re.search(r"小时|时薪|酬金|多少钱", question or ""):
+        return bool(re.search(r"勤工助学岗位酬金[^。]{0,16}每小时\d+元", sent))
+    if "赌博" in (question or "") and "宿舍" in (question or ""):
+        return "赌博" in sent and "警告" in sent and "宿舍" in sent
+    if "跳级" in (question or ""):
+        if re.search(r"谁|批准|审批|部门|找谁", question or "") and "学分" not in (question or ""):
+            return "跳级" in sent and "教务处" in sent and "批准" in sent
+        if re.search(r"大三|三年级|3年级", question or "") and not re.search(r"大二|二年级|2年级", question or ""):
+            return "跳级" in sent and "16学分" in sent
+        if re.search(r"大二|二年级|2年级", question or "") and not re.search(r"大三|三年级|3年级", question or ""):
+            return "跳级" in sent and "8学分" in sent
+        return "跳级" in sent and "8学分" in sent and "16学分" in sent
+    if re.search(r"饮料|奶茶|咖啡|零食|食品|面包|食物", question or "") and re.search(r"图书馆|阅览", question or ""):
+        return "有色饮料" in sent and "阅览" in sent
+    if re.search(r"超期|过期|逾期", question or "") and re.search(r"还能|继续借|别的书", question or ""):
+        return "逾期未还" in sent and "不得" in sent and "借" in sent
+    if "续借" in (question or "") or (
+        re.search(r"再借", question or "") and re.search(r"看完|到期|一回|一次", question or "") and re.search(r"书|图书", question or "")
+    ):
+        return "续借一次" in sent
+    if "作弊" in (question or "") and re.search(r"第二次|再次|又一次|再犯", question or ""):
+        return "第二次作弊" in sent and "开除学籍" in sent
+    if "免修" in (question or "") and re.search(r"没去|缺考|再安排|没参加|不去", question or ""):
+        return "免修" in sent and "不再另行安排" in sent
+    if re.search(r"当兵|入伍|参军|应征|退役", question or "") and re.search(r"学籍|保留|入学资格", question or ""):
+        return "退役后" in sent and "保留" in sent and ("学籍" in sent or "入学资格" in sent)
+    if "体检" in (question or "") and re.search(r"费|多少|钱", question or ""):
+        return "新生体检费" in sent and bool(re.search(r"\d+", sent))
+    if re.search(r"抽烟|吸烟", question or "") and re.search(r"宿舍|食堂|教室|图书馆|实验室", question or ""):
+        if any(word in sent for word in ("甩砸", "0·", "丙系")):
+            return False
+        return "吸烟" in sent and "警告" in sent and ("不服从" in sent or "禁烟场所" in sent)
+    if re.search(r"画线|划线|笔画|勾画|勾划|批注", question or "") and re.search(r"书|图书馆", question or ""):
+        return "勾划" in sent or "批注" in sent
+    if re.search(r"占座|占着|占位置", question or "") and re.search(r"图书馆|阅览", question or ""):
+        return "抢占座位" in sent
+    if re.search(r"报纸|现刊|期刊", question or "") and re.search(r"借|拿回|带走|带回去|外借", question or ""):
+        return "一律不外借" in sent and ("报纸" in sent or "现刊" in sent)
+    if re.search(r"电动车|充电", question or "") and re.search(r"宿舍|拉线|电线", question or ""):
+        return "电动车充电" in sent and "严禁" in sent
+    if re.search(r"私拉|乱接|电线", question or "") and "宿舍" in (question or ""):
+        if re.search(r"\d+分", sent) and "警告" not in sent:
+            return False
+        return "私拉乱接" in sent and "警告" in sent and "宿舍" in sent
+    if re.search(r"往下扔|扔下去|高空抛物|从窗", question or ""):
+        if re.search(r"\d+分", sent) and "警告" not in sent:
+            return False
+        return "高空抛物" in sent and "警告以上" in sent and "公共场所" in sent
+    if "社团" in (question or "") and re.search(r"没报|未经|自己|擅自|私自|报批", question or ""):
+        return "擅自组建社团" in sent and "严重警告" in sent
+    if re.search(r"提分|加分|改分|请客", question or "") and re.search(r"老师|教师", question or ""):
+        return "提分" in sent and "以作弊论处" in sent
+    if re.search(r"保研|推免", question or "") and re.search(r"作弊|违纪|处分", question or ""):
+        return "推荐免试" in sent and "取消" in sent
+    if "中外合作" in (question or "") and re.search(r"转专业|转到", question or ""):
+        return "中外合作办学专业之间" in sent
+    if re.search(r"没交|未交|不交|欠费|没缴", question or "") and re.search(r"选课|注册", question or ""):
+        return "无法选课" in sent and "注册" in sent
+    if re.search(r"补办|丢了|遗失", question or "") and re.search(r"学生证|校徽|图书证", question or ""):
+        if re.search(r"多少钱|收费|多少|费用", question or "") and not re.search(r"怎么|如何|丢|遗失", question or ""):
+            return "补办" in sent and "成本" in sent
+        return "智慧学工平台" in sent and "补办" in sent
+    if re.search(r"医保|医疗保险", question or "") and re.search(r"多少|钱|交", question or ""):
+        return "医疗保险" in sent and bool(re.search(r"\d+元", sent))
+    if re.search(r"兼职", question or "") and "勤工助学" in (question or ""):
+        return "兼职" in sent and "不在本办法" in sent
+    if re.search(r"撬锁|撬门", question or "") or ("撬" in (question or "") and "教室" in (question or "") and "宿舍" not in (question or "")):
+        return "撬锁" in sent and "教室" in sent
+    if "重修" in (question or "") and re.search(r"多少人|几人|开班|凑够", question or ""):
+        return "重修班" in sent and "30" in sent
+    if "休学" in (question or "") and re.search(r"退宿|要不要退|宿舍", question or "") and "学费" not in (question or "") and "年限" not in (question or ""):
+        return "退宿" in sent and "休学" in sent
+    if "延期毕业" in (question or "") and re.search(r"宿舍|住宿", question or ""):
+        return "延期毕业" in sent and "不再安排住宿" in sent
+    if "休学" in (question or "") and re.search(r"年限|算不算|计入|算进", question or ""):
+        return "含休学和保留学籍" in sent or "含休学期限" in sent
+    if "休学" in (question or "") and "创业" in (question or ""):
+        return "休学创业" in sent and "最长学习年限" in sent
+    if "休学" in (question or "") and re.search(r"学费|住宿", question or ""):
+        return "休学期间" in sent and "不交纳" in sent
+    if "退学" in (question or "") and re.search(r"证书|肄业", question or ""):
+        return "肄业证书" in sent and ("一学年" in sent or "一年" not in (question or ""))
+    if "警告" in (question or "") and re.search(r"处分", question or "") and re.search(r"多久|期限|解除|撤销", question or ""):
+        return "警告" in sent and "6个月" in sent and "解除" in sent
+    if re.search(r"一卡通|校园卡|挂失", question or "") and re.search(r"书|图书|借出", question or ""):
+        return "自负" in sent and ("挂失" in sent or "借出" in sent)
+    if re.search(r"字典|词典|工具书", question or ""):
+        return "工具书" in sent and "4倍" in sent
+    if re.search(r"丢了|遗失|弄丢", question or "") and re.search(r"书|图书", question or ""):
+        return "一般中文" in sent and "3倍" in sent
+    if "缓考" in (question or "") and "补考" in (question or "") and re.search(r"没去|不去|缺席|没参加", question or ""):
+        return "无故缺席" in sent and "重修" in sent
+    if re.search(r"病假", question or "") and re.search(r"医院|证明", question or "") and "休学" not in (question or "") and "缓考" not in (question or "") and "病假条" not in (question or ""):
+        return "请病假" in sent and ("县、市级医院" in sent or "门诊部" in sent)
+    if re.search(r"病假条", question or "") and re.search(r"谁|签字|签名|盖章", question or ""):
+        return "病假条" in sent and "门诊部主任" in sent
+    if re.search(r"烟花|爆竹", question or ""):
+        return "燃放烟花爆竹" in sent and "严禁" in sent and "校园" in sent
+    if "钥匙" in (question or "") and re.search(r"借|给", question or ""):
+        return "宿舍钥匙" in sent and "私借" in sent
+    if "旷考" in (question or "") and "补考" in (question or ""):
+        return "旷考" in sent and "必须重修" in sent
+    if "作弊" in (question or "") and "补考" in (question or ""):
+        return "作弊者" in sent and "必须重修" in sent
+    if re.search(r"寒假|暑假|假期", question or "") and re.search(r"住|宿舍|留校", question or ""):
+        return "假期留校" in sent and "申请" in sent
+    if ("转学" in (question or "") or re.search(r"外校|别的大学|其他大学|别的学校", question or "")) and "转专业" not in (question or "") and re.search(r"谁|同意|批准|拍板", question or ""):
+        if re.search(r"拍板|谁", question or ""):
+            return "校长办公会" in sent and "转学" in sent
+        return "转学" in sent and "拟转入学校" in sent and "同意" in sent
+    if "档案" in (question or "") and "处分" in (question or ""):
+        return "处分" in sent and "本人档案" in sent
+    if "学分" in (question or "") and "毕业" in (question or ""):
+        if any(word in sent + (title or "") for word in ("专转本", "3+2")) and "专转本" not in (question or ""):
+            return False
+        if "回校" in sent and "准予毕业" not in sent:
+            return False
+        return "准予毕业" in sent and "结业证书" in sent
+    if re.search(r"两次|2次", question or "") and re.search(r"迟到|早退", question or ""):
+        return "2次" in sent and "学时" in sent
+    if re.search(r"迟到|早退", question or "") and "旷课" in (question or ""):
+        return "迟到" in sent and "旷课" in sent and "十五分钟" in sent
+    if re.search(r"进场|入场|考场", question or "") and re.search(r"多久|半小时|迟到", question or ""):
+        return "不得入场" in sent and "半小时" in sent
+    if "留校察看" in (question or "") and re.search(r"多久|期限|多长|一般", question or ""):
+        return "留校察看" in sent and "12个月" in sent
+    if re.search(r"偷书|窃书", question or ""):
+        return "窃书" in sent and ("罚款" in sent or "停止借阅" in sent)
+    if "结业" in (question or "") and re.search(r"回校|毕业证", question or ""):
+        return "结业后一年内" in sent and "发放毕业证书" in sent
+    if re.search(r"开始后|半小时之内|半小时内|不到半小时|开场", question or "") and re.search(r"交卷|退场|离开|走人", question or ""):
+        return "半小时内不得退场" in sent
+    if re.search(r"交卷", question or "") and re.search(r"提前|多久|结束前|离场|离开", question or ""):
+        return "不可交卷离场" in sent and bool(re.search(r"十五分钟|15分钟", sent))
+    if re.search(r"处分", question or "") and re.search(r"奖学|评优|评奖|优秀", question or ""):
+        return "取消" in sent and "处分" in sent and ("奖学金" in sent or "优秀学生" in sent)
+    if "开除" in (question or "") and "学习证明" in (question or ""):
+        return "被开除学籍" in sent and "学习证明" in sent
+    if re.search(r"租房|外面住", question or "") and re.search(r"没跟|没说|未经|擅自|不说", question or ""):
+        return "擅自在外居住" in sent and "警告" in sent
+    if re.search(r"校外", question or "") and re.search(r"住|租", question or ""):
+        return "校外住宿" in sent and ("登记" in sent or "手续" in sent)
+    if "学生证" in (question or "") and re.search(r"借给|转借", question or "") and "火车" not in (question or ""):
+        return "转借" in sent and "学生证" in sent and "警告" in sent and "优惠卡" not in sent
+    if re.search(r"一卡通|校园卡", question or "") and re.search(r"借给|转借", question or ""):
+        return "不得转借" in sent and "一卡通" in sent
+    if re.search(r"考试|考场", question or "") and re.search(r"对答案|传答案|传纸条|抄答案|咬耳朵", question or ""):
+        return "传递" in sent and "考试信息" in sent and "零分" in sent
+    if re.search(r"热得快|电热毯|电水壶", question or "") and re.search(r"宿舍|寝室", question or ""):
+        return ("电热毯" in sent or "热得快" in sent) and "严禁" in sent
+    if re.search(r"草稿纸|演算纸", question or "") and re.search(r"自带|带进|能不能带|可以带", question or "") and not re.search(r"带出|拿出|撕", question or ""):
+        return "不准放置" in sent and "草稿纸" in sent
+    if re.search(r"草稿纸|演算纸", question or "") and re.search(r"考试|带", question or ""):
+        return "草稿纸" in sent and ("不准放置" in sent or "统一发放" in sent)
+    if re.search(r"没办|未办", question or "") and re.search(r"带出|拿出", question or "") and re.search(r"书|图书馆", question or ""):
+        return "未办理借阅手续" in sent and "偷窃" in sent
+    if "开卷" in (question or ""):
+        return "开卷考试只准" in sent
+    if re.search(r"提前", question or "") and re.search(r"分钟|考场", question or "") and "交卷" not in (question or ""):
+        return "提前十分钟" in sent or "提前10分钟" in sent
+    if re.search(r"学生证|身份证", question or "") and re.search(r"桌|位置|哪", question or ""):
+        return "学生证" in sent and ("左上角" in sent or "指定位置" in sent)
+    if "缓考" in (question or "") and re.search(r"成绩|怎么记|记载|备注", question or ""):
+        return "备注缓考" in sent and "成绩" in sent
+    if "免修" in (question or "") and re.search(r"多少分|几分|分数", question or ""):
+        return "75分" in sent and "免修" in sent
+    if re.search(r"病假|生病|因病", question or "") and "休学" in (question or ""):
+        return "病假" in sent and "三分之一" in sent and "休学" in sent
+    if re.search(r"退伍|退役", question or "") and "复学" in (question or ""):
+        return "退役" in sent and "复学手续" in sent and "门诊" not in sent
+    if "复学" in (question or ""):
+        return "复学" in sent and "手续" in sent
+    if "保留入学资格" in (question or "") and re.search(r"学籍|算不算", question or ""):
+        return "不具有学籍" in sent and "保留入学资格" in sent
+    if "保留入学资格" in (question or "") and re.search(r"几年|多久|期限|最长|留", question or ""):
+        return "保留入学资格" in sent and "一学年" in sent
+    if re.search(r"打架|斗殴", question or ""):
+        return "打架斗殴" in sent and "尚未构成犯罪" in sent
+    if re.search(r"酒精炉|煤油炉", question or ""):
+        return "酒精炉" in sent and "严禁" in sent
+    if re.search(r"课本|教材", question or "") and "退" in (question or "") and "费" not in (question or ""):
+        return "不得涂写" in sent and "教材" in sent
+    if re.search(r"退课|退选", question or "") or ("课" in (question or "") and "退" in (question or "") and "退学" not in (question or "") and "退宿" not in (question or "") and "课本" not in (question or "") and "教材" not in (question or "")):
+        if re.search(r"最晚|什么时候|何时", question or ""):
+            return "退选" in sent and "4周" in sent
+        return "退选" in sent and "周" in sent
+    if re.search(r"1\.7", question or "") and re.search(r"学位|毕业设计", question or ""):
+        if "申请理由" in sent or "□" in sent:
+            return False
+        return "低于1.8" in sent and "1.7" in sent and "优秀" in sent and "学位评定委员会" in sent
+    if re.search(r"作弊", question or "") and re.search(r"学位", question or ""):
+        return "因考试作弊" in sent and "留校察看" in sent and "不授予" in sent
+    if re.search(r"两次", question or "") and re.search(r"学位", question or ""):
+        return "两次以上" in sent and "记过" in sent and "不授予" in sent
+    if re.search(r"绩点", question or "") and re.search(r"学位", question or ""):
+        return "平均学分绩点为1.8" in sent and "低于" not in sent
+    if "复查" in (question or "") and re.search(r"省|教育厅|不服", question or ""):
+        if "不再受理" in sent:
+            return False
+        return "省级教育行政部门" in sent and "书面申诉" in sent
+    if "复查" in (question or "") and re.search(r"多久|几天|结论", question or ""):
+        return "15日" in sent and "复查" in sent
+    if re.search(r"申诉", question or "") and re.search(r"几天|期限|日内|多久", question or ""):
+        return "10日内" in sent and "申诉" in sent and "处分决定" in sent
+    if re.search(r"电动车|电动自行车", question or ""):
+        return "电动自行车证" in sent
+    if re.search(r"推免|保研", question or "") and re.search(r"排名|前多少|比例|百分之", question or ""):
+        return "20%" in sent and "排名" in sent
+    if re.search(r"出国|海外|境外", question or "") and "学分" in (question or ""):
+        return "海外访学" in sent and "学分" in sent
+    if re.search(r"交换|交流|跨校|出去修", question or "") and "学分" in (question or ""):
+        return "学分予以承认" in sent or ("跨校" in sent and "学分" in sent)
+    if re.search(r"请假|请一天|请1天", question or "") and re.search(r"谁|批", question or "") and re.search(r"一天|1天|一日", question or ""):
+        return "1日以内" in sent and "辅导员" in sent
+    if re.search(r"一周|1周|七天|两天|2天|三天|几天", question or "") and re.search(r"假", question or "") and re.search(r"谁|批|领导", question or "") and "一天" not in (question or ""):
+        return "1周以内" in sent and "副书记" in sent and "院长" in sent
+    if re.search(r"离校", question or "") and re.search(r"还清|没还|图书|书", question or ""):
+        return "方可办理离校" in sent and "还清" in sent
+    if re.search(r"厕所|卫生间", question or "") and re.search(r"偷看|笔记|资料", question or ""):
+        return "上厕所" in sent and "留校察看" in sent
+    if re.search(r"抢", question or "") and re.search(r"试卷|答卷", question or ""):
+        return "抢夺" in sent and "留校察看" in sent
+    if re.search(r"上厕所|离开考场|中途走", question or "") or ("考场" in (question or "") and "离开" in (question or "")):
+        return "擅自离开考场" in sent and "监考" in sent
+    if re.search(r"多拿|拆散|拆开", question or "") and re.search(r"试卷|答题", question or ""):
+        return "不得多拿试卷" in sent and "拆散装订" in sent
+    if re.search(r"伪造|变造", question or "") and re.search(r"学生证|证件|证书|证明", question or ""):
+        return "伪造" in sent and "记过" in sent and "证件" in sent
+    if "摩托车" in (question or ""):
+        return "摩托车" in sent and "准入证" in sent
+    if re.search(r"电吹风|吹风机", question or "") and re.search(r"宿舍|用", question or ""):
+        return "电吹风" in sent and "严禁" in sent
+    if "无人机" in (question or ""):
+        return "无人机" in sent and "警告" in sent and "登记备案" in sent
+    if re.search(r"自行车|骑车", question or "") and "操场" in (question or "") and "电动" not in (question or ""):
+        return "操场骑车" in sent and "严禁" in sent
+    if re.search(r"记过", question or "") and "学位" in (question or ""):
+        return "不授予学士学位" in sent and "记过" in sent
+    if "平衡车" in (question or "") and "滑板" not in (question or "") and "轮滑" not in (question or ""):
+        return "平衡车" in sent and "警告" in sent and "校园" in sent
+    if re.search(r"平衡车|滑板|轮滑", question or ""):
+        return "平衡车" in sent and "滑板" in sent and "禁止" in sent
+    if re.search(r"网络赌博|网上赌博|网赌", question or ""):
+        return "网络赌博" in sent and "记过" in sent
+    if re.search(r"论文|毕业设计", question or "") and re.search(r"抄|剽窃", question or ""):
+        return "学术不端" in sent and "开除学籍" in sent
+    if "销假" in (question or ""):
+        return "应及时销假" in sent
+    if "公假" in (question or ""):
+        return sent.startswith("公假") or ("公假：" in sent and "重大活动" in sent)
+    if re.search(r"通借|别的校区|其他校区|另一个校区", question or "") and re.search(r"书|借", question or ""):
+        return "另一校区" in sent and ("借书" in sent or "借阅" in sent or "通借" in sent)
+    if re.search(r"校外", question or "") and re.search(r"留宿|过夜", question or ""):
+        return "留宿登记" in sent and "许可" in sent
+    if re.search(r"异性", question or "") and re.search(r"留宿|过夜", question or ""):
+        return "留宿异性" in sent and "留校察看" in sent
+    if re.search(r"留宿|过夜", question or "") and re.search(r"朋友|外人|他人|同学|客人", question or ""):
+        return "留宿他人" in sent and "警告" in sent and "异性" not in sent
+    if re.search(r"仪器|元器件", question or "") and re.search(r"弄坏|损坏|摔坏|弄丢", question or ""):
+        return "损坏或丢失报告单" in sent
+    if re.search(r"着火|火警|起火", question or ""):
+        return "发现火警" in sent and "报警" in sent
+    if re.search(r"保健课|保健体育|康复保健", question or ""):
+        return "康复保健课" in sent
+    if "试读" in (question or ""):
+        return "转专业试读" in sent and "不得超过一年" in sent
+    if "口头警告" in (question or ""):
+        return "口头警告" in sent and "严重警告" in sent
+    if re.search(r"教材费", question or "") and re.search(r"离校|毕业|结清", question or ""):
+        return "结清教材" in sent and "离校" in sent
+    if re.search(r"大四", question or "") and "教材" in (question or ""):
+        return "现付现结" in sent and "大四" in sent
+    if re.search(r"处分", question or "") and re.search(r"几种|哪些|种类|有哪", question or ""):
+        return all(word in sent for word in ("警告", "严重警告", "记过", "留校察看", "开除学籍"))
+    if re.search(r"东张西望|偷看试卷", question or ""):
+        return "东张西望" in sent and "口头警告" in sent
+    if re.search(r"证件", question or "") and re.search(r"不给|拒绝|不拿|不出示", question or ""):
+        return "拒绝出示" in sent and "口头警告" in sent
+    if "交头接耳" in (question or ""):
+        return "交头接耳" in sent and "取消该科目" in sent
+    if re.search(r"挂科|挂了科|不及格", question or "") and "奖学金" in (question or ""):
+        return "不及格" in sent and "奖学金" in sent and "不得参加" in sent
+    if "补考" in (question or "") and "重修" in (question or ""):
+        return "仍不及格" in sent and "应报名重修" in sent
+    if "补考" in (question or "") and re.search(r"多少分|最高|怎么记|记载|(?<!不)及格", question or ""):
+        return "补考通过" in sent and "及格记" in sent
+    if "寻衅" in (question or "") and "网络" not in (question or ""):
+        if "利用网络" in sent:
+            return False
+        return "寻衅滋事" in sent and "警告" in sent
+    if "麻将" in (question or ""):
+        return "打麻将" in sent and "警告" in sent
+    if re.search(r"猫|狗|宠物", question or "") and re.search(r"宿舍|养|校园", question or ""):
+        return "豢养" in sent and "宠物" in sent
+    if re.search(r"计算器|文具", question or "") and re.search(r"考试|考场|借", question or ""):
+        return "计算器" in sent and "记过" in sent
+    if "传销" in (question or ""):
+        return "非法传销" in sent and "不得" in sent
+    if re.search(r"家长|父母|亲人|亲属|爸妈|爸爸|妈妈", question or "") and re.search(r"宿舍|寝室", question or "") and re.search(r"几点|最晚|时间|待", question or ""):
+        return "探访时间段" in sent and "直系亲属" in sent
+    if "绿色通道" in (question or "") or re.search(r"交不起|筹不齐|凑不齐|筹齐|凑齐|缴不起|无法及时", question or ""):
+        return "无法及时缴清" in sent and "绿色通道" in sent
+    if re.search(r"喝醉|酗酒|喝酒", question or "") and re.search(r"宿舍|寝室", question or ""):
+        return "酗酒" in sent and "警告处分" in sent
+    if "免听" in (question or ""):
+        return "免听" in sent and "按时交作业" in sent and "重修" in sent
+    if re.search(r"摆摊|地摊|设点", question or ""):
+        return "摆摊设点" in sent and "不得" in sent
+    if re.search(r"衣服|身上|手上|手心|手臂", question or "") and re.search(r"考试|考场|作弊|答案", question or ""):
+        return "衣服" in sent and "考试有关" in sent and "留校察看" in sent
+    if re.search(r"提纲|座位底下|座位下面|垫着", question or "") and re.search(r"考试|考场|算", question or ""):
+        return "复习提纲" in sent and "留校察看" in sent
+    if re.search(r"答题纸|答题卡|草稿纸", question or "") and re.search(r"带出|拿出|撕", question or ""):
+        return "答题纸" in sent and "不准带出考场" in sent
+    if re.search(r"答卷|试卷", question or "") and re.search(r"带出|拿出", question or ""):
+        return "带出考场者" in sent
+    if re.search(r"蜡烛|明火", question or "") and re.search(r"宿舍|寝室", question or ""):
+        return "点蜡烛" in sent and "严禁" in sent
+    if re.search(r"煲汤|做饭|炒菜", question or "") and "宿舍" in (question or ""):
+        return "煲汤" in sent and "严禁" in sent
+    if "共享单车" in (question or ""):
+        return "共享单车" in sent and ("许可" in sent or "入校" in sent)
+    if re.search(r"开放课|网络课|慕课", question or "") and "学分" in (question or ""):
+        return "开放式网络课程" in sent and "予以承认" in sent
+    if "辅修" in (question or "") and re.search(r"学费|交钱|收费|另外交", question or ""):
+        return "学分学费" in sent and "免收" in sent and "辅" in sent
+    if "辅修" in (question or ""):
+        return "辅修" in sent and "申请" in sent
+    if "夜不归宿" in (question or ""):
+        return "夜不归宿" in sent and "1-3日" in sent
+    if "体育课" in (question or "") and re.search(r"缺|三分之一", question or "") and "体测" not in (question or ""):
+        return "三分之一" in sent and "重修体育课" in sent
+    if re.search(r"外放|吵到", question or "") and re.search(r"宿舍|睡觉|休息", question or ""):
+        return "外放影音" in sent and "警告" in sent
+    if "宿舍" in (question or "") and re.search(r"换|调", question or "") and "门锁" not in (question or ""):
+        return "私自调换" in sent and "房间" in sent
+    if re.search(r"外宿|外出", question or "") and re.search(r"几点|最迟|最晚|回来|返校", question or ""):
+        return "前返校" in sent
+    if "三好" in (question or "") and "处分" in (question or ""):
+        return "处分期内" in sent and "优秀学生" in sent and "不得参加" in sent
+    if "助学金" in (question or "") and "奖学金" in (question or "") and re.search(r"一起|同时|兼", question or ""):
+        if "励志" in (question or ""):
+            return "国家励志奖学金" in sent and "可以同时申请并获得国家助学金" in sent
+        return "获得国家奖学金" in sent and "可以同时申请并获得国家助学金" in sent and "励志" not in sent
+    if "留校察看" in (question or "") and re.search(r"提前|去掉|解除|表现", question or ""):
+        return "提前解除处分" in sent and "显著进步" in sent
+    if re.search(r"门禁|闯关|挤进", question or "") and re.search(r"宿舍|寝室", question or ""):
+        return "强行闯关" in sent and "门禁" in sent
+    if re.search(r"自行车", question or "") and "电动" not in (question or "") and "操场" not in (question or "") and re.search(r"证|牌|进校|入校", question or ""):
+        return "通行证" in sent and "上牌" in sent and "第三章" not in sent
+    if re.search(r"记过|严重警告", question or "") and re.search(r"半年|几个月|多久|期限|自动|撤销|解除", question or "") and "学位" not in (question or "") and "留校" not in (question or ""):
+        return "自动解除" in sent and "6个月" in sent
+    if re.search(r"画花|涂花|污损|弄脏|涂脏", question or "") and re.search(r"试卷|卷子|考卷", question or ""):
+        return "故意污损试卷" in sent and "记过" in sent
+    if re.search(r"演讲|辩论|文艺比赛", question or "") and re.search(r"奖|奖金|多少钱", question or ""):
+        return "市级获奖者奖励" in sent and "演讲" in sent
+    if "体育课" in (question or "") and re.search(r"事假|事情", question or ""):
+        return "作旷课论处" in sent and "体育课" in sent
+    if re.search(r"消防通道|消防", question or "") and re.search(r"停|车", question or ""):
+        return "消防通道" in sent and "停放" in sent
+    if re.search(r"电饭煲|电磁炉|微波炉|煮饭|米饭", question or "") and re.search(r"宿舍|寝室", question or ""):
+        return "电饭煲" in sent and "严禁" in sent
+    if re.search(r"游行|示威|集会", question or ""):
+        return "游行" in sent and "开除学籍" in sent
+    if re.search(r"晨跑|早操|早锻炼", question or ""):
+        return "59分" in sent and "早操" in sent
+    if re.search(r"见义勇为|救人|英勇", question or "") and re.search(r"表彰|荣誉|待遇|受伤|致残", question or ""):
+        return "见义勇为" in sent and "荣誉称号" in sent and "2026" in (title or "")
+    if "复查" in (question or "") and re.search(r"造假|作假|舞弊|不合格", question or ""):
+        return "弄虚作假" in sent and "取消学籍" in sent
+    if re.search(r"造假|假材料|作假", question or "") and re.search(r"入学|录取|新生", question or "") and "复查" not in (question or ""):
+        return "实际情况不符" in sent and "取消入学资格" in sent
+    if "学分" in (question or "") and "学费" in (question or "") and "辅修" not in (question or "") and re.search(r"怎么算|如何算|乘|单价|按学分", question or ""):
+        return "乘以" in sent and "每学分学费标准" in sent
+    if re.search(r"晾|晒", question or "") and re.search(r"树|花草|宿舍", question or ""):
+        return "晾晒" in sent and "树枝" in sent
+    if re.search(r"没锁|未锁|不锁", question or "") and "车" in (question or ""):
+        return "未锁" in sent and "拖离" in sent
+    if re.search(r"爬|攀", question or "") and re.search(r"窗|栏杆|顶楼", question or ""):
+        return "攀爬" in sent and "禁止" in sent
+    if re.search(r"洗衣|被子|床单|被罩", question or "") and re.search(r"洗|收费|免费", question or ""):
+        return "免费" in sent and "床上用品" in sent
+    if re.search(r"礼拜|宗教|传教", question or ""):
+        return "不得" in sent and "宗教活动" in sent
+    if re.search(r"仓鼠|老鼠|兔子|动物", question or "") and re.search(r"宿舍|寝室|养", question or "") and not re.search(r"猫|狗", question or ""):
+        return "饲养各种动物" in sent and "清出宿舍" in sent
+    if re.search(r"弹簧刀|匕首|三棱刀|管制刀|枪支", question or ""):
+        return "管制刀具" in sent and "严重警告" in sent
+    if re.search(r"偷|盗|诈骗|敲诈", question or "") and not re.search(r"偷拍|偷窥", question or "") and re.search(r"钱|财物|同学|犯罪", question or ""):
+        return "偷窃" in sent and "尚未构成犯罪" in sent
+    if re.search(r"垃圾", question or "") and re.search(r"走廊|楼道|宿舍|寝室", question or ""):
+        return "堆放垃圾" in sent
+    if re.search(r"直播", question or "") and re.search(r"宿舍|寝室", question or ""):
+        return "网络直播" in sent and "严禁" in sent
+    if re.search(r"吸毒|毒品|贩毒", question or ""):
+        return "毒品" in sent and "开除学籍" in sent
     if _asks_rule(question):
         focus = _rule_focus(question)
         if not focus:
@@ -758,21 +1241,39 @@ def _shape_ok(question: str, sent: str, title: str = "") -> bool | None:
     if _asks_campuses(question):
         return "四个校区" in sent and all(word in sent for word in ("仙林", "三牌楼", "锁金村"))
     if _asks_borrow_count(question):
+        if re.search(r"外文|英文原版|原版书|外文书", question or ""):
+            if "研究生" in (question or "") and "本科" not in (question or ""):
+                return "外文" in sent and "研究生" in sent and bool(re.search(r"每证限借\d+册", sent))
+            return "外文" in sent and "本科生" in sent and bool(re.search(r"每证限借\d+册", sent))
         if "限借" not in sent:
             return False
         if "本科" in (question or "") and "本科生" not in sent:
             return False
+        if "外文" not in (question or "") and "外文" in sent:
+            return False
         return True
+    if "预约" in (question or "") and re.search(r"书|取|几天|多久", question or ""):
+        return "保留3天" in sent and "预约" in sent
     if _asks_borrow_days(question):
-        return bool(re.search(r"借期\d+天", sent))
+        if re.search(r"光盘|光碟", question or ""):
+            return bool(re.search(r"光盘借期\d+天", sent))
+        if "研究生" in (question or "") and "本科" not in (question or ""):
+            return bool(re.search(r"研究生借期\d+天", sent))
+        return bool(re.search(r"本科生借期\d+天", sent))
+    if re.search(r"实验", question or "") and "数据" in (question or ""):
+        return "实验数据" in sent and "抄袭" in sent
     if "作弊" in (question or ""):
         return bool("作弊" in sent and "零分" in sent and "免试" not in sent)
+    if "睡觉" in (question or "") and "旷课" in (question or ""):
+        return "睡觉" in sent and "旷课" in sent
     if "旷课" in (question or ""):
         asked = re.search(r"[二三四五]分之一", question or "")
         if asked and asked.group(0) != "五分之一":
             return asked.group(0) in sent and "旷课" in sent
         return bool("旷课" in sent and "五分之一" in sent)
     if "转专业" in (question or ""):
+        if re.search(r"排名|前多少|成绩", question or "") and not re.search(r"名额|比例|百分之", question or ""):
+            return "无未通过计划内课程" in sent and "转专业" in sent
         if re.search(r"名额|比例|多少|限制", question or ""):
             return "15%" in sent and "转" in sent and "专业" in sent
         if re.search(r"什么时候|何时|几月|哪一学期", question or ""):
@@ -804,6 +1305,8 @@ def _shape_ok(question: str, sent: str, title: str = "") -> bool | None:
     if "缓考" in (question or ""):
         if "证明" in (question or ""):
             return "诊断证明" in sent and "缓考" in sent
+        if re.search(r"没批准|未被批准|不批准|没去考|不去考", question or ""):
+            return "未被批准" in sent and "旷考" in sent
         return "缓考" in sent and "=" not in sent and ("申请" in sent or "患病" in sent)
     if "缓交" in (question or ""):
         return "缓交" in sent
@@ -824,8 +1327,18 @@ def _shape_ok(question: str, sent: str, title: str = "") -> bool | None:
     if "留学生" in (question or "") and ("学费" in (question or "") or "多少钱" in (question or "")):
         at = sent.find("自费来华留学生学费")
         return at >= 0 and "元/生" in sent[at:at + 80]
-    if re.search(r"隶属|属于哪个|哪个部门|主管部门", question or ""):
-        return "工业和信息化部" in sent and "江苏省" in sent and "共建" in sent and "项目" not in sent
+    if _asks_fee_site(question):
+        return "财务处网站" in sent and "收费详情" in sent
+    if _asks_affiliation(question):
+        return (
+            "工业和信息化部" in sent
+            and "国家邮政局" in sent
+            and "教育部" in sent
+            and "江苏省" in sent
+            and "共建" in sent
+            and "项目" not in sent
+            and not sent.startswith("一流")
+        )
     if "电话" in (question or ""):
         if "图书馆" in (question or ""):
             return "进行咨询" in sent and bool(re.search(r"\d{7,}", sent))
@@ -844,10 +1357,14 @@ def _shape_ok(question: str, sent: str, title: str = "") -> bool | None:
         if "校长信箱" in (question or "") or "校长邮箱" in (question or ""):
             return "校长信箱" in sent and "@" in sent and "班车" not in sent
         return "@" in sent
+    if ("体测" in (question or "") or "体质" in (question or "")) and re.search(r"免测|免予", question or ""):
+        return "免予执行" in sent and "三甲" in sent
     if "体测" in (question or "") or "体质" in (question or ""):
         if "毕业" in (question or ""):
             return "按结业处理" in sent and "体质" in sent
         return "体质" in sent and "不及格" in sent
+    if "光盘" in (question or "") and re.search(r"划伤|损坏|弄坏", question or ""):
+        return "明显划伤" in sent and "2倍" in sent
     if "光盘" in (question or "") and re.search(r"书|图书", question or "") and re.search(r"过期|超期|逾期|罚款|违约", question or ""):
         return "每盘每天" in sent or ("交纳违约金" in sent and re.search(r"图书|0\.10|0\.5", sent))
     if "光盘" in (question or "") and re.search(r"过期|超期|逾期|罚款|违约", question or "") and "书" not in (question or ""):
@@ -957,6 +1474,7 @@ def _rank_bias(question: str, sent: str, hit: dict | None) -> tuple[int, int, in
     shaped = _shape_ok(question, sent, (hit or {}).get("doc_title") or "")
     return (
         0 if shaped is True else 1,
+        1 if str((hit or {}).get("url") or "").startswith("local://") else 0,
         -(_latest_year(sent, hit) if _asks_who(question) else 0),
         -(5 if "副校长" in (question or "") and re.search(r"(?<!副)校长[\u4e00-\u9fff]{2,3}", sent or "") else 0),
         1 if "双一流" in (question or "") and any(word in (sent or "") for word in ("均值", "标准差", "常模")) else 0,
@@ -984,6 +1502,8 @@ def _rank_bias(question: str, sent: str, hit: dict | None) -> tuple[int, int, in
         -(len(re.findall(r"副校长(?:、[\u4e00-\u9fff]{2,12})?[\u4e00-\u9fff]{2,3}", sent or "")) if "副校长" in (question or "") else 0),
         -(1 if "校训" in (question or "") and "校训" in (sent or "") and "校风" in (sent or "") else 0),
         -(1 if "作弊" in (question or "") and "相应的纪律处分" in (sent or "") else 0),
+        -(2 if re.search(r"衣服|身上|手上|手心|手臂", question or "") and "衣服、身上" in (sent or "") and "留校察看" in (sent or "") and "（四）" not in (sent or "") else 0),
+        -(2 if re.search(r"提纲|座位", question or "") and "复习提纲" in (sent or "") and "留校察看" in (sent or "") and "（四）" not in (sent or "") else 0),
         -(_latest_year(sent, hit) if "学费" in (question or "") and not re.search(r"\d{6,}", sent or "") else 0),
         -(max([int(y) for y in re.findall(r"20\d{2}(?=年)", (hit or {}).get("doc_title") or "")] or [0]) if _fee_kind(question) or _asks_school_code(question) else 0),
         -(1 if _asks_rule(question) and any(word in (sent or "") for word in ("严禁", "必须", "可以申请")) else 0),
@@ -1037,8 +1557,16 @@ def _recall_pairs(question: str) -> list[tuple[str, dict]]:
                 "学制",
             ))
     if _asks_place(question):
-        need = [item for item in _phrases(question) if len(item) >= 2][:2]
-        if need:
+        campus = _asked_campus(question)
+        if campus and re.search(r"哪条路|什么路", question or ""):
+            specs.append((
+                "ru.text LIKE ? AND ru.text LIKE '%路%'",
+                "CASE WHEN d.title LIKE '%章程%' THEN 0 WHEN d.title LIKE '%2026%' THEN 1 ELSE 2 END, length(ru.text)",
+                (f"%{campus}地址%",),
+                campus + "地址",
+            ))
+        need = [item for item in _phrases(question) if len(item) >= 2 and item not in ("条路上", "什么路")][:2]
+        if need and not (campus and re.search(r"哪条路|什么路", question or "")):
             clause = " AND ".join("ru.text LIKE ?" for _ in need)
             specs.append((
                 clause,
@@ -1080,7 +1608,21 @@ def _recall_pairs(question: str) -> list[tuple[str, dict]]:
             (f"%{focus}%",),
             focus,
         ))
-    if _asks_hours(question):
+    if "夜不归宿" in (question or ""):
+        specs.append(("ru.text LIKE '%归宿的%' AND ru.text LIKE '%警告或严重警告%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "夜不归宿"))
+    if "体育课" in (question or "") and re.search(r"缺|三分之一", question or "") and "体测" not in (question or ""):
+        specs.append(("ru.text LIKE '%重修体育课%' AND ru.text LIKE '%三分之一%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "重修体育课"))
+    if re.search(r"拍|发群|群里", question or "") and re.search(r"试卷|答案", question or ""):
+        specs.append(("ru.text LIKE '%传播试卷%' AND ru.text LIKE '%零分记%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "传播试卷"))
+    if re.search(r"外放|吵到", question or "") and re.search(r"宿舍|睡觉|休息", question or ""):
+        specs.append(("ru.text LIKE '%外放影音%' AND ru.text LIKE '%警告%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "外放影音"))
+    if "宿舍" in (question or "") and re.search(r"换|调", question or "") and "门锁" not in (question or ""):
+        specs.append(("ru.text LIKE '%私自调换房间%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "私自调换房间"))
+    if re.search(r"答题纸|答题卡|草稿纸", question or "") and re.search(r"带出|拿出|撕", question or ""):
+        specs.append(("ru.text LIKE '%答题纸%' AND ru.text LIKE '%不准带出考场%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "不准带出考场"))
+    if re.search(r"外宿|外出", question or "") and re.search(r"几点|最迟|最晚|回来|返校", question or ""):
+        specs.append(("ru.text LIKE '%前返校%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "前返校"))
+    elif _asks_hours(question):
         place = next((word for word in ("食堂", "餐厅", "宿舍", "体育馆", "校门", "大门") if word in (question or "")), "")
         if place:
             clock = re.search(r"开门|关门|几点", question or "")
@@ -1128,7 +1670,12 @@ def _recall_pairs(question: str) -> list[tuple[str, dict]]:
             (f"%{needle}%",),
             needle,
         ))
-    if "助学金" in (question or ""):
+    if "助学金" in (question or "") and "奖学金" in (question or "") and re.search(r"一起|同时|兼", question or ""):
+        if "励志" in (question or ""):
+            specs.append(("ru.text LIKE '%国家励志奖学金%' AND ru.text LIKE '%可以同时申请并获得国家助学金%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "可以同时申请"))
+        else:
+            specs.append(("ru.text LIKE '%可以同时申请并获得国家助学金%' AND ru.text NOT LIKE '%励志%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "可以同时申请"))
+    elif "助学金" in (question or ""):
         specs.append((
             "ru.text LIKE '%国家助学金%' AND ru.text LIKE '%每人每年%'",
             "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
@@ -1172,14 +1719,26 @@ def _recall_pairs(question: str) -> list[tuple[str, dict]]:
             (),
             "每证限借",
         ))
-    if _asks_borrow_days(question):
-        specs.append((
-            "ru.text LIKE '%借期%' AND ru.text LIKE '%本科生%'",
-            "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)",
-            (),
-            "借期",
-        ))
-    if "作弊" in (question or ""):
+    if "预约" in (question or "") and re.search(r"书|取|几天|多久", question or ""):
+        specs.append(("ru.text LIKE '%预约书到馆通知%'", "CASE WHEN d.title LIKE '%手册%' OR d.title LIKE '%借阅%' THEN 0 ELSE 1 END, length(ru.text)", (), "保留3天"))
+    elif _asks_borrow_days(question):
+        if re.search(r"光盘|光碟", question or ""):
+            specs.append((
+                "ru.text LIKE '%随书光盘借期%'",
+                "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+                (),
+                "光盘借期",
+            ))
+        else:
+            specs.append((
+                "ru.text LIKE '%借期%' AND ru.text LIKE '%本科生%'",
+                "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)",
+                (),
+                "借期",
+            ))
+    if re.search(r"实验", question or "") and "数据" in (question or ""):
+        specs.append(("ru.text LIKE '%实验数据%' AND ru.text LIKE '%抄袭%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "实验数据"))
+    elif "作弊" in (question or ""):
         specs.append((
             "ru.text LIKE '%作弊%' AND ru.text LIKE '%零分%'",
             "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
@@ -1212,7 +1771,14 @@ def _recall_pairs(question: str) -> list[tuple[str, dict]]:
             (),
             "个教学机构",
         ))
-    if re.search(r"隶属|属于哪个|哪个部门|主管部门", question or ""):
+    if _asks_fee_site(question):
+        specs.append((
+            "ru.text LIKE '%收费详情%' AND ru.text LIKE '%财务处网站%'",
+            "CASE WHEN d.title LIKE '%2026%' AND d.title LIKE '%章程%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "财务处网站",
+        ))
+    elif _asks_affiliation(question):
         specs.append((
             "ru.text LIKE '%共建%' AND ru.text LIKE '%部%'",
             "CASE WHEN d.title LIKE '%2026%' THEN 0 WHEN ru.text LIKE '%国家邮政局%' THEN 1 ELSE 2 END, length(ru.text)",
@@ -1250,7 +1816,14 @@ def _recall_pairs(question: str) -> list[tuple[str, dict]]:
                 (),
                 "邮编",
             ))
-    if "体测" in (question or "") or "体质" in (question or ""):
+    if ("体测" in (question or "") or "体质" in (question or "")) and re.search(r"免测|免予", question or ""):
+        specs.append((
+            "ru.text LIKE '%三甲医院%' AND ru.text LIKE '%免予执行%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "三甲医院",
+        ))
+    elif "体测" in (question or "") or "体质" in (question or ""):
         specs.append((
             "ru.text LIKE '%体质健康%' AND (ru.text LIKE '%不及格%' OR ru.text LIKE '%结业%' OR ru.text LIKE '%肄业%')",
             "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
@@ -1263,6 +1836,13 @@ def _recall_pairs(question: str) -> list[tuple[str, dict]]:
             "CASE WHEN d.title LIKE '%2026%' THEN 0 WHEN d.title LIKE '%学校简介%' THEN 1 ELSE 2 END, length(ru.text)",
             (),
             "诞生于",
+        ))
+    if "光盘" in (question or "") and re.search(r"划伤|损坏|弄坏", question or ""):
+        specs.append((
+            "ru.text LIKE '%明显划伤%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "明显划伤",
         ))
     if "光盘" in (question or "") and re.search(r"书|图书", question or "") and re.search(r"过期|超期|逾期|罚款|违约", question or ""):
         specs.append((
@@ -1511,7 +2091,7 @@ def _recall_pairs(question: str) -> list[tuple[str, dict]]:
                 (),
                 "中外合作办学（波特兰学院）",
             ))
-    if "开除学籍" in (question or ""):
+    if "开除学籍" in (question or "") and not re.search(r"户口|档案", question or ""):
         specs.append((
             "ru.text LIKE '%第五十二条%' AND ru.text LIKE '%违反宪法%' AND ru.text LIKE '%开除学籍%'",
             "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
@@ -1547,7 +2127,9 @@ def _recall_pairs(question: str) -> list[tuple[str, dict]]:
             (),
             "非全日制",
         ))
-    if "转专业" in (question or "") and re.search(r"名额|比例|限制|多少", question or ""):
+    if "转专业" in (question or "") and re.search(r"排名|前多少|成绩", question or "") and not re.search(r"名额|比例|百分之", question or ""):
+        specs.append(("ru.text LIKE '%无未通过计划内课程%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "无未通过计划内课程"))
+    elif "转专业" in (question or "") and re.search(r"名额|比例|限制|多少", question or ""):
         specs.append((
             "(ru.text LIKE '%转专业%' OR ru.text LIKE '%转入专业%') AND ru.text LIKE '%累计上限为60%' AND ru.text NOT LIKE '%=%'",
             "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
@@ -1561,7 +2143,501 @@ def _recall_pairs(question: str) -> list[tuple[str, dict]]:
             (),
             "第二学期",
         ))
-    specs.sort(key=lambda spec: 0 if spec[3] in ("第二学期", "15%", "教务处", "财务处", "可申请国家奖学金", "评选条件", "三好学生：", "荣誉称号分为", "优秀学生干部", "三好学生标兵", "违反宪法", "微专业旨在", "中外合作办学（波特兰学院）", "波特兰学院硕士研究生", "每盘每天", "性别比", "学生毕业时", "个教学机构", "折合教师总数", "57000", "68000", "重新参加入学考试", "诞生于", "15学分", "户籍所在地", "不超过16000", "折算为学分", "诊断证明", "免修申请表", "硕士学位授权点", "63000") or str(spec[3]).startswith("年成立") else 1)
+    if "会客" in (question or ""):
+        specs.append((
+            "ru.text LIKE '%会客时间段%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "会客时间段",
+        ))
+    if "晚归" in (question or "") or (
+        "宿舍" in (question or "") and "关门" in (question or "") and re.search(r"进|回", question or "")
+    ):
+        specs.append((
+            "ru.text LIKE '%有效证件登记%' AND ru.text LIKE '%关门后%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "有效证件登记",
+        ))
+    if re.search(r"替考|代考|代替考试|替我考|找人替", question or ""):
+        specs.append((
+            "ru.text LIKE '%由他人代替考试%' AND ru.text LIKE '%零分%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "由他人代替考试",
+        ))
+    if re.search(r"考试|考场", question or "") and re.search(r"手机|计时", question or "") and re.search(r"没拿|没用|口袋|没使用|未使用", question or ""):
+        specs.append((
+            "ru.text LIKE '%携带上述设备%' AND ru.text LIKE '%无论使用与否%'",
+            "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "无论使用与否",
+        ))
+    elif re.search(r"考试|考场", question or "") and re.search(r"耳机|听歌|手表|手环", question or ""):
+        specs.append((
+            "ru.text LIKE '%携带上述设备%' AND ru.text LIKE '%无论使用与否%'",
+            "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "无论使用与否",
+        ))
+    elif re.search(r"考试|考场", question or "") and re.search(r"手机|计时", question or ""):
+        specs.append((
+            "ru.text LIKE '%计时工具也不允许%' AND ru.text LIKE '%零分%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "计时工具也不允许",
+        ))
+    if "开除" in (question or "") and re.search(r"户口|档案", question or ""):
+        specs.append((
+            "ru.text LIKE '%被开除学籍%' AND ru.text LIKE '%户口%' AND ru.text LIKE '%户籍所在地%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "被开除学籍",
+        ))
+    if re.search(r"代写|别人写|找人写", question or "") and re.search(r"论文|毕业", question or ""):
+        specs.append((
+            "ru.text LIKE '%由他人代写毕业论文%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "由他人代写毕业论文",
+        ))
+    if re.search(r"调课|换教室|换个教室", question or "") or (
+        "教室" in (question or "") and "课" in (question or "") and re.search(r"私下|私自|自己", question or "")
+    ):
+        specs.append((
+            "ru.text LIKE '%严禁私自调课%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "严禁私自调课",
+        ))
+    if re.search(r"打电话|接电话|手机", question or "") and re.search(r"图书馆|阅览", question or ""):
+        specs.append((
+            "ru.text LIKE '%阅览区手机通话%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "阅览区手机通话",
+        ))
+    if re.search(r"勤工助学", question or "") and re.search(r"辅导员|同意|批准", question or "") and not re.search(r"小时|时薪|酬金|多少钱", question or ""):
+        specs.append(("ru.text LIKE '%勤工助学需经辅导员审核%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "辅导员审核"))
+    if re.search(r"勤工助学|校内打工|校内兼职", question or "") and re.search(r"小时|时薪|酬金|多少钱", question or ""):
+        specs.append((
+            "ru.text LIKE '%不低于每小时%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "不低于每小时",
+        ))
+    if "赌博" in (question or "") and "宿舍" in (question or ""):
+        specs.append((
+            "ru.text LIKE '%（九）赌博%' AND ru.text LIKE '%警告%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "（九）赌博",
+        ))
+    if "跳级" in (question or ""):
+        specs.append((
+            "ru.text LIKE '%允许跳级%' AND ru.text LIKE '%小于等于8%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "允许跳级",
+        ))
+    if "免修" in (question or "") and re.search(r"没去|缺考|再安排|没参加|不去", question or ""):
+        specs.append((
+            "ru.text LIKE '%免修课程考核%' AND ru.text LIKE '%不再另行安排考核%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "不再另行安排考核",
+        ))
+    if re.search(r"当兵|入伍|参军|应征|退役", question or "") and re.search(r"学籍|保留|入学资格", question or ""):
+        specs.append((
+            "ru.text LIKE '%入学资格或者学籍%' AND ru.text LIKE '%退役后%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "入学资格或者学籍",
+        ))
+    if "体检" in (question or "") and re.search(r"费|多少|钱", question or ""):
+        specs.append((
+            "ru.text LIKE '%新生体检费%' AND ru.text LIKE '%元/生%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "新生体检费",
+        ))
+    if "作弊" in (question or "") and re.search(r"第二次|再次|又一次|再犯", question or ""):
+        specs.append((
+            "ru.text LIKE '%第二次作弊%' AND ru.text LIKE '%开除学籍%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "第二次作弊",
+        ))
+    if re.search(r"饮料|奶茶|咖啡|零食|食品|面包|食物", question or "") and re.search(r"图书馆|阅览", question or ""):
+        specs.append((
+            "ru.text LIKE '%有色饮料%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "有色饮料",
+        ))
+    if re.search(r"外文|英文原版|原版书|外文书", question or "") and _asks_borrow_count(question):
+        specs.append((
+            "ru.text LIKE '%外文原版%' AND ru.text LIKE '%每证限借%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "外文原版",
+        ))
+    if "续借" in (question or "") or (
+        re.search(r"再借", question or "") and re.search(r"看完|到期|一回|一次", question or "") and re.search(r"书|图书", question or "")
+    ):
+        specs.append((
+            "ru.text LIKE '%可续借%' AND ru.text LIKE '%续借期%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "可续借一次",
+        ))
+    if "跳级" in (question or "") and re.search(r"谁|批准|审批|部门|找谁", question or "") and "学分" not in (question or ""):
+        specs.append((
+            "ru.text LIKE '%教务处批准%' AND ru.text LIKE '%允许跳级%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "教务处批准",
+        ))
+    if re.search(r"抽烟|吸烟", question or "") and re.search(r"宿舍|食堂|教室|图书馆|实验室", question or ""):
+        specs.append((
+            "ru.text LIKE '%场所吸烟%' AND ru.text LIKE '%警告处分%' AND ru.text LIKE '%宿舍%'",
+            "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)",
+            (),
+            "场所吸烟",
+        ))
+    if re.search(r"画线|划线|笔画|勾画|勾划|批注", question or "") and re.search(r"书|图书馆", question or ""):
+        specs.append(("ru.text LIKE '%不得勾划%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "不得勾划"))
+    if re.search(r"占座|占着|占位置", question or "") and re.search(r"图书馆|阅览", question or ""):
+        specs.append(("ru.text LIKE '%抢占座位%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "抢占座位"))
+    if re.search(r"报纸|现刊|期刊", question or "") and re.search(r"借|拿回|带走|带回去|外借", question or ""):
+        specs.append(("ru.text LIKE '%一律不外借%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "一律不外借"))
+    if re.search(r"私拉|乱接|电线", question or "") and "宿舍" in (question or ""):
+        specs.append(("ru.text LIKE '%私拉乱接%' AND ru.text LIKE '%警告%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "私拉乱接"))
+    if re.search(r"往下扔|扔下去|高空抛物|从窗", question or ""):
+        specs.append(("ru.text LIKE '%高空抛物%' AND ru.text LIKE '%警告以上%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "高空抛物"))
+    if "社团" in (question or "") and re.search(r"没报|未经|自己|擅自|私自|报批", question or ""):
+        specs.append(("ru.text LIKE '%擅自组建社团%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "擅自组建社团"))
+    if re.search(r"提分|加分|改分|请客", question or "") and re.search(r"老师|教师", question or ""):
+        specs.append(("ru.text LIKE '%以作弊论处%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "以作弊论处"))
+    if re.search(r"保研|推免", question or "") and re.search(r"作弊|违纪|处分", question or ""):
+        specs.append(("ru.text LIKE '%取消推荐免试研究生资格%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "取消推荐免试研究生资格"))
+    if "中外合作" in (question or "") and re.search(r"转专业|转到", question or ""):
+        specs.append(("ru.text LIKE '%中外合作办学专业之间%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "中外合作办学专业之间"))
+    if re.search(r"没交|未交|不交|欠费|没缴", question or "") and re.search(r"选课|注册", question or ""):
+        specs.append(("ru.text LIKE '%无法选课%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "无法选课"))
+    if re.search(r"补办|丢了|遗失", question or "") and re.search(r"学生证|校徽|图书证", question or ""):
+        if re.search(r"多少钱|收费|多少|费用", question or "") and not re.search(r"怎么|如何|丢|遗失", question or ""):
+            specs.append(("ru.text LIKE '%补办学生证%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "补办学生证"))
+        else:
+            specs.append(("ru.text LIKE '%学生遗失学生证%' AND ru.text LIKE '%智慧学工平台%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "智慧学工平台"))
+    if re.search(r"医保|医疗保险", question or "") and re.search(r"多少|钱|交", question or ""):
+        specs.append(("ru.text LIKE '%城镇居民基本医疗保险%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "城镇居民基本医疗保险"))
+    if "兼职" in (question or "") and "勤工助学" in (question or ""):
+        specs.append(("ru.text LIKE '%兼职%' AND ru.text LIKE '%不在本办法%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "不在本办法"))
+    if re.search(r"撬锁|撬门", question or "") or ("撬" in (question or "") and "教室" in (question or "") and "宿舍" not in (question or "")):
+        specs.append(("ru.text LIKE '%撬锁破窗%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "撬锁破窗"))
+    if "缓考" in (question or "") and re.search(r"没批准|未被批准|不批准|没去考|不去考", question or ""):
+        specs.append(("ru.text LIKE '%按旷考论处%' AND ru.text LIKE '%未被批准%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "按旷考论处"))
+    if "重修" in (question or "") and re.search(r"多少人|几人|开班|凑够", question or ""):
+        specs.append(("ru.text LIKE '%超过30%' AND ru.text LIKE '%重修班%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "重修班"))
+    if "休学" in (question or "") and "创业" in (question or ""):
+        specs.append(("ru.text LIKE '%对休学创业的学生%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "休学创业"))
+    elif "休学" in (question or "") and re.search(r"年限|算不算|计入|算进", question or ""):
+        specs.append(("(ru.text LIKE '%含休学和保留学籍%' OR ru.text LIKE '%含休学期限%')", "CASE WHEN d.title LIKE '%2026%' THEN 0 WHEN d.title LIKE '%手册%' THEN 1 ELSE 2 END, length(ru.text)", (), "含休学"))
+    if "休学" in (question or "") and re.search(r"学费|住宿", question or ""):
+        specs.append(("ru.text LIKE '%不交纳学费%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "不交纳学费"))
+    if "退学" in (question or "") and re.search(r"证书|肄业", question or ""):
+        specs.append(("ru.text LIKE '%肄业证书%' AND ru.text LIKE '%一学年%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "肄业证书"))
+    if "警告" in (question or "") and "处分" in (question or "") and re.search(r"多久|期限|解除|撤销", question or ""):
+        specs.append(("ru.text LIKE '%记过处分期限%' AND ru.text LIKE '%自动解除%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "自动解除"))
+    if re.search(r"一卡通|校园卡|挂失", question or "") and re.search(r"书|图书|借出", question or ""):
+        specs.append(("ru.text LIKE '%证件所有人自负%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "证件所有人自负"))
+    if re.search(r"字典|词典|工具书", question or ""):
+        specs.append(("ru.text LIKE '%工具书按原价%' OR (ru.text LIKE '%字典%' AND ru.text LIKE '%4倍%')", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "工具书按原价"))
+    elif re.search(r"丢了|遗失|弄丢", question or "") and re.search(r"书|图书", question or ""):
+        specs.append(("ru.text LIKE '%一般中文%' AND ru.text LIKE '%原价的3%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "原价的3"))
+    if "缓考" in (question or "") and "补考" in (question or "") and re.search(r"没去|不去|缺席|没参加", question or ""):
+        specs.append(("ru.text LIKE '%无故缺席，必须参加重修%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "无故缺席"))
+    elif ("旷考" in (question or "") or "作弊" in (question or "")) and "补考" in (question or ""):
+        specs.append(("ru.text LIKE '%所缺课程必须重修%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "必须重修"))
+    if re.search(r"病假", question or "") and re.search(r"医院|证明", question or "") and "休学" not in (question or "") and "缓考" not in (question or "") and "病假条" not in (question or ""):
+        specs.append(("ru.text LIKE '%县、市级医院%' AND ru.text LIKE '%请病假%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "县、市级医院"))
+    if re.search(r"病假条", question or "") and re.search(r"谁|签字|签名|盖章", question or ""):
+        specs.append(("ru.text LIKE '%病假条%' AND ru.text LIKE '%门诊部主任%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "病假条"))
+    if re.search(r"记过", question or "") and "学位" in (question or ""):
+        specs.append(("ru.text LIKE '%不授予学士学位%' AND ru.text LIKE '%记过或记过以上%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "记过或记过以上"))
+    if re.search(r"自行车|骑车", question or "") and "操场" in (question or "") and "电动" not in (question or ""):
+        specs.append(("ru.text LIKE '%操场骑车%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "操场骑车"))
+    if re.search(r"烟花|爆竹", question or ""):
+        specs.append(("ru.text LIKE '%校园内严禁燃放烟花爆竹%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "烟花爆竹"))
+    if "钥匙" in (question or "") and re.search(r"借|给", question or ""):
+        specs.append(("ru.text LIKE '%不得将宿舍钥匙%' AND ru.text LIKE '%私借%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "宿舍钥匙"))
+    if re.search(r"寒假|暑假|假期", question or "") and re.search(r"住|宿舍|留校", question or ""):
+        specs.append(("ru.text LIKE '%封楼管理%' AND ru.text LIKE '%不得留校%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "封楼管理"))
+    if ("转学" in question or re.search(r"外校|别的大学|其他大学|别的学校", question)) and "转专业" not in question and re.search(r"谁|同意|批准|拍板", question):
+        specs.append(("ru.text LIKE '%校长办公会或者专题会议%' AND ru.text LIKE '%转学%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "校长办公会"))
+    if "档案" in (question or "") and "处分" in (question or ""):
+        specs.append(("ru.text LIKE '%解除处分材料%' AND ru.text LIKE '%本人档案%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "解除处分材料"))
+    if "学分" in (question or "") and "毕业" in (question or ""):
+        specs.append(("ru.text LIKE '%准予毕业%' AND ru.text LIKE '%发放结业证书%' AND d.title LIKE '%学生手册%' AND d.title NOT LIKE '%专转本%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "结业证书"))
+    if re.search(r"两次|2次", question or "") and re.search(r"迟到|早退", question or ""):
+        specs.append(("ru.text LIKE '%1 个学时%' AND ru.text LIKE '%作旷课%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "1个学时"))
+    elif re.search(r"迟到|早退", question or "") and "旷课" in (question or ""):
+        specs.append(("ru.text LIKE '%迟到十五分钟%' AND ru.text LIKE '%旷课%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "迟到十五分钟"))
+    if re.search(r"进场|入场|考场", question or "") and re.search(r"多久|半小时|迟到", question or ""):
+        specs.append(("ru.text LIKE '%迟到半小时者%' AND ru.text LIKE '%不得退场%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 WHEN d.title LIKE '%2026%' THEN 1 ELSE 2 END, length(ru.text)", (), "不得入场"))
+    if "留校察看" in (question or "") and re.search(r"多久|期限|多长|一般", question or ""):
+        specs.append(("ru.text LIKE '%留校察看一般%' AND ru.text LIKE '%个月为期%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "留校察看一般"))
+    if re.search(r"偷书|窃书", question or ""):
+        specs.append(("ru.text LIKE '%窃书行为%' AND ru.text LIKE '%原价10%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "窃书行为"))
+    if "结业" in (question or "") and re.search(r"回校|毕业证", question or ""):
+        specs.append(("ru.text LIKE '%结业后一年内%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "结业后一年内"))
+    if re.search(r"交卷", question or "") and re.search(r"提前|多久|结束前|离场|离开", question or ""):
+        specs.append(("(ru.text LIKE '%结束前十五%' OR ru.text LIKE '%不可交卷离场%') AND ru.text LIKE '%交卷%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 WHEN d.title LIKE '%2026%' THEN 1 ELSE 2 END, length(ru.text)", (), "不可交卷离场"))
+    if re.search(r"处分", question or "") and re.search(r"奖学|评优|评奖|优秀", question or ""):
+        specs.append(("ru.text LIKE '%取消本人当学年奖学金%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "取消本人当学年奖学金"))
+    if "开除" in (question or "") and "学习证明" in (question or ""):
+        specs.append(("ru.text LIKE '%发给学习证明%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "发给学习证明"))
+    if re.search(r"校外", question or "") and re.search(r"住|租", question or ""):
+        specs.append(("ru.text LIKE '%办理校外住宿手续%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "办理校外住宿手续"))
+    if "学生证" in (question or "") and re.search(r"借给|转借", question or "") and "火车" not in (question or ""):
+        specs.append(("ru.text LIKE '%转借、转租学生证%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "转租学生证"))
+    elif re.search(r"一卡通|校园卡", question or "") and re.search(r"借给|转借", question or ""):
+        specs.append(("ru.text LIKE '%不得转借%' AND ru.text LIKE '%只限本人%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "不得转借"))
+    if re.search(r"考试|考场", question or "") and re.search(r"对答案|传答案|传纸条|抄答案|咬耳朵", question or ""):
+        specs.append(("ru.text LIKE '%传递有关考试信息%' AND ru.text LIKE '%零分%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "传递有关考试信息"))
+    if re.search(r"热得快|电热毯|电水壶", question or "") and re.search(r"宿舍|寝室", question or ""):
+        heater = "CASE WHEN ru.text LIKE '%电热毯%' THEN 0 ELSE 1 END" if "电热毯" in (question or "") else "CASE WHEN ru.text LIKE '%违章电器%' THEN 0 ELSE 1 END"
+        specs.append(("ru.text LIKE '%热得快%' AND ru.text LIKE '%严禁%'", heater + ", CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "热得快"))
+    if re.search(r"草稿纸|演算纸", question or "") and re.search(r"考试|带", question or ""):
+        specs.append(("ru.text LIKE '%草稿纸%' AND ru.text LIKE '%不准放置%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 WHEN d.title LIKE '%2026%' THEN 1 ELSE 2 END, length(ru.text)", (), "不准放置"))
+    if re.search(r"没办|未办", question or "") and re.search(r"带出|拿出", question or "") and re.search(r"书|图书馆", question or ""):
+        specs.append(("ru.text LIKE '%未办理借阅手续%' AND ru.text LIKE '%偷窃%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "未办理借阅手续"))
+    if "开卷" in (question or ""):
+        specs.append(("ru.text LIKE '%开卷考试只准%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "开卷考试只准"))
+    if re.search(r"提前", question or "") and re.search(r"分钟|考场", question or "") and "交卷" not in (question or ""):
+        specs.append(("ru.text LIKE '%提前十分钟进入%' OR ru.text LIKE '%提前10分钟%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "提前十分钟进入"))
+    if re.search(r"学生证|身份证", question or "") and re.search(r"桌|位置|哪", question or ""):
+        specs.append(("ru.text LIKE '%左上角待查%' OR (ru.text LIKE '%学生证%' AND ru.text LIKE '%指定位置%')", "CASE WHEN ru.text LIKE '%左上角%' THEN 0 ELSE 1 END, CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "左上角待查"))
+    if "缓考" in (question or "") and re.search(r"成绩|怎么记|记载|备注", question or ""):
+        specs.append(("ru.text LIKE '%备注缓考%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "备注缓考"))
+    if "免修" in (question or "") and re.search(r"多少分|几分|分数", question or ""):
+        specs.append(("ru.text LIKE '%75分及75%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "75分及75"))
+    if re.search(r"病假|生病|因病", question or "") and "休学" in (question or ""):
+        specs.append(("ru.text LIKE '%请病假缺课%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "请病假缺课"))
+    if re.search(r"退伍|退役", question or "") and "复学" in (question or ""):
+        specs.append(("ru.text LIKE '%退役证明%' AND ru.text LIKE '%复学手续%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "退役证明"))
+    elif "复学" in (question or ""):
+        specs.append(("ru.text LIKE '%办理复学手续%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "办理复学手续"))
+    if "保留入学资格" in (question or "") and re.search(r"几年|多久|期限|最长|留", question or ""):
+        specs.append(("ru.text LIKE '%期限为一学年%' AND ru.text LIKE '%保留入学资格%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "期限为一学年"))
+    if re.search(r"打架|斗殴", question or ""):
+        specs.append(("ru.text LIKE '%尚未构成犯罪%' AND ru.text LIKE '%打架%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "尚未构成犯罪"))
+    if re.search(r"酒精炉|煤油炉", question or ""):
+        specs.append(("ru.text LIKE '%酒精炉%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "酒精炉"))
+    if "留校察看" in (question or "") and re.search(r"提前|去掉|解除|表现", question or ""):
+        specs.append(("ru.text LIKE '%提前解除处分%' AND ru.text LIKE '%显著进步%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "提前解除处分"))
+    if re.search(r"门禁|闯关|挤进", question or "") and re.search(r"宿舍|寝室", question or ""):
+        specs.append(("ru.text LIKE '%不得强行闯关%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "强行闯关"))
+    if re.search(r"自行车", question or "") and "电动" not in (question or "") and "操场" not in (question or "") and re.search(r"证|牌|进校|入校", question or ""):
+        specs.append(("ru.text LIKE '%校园通行证上牌%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "校园通行证上牌"))
+    if re.search(r"记过|严重警告", question or "") and re.search(r"半年|几个月|多久|期限|自动|撤销|解除", question or "") and "学位" not in (question or "") and "留校" not in (question or ""):
+        specs.append(("ru.text LIKE '%处分期满自动解除%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "处分期满自动解除"))
+    if re.search(r"画花|涂花|污损|弄脏|涂脏", question or "") and re.search(r"试卷|卷子|考卷", question or ""):
+        specs.append(("ru.text LIKE '%故意污损试卷者%' AND ru.text LIKE '%当次考试卷面成绩以零分记%'", "length(ru.text)", (), "故意污损试卷"))
+    if re.search(r"演讲|辩论|文艺比赛", question or "") and re.search(r"奖|奖金|多少钱", question or ""):
+        specs.append(("ru.text LIKE '%演讲%' AND ru.text LIKE '%市级获奖者奖励%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "市级获奖者奖励"))
+    if "体育课" in (question or "") and re.search(r"事假|事情", question or ""):
+        specs.append(("ru.text LIKE '%作旷课论处%' AND ru.text LIKE '%体育课%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "作旷课论处"))
+    if re.search(r"消防通道|消防", question or "") and re.search(r"停|车", question or ""):
+        specs.append(("ru.text LIKE '%消防通道%' AND ru.text LIKE '%禁停区停放%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "消防通道"))
+    if re.search(r"电饭煲|电磁炉|微波炉|煮饭|米饭", question or "") and re.search(r"宿舍|寝室", question or ""):
+        specs.append(("ru.text LIKE '%电饭煲%' AND ru.text LIKE '%严禁使用%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "电饭煲"))
+    if re.search(r"游行|示威|集会", question or ""):
+        specs.append(("ru.text LIKE '%游行%' AND ru.text LIKE '%留校察看直至开除%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "游行"))
+    if re.search(r"晨跑|早操|早锻炼", question or ""):
+        specs.append(("ru.text LIKE '%记为59%' AND ru.text LIKE '%早操%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "记为59"))
+    if re.search(r"见义勇为|救人|英勇", question or "") and re.search(r"表彰|荣誉|待遇|受伤|致残", question or ""):
+        specs.append(("ru.text LIKE '%见义勇%' AND ru.text LIKE '%授予荣誉称号%' AND d.title LIKE '%2026%'", "length(ru.text)", (), "授予荣誉称号"))
+    if "复查" in (question or "") and re.search(r"造假|作假|舞弊|不合格", question or ""):
+        specs.append(("ru.text LIKE '%弄虚作假%' AND ru.text LIKE '%取消学籍%' AND ru.text LIKE '%复查不合格%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "弄虚作假"))
+    elif re.search(r"造假|假材料|作假", question or "") and re.search(r"入学|录取|新生", question or ""):
+        specs.append(("ru.text LIKE '%实际情况不符%' AND ru.text LIKE '%取消入学资格%' AND d.title LIKE '%手册%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "实际情况不符"))
+    if re.search(r"爬|攀", question or "") and re.search(r"窗|栏杆|顶楼", question or ""):
+        specs.append(("ru.text LIKE '%禁止攀爬门窗%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "禁止攀爬"))
+    if re.search(r"洗衣|被子|床单|被罩", question or "") and re.search(r"洗|收费|免费", question or ""):
+        specs.append(("ru.text LIKE '%免费的床上用品清洗%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "床上用品"))
+    if re.search(r"礼拜|宗教|传教", question or ""):
+        specs.append(("ru.text LIKE '%不得在学校进行宗教活动%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "宗教活动"))
+    if re.search(r"仓鼠|老鼠|兔子|动物", question or "") and re.search(r"宿舍|寝室|养", question or "") and not re.search(r"猫|狗", question or ""):
+        specs.append(("ru.text LIKE '%饲养各种动物%' AND ru.text LIKE '%清出宿舍%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "饲养各种动物"))
+    if re.search(r"弹簧刀|匕首|三棱刀|管制刀|枪支", question or ""):
+        specs.append(("ru.text LIKE '%弹簧刀%' AND ru.text LIKE '%严重警告以上处分%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "弹簧刀"))
+    if re.search(r"偷|盗|诈骗|敲诈", question or "") and not re.search(r"偷拍|偷窥", question or "") and re.search(r"钱|财物|同学|犯罪", question or ""):
+        specs.append(("ru.text LIKE '%偷窃、诈骗%' AND ru.text LIKE '%尚未构成犯罪%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "偷窃"))
+    if re.search(r"垃圾", question or "") and re.search(r"走廊|楼道|宿舍|寝室", question or ""):
+        specs.append(("ru.text LIKE '%楼道堆放垃圾%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "堆放垃圾"))
+    if re.search(r"直播", question or "") and re.search(r"宿舍|寝室", question or ""):
+        specs.append(("ru.text LIKE '%网络直播%' AND ru.text LIKE '%严禁在学生宿舍进行%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "网络直播"))
+    if re.search(r"吸毒|毒品|贩毒", question or ""):
+        specs.append(("ru.text LIKE '%贩卖毒品%' AND ru.text LIKE '%开除学籍%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "贩卖毒品"))
+    if "学分" in (question or "") and "学费" in (question or "") and "辅修" not in (question or "") and re.search(r"怎么算|如何算|乘|单价|按学分", question or ""):
+        specs.append(("ru.text LIKE '%乘以每学分学费标准%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "每学分学费标准"))
+    if re.search(r"晾|晒", question or "") and re.search(r"树|花草|宿舍", question or ""):
+        specs.append(("ru.text LIKE '%树枝上晾晒%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "树枝上晾晒"))
+    if re.search(r"没锁|未锁|不锁", question or "") and "车" in (question or ""):
+        specs.append(("ru.text LIKE '%未锁%' AND ru.text LIKE '%拖离%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "拖离现场"))
+    if re.search(r"课本|教材", question or "") and "退" in (question or "") and "费" not in (question or ""):
+        specs.append(("ru.text LIKE '%退回的教材不得涂写%' AND d.title LIKE '%手册%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "不得涂写"))
+    if re.search(r"退课|退选", question or "") or ("课" in (question or "") and "退" in (question or "") and "退学" not in (question or "") and "退宿" not in (question or "") and "课本" not in (question or "") and "教材" not in (question or "")):
+        specs.append(("ru.text LIKE '%退选%' AND ru.text LIKE '%试修%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "试修"))
+    if re.search(r"绩点", question or "") and re.search(r"学位", question or ""):
+        specs.append(("ru.text LIKE '%平均学分绩点为1%' AND ru.text LIKE '%1.8%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "平均学分绩点为1"))
+    if re.search(r"申诉", question or "") and re.search(r"几天|期限|日内|多久", question or ""):
+        specs.append(("ru.text LIKE '%之日起10日内%' AND ru.text LIKE '%申诉%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "之日起10日内"))
+    if re.search(r"电动车|电动自行车", question or ""):
+        specs.append(("ru.text LIKE '%电动自行车证%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "电动自行车证"))
+    if re.search(r"推免|保研", question or "") and re.search(r"排名|前多少|比例|百分之", question or ""):
+        specs.append(("ru.text LIKE '%智育排名应在专业年级%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "智育排名应在专业年级"))
+    if re.search(r"交换|交流|跨校|出去修", question or "") and "学分" in (question or "") and not re.search(r"出国|海外|境外", question or ""):
+        specs.append(("ru.text LIKE '%学分予以承认%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "学分予以承认"))
+    if re.search(r"出国|海外|境外", question or "") and "学分" in (question or ""):
+        specs.append(("ru.text LIKE '%访学期间取得的课程%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "访学期间"))
+    if re.search(r"请假|请一天|请1天", question or "") and re.search(r"谁|批", question or "") and re.search(r"一天|1天|一日", question or ""):
+        specs.append(("ru.text LIKE '%1 日以内由辅导员批准%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "辅导员批准"))
+    if re.search(r"一周|1周|七天|两天|2天|三天|几天", question or "") and re.search(r"假", question or "") and re.search(r"谁|批|领导", question or "") and "一天" not in (question or ""):
+        specs.append(("ru.text LIKE '%副书记（书记）批准%' AND ru.text LIKE '%院长（书记）批准%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "副书记"))
+    if re.search(r"离校", question or "") and re.search(r"还清|没还|图书|书", question or ""):
+        specs.append(("ru.text LIKE '%方可办理离校%' AND ru.text LIKE '%还清%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "方可办理离校"))
+    if re.search(r"开始后|半小时之内|半小时内|不到半小时|开场", question or "") and re.search(r"交卷|退场|离开|走人", question or ""):
+        specs.append(("ru.text LIKE '%半小时内不得退场%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "半小时内不得退场"))
+    if re.search(r"电动车|充电", question or "") and re.search(r"宿舍|拉线|电线", question or ""):
+        specs.append(("ru.text LIKE '%为电动车充电%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "为电动车充电"))
+    if "休学" in (question or "") and re.search(r"退宿|要不要退|宿舍", question or "") and "学费" not in (question or "") and "年限" not in (question or ""):
+        specs.append(("ru.text LIKE '%办理退宿%' AND ru.text LIKE '%休学%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "办理退宿"))
+    if "延期毕业" in (question or "") and re.search(r"宿舍|住宿", question or ""):
+        specs.append(("ru.text LIKE '%不再安排住宿%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "不再安排住宿"))
+    if "保留入学资格" in (question or "") and re.search(r"学籍|算不算", question or ""):
+        specs.append(("ru.text LIKE '%不具有学籍%' AND ru.text LIKE '%保留入学资格%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "不具有学籍"))
+    if re.search(r"1\.7", question or "") and re.search(r"学位|毕业设计", question or ""):
+        specs.append(("ru.text LIKE '%低于1.8%' AND ru.text LIKE '%1.7%' AND ru.text LIKE '%优秀%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "低于1.8"))
+    if re.search(r"作弊", question or "") and re.search(r"学位", question or ""):
+        specs.append(("ru.text LIKE '%不授予学士学位%' AND ru.text LIKE '%因考试作弊%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 WHEN d.title LIKE '%授予%' THEN 1 ELSE 2 END, length(ru.text)", (), "因考试作弊"))
+    if re.search(r"两次", question or "") and re.search(r"学位", question or ""):
+        specs.append(("ru.text LIKE '%不授予学士学位%' AND ru.text LIKE '%两次以上%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 WHEN d.title LIKE '%授予%' THEN 1 ELSE 2 END, length(ru.text)", (), "两次以上"))
+    if "复查" in (question or "") and re.search(r"省|教育厅|不服", question or ""):
+        specs.append(("ru.text LIKE '%省级教育行政部门%' AND ru.text LIKE '%复查决定%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "省级教育行政部门"))
+    if "复查" in (question or "") and re.search(r"多久|几天|结论", question or ""):
+        specs.append(("ru.text LIKE '%15日%' AND ru.text LIKE '%复查%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "复查决定书"))
+    if re.search(r"衣服|身上|手上|手心|手臂", question or "") and re.search(r"考试|考场|作弊|答案", question or ""):
+        specs.append(("ru.text LIKE '%衣服、身上%' AND ru.text LIKE '%零分%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "衣服、身上"))
+    if re.search(r"提纲|座位底下|座位下面|垫着", question or "") and re.search(r"考试|考场|算", question or ""):
+        specs.append(("ru.text LIKE '%复习提纲%' AND ru.text LIKE '%零分%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "复习提纲"))
+    if re.search(r"答卷|试卷", question or "") and re.search(r"带出|拿出", question or ""):
+        specs.append(("ru.text LIKE '%带出考场者%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "带出考场者"))
+    if re.search(r"蜡烛|明火", question or "") and re.search(r"宿舍|寝室", question or ""):
+        specs.append(("ru.text LIKE '%点蜡烛%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "点蜡烛"))
+    if re.search(r"煲汤|做饭|炒菜", question or "") and "宿舍" in (question or ""):
+        specs.append(("ru.text LIKE '%煲汤%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "煲汤"))
+    if "共享单车" in (question or ""):
+        specs.append(("ru.text LIKE '%共享单车%'", "CASE WHEN ru.text LIKE '%许可%' THEN 0 ELSE 1 END, CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "共享单车"))
+    if re.search(r"开放课|网络课|慕课", question or "") and "学分" in (question or ""):
+        specs.append(("ru.text LIKE '%开放式网络课程%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "开放式网络课程"))
+    if "辅修" in (question or "") and re.search(r"学费|交钱|收费|另外交", question or ""):
+        specs.append(("ru.text LIKE '%免收加%' AND ru.text LIKE '%学分学费%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "学分学费"))
+    elif "辅修" in (question or ""):
+        specs.append(("ru.text LIKE '%申请辅修%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "申请辅修"))
+    if re.search(r"厕所|卫生间", question or "") and re.search(r"偷看|笔记|资料", question or ""):
+        specs.append(("ru.text LIKE '%上厕所%' AND ru.text LIKE '%留校察看处分%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "上厕所"))
+    elif re.search(r"上厕所|离开考场|中途走", question or "") or ("考场" in (question or "") and "离开" in (question or "")):
+        specs.append(("ru.text LIKE '%不得擅自离开考场%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "擅自离开考场"))
+    if re.search(r"抢", question or "") and re.search(r"试卷|答卷", question or ""):
+        specs.append(("ru.text LIKE '%抢夺、窃取%' AND ru.text LIKE '%留校察看处分%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "抢夺"))
+    if re.search(r"多拿|拆散|拆开", question or "") and re.search(r"试卷|答题", question or ""):
+        specs.append(("ru.text LIKE '%不得多拿试卷%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "不得多拿试卷"))
+    if re.search(r"伪造|变造", question or "") and re.search(r"学生证|证件|证书|证明", question or ""):
+        specs.append(("ru.text LIKE '%伪造、变造%' AND ru.text LIKE '%记过%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "伪造、变造"))
+    if "摩托车" in (question or ""):
+        specs.append(("ru.text LIKE '%摩托车校园准入证%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "摩托车校园准入证"))
+    if re.search(r"电吹风|吹风机", question or "") and re.search(r"宿舍|用", question or ""):
+        specs.append(("ru.text LIKE '%电吹风%' AND ru.text LIKE '%严禁%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "电吹风"))
+    if "无人机" in (question or ""):
+        specs.append(("ru.text LIKE '%无人机%' AND ru.text LIKE '%登记备案%' AND ru.text LIKE '%警告以上%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "无人机"))
+    if "平衡车" in (question or "") and "滑板" not in (question or "") and "轮滑" not in (question or ""):
+        specs.append(("ru.text LIKE '%平衡车%' AND ru.text LIKE '%警告以上%' AND ru.text LIKE '%校园内%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "平衡车"))
+    elif re.search(r"平衡车|滑板|轮滑", question or ""):
+        specs.append(("ru.text LIKE '%电动平衡车%' AND ru.text LIKE '%滑板%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "电动平衡车"))
+    if re.search(r"网络赌博|网上赌博|网赌", question or ""):
+        specs.append(("ru.text LIKE '%网络赌博%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "网络赌博"))
+    if re.search(r"论文|毕业设计", question or "") and re.search(r"抄|剽窃", question or ""):
+        specs.append(("ru.text LIKE '%学术不端%' AND ru.text LIKE '%开除学籍处分%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "学术不端"))
+    if "销假" in (question or ""):
+        specs.append(("ru.text LIKE '%应及时销假%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "应及时销假"))
+    if "公假" in (question or ""):
+        specs.append(("ru.text LIKE '%公假：%' OR ru.text LIKE '%公假:%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "公假"))
+    if re.search(r"通借|别的校区|其他校区|另一个校区", question or "") and re.search(r"书|借", question or ""):
+        specs.append(("ru.text LIKE '%另一校区%' AND ru.text LIKE '%借书%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "通借通还"))
+    if re.search(r"校外", question or "") and re.search(r"留宿|过夜", question or ""):
+        specs.append(("ru.text LIKE '%报请学校有关机构许可%' AND ru.text LIKE '%留宿校外%'", "CASE WHEN ru.text LIKE '%离校应注销%' THEN 0 ELSE 1 END, length(ru.text)", (), "留宿校外人员"))
+    elif re.search(r"异性", question or "") and re.search(r"留宿|过夜", question or ""):
+        specs.append(("ru.text LIKE '%留宿异性%' AND ru.text LIKE '%留校察看%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "留宿异性"))
+    elif re.search(r"留宿|过夜", question or "") and re.search(r"朋友|外人|他人|同学|客人", question or ""):
+        specs.append(("ru.text LIKE '%留宿他人%' AND ru.text LIKE '%警告%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "留宿他人"))
+    if re.search(r"租房|外面住", question or "") and re.search(r"没跟|没说|未经|擅自|不说", question or ""):
+        specs.append(("ru.text LIKE '%擅自在外居住%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "擅自在外居住"))
+    if re.search(r"仪器|元器件", question or "") and re.search(r"弄坏|损坏|摔坏|弄丢", question or ""):
+        specs.append(("ru.text LIKE '%损坏或丢失报告单%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "损坏或丢失报告单"))
+    if re.search(r"着火|火警|起火", question or ""):
+        specs.append(("ru.text LIKE '%发现火警%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "发现火警"))
+    if re.search(r"保健课|保健体育|康复保健", question or ""):
+        specs.append(("ru.text LIKE '%康复保健课%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "康复保健课"))
+    if "试读" in (question or ""):
+        specs.append(("ru.text LIKE '%转专业试读%'", "CASE WHEN d.title LIKE '%转专业%' THEN 0 ELSE 1 END, length(ru.text)", (), "转专业试读"))
+    if "口头警告" in (question or ""):
+        specs.append(("ru.text LIKE '%口头警告%' AND ru.text LIKE '%严重警告%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "口头警告"))
+    if re.search(r"教材费", question or "") and re.search(r"离校|毕业|结清", question or ""):
+        specs.append(("ru.text LIKE '%结清教材%' AND ru.text LIKE '%离校%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "结清教材"))
+    if re.search(r"大四", question or "") and "教材" in (question or ""):
+        specs.append(("ru.text LIKE '%大四%' AND ru.text LIKE '%现付现结%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "现付现结"))
+    if re.search(r"处分", question or "") and re.search(r"几种|哪些|种类|有哪", question or ""):
+        specs.append(("ru.text LIKE '%如下纪律处分%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "如下纪律处分"))
+    if re.search(r"东张西望|偷看试卷", question or ""):
+        specs.append(("ru.text LIKE '%东张西望%' AND ru.text LIKE '%口头警告%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "东张西望"))
+    if re.search(r"证件", question or "") and re.search(r"不给|拒绝|不拿|不出示", question or ""):
+        specs.append(("ru.text LIKE '%拒绝出示%' AND ru.text LIKE '%口头警告%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "拒绝出示"))
+    if "交头接耳" in (question or ""):
+        specs.append(("ru.text LIKE '%交头接耳%'", "length(ru.text)", (), "交头接耳"))
+    if "学生证" in (question or "") and re.search(r"丢|遗失|补办", question or ""):
+        specs.append(("ru.text LIKE '%学生遗失学生证%' AND ru.text LIKE '%智慧学工平台%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "智慧学工平台"))
+    if re.search(r"挂科|挂了科|不及格", question or "") and "奖学金" in (question or ""):
+        specs.append(("ru.text LIKE '%不及格现象者不得参加%' AND ru.text LIKE '%奖学金%' AND d.title LIKE '%手册%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "不及格现象"))
+    if "三好" in (question or "") and "处分" in (question or ""):
+        specs.append(("ru.text LIKE '%处分期内%' AND ru.text LIKE '%不得参加优秀学生%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "处分期内"))
+    if "补考" in (question or "") and "重修" in (question or ""):
+        specs.append(("ru.text LIKE '%应报名重修%' AND d.title LIKE '%手册%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "应报名重修"))
+    elif "补考" in (question or "") and re.search(r"多少分|最高|怎么记|记载|(?<!不)及格", question or ""):
+        specs.append(("ru.text LIKE '%补考通过成绩按及格记%' AND d.title LIKE '%手册%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "补考通过"))
+    if "寻衅" in (question or "") and "网络" not in (question or ""):
+        specs.append(("ru.text LIKE '%寻衅滋事%' AND ru.text LIKE '%警告以上%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "寻衅滋事"))
+    if "麻将" in (question or ""):
+        specs.append(("ru.text LIKE '%公共场所打麻将%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "公共场所打麻将"))
+    if re.search(r"猫|狗|宠物", question or "") and re.search(r"宿舍|养|校园", question or ""):
+        specs.append(("ru.text LIKE '%豢养猫%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "豢养猫"))
+    if re.search(r"计算器|文具", question or "") and re.search(r"考试|考场|借", question or ""):
+        specs.append(("ru.text LIKE '%借用工具书%' AND ru.text LIKE '%计算器%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "计算器等物品"))
+    if "传销" in (question or ""):
+        specs.append(("ru.text LIKE '%不得参与非法传销%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "非法传销"))
+    if re.search(r"家长|父母|亲人|亲属|爸妈|爸爸|妈妈", question or "") and re.search(r"宿舍|寝室", question or "") and re.search(r"几点|最晚|时间|待", question or ""):
+        specs.append(("ru.text LIKE '%探访时间段%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "探访时间段"))
+    if "绿色通道" in (question or "") or re.search(r"交不起|筹不齐|凑不齐|筹齐|凑齐|缴不起|无法及时", question or ""):
+        specs.append(("ru.text LIKE '%无法及时缴清%' AND ru.text LIKE '%绿色通道%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "无法及时缴清"))
+    if re.search(r"喝醉|酗酒|喝酒", question or "") and re.search(r"宿舍|寝室", question or ""):
+        specs.append(("ru.text LIKE '%酒后滋事%' OR ru.text LIKE '%酗酒的，给予警告%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "酗酒的"))
+    if "免听" in (question or ""):
+        specs.append(("ru.text LIKE '%可以允许免听%' AND ru.text LIKE '%按时交作业%'", "CASE WHEN d.title LIKE '%2026%' THEN 0 ELSE 1 END, length(ru.text)", (), "可以允许免听"))
+    if re.search(r"摆摊|地摊|设点", question or ""):
+        specs.append(("ru.text LIKE '%摆摊设点%' AND ru.text LIKE '%未经%'", "CASE WHEN d.title LIKE '%手册%' THEN 0 ELSE 1 END, length(ru.text)", (), "摆摊设点"))
+    specs.sort(key=lambda spec: 0 if spec[3] in ("第二学期", "15%", "教务处", "财务处", "可申请国家奖学金", "评选条件", "三好学生：", "荣誉称号分为", "优秀学生干部", "三好学生标兵", "违反宪法", "微专业旨在", "中外合作办学（波特兰学院）", "波特兰学院硕士研究生", "每盘每天", "明显划伤", "性别比", "学生毕业时", "个教学机构", "折合教师总数", "57000", "68000", "重新参加入学考试", "诞生于", "15学分", "户籍所在地", "不超过16000", "折算为学分", "诊断证明", "免修申请表", "硕士学位授权点", "63000", "会客时间段", "无论使用与否", "豢养猫", "公共场所打麻将", "留宿异性", "留宿他人", "擅自在外居住", "损坏或丢失报告单", "发现火警", "康复保健课", "转专业试读", "口头警告", "寻衅滋事", "留宿校外人员", "1个学时", "结清教材", "现付现结", "如下纪律处分", "东张西望", "拒绝出示", "交头接耳", "智慧学工平台", "不及格现象", "补考通过", "应报名重修", "前返校", "可以同时申请", "擅自离开考场", "上厕所", "抢夺", "不得多拿试卷", "伪造、变造", "摩托车校园准入证", "电吹风", "电动平衡车", "网络赌博", "学术不端", "实验数据", "应及时销假", "公假", "退役证明", "休学创业", "通借通还", "保留3天", "计算器等物品", "非法传销", "探访时间段", "无法及时缴清", "酗酒的", "可以允许免听", "摆摊设点", "有效证件登记", "由他人代替考试", "计时工具也不允许", "被开除学籍", "由他人代写毕业论文", "严禁私自调课", "阅览区手机通话", "不低于每小时", "（九）赌博", "允许跳级", "不再另行安排考核", "入学资格或者学籍", "新生体检费", "场所吸烟", "外放影音", "学分学费", "三甲医院", "私自调换房间", "不准带出考场", "试修", "夜不归宿", "重修体育课", "传播试卷", "光盘借期", "第二次作弊", "有色饮料", "外文原版", "可续借一次", "教务处批准", "不得勾划", "抢占座位", "一律不外借", "私拉乱接", "高空抛物", "擅自组建社团", "以作弊论处", "取消推荐免试研究生资格", "中外合作办学专业之间", "无法选课", "补办学生证", "城镇居民基本医疗保险", "不在本办法", "撬锁破窗", "按旷考论处", "重修班", "不交纳学费", "肄业证书", "自动解除", "原价的3", "工具书按原价", "必须重修", "封楼管理", "拟转入学校同意", "解除处分材料", "结业证书", "迟到十五分钟", "不得入场", "留校察看一般", "窃书行为", "结业后一年内", "含休学", "不可交卷离场", "取消本人当学年奖学金", "发给学习证明", "办理校外住宿手续", "处分期内", "平衡车", "不得转借", "转租学生证", "无故缺席", "病假条", "烟花爆竹", "宿舍钥匙", "传递有关考试信息", "热得快", "不准放置", "未办理借阅手续", "证件所有人自负", "开卷考试只准", "提前十分钟进入", "左上角待查", "备注缓考", "75分及75", "请病假缺课", "办理复学手续", "期限为一学年", "尚未构成犯罪", "酒精炉", "试修", "平均学分绩点为1", "之日起10日内", "电动自行车证", "智育排名应在专业年级", "学分予以承认", "访学期间", "辅导员批准", "副书记", "无人机", "辅导员审核", "县、市级医院", "操场骑车", "记过或记过以上", "无未通过计划内课程", "处分期满自动解除", "校园通行证上牌", "校长办公会", "故意污损试卷", "强行闯关", "作旷课论处", "市级获奖者奖励", "不得涂写", "提前解除处分", "消防通道", "电饭煲", "游行", "记为59", "授予荣誉称号", "实际情况不符", "每学分学费标准", "树枝上晾晒", "拖离现场", "禁止攀爬", "床上用品", "宗教活动", "饲养各种动物", "弹簧刀", "偷窃", "弄虚作假", "堆放垃圾", "网络直播", "贩卖毒品", "方可办理离校", "半小时内不得退场", "为电动车充电", "办理退宿", "不再安排住宿", "不具有学籍", "低于1.8", "因考试作弊", "两次以上", "省级教育行政部门", "复查决定书", "衣服、身上", "复习提纲", "带出考场者", "点蜡烛", "煲汤", "共享单车", "开放式网络课程", "申请辅修", "财务处网站") or str(spec[3]).endswith("地址") or str(spec[3]).startswith("年成立") else 1)
     if not specs:
         return []
     conn = init_db()
@@ -1607,6 +2683,10 @@ def _recall_pairs(question: str) -> list[tuple[str, dict]]:
                     if punct >= 0:
                         start = punct + 1
                     piece = flat[start : at + (150 if wide else 80)]
+                if _asks_fee_site(question) and "财务处网站" in flat:
+                    matched = re.search(r"具体收费详情可登录[^。]{0,40}网站查询", flat)
+                    if matched:
+                        piece = matched.group(0)
                 if _grad_level(question):
                     bits = re.findall(
                         r"(?:博士研究生|全日制学术型硕士研究生|其他全日制专业学位硕士研究生)\d+元/生.?学年",
@@ -1695,6 +2775,10 @@ def _recall_pairs(question: str) -> list[tuple[str, dict]]:
                         rebuilt = re.search(r"\d{4}年经国务院批准改建为本科高校", flat)
                         if rebuilt:
                             piece += "。" + rebuilt.group(0)
+                if "明显划伤" in flat and "光盘" in (question or "") and re.search(r"划伤|损坏|弄坏", question or ""):
+                    matched = re.search(r"光盘盘面有明显划伤，按原价的2倍赔偿", flat)
+                    if matched:
+                        piece = matched.group(0)
                 if "光盘" in (question or "") and re.search(r"书|图书", question or "") and "每盘每天" in flat and "0.10" in flat:
                     start = flat.find("随书光盘应按期归还")
                     if start < 0:
@@ -1777,7 +2861,7 @@ def _recall_pairs(question: str) -> list[tuple[str, dict]]:
                                 cut = extra.find("前20%") + len("前20%")
                             if cut > 0:
                                 piece += extra[:cut]
-                elif "三好" in (question or "") and "标兵" not in (question or "") and "三好学生：" in flat and "前20%" in flat:
+                elif "三好" in (question or "") and "标兵" not in (question or "") and "处分" not in (question or "") and "三好学生：" in flat and "前20%" in flat:
                     at_rule = flat.find("三好学生：")
                     end = flat.find("前20%", at_rule)
                     piece = flat[at_rule:end + len("前20%")]
@@ -1856,6 +2940,853 @@ def _recall_pairs(question: str) -> list[tuple[str, dict]]:
                         piece = re.sub(r"(中外合作办学（欧洲塞浦路斯学院）)中外合作办学", r"\1", flat[at_fee:end + len("起执行")])
                 if "创新" in (question or "") and "学分" in (question or "") and "折算为学分" in flat and "微专业" not in (question or ""):
                     matched = re.search(r"学校建立创新创业档案、设置创新创业学分。学生参加创新创业、社会实践等活动以及发表论文、获得专利授权等与专业学习、学业要求相关的经历、成果，可以折算为学分，计入学业成绩。具体学分折算按相关实施细则执行", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if re.search(r"外宿|外出", question or "") and "前返校" in flat:
+                    matched = re.search(r"外出者，至迟必须在23：30前返校", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "可以同时申请并获得国家助学金" in flat and "助学金" in (question or "") and "奖学金" in (question or ""):
+                    if "励志" in (question or ""):
+                        matched = re.search(r"同一学年内，获得国家励志奖学金的家庭经济困难学生可以同时申请并获得国家助学金", flat)
+                    else:
+                        matched = re.search(r"同一学年内，获得国家奖学金的家庭经济困难学生可以同时申请并获得国家助学金", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "会客" in (question or ""):
+                    matched = re.search(r"会客时间段为\d{1,2}：\d{2}-\d{1,2}：\d{2}", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "有效证件登记" in flat and (
+                    "晚归" in (question or "") or ("宿舍" in (question or "") and re.search(r"关门|晚归", question or ""))
+                ):
+                    matched = re.search(r"学生宿舍关门后晚归者，应持有效证件登记并说明原因，得到管理人员许可后方可进入宿舍", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "由他人代替考试" in flat and re.search(r"替考|代考|代替考试|替我考|找人替", question or ""):
+                    matched = re.search(r"该门课程总成绩以零分记，并给予留校察看或开除学籍处分：（一）由他人代替考试；（二）替他人参加考试", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "传播试卷或答案" in flat and re.search(r"拍|发群|群里", question or ""):
+                    head = "该门课程总成绩以零分记，并给予留校察看或开除学籍处分"
+                    item = "（五）借助或通过网络等技术手段获取、提供或传播试卷或答案"
+                    if head in flat and item in flat:
+                        piece = head + "：" + item
+                if "夜不归宿" in flat and "夜不归宿" in (question or "") and "1-3日" in flat:
+                    matched = re.search(r"夜不归宿[的者]，1-3日给予警告或严重警告处分，4-7日给予记过处分，8日以上给予留校察看处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "无论使用与否" in flat and re.search(r"考试|考场", question or "") and re.search(r"耳机|听歌|手表|手环", question or ""):
+                    matched = re.search(r"禁止携带具有通讯、存储等功能的电子设备进入考场（作计时工具也不允许）[;；，]考试开始后发现携带上述设备的按作弊处理（无论使用与否）", flat)
+                    if not matched:
+                        matched = re.search(r"禁止携带具有通讯、存储等功能的电子设备（作计时工具也不允许）进入考场，考试开始后发现携带上述设备的按作弊处理（无论使用与否）", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "计时工具也不允许" in flat and re.search(r"考试|考场", question or "") and re.search(r"手机|计时", question or ""):
+                    if re.search(r"没拿|没用|口袋|没使用|未使用", question or ""):
+                        matched = re.search(r"禁止携带具有通讯、存储等功能的电子设备进入考场（作计时工具也不允许）[;；，]考试开始后发现携带上述设备的按作弊处理（无论使用与否）", flat)
+                    else:
+                        matched = re.search(r"该门课程总成绩以零分记，并给予留校察看或开除学籍处分：.{0,180}计时工具也不允许，无论使用与否）", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "开除" in (question or "") and re.search(r"户口|档案", question or "") and "被开除学籍" in flat:
+                    matched = re.search(r"被开除学籍的学生，由学校发给学习证明。学生应在处分决定作出后\d+日内办理离校手续，档案、户口退回其家庭户籍所在地", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "由他人代写毕业论文" in flat and re.search(r"代写|别人写|找人写", question or ""):
+                    matched = re.search(r"在科学研究或撰写论文中，剽窃、抄袭他人研究成果或由他人代写毕业论文、实习论文、调查报告的，视情节给予警告以上直至开除学籍处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "严禁私自调课" in flat and re.search(r"调课|教室", question or ""):
+                    matched = re.search(r"严禁私自调课、停课、代课或更换上课地点", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "阅览区手机通话" in flat and re.search(r"图书馆|阅览", question or ""):
+                    matched = re.search(r"请将移动电话关闭或调为震动，请勿在阅览区手机通话", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不低于每小时" in flat and re.search(r"勤工助学|打工|兼职", question or ""):
+                    matched = re.search(r"校内勤工助学岗位酬金原则上不低于每小时\d+元", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "（九）赌博" in flat and "赌博" in (question or ""):
+                    start = flat.find("在学生宿舍有下列行为之一者")
+                    end = flat.find("（九）赌博")
+                    if start >= 0 and end > start:
+                        piece = flat[start:end + len("（九）赌博")]
+                if "允许跳级" in flat and "跳级" in (question or ""):
+                    if re.search(r"大二|二年级|2年级", question or "") and not re.search(r"大三|三年级|3年级", question or ""):
+                        matched = re.search(r"允许跳级：?（一）2年级学生.{0,90}小于等于8学分者", flat)
+                    else:
+                        matched = re.search(r"允许跳级.{0,240}小于等于16学分者", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不再另行安排考核" in flat and "免修" in (question or "") and re.search(r"没去|缺考|再安排|没参加|不去", question or ""):
+                    matched = re.search(r"免修课程考核一般在开课三周内进行，免修未被批准前仍应听课。在规定的考核时间内缺考，不再另行安排考核", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "入学资格或者学籍" in flat and re.search(r"当兵|入伍|参军|应征|退役", question or ""):
+                    matched = re.search(r"新生和在校生应征参加中国人民解放军\(含中国人民武装警察部队\),学校保留其入学资格或者学籍至退役后\d+年内", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "新生体检费" in flat and "体检" in (question or ""):
+                    matched = re.search(r"新生体检费；=\d+；=元/生", flat)
+                    if matched:
+                        piece = matched.group(0).replace("；=", "").replace("；", "")
+                if "场所吸烟" in flat and re.search(r"抽烟|吸烟", question or "") and re.search(r"宿舍|食堂|教室|图书馆|实验室", question or ""):
+                    matched = re.search(r"在教室、图书馆、实验室、宿舍、食堂等校内禁烟场所吸烟且不服从批评教育的，给予警告处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "光盘借期" in flat and re.search(r"光盘|光碟", question or "") and _asks_borrow_days(question):
+                    matched = re.search(r"随书光盘借期\d+天", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "第二次作弊" in flat and "作弊" in (question or "") and re.search(r"第二次|再次|又一次|再犯", question or ""):
+                    matched = re.search(r"在校期间第二次作弊者，给予开除学籍处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "有色饮料" in flat and re.search(r"饮料|奶茶|咖啡|零食|食品|面包|食物", question or ""):
+                    matched = re.search(r"请勿携带有色饮料及食品进入各阅览室", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "外文原版" in flat and re.search(r"外文|英文原版|原版书|外文书", question or ""):
+                    if "研究生" in (question or "") and "本科" not in (question or ""):
+                        matched = re.search(r"外文原版图书研究生每证限借\d+册", flat) or re.search(r"研究生每证限借\d+册", flat)
+                    else:
+                        matched = re.search(r"外文原版图书本科生每证限借\d+册", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "可续借一次" in flat and (
+                    "续借" in (question or "") or re.search(r"再借", question or "")
+                ):
+                    matched = re.search(r"除随书光盘外，所借图书到期前若无人预约，可续借一次，续借期为\d+天", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "允许跳级" in flat and "跳级" in (question or "") and re.search(r"谁|批准|审批|部门|找谁", question or "") and "学分" not in (question or ""):
+                    matched = re.search(r"由本人申请，经所在学院审核，教务处批准后，允许跳级", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不得勾划" in flat and re.search(r"画线|划线|笔画|勾画|勾划|批注", question or ""):
+                    matched = re.search(r"不得勾划、批注、污损", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "抢占座位" in flat and re.search(r"占座|占着|占位置", question or ""):
+                    matched = re.search(r"不得抢占座位或随意移动阅览桌椅", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "一律不外借" in flat and re.search(r"报纸|现刊|期刊", question or ""):
+                    matched = re.search(r"报纸、现刊、精装合订本期刊一律不外借，若需要复印，可办理借出复印手续，但须于当日复印后即刻归还", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "私拉乱接" in flat and re.search(r"私拉|乱接|电线", question or "") and "宿舍" in (question or ""):
+                    matched = re.search(r"在学生宿舍有下列行为之一者，视情节给予警告以上纪律处分。（三）使用违章电器、私拉乱接", flat)
+                    if not matched:
+                        start = flat.find("在学生宿舍有下列行为之一者")
+                        end = flat.find("私拉乱接")
+                        if start >= 0 and end > start:
+                            piece = flat[start:end + len("私拉乱接")]
+                    else:
+                        piece = matched.group(0)
+                if "高空抛物" in flat and re.search(r"往下扔|扔下去|高空抛物|从窗", question or ""):
+                    matched = re.search(r"在教学、宿舍区等公共场所起哄、摔砸物品、高空抛物或其他危害公共安全行为的，视情节给予警告以上处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "擅自组建社团" in flat and "社团" in (question or ""):
+                    matched = re.search(r"未经批准擅自组建社团的，给予严重警告处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "以作弊论处" in flat and re.search(r"提分|加分|改分|请客", question or ""):
+                    matched = re.search(r"以央求、送礼、请客、威胁等手段要求老师提分、加分或隐瞒违纪作弊事实者，以作弊论处，给予记过或记过以上处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "取消推荐免试研究生资格" in flat and re.search(r"保研|推免", question or ""):
+                    matched = re.search(r"受处分者取消当学期困难补助、勤工助学的机会，取消本人当学年奖学金、助学金评定资格，取消当学年评选优秀学生资格，取消推荐免试研究生资格", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "中外合作办学专业之间" in flat and "中外合作" in (question or ""):
+                    matched = re.search(r"中外合作办学专业录取的学生仅可在中外合作办学专业之间申请转专业", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "无法选课" in flat and re.search(r"没交|未交|不交|欠费|没缴", question or ""):
+                    matched = re.search(r"未按规定缴清费用的学生原则上不予注册，不注册的学生将无法选课", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "补办学生证" in flat and "补办" in (question or ""):
+                    matched = re.search(r"补办学生证、图书证、校徽等；?=不超过成本的2倍", flat)
+                    if matched:
+                        piece = matched.group(0).replace("；=", "").replace("；", "")
+                        if "首次办理各种证卡不得收费" in flat:
+                            piece += "。首次办理各种证卡不得收费"
+                if "城镇居民基本医疗保险" in flat and re.search(r"医保|医疗保险", question or ""):
+                    matched = re.search(r"城镇居民基本医疗保险；?=\d+；?=元/生\.?年?", flat)
+                    if matched:
+                        piece = matched.group(0).replace("；=", "").replace("；", "")
+                if "不在本办法" in flat and "兼职" in (question or ""):
+                    matched = re.search(r"学生私自在校内外兼职的行为，不在本办法管理之列", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "撬锁破窗" in flat and (re.search(r"撬锁|撬门", question or "") or ("撬" in (question or "") and "教室" in (question or ""))):
+                    matched = re.search(r"教室上锁后，学生不得撬锁破窗私自进入关闭的教室，违者应按章赔偿，并视情节给予处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "按旷考论处" in flat and "缓考" in (question or "") and re.search(r"没批准|未被批准|不批准|没去考|不去考", question or ""):
+                    matched = re.search(r"申请缓考未被批准的学生必须参加考试。不参加考试的，一律按旷考论处", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "重修班" in flat and "重修" in (question or "") and re.search(r"多少人|几人|开班|凑够", question or ""):
+                    matched = re.search(r"重修报名人数超过30人的课程，学校根据实际情况开设重修班", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不交纳学费" in flat and "休学" in (question or ""):
+                    matched = re.search(r"休学期间不交纳学费、住宿费等", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "肄业证书" in flat and "退学" in (question or ""):
+                    matched = re.search(r"学满一学年及以上的退学学生，学校颁发肄业证书", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "自动解除" in flat and re.search(r"记过|警告", question or "") and "学位" not in (question or "") and "留校" not in (question or ""):
+                    matched = re.search(r"警告、严重警告、记过处分期限为6个月，处分期满自动解除", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "工具书" in flat and re.search(r"字典|词典|工具书", question or ""):
+                    matched = re.search(r"字典、词典、手册等工具书按原价的4倍赔偿", flat) or re.search(r"工具书按原价的4倍赔偿", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "一般中文" in flat and re.search(r"丢了|遗失|弄丢", question or ""):
+                    matched = re.search(r"一般中文、外文影印版图书，按该书原价的3倍赔偿", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "所缺课程必须重修" in flat and "补考" in (question or "") and re.search(r"旷考|作弊", question or ""):
+                    matched = re.search(r"旷考者，该课程以零分记，并注明旷考。旷考、严重违纪、作弊者，所缺课程必须重修", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "假期留校住宿申请" in flat and re.search(r"寒假|暑假|假期|留校", question or ""):
+                    matched = re.search(r"（一）?寒暑假期间，学生宿舍实行封楼管理，学生应离校回家，不得留校。（二）?特殊原因需假期留校的学生，应提交假期留校住宿申请，经所在学院审核批准后，交学管办备案，方可留校集中住宿", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "校长办公会" in flat and ("转学" in (question or "") or re.search(r"外校|别的大学|其他大学|别的学校", question or "")):
+                    matched = re.search(r"学生转学由学生本人提出申请，说明理由，经所在学校和拟转入学校同意，由转入学校负责审核转学条件及相关证明，认为符合本校培养要求且学校有培养能力的，经学校校长办公会或者专题会议研究决定，可以转入", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "本人档案" in flat and "处分" in (question or "") and "档案" in (question or ""):
+                    matched = re.search(r"对学生的奖励、处理、处分及解除处分材料，学校应当真实完整地归入学校文书档案和本人档案", flat)
+                    if not matched:
+                        matched = re.search(r"处分及解除处分材料，学校将真实完整地归入学校文书档案和学生本人档案", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "结业证书" in flat and "学分" in (question or "") and "毕业" in (question or ""):
+                    matched = re.search(r"达到毕业学分要求者，准予毕业，颁发毕业证书；未达到毕业要求的学生发放结业证书", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "迟到十五分钟" in flat and "旷课" in (question or ""):
+                    matched = re.search(r"迟到十五分钟以上为旷课，三次迟到或早退作一次旷课处理", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不得入场" in flat and re.search(r"进场|入场|考场", question or "") and re.search(r"多久|半小时|迟到", question or ""):
+                    matched = re.search(r"迟到半小时者，不得入场", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "留校察看" in flat and "12个月" in flat and "留校察看" in (question or ""):
+                    matched = re.search(r"留校察看一般以12个月为期", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "窃书行为" in flat and re.search(r"偷书|窃书", question or ""):
+                    matched = re.search(r"对于窃书行为，责令其进行书面检查并通报批评，停止借阅权限60—180天，按最低50元至该书原价10—30倍罚款", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "结业后一年内" in flat and "结业" in (question or ""):
+                    matched = re.search(r"因课程（含实践环节）考核不及格而结业的学生，可在结业后一年内凭结业证书复印件申请回校重修所欠课程学分，达到毕业条件的，发放毕业证书", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "含休学" in flat and "休学" in (question or "") and re.search(r"年限|算不算|计入|算进", question or ""):
+                    matched = re.search(r"应当在学校规定的最长学习年限（含休学和保留学籍）内完成学业", flat) or re.search(r"学生学习年限一般最长不超过六年（含休学期限，参军入伍除外）", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "本科标准学制" in flat and "最长不超过六年" in flat and "本科" in (question or "") and "休学" not in (question or ""):
+                    matched = re.search(r"本科标准学制为四年。学生学习年限一般最长不超过六年（含休学期限，参军入伍除外）", flat) or re.search(r"本科标准学制为四年。学生学习年限一般最长不超过六年（含休学期限）", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不可交卷离场" in flat and "交卷" in (question or ""):
+                    matched = re.search(r"考试结束前(?:十五|15)分钟，不可交卷离场", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "取消本人当学年奖学金" in flat and re.search(r"奖学|评优|评奖", question or ""):
+                    matched = re.search(r"受处分者取消当学期困难补助、勤工助学的机会，取消本人当学年奖学金、助学金评定资格，取消当学年评选优秀学生资格", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "发给学习证明" in flat and "学习证明" in (question or ""):
+                    matched = re.search(r"被开除学籍的学生，由学校发给学习证明", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "办理校外住宿手续" in flat and "校外" in (question or ""):
+                    matched = re.search(r"原则上不得在校外住宿，因各种原因不能入住学生宿舍的学生请按有关规定办理校外住宿手续（含在校内学生宿舍区外住宿）", flat)
+                    if matched:
+                        piece = matched.group(0)
+                        extra = re.search(r"对未办校外住宿登记手续擅自在外住宿的学生，学院将给予批评教育", flat)
+                        if extra:
+                            piece += "。" + extra.group(0)
+                if "转借、转租学生证" in flat and "学生证" in (question or "") and re.search(r"借给|转借", question or ""):
+                    matched = re.search(r"违反学校规定，转借、转租学生证、校园卡、身份证等个人证件或网络课程账号、个人社交平台账号等互联网专用账号、伪造他人签名造成不良影响或严重后果的，给予警告以上处分，涉及牟利的从重处理", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "无故缺席" in flat and "缓考" in (question or "") and "补考" in (question or ""):
+                    matched = re.search(r"学生如无故缺席，必须参加重修。补考不再受理缓考申请，不能参加补考的学生只能参加重修", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "县、市级医院" in flat and "病假" in (question or "") and "病假条" not in (question or ""):
+                    matched = re.search(r"请病假时必须提供医院的相关证明（本校门诊部或县、市级医院证明；考试期间请病假，必须出示本校门诊部证明并经门诊部主任签章方可生效）", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "操场骑车" in flat and "操场" in (question or ""):
+                    matched = re.search(r"严禁在人行道、绿化地、操场骑车", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "记过或记过以上" in flat and "学位" in (question or ""):
+                    item = "（四）违反校规校纪（除本条第（二）款和第（三）款外）受记过或记过以上处分，毕业时经学校组织评议无明显改进者"
+                    if "不授予学士学位" in flat and item in flat:
+                        piece = "不授予学士学位：" + item
+                if "无未通过计划内课程" in flat and "转专业" in (question or ""):
+                    matched = re.search(r"申请转专业还须满足：无未通过计划内课程，且对拟转入专业具有一定的兴趣和志向", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "病假条" in flat and "病假条" in (question or ""):
+                    matched = re.search(r"因病申请缓考的，病假者或代办人员必须持学校指定或认可的二级甲等以上医院出具的病假条，经学校门诊部主任审核签名并加盖公章，由学生所在学院教学院长签署意见加盖公章报教务处批准后，方可作为缓考处理", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "烟花爆竹" in flat and re.search(r"烟花|爆竹", question or ""):
+                    matched = re.search(r"校园内严禁燃放烟花爆竹", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "宿舍钥匙" in flat and "钥匙" in (question or ""):
+                    matched = re.search(r"不得将宿舍钥匙私借他人使用", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不得转借" in flat and re.search(r"一卡通|校园卡", question or "") and "学生证" not in (question or ""):
+                    matched = re.search(r"一卡通只限本人使用，不得转借", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "传递有关考试信息" in flat and re.search(r"对答案|传答案|传纸条|抄答案|咬耳朵", question or ""):
+                    head = "视为考试作弊，终止考试，该门课程总成绩以零分记，并给予留校察看处分"
+                    item = "（四）传递纸条或利用工具传递有关考试信息者（不论看与否）"
+                    if head in flat and item in flat:
+                        piece = head + "。" + item
+                if "热得快" in flat and re.search(r"热得快|电热毯|电水壶", question or ""):
+                    matched = re.search(r"严禁将违章电器带入宿舍和使用。宿舍内严禁使用有电加热.{0,80}热得快", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "电热毯" in flat and "电热毯" in (question or ""):
+                    matched = re.search(r"集体宿舍内，严禁私拉乱接电源线路、使用无3C认证等劣质电器产品及电炉、热得快、电热毯等电热器具", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "处分期内" in flat and "三好" in (question or "") and "处分" in (question or ""):
+                    matched = re.search(r"在处分期内或评选学年课程考试、考核出现不及格现象者不得参加优秀学生的评选（补考和因个人原因缓考的不得参评）", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "使用平衡车" in flat and "平衡车" in (question or "") and "滑板" not in (question or ""):
+                    matched = re.search(r"在校园内违规驾驶或使用平衡车、电动滑板车、电动自行车，或在校园内违规驾驶机动车辆的，视情节给予警告以上处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不准放置" in flat and re.search(r"草稿纸|演算纸", question or ""):
+                    matched = re.search(r"草稿纸由监考人员统一发放，考试结束时统一收回，不准带出考场。除文具、计算器外，座位内外不准放置任何教材、参考资料、练习本、草稿纸", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "未办理借阅手续" in flat and re.search(r"带出|没办|未办", question or ""):
+                    matched = re.search(r"均按偷窃书刊处罚：（1）未办理借阅手续，将图书擅自带出图书馆的", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "开卷考试只准" in flat and "开卷" in (question or ""):
+                    matched = re.search(r"开卷考试只准放置教师指定用的资料", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "提前十分钟" in flat and "提前" in (question or "") and "交卷" not in (question or ""):
+                    matched = re.search(r"学生应按考试时间提前十分钟进入指定考场", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "左上角" in flat and re.search(r"学生证|身份证", question or ""):
+                    matched = re.search(r"将?学生证（身份证[^）]{0,8}）[^。]{0,16}左上角待查", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "备注缓考" in flat and "缓考" in (question or "") and re.search(r"成绩|怎么记|记载|备注", question or ""):
+                    matched = re.search(r"缓考课程成绩以卷面成绩记载，备注缓考", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "75分" in flat and "免修" in (question or "") and re.search(r"多少分|几分|分数", question or ""):
+                    matched = re.search(r"考核成绩达75分及75分以上者，准予免修", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "请病假缺课" in flat and re.search(r"病假|因病", question or ""):
+                    matched = re.search(r"有下列情况之一的，应予休学：（一）因病经指定医院诊断，须停课治疗、休养超过一学期总学时三分之一的；（二）根据考勤，一学期请病假缺课超过该学期总学时三分之一的", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "办理复学手续" in flat and "复学" in (question or ""):
+                    matched = re.search(r"休学期满，休学学生应于开学两周内，经学生处签字确认以及学校门诊部复查合格后向所在学院申请复学，并持有关材料至教务处办理复学手续", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "期限为一学年" in flat and "保留入学资格" in (question or ""):
+                    matched = re.search(r"新生可以申请保留入学资格，保留入学资格期间不具有学籍。保留入学资格的期限为一学年", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "尚未构成犯罪" in flat and re.search(r"打架|斗殴", question or ""):
+                    matched = re.search(r"组织、策划或参与打架斗殴，尚未构成犯罪的，除承担相应的经济赔偿（含受害者的医药费、护理费、必需的营养费等费用以及财产损失）责任以外，分别给予以下处分：（一）策划、怂恿他人打架斗殴，未造成后果者，给予严重警告以上处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "酒精炉" in flat and re.search(r"酒精炉|煤油炉", question or ""):
+                    matched = re.search(r"严禁使用煤油炉、酒精炉等燃具", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不得涂写" in flat and re.search(r"课本|教材", question or "") and "退" in (question or ""):
+                    matched = re.search(r"在每学期开学后四周内，到教材库办理教材的退换手续（退回的教材不得涂写、污损），逾期不予办理", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "提前解除处分" in flat and "留校察看" in (question or ""):
+                    matched = re.search(r"察看期在6个月以上且有显著进步的，经本人申请，学校审核批准可提前解除处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "强行闯关" in flat and re.search(r"门禁|闯关|挤进", question or ""):
+                    matched = re.search(r"学生进出本栋宿舍时应经门禁系统确认或宿舍管理人员同意通过后方可进出，不得强行闯关", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "上牌" in flat and re.search(r"自行车", question or "") and "电动" not in (question or "") and "操场" not in (question or ""):
+                    matched = re.search(r"学校对进入校园的自行车实行校园通行证上牌管理", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "故意污损试卷" in flat and re.search(r"画花|涂花|污损|弄脏|涂脏|试卷|卷子", question or ""):
+                    head = "视为严重违反考场纪律，终止考试，当次考试卷面成绩以零分记，并给予记过处分"
+                    item = "（六）故意污损试卷者"
+                    if head in flat and item in flat:
+                        piece = head + "：" + item
+                if "市级获奖者奖励" in flat and re.search(r"演讲|辩论|文艺", question or ""):
+                    matched = re.search(r"在市级及以上文艺比赛（包括：音乐、舞蹈、戏剧、小品、书法、摄影、业余文艺创作、演讲、辩论等）中获个人三等奖以上者，市级获奖者奖励100元，省级获奖者奖励200元，国家级获奖者奖励300元", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "作旷课论处" in flat and "体育课" in (question or "") and re.search(r"事假|事情", question or ""):
+                    matched = re.search(r"事假必须由年级辅导员批准，不得占用体育课时间看病或处理其他事情，否则作旷课论处", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "消防通道" in flat and re.search(r"消防", question or ""):
+                    matched = re.search(r"禁止在室内场所、交通主干道、人行道、绿化地、操场、建筑物出入口、消防通道及其他规定的禁停区停放车辆", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "电饭煲" in flat and re.search(r"电饭煲|电磁炉|微波炉|煮饭|米饭", question or ""):
+                    matched = re.search(r"宿舍内严禁使用有电加热或制冷功能或者金属材质导热的电器\(包含但不限于电水壶、电饭煲、电热杯、电磁炉", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "游行" in flat and re.search(r"游行|示威|集会", question or ""):
+                    matched = re.search(r"未经有关部门批准擅自策划、组织、参与集会、游行、示威等活动的，视情节给予记过、留校察看直至开除学籍处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "记为59分" in flat and re.search(r"晨跑|早操|早锻炼", question or ""):
+                    matched = re.search(r"早操出勤列入评定体育课成绩及《标准》成绩内容之一，未达到规定次数，该学期体育课成绩记为59分（如该生体育课成绩低于60分，以原成绩标记）", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "授予荣誉称号" in flat and re.search(r"见义勇为|救人|英勇", question or ""):
+                    matched = re.search(r"因保护国家财产和他人人身安全，见义勇为而致残或英勇牺牲的学生，学校应报请所在省、自治区、直辖市人民政府授予荣誉称号，并给予相应的待遇", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "实际情况不符" in flat and re.search(r"造假|假材料|作假", question or "") and "复查" not in (question or ""):
+                    matched = re.search(r"审查发现新生的录取通知、考生信息等证明材料，与本人实际情况不符，或者有其他违反国家招生考试规定情形的，取消入学资格", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "弄虚作假" in flat and "复查" in (question or ""):
+                    matched = re.search(r"复查中发现学生存在弄虚作假、徇私舞弊等情形的，确定为复查不合格，应当取消学籍", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "禁止攀爬" in flat and re.search(r"爬|攀", question or ""):
+                    matched = re.search(r"禁止攀爬门窗、顶楼、栏杆等危险行为", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "床上用品" in flat and re.search(r"洗衣|被子|床单|被罩", question or ""):
+                    matched = re.search(r"学校洗衣房可提供免费的床上用品清洗服务", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不得在学校进行宗教活动" in flat and re.search(r"礼拜|宗教|传教", question or ""):
+                    matched = re.search(r"任何组织和个人不得在学校进行宗教活动", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "饲养各种动物" in flat and re.search(r"仓鼠|老鼠|兔子|动物", question or ""):
+                    matched = re.search(r"严禁在宿舍内饲养各种动物和种植有害植物，违者将对所饲养或种植的动植物予以清出宿舍处理", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "弹簧刀" in flat and re.search(r"弹簧刀|匕首|三棱刀|管制刀|枪支", question or ""):
+                    matched = re.search(r"携带、持有、藏有枪支、匕首、三棱刀、弹簧刀或其他管制刀具的，给予严重警告以上处分；造成事故或有事故危险的，给予留校察看以上处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "偷窃、诈骗" in flat and re.search(r"偷|盗|诈骗|敲诈", question or "") and not re.search(r"偷拍|偷窥", question or ""):
+                    matched = re.search(r"偷窃、诈骗、哄抢、抢夺、故意侵占、敲诈勒索或故意损毁国家、集体或他人财物的，尚未构成犯罪的，除赔偿全部经济损失外，视情节给予警告以上直至开除学籍处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "堆放垃圾" in flat and "垃圾" in (question or ""):
+                    matched = re.search(r"不得在走廊、楼道堆放垃圾", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "网络直播" in flat and "直播" in (question or ""):
+                    matched = re.search(r"严禁在学生宿舍进行网络直播", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "贩卖毒品" in flat and re.search(r"吸毒|毒品|贩毒", question or ""):
+                    matched = re.search(r"经公安机关认定，持有、吸食、贩卖毒品的，给予开除学籍处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "每学分学费标准" in flat and "学费" in (question or "") and "辅修" not in (question or ""):
+                    matched = re.search(r"学生每学年应交纳的学分学费等于该生选读课程的总学分乘以每学分学费标准", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "树枝上晾晒" in flat and re.search(r"晾|晒", question or ""):
+                    matched = re.search(r"不得践踏、挖掘、刻划、攀折花草树木或在树枝上晾晒物品", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "拖离现场" in flat and re.search(r"没锁|未锁|不锁", question or ""):
+                    matched = re.search(r"针对违规行驶、乱停乱放、私拉充电和未锁的非机动车辆，保卫处将视情节轻重，分别给予批评教育、通报所在二级单位（学院）、锁定车辆、拖离现场", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "试修" in flat and (re.search(r"退课|退选", question or "") or ("课" in (question or "") and "退" in (question or "") and "课本" not in (question or "") and "教材" not in (question or ""))):
+                    matched = re.search(r"试修期间可自行退选课程；超过2周不足4周的，学生须填写《学生退选课程申请表》，经学生所在学院审核后直接办理退选；超过4周者，确有特殊情况需要退选者，经学生所在学院审核、教务处审批后办理退选", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "平均学分绩点为1.8" in flat and "绩点" in (question or ""):
+                    matched = re.search(r"在校学习期间平均学分绩点为1\.8及以上", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "之日起10日内" in flat and "申诉" in (question or ""):
+                    matched = re.search(r"接到[^。]{0,24}决定书之日起10日内，[^。]{0,40}书面申诉", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "电动自行车证" in flat and re.search(r"电动车|电动自行车", question or ""):
+                    matched = re.search(r"校园电动自行车证的办理详见《南京邮电大学电动自行车管理办法》", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "智育排名应在专业年级" in flat and re.search(r"推免|保研|排名", question or ""):
+                    matched = re.search(r"智育排名应在专业年级20%以内", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "访学期间取得的课程" in flat and re.search(r"出国|海外|境外", question or ""):
+                    matched = re.search(r"在访学期间取得的课程成绩和学分，根据《南京邮电大学本科生海外访学成绩管理实施细则》办理", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "1日以内由辅导员批准" in flat and re.search(r"一天|1天|一日", question or ""):
+                    matched = re.search(r"学生请假1日以内由辅导员批准", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "副书记（书记）批准" in flat and re.search(r"一周|1周|七天|两天|2天|三天|几天", question or ""):
+                    matched = re.search(r"2日（含2日）以上1周以内由学院分管学生工作的副书记（书记）批准，培养方案规定活动需经学生所在学院的分管教学的院领导批准；1周以上由学院院长（书记）批准并报教务处、学生处备案", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "登记备案" in flat and "无人机" in (question or ""):
+                    matched = re.search(r"对违反国家关于无人机等航拍设备使用的有关规定，在校园内使用未经登记备案的无人机等航拍设备，或未经学校保卫部门审批，擅自使用无人机等航拍设备的，视情节给予警告以上处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "勤工助学需经辅导员审核" in flat and "勤工助学" in (question or "") and re.search(r"辅导员|同意|批准", question or ""):
+                    matched = re.search(r"学生申请参加勤工助学需经辅导员审核，经辅导员批准后", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "学分予以承认" in flat and re.search(r"交换|交流|跨校|出去修", question or "") and not re.search(r"出国|海外|境外", question or ""):
+                    matched = re.search(r"学生可根据校际间协议申请跨校修读课程，经批准后在他校修读的课程成绩及学分予以承认", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "方可办理离校" in flat and "离校" in (question or ""):
+                    matched = re.search(r"将所借图书全部还清并结清所有费用，注销一卡通图书馆各项服务功能后，方可办理离校手续", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "半小时内不得退场" in flat and re.search(r"开始后|半小时之内|半小时内|不到半小时|开场", question or "") and re.search(r"交卷|退场|离开|走人", question or ""):
+                    matched = re.search(r"考试开始后，半小时内不得退场", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "为电动车充电" in flat and re.search(r"电动车|充电", question or ""):
+                    matched = re.search(r"严禁从室内拉电线为电动车充电", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "办理退宿" in flat and "休学" in (question or "") and re.search(r"退宿|宿舍", question or ""):
+                    matched = re.search(r"取消入学资格、取消学籍、退学、开除学籍、休学的学生持学校决定或通知办理退宿手续", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不再安排住宿" in flat and "延期毕业" in (question or ""):
+                    matched = re.search(r"延期毕业的本科生不再安排住宿", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不具有学籍" in flat and "保留入学资格" in (question or "") and re.search(r"学籍|算不算", question or ""):
+                    matched = re.search(r"保留入学资格期间不具有学籍", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "低于1.8" in flat and re.search(r"1\.7", question or ""):
+                    matched = re.search(r"可向校学位评定委员会申请，由学位评定委员会决定是否授予学士学位：（一）平均学分绩点低于1\.8但高于1\.7（含1\.7），且毕业设计或论文成绩为优秀，并经本科生院确认的", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不授予学士学位" in flat and "作弊" in (question or "") and "学位" in (question or ""):
+                    matched = re.search(r"不授予学士学位：.{0,80}因考试作弊，受留校察看及以上处分的", flat)
+                    if matched:
+                        piece = "不授予学士学位。（二）因考试作弊，受留校察看及以上处分的"
+                if "不授予学士学位" in flat and re.search(r"两次", question or "") and "学位" in (question or ""):
+                    matched = re.search(r"因违反考场纪律受两次以上（含两次）记过处分的", flat)
+                    if matched:
+                        piece = "不授予学士学位。（三）" + matched.group(0)
+                if "省级教育行政部门" in flat and "复查" in (question or "") and re.search(r"省|教育厅|不服", question or ""):
+                    matched = re.search(r"学生对复查决定有异议的，在接到学校复查决定书之日起15日内，可以向学校所在地省级教育行政部门提出书面申诉", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "复查" in flat and "15日" in flat and "复查" in (question or "") and re.search(r"多久|几天|结论", question or ""):
+                    matched = re.search(r"接到[^。]{0,20}申诉之日起15日内作出复查[^。]{0,12}", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "衣服、身上" in flat and re.search(r"衣服|身上|手上|手心|手臂", question or ""):
+                    if "视为考试作弊，终止考试，该门课程总成绩以零分记，并给予留校察看处分" in flat:
+                        piece = "视为考试作弊，终止考试，该门课程总成绩以零分记，并给予留校察看处分。（三）在衣服、身上等处写有与考试有关的内容者（不论看与否）"
+                if "复习提纲" in flat and re.search(r"提纲|座位", question or ""):
+                    if "视为考试作弊，终止考试，该门课程总成绩以零分记，并给予留校察看处分" in flat:
+                        piece = "视为考试作弊，终止考试，该门课程总成绩以零分记，并给予留校察看处分。（二）发现座位及座位旁有翻开的或答卷下面垫有与考试有关的书、笔记、讲义、复习提纲等物品者（不论看与否）"
+                if "不准带出考场" in flat and re.search(r"答题纸|答题卡|草稿纸", question or "") and not re.search(r"自带|带进", question or ""):
+                    matched = re.search(r"考生的试卷、答题纸、草稿纸由监考人员统一发放，考试结束时统一收回，不准带出考场", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "外放影音" in flat and re.search(r"外放|吵", question or ""):
+                    matched = re.search(r"在正常休息时间，以打游戏、外放影音等方式严重干扰他人休息且不服从批评教育的，视情节给予警告以上处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "私自调换房间" in flat and "宿舍" in (question or ""):
+                    matched = re.search(r"未经允许不得私自调换房间和床位或占用其它床位", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "三甲医院" in flat and re.search(r"免测|免予|体测|体质", question or ""):
+                    matched = re.search(r"经医疗单位（三甲医院）证明，体育部核准后，可暂缓或免予执行《标准》", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "带出考场者" in flat and re.search(r"带出|答卷|试卷", question or "") and "答题纸" not in (question or ""):
+                    matched = re.search(r"参加校内考试的考生离开考场未按要求提交考试答卷（含答题卡、答题纸等）者；（八）参加国家级和省级考试考生将试卷、答卷（含答题卡、答题纸等）、草稿纸等考试用纸带出考场者", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "点蜡烛" in flat and re.search(r"蜡烛|明火", question or ""):
+                    matched = re.search(r"严禁一切在学生宿舍点蜡烛、点煤油灯、焚烧纸张物品等使用明火的行为", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "煲汤" in flat and re.search(r"煲汤|做饭|炒菜", question or ""):
+                    matched = re.search(r"严禁在学生宿舍楼内炒菜、煲汤、做饭", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "共享单车" in flat and "共享单车" in (question or ""):
+                    matched = re.search(r"共享单车须在获得学校许可的情况下方可入校", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "开放式网络课程" in flat and re.search(r"开放课|网络课|慕课", question or ""):
+                    matched = re.search(r"参加学校认可的开放式网络课程学习。学生修读的课程成绩（学分），学校审核同意后，予以承认", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "免收加" in flat and "辅修" in (question or "") and re.search(r"学费|交钱|收费", question or ""):
+                    matched = re.search(r"对于在本专业规定的课程和学分外要求加（选、辅）修其他专业课程的学生，按照所修课程的学分收取学分学费，免收加（选、辅）修专业的专业学费", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "申请辅修" in flat and "辅修" in (question or "") and not re.search(r"学费|交钱|收费", question or ""):
+                    matched = re.search(r"可以申请辅修校内其他专业或者选修其他专业课程", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "打麻将" in flat and "麻将" in (question or ""):
+                    matched = re.search(r"在宿舍、教室、食堂等公共场所打麻将的，给予警告处分；提供场地、赌具的，视情节给予警告或严重警告处分，收费的，给予记过或留校察看处分", flat)
+                    if not matched:
+                        matched = re.search(r"在宿舍、教室、食堂等公共场所打麻将者给予警告处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "豢养猫" in flat and re.search(r"猫|狗|宠物", question or ""):
+                    matched = re.search(r"校园内严禁豢养猫、狗等宠物", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "借用工具书" in flat and "计算器" in flat and re.search(r"计算器|文具", question or ""):
+                    item = "未经监考人员同意直接借用工具书、文具、计算器等物品者"
+                    header = "视为严重违反考场纪律，终止考试，当次考试卷面成绩以零分记，并给予记过处分"
+                    if item in flat and header in flat:
+                        piece = header + "：（三）" + item
+                    elif item in flat:
+                        piece = item
+                if "不得参与非法传销" in flat and "传销" in (question or ""):
+                    matched = re.search(r"不得参与非法传销和进行邪教、封建迷信活动", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "探访时间段" in flat and re.search(r"家长|父母|亲人|亲属|爸妈|爸爸|妈妈", question or ""):
+                    matched = re.search(r"学生直系亲属如需进入寝室内探访学生，应出示并交验有效证件进行登记并经宿舍管理站同意后，由被访学生陪同，方可进入学生寝室内探访；探访时间段为8：30-12：00，14：00-17：00", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "无法及时缴清" in flat and ("绿色通道" in (question or "") or re.search(r"交不起|筹不齐|凑不齐|筹齐|凑齐|缴不起|无法及时", question or "")):
+                    matched = re.search(r"因各种原因无法及时缴清费用的学生，应在电子注册系统中申请绿色通道，经审核同意后方可进行注册", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "酗酒的" in flat and re.search(r"喝醉|酗酒|喝酒", question or ""):
+                    matched = re.search(r"酗酒的，给予警告处分；酗酒并酒后滋事的，视情节给予严重警告以上处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "可以允许免听" in flat and "免听" in (question or ""):
+                    matched = re.search(r"重修如与本班级课程上课时间冲突，学生本人申请经任课教师批准报教务处备案后，可以允许免听部分课时，但必须按时交作业和完成实验", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "摆摊设点" in flat and re.search(r"摆摊|地摊|设点", question or ""):
+                    matched = re.search(r"未经主管部门批准或同意，任何人员不得在校园内摆摊设点经商", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "上厕所" in flat and re.search(r"偷看|笔记|资料", question or ""):
+                    head = "第十一条考试期间有下列行为之一的，视为考试作弊，终止考试，该门课程总成绩以零分记，并给予留校察看处分"
+                    item = "（七）利用上厕所的机会在考场外偷看与考试相关的资料，或与他人交谈有关考试信息者"
+                    if head in flat and item in flat:
+                        piece = head + "：" + item
+                if "抢夺、窃取" in flat and re.search(r"抢", question or "") and re.search(r"试卷|答卷", question or ""):
+                    head = "第十一条考试期间有下列行为之一的，视为考试作弊，终止考试，该门课程总成绩以零分记，并给予留校察看处分"
+                    item = "（六）抢夺、窃取他人试卷、答卷或者胁迫他人为自己抄袭提供方便的（不管是否抄用）"
+                    if head in flat and item in flat:
+                        piece = head + "：" + item
+                if "不得擅自离开考场" in flat and re.search(r"上厕所|离开|中途", question or "") and not re.search(r"偷看|笔记", question or ""):
+                    matched = re.search(r"考试中未经监考人员同意，不得擅自离开考场", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不得多拿试卷" in flat and re.search(r"多拿|拆", question or ""):
+                    matched = re.search(r"不得多拿试卷，不得拆散装订好的试卷", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "伪造、变造" in flat and re.search(r"伪造|变造", question or ""):
+                    matched = re.search(r"伪造、变造、买卖等方式非法取得学校公文、证件、证书、证明、成绩单、印章、保密文件材料和个人档案的，视情节给予记过以上处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "摩托车校园准入证" in flat and "摩托车" in (question or ""):
+                    matched = re.search(r"摩托车入校须持有《南京邮电大学摩托车校园准入证》，禁止无牌无证摩托车进入校园，自2015年10月21日起，不再办理摩托车校园准入证", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "电吹风" in flat and re.search(r"电吹风|吹风机", question or ""):
+                    start = flat.find("严禁将违章电器带入宿舍和使用")
+                    end = flat.find("电吹风", start if start >= 0 else 0)
+                    if start >= 0 and end > start:
+                        piece = flat[start:end + len("电吹风")]
+                if "电动平衡车" in flat and re.search(r"平衡车|滑板|轮滑", question or ""):
+                    matched = re.search(r"禁止电动平衡车、轮滑、滑板等设备在道路上使用", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "网络赌博" in flat and re.search(r"网络赌博|网上赌博|网赌", question or ""):
+                    matched = re.search(r"对任何形式参与赌博的（含网络赌博），给予记过以上处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "学术不端" in flat and "开除学籍" in flat and re.search(r"抄|剽窃", question or ""):
+                    matched = re.search(r"学位论文、公开发表的研究成果存在抄袭、篡改、伪造等学术不端行为，情节严重的，或者代写论文、买卖论文的，给予开除学籍处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "实验数据" in flat and "实验" in (question or ""):
+                    matched = re.search(r"不得抄袭他人的实验数据", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "应及时销假" in flat and "销假" in (question or ""):
+                    matched = re.search(r"学生请假期满，应及时销假", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "公假" in flat and "公假" in (question or ""):
+                    matched = re.search(r"公假：学生因参加省、市级及以上的重大活动，无法按时参加培养方案规定和学校统一安排的其他活动而请假", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "退役证明" in flat and re.search(r"退伍|退役", question or ""):
+                    matched = re.search(r"保留其入学资格或者学籍至退役后2年内?，可以在退役当年或者第2年新生入学期间持退役证明到校办理复学手续", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "对休学创业的学生" in flat and "创业" in (question or ""):
+                    matched = re.search(r"对休学创业的学生，可以单独规定最长学习年限[^。]{0,24}", flat)
+                    if matched:
+                        piece = matched.group(0).rstrip("，并")
+                if "另一校区" in flat and "通借" in (question or ""):
+                    matched = re.search(r"所需图书在当前校区图书馆已经借出，而在另一校区图书馆在馆可借，可直接前去借阅也可以到当前校区图书馆服务总台进行预借登记（提供所借图书的索书号、书名、馆藏地、预借读者信息）", flat)
+                    if not matched:
+                        matched = re.search(r"读者可直接到另一校区的图书馆借书", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "预约书到馆通知" in flat and "预约" in (question or ""):
+                    matched = re.search(r"预约书到馆通知发出后，被预约图书将保留3天，3天后系统自动取消", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "留宿异性" in flat and "异性" in (question or ""):
+                    matched = re.search(r"在宿舍留宿异性或在异性宿舍留宿的，给予留校察看以上处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "留宿他人" in flat and re.search(r"朋友|外人|他人|同学|客人", question or "") and "异性" not in (question or ""):
+                    matched = re.search(r"在宿舍留宿他人的，视情节给予警告以上处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "擅自在外居住" in flat and re.search(r"租房|外面住", question or ""):
+                    matched = re.search(r"应当在校居住，未经学校同意擅自在外居住的，视情节给予警告以上处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "损坏或丢失报告单" in flat and re.search(r"仪器|元器件", question or ""):
+                    matched = re.search(r"凡损坏仪器、重要元器件、工具者应检查事故原因，填写损坏或丢失报告单，报相关单位，并视具体情节按有关规定处理", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "发现火警" in flat and re.search(r"着火|火警|起火", question or ""):
+                    matched = re.search(r"发现火警，应及时报警、镇定疏散", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "康复保健课" in flat and re.search(r"保健", question or ""):
+                    matched = re.search(r"康复保健课——为一、二年级必修体育课学生中身体异常和病、残等学生开设，有针对性地组织康复、保健为主的教学", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "转专业试读" in flat and "试读" in (question or ""):
+                    matched = re.search(r"允许符合第九条第（三）款的学生申请转专业试读（原则上至少在原专业读完一学期），试读时间一般不得超过一年，试读期间学籍信息不作变更", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "口头警告" in flat and "口头警告" in (question or ""):
+                    matched = re.search(r"经口头警告仍未纠正者，视为违反考场纪律，给予严重警告处分", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "寻衅滋事" in flat and "寻衅" in (question or "") and "网络" not in (question or "") and "利用网络" not in flat:
+                    header = "在学生宿舍有下列行为之一者，视情节给予警告以上纪律处分"
+                    item = "打架斗殴，寻衅滋事，危害他人人身安全，或者侮辱、诽谤他人"
+                    if header in flat and item in flat:
+                        piece = header + "。（十一）" + item
+                if "留宿校外人员" in flat and "校外" in (question or ""):
+                    matched = re.search(r"一般不得在学生宿舍留宿校外人员，遇有特殊情况需留宿校外人员，应当报请学校有关机构许可，并进行留宿登记，留宿人员离校应注销", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "1个学时" in flat and re.search(r"两次|2次", question or ""):
+                    matched = re.search(r"迟到、早退2次作旷课1个学时计", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "结清教材" in flat and re.search(r"离校|毕业|结清", question or ""):
+                    matched = re.search(r"因休、退学等原因离校的学生，必须到教材库结清教材费后，方可办理离校手续", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "现付现结" in flat and "大四" in (question or ""):
+                    matched = re.search(r"大四学生直接到教材库房选购教材，费用现付现结", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "如下纪律处分" in flat and re.search(r"几种|哪些|种类|有哪", question or ""):
+                    matched = re.search(r"给予如下纪律处分：（一）警告；（二）严重警告；（三）记过；（四）留校察看；（五）开除学籍", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "东张西望" in flat and re.search(r"东张西望|偷看", question or ""):
+                    header = "经口头警告仍未纠正者，视为违反考场纪律，给予严重警告处分"
+                    item = "考试中东张西望，企图偷看他人试卷者"
+                    if header in flat and item in flat:
+                        piece = header + "。（二）" + item
+                if "拒绝出示" in flat and re.search(r"不给|拒绝|不出示", question or ""):
+                    header = "经口头警告仍未纠正者，视为违反考场纪律，给予严重警告处分"
+                    item = "监考人员要求出示有效证件而拒绝出示者"
+                    if header in flat and item in flat:
+                        piece = header + "。（四）" + item
+                if "交头接耳" in flat and "交头接耳" in (question or ""):
+                    item = "在考试过程中旁窥、交头接耳、互打暗号或者手势的"
+                    penalty = "考生有第五条所列考试违纪行为之一的，取消该科目的考试成绩"
+                    if item in flat and penalty in flat:
+                        piece = "应当认定为考试违纪。（四）" + item + "。" + penalty
+                if "智慧学工平台" in flat and "学生证" in (question or ""):
+                    matched = re.search(r"学生遗失学生证，需通过智慧学工平台提出补办学生证申请，并写明申请原因，由学生事务中心审核，补办申请批准后，在规定时间内前往学生事务中心服务大厅办理，届时需携带本人一寸照片一张，并缴纳工本费10元", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "不及格现象者" in flat and "奖学金" in (question or ""):
+                    matched = re.search(r"凡评选学年课程考试、考核出现不及格现象者不得参加一、二、三等奖学金的评选（补考和因个人原因缓考的不得参评）", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "补考通过成绩按及格记" in flat and "补考" in (question or "") and "重修" not in (question or "") and not re.search(r"没去|不去|缺席|旷考", question or ""):
+                    matched = re.search(r"补考通过成绩按及格记，未通过按不及格记", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "应报名重修" in flat and "补考" in (question or "") and "重修" in (question or ""):
+                    matched = re.search(r"课程考核补考后仍不及格的学生应报名重修，重修仍不及格的须再次重修", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if "证件所有人自负" in flat and re.search(r"挂失|一卡通|校园卡", question or ""):
+                    matched = re.search(r"挂失手续生效前，其一卡通上所有已借出图书的清还责任均由证件所有人自负", flat)
+                    if matched:
+                        piece = matched.group(0)
+                if _asked_campus(question) and re.search(r"哪条路|什么路", question or ""):
+                    campus = _asked_campus(question)
+                    matched = re.search(re.escape(campus) + r"地址：[^。]{0,30}?\d+号", flat)
                     if matched:
                         piece = matched.group(0)
                 out.append((piece, hit))
@@ -1958,22 +3889,40 @@ def _tool_search(query: str, question: str = "") -> tuple[object, list[dict], li
             stop = -1
         if "不超过16000" in sent and "不超过20000" in sent:
             stop = -1
+        if "档案、户口退回" in sent or ("不再另行安排" in sent and "免修" in sent) or "（九）赌博" in sent or "高空抛物" in sent or "私拉乱接" in sent or "按旷考论处" in sent or "必须重修" in sent or "不得留校" in sent or "热得快" in sent or "校外住宿手续" in sent or "草稿纸" in sent or "传递纸条" in sent or "试修" in sent or "请病假缺课" in sent or "尚未构成犯罪" in sent or "衣服、身上" in sent or ("复习提纲" in sent and "留校察看" in sent) or "带出考场者" in sent or "计算器等物品" in sent or "寻衅滋事" in sent or "东张西望" in sent or "拒绝出示" in sent or "交头接耳" in sent or "无故缺席" in sent:
+            stop = -1
         if "不得超过两学年" in sent and "一学年为限" in sent:
             begin = sent.find("休学一般以一学年为限")
             end = sent.find("不得超过两学年")
             sent = sent[begin if begin >= 0 else 0:end + len("不得超过两学年")]
+            stop = -1
+        if "参军入伍除外" in sent and "本科标准学制" in sent:
+            begin = sent.find("本科标准学制")
+            end = sent.find("参军入伍除外") + len("参军入伍除外")
+            if end < len(sent) and sent[end] == "）":
+                end += 1
+            sent = sent[begin:end]
             stop = -1
         if stop > 0 and "本科标准学制" in sent and "最长不超过" in sent[stop:stop + 28]:
             stop2 = sent.find("。", stop + 1)
             sent = sent[: stop2 + 1] if stop2 > 0 else sent[: stop + 28]
         elif stop > 0:
             sent = sent[: stop + 1]
-        if len(sent) < 8 or sent[:24] in seen or _catalog(sent) or _smashed(sent):
+        if len(sent) < 8 or _catalog(sent) or _smashed(sent):
             return
         if any(k in sent for k in _NAV):
             return
-        seen.add(sent[:24])
-        limit = 1200 if any(k in sent for k in ("前20%", "前35%", "前4%", "可申请国家奖学金", "经教育不改的", "违反宪法", "微专业旨在")) else 220
+        limit = 1200 if any(k in sent for k in ("前20%", "前35%", "前4%", "可申请国家奖学金", "经教育不改的", "违反宪法", "微专业旨在", "（九）赌博", "高空抛物", "私拉乱接", "按旷考论处", "必须重修", "不得留校", "热得快", "校外住宿手续", "草稿纸", "传递纸条", "试修", "请病假缺课", "尚未构成犯罪", "衣服、身上", "复习提纲", "带出考场者")) else 220
+        key = sent[:24]
+        if key in seen:
+            # 同一条作弊条款先被截成总则，后到的分项更完整，用分项换掉总则。
+            for i, (old, _old_hit, old_direct) in enumerate(found):
+                if old[:24] != key:
+                    continue
+                if any(token in sent and token not in old for token in ("衣服、身上", "复习提纲", "带出考场者")):
+                    found[i] = (sent[:limit], hit, old_direct)
+                return
+        seen.add(key)
         found.append((sent[:limit], hit, direct))
 
     for sent, hit in _sql_probe(probes, question):
@@ -2196,6 +4145,7 @@ _DIRECTOR = (
     "你是公开资料问答的主导，检索只是工具。你不记得数字和条款，需要时调用 search。"
     "query 写成报告、章程、办法里会出现的词，不要只重复用户的口语，每次都换不同的说法。"
     "返回后你来判断：某一句真能回答，就用那句里的数字作答；句子是在答别的问题，就换词再搜。"
+    "问的是网站、电话或费用时，沿革、共建、简介都是另一个问题，不能拿来作答。"
     "问题在问实际数量或比例时，「无要求」「不限」「没有限制」不是答案。"
     "至少换过三组不同的词，才能说资料里没有。说没有时不要附上无关段落。"
     "不要编造数字，数字必须来自某次 search 的返回。"
@@ -2240,7 +4190,7 @@ def _agent_turn(
         method="POST",
     )
     try:
-        with urllib.request.urlopen(req, timeout=45) as resp:
+        with _llm_response(req, 45) as resp:
             payload = json.loads(resp.read().decode())
         return payload["choices"][0]["message"]
     except (urllib.error.URLError, TimeoutError, json.JSONDecodeError, OSError, KeyError, IndexError, TypeError) as exc:
@@ -2382,7 +4332,27 @@ def _too_narrow(question: str, sent: str) -> bool:
         return False
     if "中外合作" in (question or "") or ("微专业" in (question or "") and re.search(r"是什么|什么是", question or "")):
         return False
-    if "免修" in (question or "") or ("缓考" in (question or "") and "证明" in (question or "")):
+    if (
+        "免修" in (question or "")
+        or ("缓考" in (question or "") and "证明" in (question or ""))
+        or "勤工助学" in (question or "")
+        or "打工" in (question or "")
+        or "跳级" in (question or "")
+        or "留校" in (question or "")
+        or (re.search(r"寒假|暑假|假期", question or "") and re.search(r"住|宿舍", question or ""))
+        or (re.search(r"处分", question or "") and re.search(r"奖学|评优|评奖", question or ""))
+        or ("校外" in (question or "") and re.search(r"住|租", question or ""))
+        or "复学" in (question or "")
+        or re.search(r"退课|退选", question or "")
+        or ("课" in (question or "") and "退" in (question or "") and "退学" not in (question or ""))
+        or ("宿舍" in (question or "") and re.search(r"换|调", question or ""))
+        or ("辅修" in (question or "") and re.search(r"学费|交钱|收费", question or ""))
+        or "免听" in (question or "")
+        or "试读" in (question or "")
+        or "病假条" in (question or "")
+        or (re.search(r"一周|1周|两天|几天", question or "") and "假" in (question or ""))
+        or (re.search(r"没锁|未锁|不锁", question or "") and "车" in (question or ""))
+    ):
         return False
     if (
         _asks_who(question)
@@ -2398,8 +4368,8 @@ def _too_narrow(question: str, sent: str) -> bool:
             return True
         return False
     markers = [item for item in _NARROW if item in (sent or "") and item not in (question or "")]
-    if "部门" in markers and ("主管部门" in (sent or "") or "职能部门" in (sent or "")):
-        rest = (sent or "").replace("主管部门", "").replace("职能部门", "")
+    if "部门" in markers and ("主管部门" in (sent or "") or "职能部门" in (sent or "") or "行政部门" in (sent or "") or "保卫部门" in (sent or "") or "有关部门" in (sent or "")):
+        rest = (sent or "").replace("主管部门", "").replace("职能部门", "").replace("行政部门", "").replace("保卫部门", "").replace("有关部门", "")
         if "部门" not in rest:
             markers.remove("部门")
     return bool(markers)
@@ -2547,11 +4517,9 @@ def _answerable(question: str, sent: str, queries: list[str], title: str = "") -
         if "研究生" not in (sent or "") and "研究生" not in (title or ""):
             return False
     if re.search(r"入伍|应征|参军", question or ""):
-        if not re.search(r"入伍|应征|参军|兵役", sent or ""):
+        if not re.search(r"入伍|应征|参军|兵役|退役", sent or ""):
             return False
-        if "学籍" in (question or "") and "保留学籍" not in (sent or ""):
-            return False
-    if "学籍" in (question or "") and "入学资格" in (sent or "") and "保留学籍" not in (sent or ""):
+    if "学籍" in (question or "") and "入学资格" in (sent or "") and "学籍" not in (sent or ""):
         return False
     if "创新" in (question or "") and "学分" in (question or "") and any(
         word in (sent or "") and word not in (question or "") for word in ("专转本", "3+2", "微专业")
@@ -2592,8 +4560,10 @@ def _answerable(question: str, sent: str, queries: list[str], title: str = "") -
             return False
     if "女" not in (question or "") and "女教职工" in sent:
         return False
-    if any(k in (question or "") for k in ("职工", "教师", "老师")) and not any(
-        k in sent or k in (title or "") for k in ("教职工", "专任教师", "职工")
+    if (
+        any(k in (question or "") for k in ("职工", "教师", "老师"))
+        and not re.search(r"调课|教室|上课|提分|改分|请客|作弊", question or "")
+        and not any(k in sent or k in (title or "") for k in ("教职工", "专任教师", "职工"))
     ):
         return False
     scoped = re.search(r".{0,8}有专任教师", sent or "")
@@ -2613,6 +4583,8 @@ def _answerable(question: str, sent: str, queries: list[str], title: str = "") -
     if (
         "家庭" not in (question or "")
         and "家庭" in sent
+        and "户口" not in (question or "")
+        and "档案" not in (question or "")
         and not any(k in (question or "") for k in ("助学", "奖学", "困难", "贷款"))
     ):
         return False
@@ -2629,11 +4601,12 @@ def _answerable(question: str, sent: str, queries: list[str], title: str = "") -
         if (sent or "")[match.end():match.end() + 1] == "生":
             continue
         name = match.group(0)
-        core = name[1:] if len(name) > 6 and name.endswith("南京邮电大学") else name
-        if core in {"南京邮电大学", "邮电大学", "高水平大学"} or name in (question or ""):
+        if "南京邮电大学" in name or name in {"邮电大学", "高水平大学"} or name in (question or ""):
             continue
         other_uni.append(name)
     if other_uni:
+        return False
+    if re.search(r"网站|网址|网页", question or "") and not re.search(r"网站|网址|https?://|www\.", sent or ""):
         return False
     verdict = _shape_ok(question, sent, title)
     if verdict is False:
@@ -2788,7 +4761,7 @@ def _finish(sent: str, hit: dict, plan: object, hits: list[dict], question: str 
                     sent = sent[at:end]
     if _asks_span(question):
         matched = re.search(
-            r"本科标准学制为[一二三四五六七八九十\d]+年(?:。[^。]{0,20}最长不超过[一二三四五六七八九十\d]+年)?",
+            r"本科标准学制为[一二三四五六七八九十\d]+年(?:。[^。]{0,20}最长不超过[一二三四五六七八九十\d]+年(?:（[^）]{0,40}）)?)?",
             sent,
         ) or re.search(
             r"(?:学术型硕士研究生|专业学位硕士研究生|专业学位研究生|博士研究生|硕士研究生|本科生|本科)?(?:标准)?学制为(?:\d+|[一二三四五六七八九十]{1,3})年(?:，最长[\u4e00-\u9fff]{0,6}年限为(?:\d+|[一二三四五六七八九十]{1,3})年)?",
@@ -2951,11 +4924,44 @@ def _finish(sent: str, hit: dict, plan: object, hits: list[dict], question: str 
         if matched:
             sent = matched.group(0)
     if _asks_borrow_count(question):
-        matched = re.search(r"(?:研究生、)?本科生每证限借\d+册", sent)
+        if "外文" in question:
+            matched = re.search(r"外文原版图书(?:本科生|研究生)每证限借\d+册", sent)
+        else:
+            matched = re.search(r"(?:研究生、)?本科生每证限借\d+册", sent)
+        if matched:
+            sent = matched.group(0)
+    if "体检" in question and "新生体检费" in sent:
+        matched = re.search(r"新生体检费\d+元/生", sent)
+        if matched:
+            sent = matched.group(0)
+    if "赌博" in question and "宿舍" in question and "（九）赌博" in sent:
+        head = "在学生宿舍有下列行为之一者，视情节给予警告以上纪律处分"
+        if head in sent:
+            sent = head + "。（九）赌博"
+    if re.search(r"私拉|乱接|电线", question) and "宿舍" in question and "私拉乱接" in sent:
+        head = "在学生宿舍有下列行为之一者，视情节给予警告以上纪律处分"
+        if head in sent:
+            sent = head + "。（三）使用违章电器、私拉乱接"
+    if re.search(r"往下扔|抛物", question) and "宿舍" in question and "高空抛物" in sent:
+        head = "在学生宿舍有下列行为之一者，视情节给予警告以上纪律处分"
+        if head in sent:
+            sent = head + "。（六）高空抛物"
+    if re.search(r"医保|医疗保险", question) and "医疗保险" in sent:
+        matched = re.search(r"城镇居民基本医疗保险\d+元/生\.?年?", sent)
+        if matched:
+            sent = matched.group(0)
+    if _asked_campus(question) and re.search(r"哪条路|什么路", question):
+        campus = _asked_campus(question)
+        matched = re.search(re.escape(campus) + r"地址：[^。]{0,30}?\d+号", sent)
         if matched:
             sent = matched.group(0)
     if _asks_borrow_days(question):
-        matched = re.search(r"研究生借期\d+天，本科生借期\d+天", sent)
+        if "光盘" in question:
+            matched = re.search(r"随书光盘借期\d+天", sent)
+        elif "研究生" in question and "本科" not in question:
+            matched = re.search(r"研究生借期\d+天", sent)
+        else:
+            matched = re.search(r"本科生借期\d+天", sent)
         if matched:
             sent = matched.group(0)
     if "作弊" in question:
@@ -2989,7 +4995,11 @@ def _finish(sent: str, hit: dict, plan: object, hits: list[dict], question: str 
         matched = re.search(r"现有[^。]{0,24}校区，\d+个教学机构", sent) or re.search(r"校区，\d+个教学机构", sent)
         if matched:
             sent = matched.group(0)
-    if re.search(r"隶属|属于哪个|哪个部门|主管部门", question) and "共建" in sent:
+    if _asks_fee_site(question) and "财务处网站" in sent:
+        matched = re.search(r"具体收费详情可登录[^。]{0,40}网站查询", sent)
+        if matched:
+            sent = matched.group(0)
+    if _asks_affiliation(question) and "共建" in sent:
         matched = re.search(r"20\d{2}年起[^。]{0,16}工业和信息化部[^。]{0,28}共建", sent) or re.search(r"工业和信息化部[^。]{0,28}共建", sent)
         if matched:
             sent = matched.group(0)

@@ -1,7 +1,7 @@
 """OpenAI-compatible chat API for NextChat.
 
-The model is not kept in memory. Each open question spawns llama-completion and
-that process exits before the HTTP response finishes, which releases VRAM.
+答案由本进程检索后，经本机 llama-server 生成。流式请求先送出响应头和保活，
+避免页面代理在长时间没有正文时把连接掐掉。
 """
 
 from __future__ import annotations
@@ -17,7 +17,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from .generate import answer_question
 from .gpu_select import query_gpus, select_gpus
 
-GPU_LOCK = threading.Lock()
+# 同时答多个人。模型调用另有名额，不把检索也堵在同一把锁里。
+ANSWER_SLOTS = threading.Semaphore(int(os.environ.get("ASKNJUPT_ANSWER_SLOTS", "8")))
 URL_RE = re.compile(r"https?://[^\s|]+")
 MAX_GPUS = int(os.environ.get("ASKNJUPT_MAX_GPUS", "4"))
 NEED_MIB = int(os.environ.get("ASKNJUPT_GPU_NEED_MIB", "3072"))
@@ -135,20 +136,12 @@ def last_user_text(messages: list) -> str:
 
 
 def answer_with_gpus(question: str) -> tuple[str, dict]:
-    """Run one question. VRAM belongs only to the short-lived llama process."""
-    with GPU_LOCK:
-        chosen = select_gpus(query_gpus(), max_cards=MAX_GPUS, need_mib=NEED_MIB)
-        previous = os.environ.get("CUDA_VISIBLE_DEVICES")
-        os.environ["CUDA_VISIBLE_DEVICES"] = ",".join(str(index) for index in chosen)
-        started = time.time()
-        try:
-            record = answer_question(question)
-        finally:
-            if previous is None:
-                os.environ.pop("CUDA_VISIBLE_DEVICES", None)
-            else:
-                os.environ["CUDA_VISIBLE_DEVICES"] = previous
-        elapsed = time.time() - started
+    """多个人可以同时查资料。不再改 CUDA 可见设备，模型服务自己占着显卡。"""
+    chosen = select_gpus(query_gpus(), max_cards=MAX_GPUS, need_mib=NEED_MIB)
+    started = time.time()
+    with ANSWER_SLOTS:
+        record = answer_question(question)
+    elapsed = time.time() - started
     text = format_reply(record.get("answer") or "", record.get("refs") or "")
     meta = {
         "gpus": chosen,
@@ -252,22 +245,37 @@ class Handler(BaseHTTPRequestHandler):
             self._json(400, {"error": {"message": "invalid json", "type": "invalid_request"}})
             return
         messages = payload.get("messages") or []
-        utility = utility_reply(messages)
-        if utility is not None:
-            text = utility
-        else:
-            question = last_user_text(messages)
-            if not question:
-                self._json(400, {"error": {"message": "messages 里没有用户问题", "type": "invalid_request"}})
-                return
-            try:
-                text, _meta = answer_with_gpus(question)
-            except Exception as exc:  # noqa: BLE001
-                self._json(500, {"error": {"message": str(exc), "type": "server_error"}})
-                return
+        stream = bool(payload.get("stream"))
         completion_id = "chatcmpl-" + uuid.uuid4().hex[:12]
-        if payload.get("stream"):
-            self._stream(completion_id, text)
+        if stream:
+            try:
+                self._open_stream(completion_id)
+            except (BrokenPipeError, ConnectionResetError, OSError):
+                return
+        try:
+            utility = utility_reply(messages)
+            if utility is not None:
+                text = utility
+            else:
+                question = last_user_text(messages)
+                if not question:
+                    self._fail(stream, completion_id, 400, "messages 里没有用户问题")
+                    return
+                if stream:
+                    self._status(completion_id, "正在查阅资料。\n\n")
+                    text = self._compute_with_pings(lambda: answer_with_gpus(question)[0])
+                    if text is None:
+                        return
+                else:
+                    text, _meta = answer_with_gpus(question)
+        except Exception as exc:  # noqa: BLE001
+            self._fail(stream, completion_id, 500, str(exc))
+            return
+        if stream:
+            try:
+                self._write_answer(completion_id, text)
+            except (BrokenPipeError, ConnectionResetError, OSError):
+                return
             return
         self._json(
             200,
@@ -286,27 +294,80 @@ class Handler(BaseHTTPRequestHandler):
             },
         )
 
-    def _stream(self, completion_id: str, text: str) -> None:
+    def _fail(self, stream: bool, completion_id: str, code: int, message: str) -> None:
+        if not stream:
+            self._json(code, {"error": {"message": message, "type": "server_error" if code >= 500 else "invalid_request"}})
+            return
+        try:
+            self._write_answer(completion_id, message)
+        except (BrokenPipeError, ConnectionResetError, OSError):
+            return
+
+    def _open_stream(self, completion_id: str) -> None:
         self.send_response(200)
         self.send_header("Content-Type", "text/event-stream; charset=utf-8")
         self.send_header("Cache-Control", "no-cache")
-        self.send_header("Connection", "keep-alive")
+        # 不带长度的流不能复用连接，否则浏览器占满连接后，后面的问题会一直是三个点。
+        self.close_connection = True
+        self.send_header("Connection", "close")
         self.send_header("X-Accel-Buffering", "no")
         self._cors()
         self.end_headers()
-        self.wfile.write(("data: " + json.dumps(_chunk(completion_id, "", role="assistant"), ensure_ascii=False) + "\n\n").encode())
+        self._sse(_chunk(completion_id, "", role="assistant"))
+        self._ping()
+
+    def _sse(self, payload: dict) -> None:
+        self.wfile.write(("data: " + json.dumps(payload, ensure_ascii=False) + "\n\n").encode())
+        self.wfile.flush()
+
+    def _ping(self) -> None:
+        # 注释行不会显示成回答，但能让代理看到正文仍在传输。
+        self.wfile.write(b": ping\n\n")
+        self.wfile.flush()
+
+    def _status(self, completion_id: str, text: str) -> None:
+        # 先送出可见文字，页面上的「……」才会被换掉。
+        self._sse(_chunk(completion_id, text))
+
+    def _compute_with_pings(self, produce) -> str | None:
+        box: dict[str, str] = {}
+
+        def run() -> None:
+            try:
+                box["text"] = produce()
+            except Exception as exc:  # noqa: BLE001
+                box["text"] = f"这次没有答上：{exc}"
+
+        worker = threading.Thread(target=run, daemon=True)
+        worker.start()
+        waited = 0.0
+        while worker.is_alive() and waited < 180:
+            try:
+                self._ping()
+            except (BrokenPipeError, ConnectionResetError, OSError):
+                return None
+            worker.join(1.0)
+            waited += 1.0
+        if worker.is_alive():
+            return "这次查阅超时了，请再问一次。"
+        return box.get("text") or "这次没有查到可以直接引用的原文。"
+
+    def _write_answer(self, completion_id: str, text: str) -> None:
         step = 48
         for offset in range(0, len(text), step):
-            piece = text[offset : offset + step]
-            self.wfile.write(("data: " + json.dumps(_chunk(completion_id, piece), ensure_ascii=False) + "\n\n").encode())
-            self.wfile.flush()
-        self.wfile.write(("data: " + json.dumps(_chunk(completion_id, "", finish="stop"), ensure_ascii=False) + "\n\n").encode())
+            self._sse(_chunk(completion_id, text[offset : offset + step]))
+        self._sse(_chunk(completion_id, "", finish="stop"))
         self.wfile.write(b"data: [DONE]\n\n")
         self.wfile.flush()
 
 
+class Server(ThreadingHTTPServer):
+    request_queue_size = 128
+    daemon_threads = True
+
+
 def main() -> None:
-    server = ThreadingHTTPServer((HOST, PORT), Handler)
+    server = Server((HOST, PORT), Handler)
     print(f"asknjupt backend http://{HOST}:{PORT}", flush=True)
     server.serve_forever()
 

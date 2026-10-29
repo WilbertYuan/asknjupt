@@ -10,5 +10,9 @@ data/db/*.sqlite-journal
 data/db/*.sqlite.full
 models/*.gguf
 prompt.txt
+HANDOVER.md
+assumptions.md
+PROJECT_STATE.md
+advice1.md
 *.docx
 其他资料/

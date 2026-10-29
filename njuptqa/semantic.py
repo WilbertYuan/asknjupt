@@ -13,11 +13,14 @@
 from __future__ import annotations
 
 import os
+import threading
 from typing import Any
 
 _MODEL = None
 _INDEX = None
 _UNAVAILABLE = False
+_LOAD_LOCK = threading.Lock()
+_ENCODE_LOCK = threading.Lock()
 
 _MODEL_DIR = "models/bge-small-zh-v1.5"
 _INDEX_FILE = "data/db/embeddings_bge_small_zh.npz"
@@ -49,6 +52,14 @@ def available() -> bool:
 def _load() -> tuple[Any, Any, Any] | None:
     """懒加载模型和 (ids, emb) 索引。加载一次后常驻。"""
     global _MODEL, _INDEX
+    with _LOAD_LOCK:
+        if _MODEL is not None and _INDEX is not None:
+            return _MODEL, *_INDEX
+        return _load_unlocked()
+
+
+def _load_unlocked() -> tuple[Any, Any, Any] | None:
+    global _MODEL, _INDEX
     if _MODEL is not None and _INDEX is not None:
         return _MODEL, *_INDEX
     if not available():
@@ -74,8 +85,9 @@ def vector_rank(question: str, top: int = 40) -> list[int]:
     model, ids, emb = loaded
     try:
         import numpy as np
-        q = model.encode([question[:512]], normalize_embeddings=True,
-                         convert_to_numpy=True).astype("float32")[0]
+        with _ENCODE_LOCK:
+            q = model.encode([question[:512]], normalize_embeddings=True,
+                             convert_to_numpy=True).astype("float32")[0]
         sims = emb @ q
         if len(sims) <= top:
             order = np.argsort(-sims)
